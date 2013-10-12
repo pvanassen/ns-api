@@ -7,31 +7,27 @@ package nl.pvanassen.ns.model.stations;
  * 
  */
 public class Namen {
-	private String kort;
-	private String middel;
-	private String lang;
+	private final String kort;
+	private final String middel;
+	private final String lang;
+
+	public Namen(String kort, String middel, String lang) {
+		super();
+		this.kort = kort;
+		this.middel = middel;
+		this.lang = lang;
+	}
 
 	public String getKort() {
 		return kort;
-	}
-
-	public void setKort(String kort) {
-		this.kort = kort;
 	}
 
 	public String getMiddel() {
 		return middel;
 	}
 
-	public void setMiddel(String middel) {
-		this.middel = middel;
-	}
-
 	public String getLang() {
 		return lang;
 	}
 
-	public void setLang(String lang) {
-		this.lang = lang;
-	}
 }

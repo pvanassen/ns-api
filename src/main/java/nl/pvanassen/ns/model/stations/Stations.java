@@ -1,6 +1,5 @@
 package nl.pvanassen.ns.model.stations;
 
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -10,8 +9,12 @@ import java.util.List;
  * 
  */
 public class Stations {
-	private final List<Station> stations = new LinkedList<Station>();
-	
+	private final List<Station> stations;
+
+	public Stations(List<Station> stations) {
+		this.stations = stations;
+	}
+
 	public List<Station> getStations() {
 		return stations;
 	}
