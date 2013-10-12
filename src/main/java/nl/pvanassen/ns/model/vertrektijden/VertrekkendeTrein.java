@@ -12,6 +12,7 @@ public class VertrekkendeTrein {
 	private final int ritNummer;
 	private final Date vertrekTijd;
 	private final String vertrekVertraging;
+	private final Integer vertrekVertragingMinuten;
 	private final String vertrekVertragingTekst;
 	private final String eindBestemming;
 	private final String treinSoort;
@@ -41,15 +42,16 @@ public class VertrekkendeTrein {
 	 * @param opmerkingen
 	 */
 	public VertrekkendeTrein(int ritNummer, Date vertrekTijd,
-			String vertrekVertraging, String vertrekVertragingTekst,
-			String eindBestemming, String treinSoort, String routeTekst,
-			String vervoerder, String vertrekSpoor,
-			boolean gewijzigdVertrekspoor, String reisTip,
+			String vertrekVertraging, Integer vertrekVertragingMinuten,
+			String vertrekVertragingTekst, String eindBestemming,
+			String treinSoort, String routeTekst, String vervoerder,
+			String vertrekSpoor, boolean gewijzigdVertrekspoor, String reisTip,
 			List<String> opmerkingen) {
 		super();
 		this.ritNummer = ritNummer;
 		this.vertrekTijd = vertrekTijd;
 		this.vertrekVertraging = vertrekVertraging;
+		this.vertrekVertragingMinuten = vertrekVertragingMinuten;
 		this.vertrekVertragingTekst = vertrekVertragingTekst;
 		this.eindBestemming = eindBestemming;
 		this.treinSoort = treinSoort;
@@ -108,6 +110,10 @@ public class VertrekkendeTrein {
 	public List<String> getOpmerkingen() {
 		return opmerkingen;
 	}
+	
+	public Integer getVertrekVertragingMinuten() {
+		return vertrekVertragingMinuten;
+	}
 
 	/**
 	 * @see java.lang.Object#hashCode()
@@ -135,6 +141,10 @@ public class VertrekkendeTrein {
 				* result
 				+ ((vertrekVertraging == null) ? 0 : vertrekVertraging
 						.hashCode());
+		result = prime
+				* result
+				+ ((vertrekVertragingMinuten == null) ? 0
+						: vertrekVertragingMinuten.hashCode());
 		result = prime
 				* result
 				+ ((vertrekVertragingTekst == null) ? 0
@@ -221,6 +231,14 @@ public class VertrekkendeTrein {
 		} else if (!vertrekVertraging.equals(other.vertrekVertraging)) {
 			return false;
 		}
+		if (vertrekVertragingMinuten == null) {
+			if (other.vertrekVertragingMinuten != null) {
+				return false;
+			}
+		} else if (!vertrekVertragingMinuten
+				.equals(other.vertrekVertragingMinuten)) {
+			return false;
+		}
 		if (vertrekVertragingTekst == null) {
 			if (other.vertrekVertragingTekst != null) {
 				return false;
@@ -245,6 +263,7 @@ public class VertrekkendeTrein {
 	public String toString() {
 		return "VertrekkendeTrein [ritNummer=" + ritNummer + ", vertrekTijd="
 				+ vertrekTijd + ", vertrekVertraging=" + vertrekVertraging
+				+ ", vertrekVertragingMinuten=" + vertrekVertragingMinuten
 				+ ", vertrekVertragingTekst=" + vertrekVertragingTekst
 				+ ", eindBestemming=" + eindBestemming + ", treinSoort="
 				+ treinSoort + ", routeTekst=" + routeTekst + ", vervoerder="
@@ -252,5 +271,6 @@ public class VertrekkendeTrein {
 				+ ", gewijzigdVertrekspoor=" + gewijzigdVertrekspoor
 				+ ", reisTip=" + reisTip + ", opmerkingen=" + opmerkingen + "]";
 	}
+
 
 }
