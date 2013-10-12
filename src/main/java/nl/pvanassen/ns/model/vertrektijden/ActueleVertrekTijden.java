@@ -1,7 +1,6 @@
 package nl.pvanassen.ns.model.vertrektijden;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * http://www.ns.nl/api/api#api-documentatie-actuele-vertrektijden
@@ -10,8 +9,12 @@ import java.util.List;
  * 
  */
 public class ActueleVertrekTijden {
-	private final List<VertrekkendeTrein> vertrekkendeTreinen = new LinkedList<VertrekkendeTrein>();
+	private final List<VertrekkendeTrein> vertrekkendeTreinen;
 
+	public ActueleVertrekTijden(List<VertrekkendeTrein> vertrekkendeTreinen) {
+		this.vertrekkendeTreinen = Collections.unmodifiableList(vertrekkendeTreinen);
+	}
+	
 	public List<VertrekkendeTrein> getVertrekkendeTreinen() {
 		return vertrekkendeTreinen;
 	}
