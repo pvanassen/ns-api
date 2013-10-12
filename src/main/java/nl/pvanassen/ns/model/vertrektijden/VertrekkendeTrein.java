@@ -12,6 +12,7 @@ public class VertrekkendeTrein {
 	private final int ritNummer;
 	private final Date vertrekTijd;
 	private final String vertrekVertraging;
+	private final Integer vertrekVertragingMinuten;
 	private final String vertrekVertragingTekst;
 	private final String eindBestemming;
 	private final String treinSoort;
@@ -41,15 +42,16 @@ public class VertrekkendeTrein {
 	 * @param opmerkingen
 	 */
 	public VertrekkendeTrein(int ritNummer, Date vertrekTijd,
-			String vertrekVertraging, String vertrekVertragingTekst,
-			String eindBestemming, String treinSoort, String routeTekst,
-			String vervoerder, String vertrekSpoor,
-			boolean gewijzigdVertrekspoor, String reisTip,
+			String vertrekVertraging, Integer vertrekVertragingMinuten,
+			String vertrekVertragingTekst, String eindBestemming,
+			String treinSoort, String routeTekst, String vervoerder,
+			String vertrekSpoor, boolean gewijzigdVertrekspoor, String reisTip,
 			List<String> opmerkingen) {
 		super();
 		this.ritNummer = ritNummer;
 		this.vertrekTijd = vertrekTijd;
 		this.vertrekVertraging = vertrekVertraging;
+		this.vertrekVertragingMinuten = vertrekVertragingMinuten;
 		this.vertrekVertragingTekst = vertrekVertragingTekst;
 		this.eindBestemming = eindBestemming;
 		this.treinSoort = treinSoort;
