@@ -2,20 +2,20 @@ package nl.pvanassen.ns;
 
 import nl.pvanassen.ns.model.stations.Stations;
 
-public class StationsRequest implements ApiRequest<Stations> {
+public class StationsRequest extends AbstractApiRequest<Stations> {
 
     @Override
-    public String getPath() {
+    String getPath() {
         return "ns-api-stations-v2";
     }
 
     @Override
-    public String getRequestString() {
+    String getRequestString() {
         return "";
     }
 
     @Override
-    public Class<Stations> getType() {
+    Class<Stations> getType() {
         return Stations.class;
     }
 
