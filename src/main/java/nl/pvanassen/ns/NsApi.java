@@ -30,7 +30,7 @@ public class NsApi {
         handleMap.put(ActueleVertrekTijden.class, new ActueleVertrekTijdenHandle());
     }
 
-    public <T> T getApiResponse(ApiRequest<T> request) {
+    public <T> T getApiResponse(AbstractApiRequest<T> request) {
         InputStream stream = null;
         try {
             stream = httpConnection.getContent(NsApi.BASE_URL + request.getPath() + "?" + request.getRequestString());

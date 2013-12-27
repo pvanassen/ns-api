@@ -2,7 +2,7 @@ package nl.pvanassen.ns;
 
 import nl.pvanassen.ns.model.vertrektijden.ActueleVertrekTijden;
 
-public class ActueleVertrekTijdenRequest implements ApiRequest<ActueleVertrekTijden> {
+public class ActueleVertrekTijdenRequest extends AbstractApiRequest<ActueleVertrekTijden> {
 
     private final String station;
 
@@ -11,17 +11,17 @@ public class ActueleVertrekTijdenRequest implements ApiRequest<ActueleVertrekTij
     }
 
     @Override
-    public String getPath() {
+    String getPath() {
         return "ns-api-avt";
     }
 
     @Override
-    public String getRequestString() {
+    String getRequestString() {
         return "station=" + station;
     }
 
     @Override
-    public Class<ActueleVertrekTijden> getType() {
+    Class<ActueleVertrekTijden> getType() {
         return ActueleVertrekTijden.class;
     }
 
