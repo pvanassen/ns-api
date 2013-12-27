@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
+import nl.pvanassen.ns.NsApi;
 import nl.pvanassen.ns.error.NsApiException;
 import nl.pvanassen.ns.handle.Handle;
 import nl.pvanassen.ns.xml.Xml;
@@ -20,7 +21,7 @@ public class StoringenHandle implements Handle<Storingen> {
 
     @Override
     public Storingen getModel(InputStream stream) {
-        SimpleDateFormat format = new SimpleDateFormat(Handle.DATETIME_FORMAT);
+        SimpleDateFormat format = new SimpleDateFormat(NsApi.DATETIME_FORMAT);
         try {
             List<Storing> geplandeStoringen = new LinkedList<Storing>();
             List<Storing> ongeplandeStoringen = new LinkedList<Storing>();

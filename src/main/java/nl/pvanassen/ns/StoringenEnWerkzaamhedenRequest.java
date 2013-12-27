@@ -39,7 +39,7 @@ class StoringenEnWerkzaamhedenRequest extends ApiRequest<Storingen> {
     @Override
     String getRequestString() {
         StringBuilder requestString = new StringBuilder();
-        if (station != null && !station.isEmpty()) {
+        if (station != null && station.trim().length() != 0) {
             requestString.append("station=").append(station).append('&');
         }
         if (actual != null) {

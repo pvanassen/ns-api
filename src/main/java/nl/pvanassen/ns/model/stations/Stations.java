@@ -24,7 +24,6 @@ public class Stations {
     public List<Station> getStations() {
         return stations;
     }
-    
 
     /**
      * @see java.lang.Object#hashCode()
