@@ -1,6 +1,6 @@
 package nl.pvanassen.ns.model.stations;
 
-import java.util.LinkedList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -25,9 +25,9 @@ public class Station {
 
     private final double lon;
 
-    private final List<String> synoniemen = new LinkedList<String>();
+    private final List<String> synoniemen;
 
-    Station(String code, String type, Namen namen, String land, int uicCode, double lat, double lon) {
+    Station(String code, String type, Namen namen, String land, int uicCode, double lat, double lon, List<String> synoniemen) {
         super();
         this.code = code;
         this.type = type;
@@ -36,6 +36,7 @@ public class Station {
         this.uicCode = uicCode;
         this.lat = lat;
         this.lon = lon;
+        this.synoniemen = Collections.unmodifiableList(synoniemen);
     }
 
     public String getCode() {

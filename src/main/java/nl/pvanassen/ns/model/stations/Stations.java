@@ -1,5 +1,6 @@
 package nl.pvanassen.ns.model.stations;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -13,7 +14,7 @@ public class Stations {
     private final List<Station> stations;
 
     Stations(List<Station> stations) {
-        this.stations = stations;
+        this.stations = Collections.unmodifiableList(stations);
     }
 
     public List<Station> getStations() {
