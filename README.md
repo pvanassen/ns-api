@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.org/pvanassen/ns-api.png?branch=master)](https://travis-ci.org/pvanassen/ns-api)
+[![Coverage Status](https://coveralls.io/repos/pvanassen/ns-api/badge.png?branch=master)](https://coveralls.io/r/pvanassen/ns-api?branch=master)
+
 NS API
 ======
 An API for talking to the NS (Dutch railways) API interface written in Java
