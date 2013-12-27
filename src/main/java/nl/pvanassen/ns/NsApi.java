@@ -4,6 +4,7 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
+import nl.pvanassen.ns.error.NsApiException;
 import nl.pvanassen.ns.handle.Handle;
 import nl.pvanassen.ns.http.HttpConnection;
 import nl.pvanassen.ns.model.stations.Stations;
@@ -30,6 +31,13 @@ public class NsApi {
     private final Map<Class<?>, Handle<?>> handleMap = new HashMap<Class<?>, Handle<?>>();
 
     public NsApi(String username, String password) {
+        if (username == null || password == null) {
+            throw new NullPointerException("Username or password cannot be null");
+        }
+        // No isEmpty to remain compatible with JDK 1.5
+        if (username.trim().length() == 0 || password.trim().length() == 0) {
+            throw new IllegalArgumentException("Username or password cannot be empty");
+        }
         httpConnection = new HttpConnection(username, password);
         handleMap.put(ActueleVertrekTijden.class, new ActueleVertrekTijdenHandle());
         handleMap.put(Stations.class, new StationsHandle());
@@ -42,6 +50,9 @@ public class NsApi {
             stream = httpConnection.getContent(NsApi.BASE_URL + request.getPath() + "?" + request.getRequestString());
             @SuppressWarnings("unchecked")
             Handle<T> handle = (Handle<T>) handleMap.get(request.getType());
+            if (handle == null) {
+                throw new NsApiException("Unknown request type " + request.getType());
+            }
             return handle.getModel(stream);
         }
         finally {
