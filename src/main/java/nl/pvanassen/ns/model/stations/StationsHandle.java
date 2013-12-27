@@ -1,13 +1,11 @@
-package nl.pvanassen.ns.handle;
+package nl.pvanassen.ns.model.stations;
 
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import nl.pvanassen.ns.model.stations.Namen;
-import nl.pvanassen.ns.model.stations.Station;
-import nl.pvanassen.ns.model.stations.Stations;
+import nl.pvanassen.ns.handle.Handle;
 import nl.pvanassen.ns.xml.Xml;
 
 public class StationsHandle implements Handle<Stations> {

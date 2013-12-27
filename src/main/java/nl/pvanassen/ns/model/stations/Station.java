@@ -27,7 +27,7 @@ public class Station {
 
     private final List<String> synoniemen = new LinkedList<String>();
 
-    public Station(String code, String type, Namen namen, String land, int uicCode, double lat, double lon) {
+    Station(String code, String type, Namen namen, String land, int uicCode, double lat, double lon) {
         super();
         this.code = code;
         this.type = type;
