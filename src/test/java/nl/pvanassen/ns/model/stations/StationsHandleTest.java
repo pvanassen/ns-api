@@ -1,4 +1,4 @@
-package nl.pvanassen.ns.handle;
+package nl.pvanassen.ns.model.stations;
 
 import static org.junit.Assert.*;
 import nl.pvanassen.ns.model.stations.Station;

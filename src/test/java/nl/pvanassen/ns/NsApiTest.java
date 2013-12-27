@@ -1,6 +1,5 @@
 package nl.pvanassen.ns;
 
-import static org.junit.Assert.*;
 import nl.pvanassen.ns.error.NsApiException;
 
 import org.junit.Test;

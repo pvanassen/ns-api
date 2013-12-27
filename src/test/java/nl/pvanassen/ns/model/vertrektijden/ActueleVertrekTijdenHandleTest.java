@@ -1,4 +1,4 @@
-package nl.pvanassen.ns.handle;
+package nl.pvanassen.ns.model.vertrektijden;
 
 import static org.junit.Assert.*;
 
