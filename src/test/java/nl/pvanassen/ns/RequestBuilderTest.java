@@ -59,10 +59,16 @@ public class RequestBuilderTest {
     public void testGetReisadviesRequestBuilder() {
         SimpleDateFormat format = new SimpleDateFormat(NsApi.DATETIME_FORMAT);
         Date now = new Date();
-        ApiRequest<ReisMogelijkheden> request = RequestBuilder.getReisadviesRequestBuilder("Amsterdam", "Utrecht").forArivalTime(now).build();
+        ApiRequest<ReisMogelijkheden> request = RequestBuilder.getReisadviesRequestBuilder("Amsterdam", "Utrecht").forArivalTime(now).viaStation("Hoorn").includeFutureAdvices(4).includePastAdvices(3).userHasNoYearCard().build();
         assertEquals("ns-api-treinplanner", request.getPath());
-        assertEquals("fromStation=Amsterdam&toStation=Utrecht&dateTime=" + format.format(now) + "&departure=false&", request.getRequestString());
+        assertEquals("fromStation=Amsterdam&toStation=Utrecht&viaStation=Hoorn&previousAdvices=3&nextAdvices=4&dateTime=" + format.format(now) + "&departure=false&yearCard=false&", request.getRequestString());
         assertEquals(ReisMogelijkheden.class, request.getType());
     }
 
+
+    @Test(expected=IllegalArgumentException.class)
+    public void testGetReisadviesRequestBuilderArrivalAndDeparture() {
+        Date now = new Date();
+        RequestBuilder.getReisadviesRequestBuilder("Amsterdam", "Utrecht").forArivalTime(now).forDepartureTime(now).build();
+    }
 }
