@@ -27,11 +27,11 @@ public class ActueleVertrekTijdenHandleTest {
         assertEquals("Rit number should be 13677", 13677, sprinterBreda.getRitNummer());
         assertEquals("Expected a sprinter train", "Sprinter", sprinterBreda.getTreinSoort());
         // 2013-10-10T21:45:00+0200 to calendar
-        Calendar calendar = Calendar.getInstance();
+        Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("+0200"));
         calendar.set(Calendar.YEAR, 2013);
         calendar.set(Calendar.MONTH, Calendar.OCTOBER);
         calendar.set(Calendar.DAY_OF_MONTH, 10);
-        calendar.set(Calendar.HOUR_OF_DAY, 21);
+        calendar.set(Calendar.HOUR_OF_DAY, 19);
         calendar.set(Calendar.MINUTE, 45);
         calendar.set(Calendar.SECOND, 0);
         calendar.set(Calendar.MILLISECOND, 0);
