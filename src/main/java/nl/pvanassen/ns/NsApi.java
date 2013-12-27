@@ -8,6 +8,7 @@ import java.util.Map;
 import nl.pvanassen.ns.error.NsApiException;
 import nl.pvanassen.ns.handle.Handle;
 import nl.pvanassen.ns.http.HttpConnection;
+import nl.pvanassen.ns.model.reisadvies.ReisadviesHandle;
 import nl.pvanassen.ns.model.stations.Stations;
 import nl.pvanassen.ns.model.stations.StationsHandle;
 import nl.pvanassen.ns.model.storingen.Storingen;
@@ -24,7 +25,11 @@ import org.apache.commons.io.IOUtils;
  * 
  */
 public class NsApi {
-
+    /**
+     * NS Date to Java date formatting string
+     */
+    public static final String DATETIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ssZ";
+    
     private final HttpConnection httpConnection;
 
     private static final String BASE_URL = "http://webservices.ns.nl/";
@@ -43,6 +48,7 @@ public class NsApi {
         handleMap.put(ActueleVertrekTijden.class, new ActueleVertrekTijdenHandle());
         handleMap.put(Stations.class, new StationsHandle());
         handleMap.put(Storingen.class, new StoringenHandle());
+        handleMap.put(ReisadviesRequest.class, new ReisadviesHandle());
     }
 
     public <T> T getApiResponse(ApiRequest<T> request) throws IOException {

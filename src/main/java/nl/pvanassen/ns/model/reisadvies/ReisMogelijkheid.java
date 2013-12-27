@@ -1,8 +1,10 @@
 package nl.pvanassen.ns.model.reisadvies;
 
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
+
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
  * http://www.ns.nl/api/api#api-documentatie-reisadviezen
@@ -12,109 +14,117 @@ import java.util.List;
  */
 public class ReisMogelijkheid {
 
-    private int aantalOverstappen;
+    private final Melding melding;
 
-    private int geplandeReisTijdMinuten;
+    private final int aantalOverstappen;
 
-    private int actueleReisTijdMinuten;
+    private final int geplandeReisTijdMinuten;
 
-    private String aankomstVertraging;
+    private final int actueleReisTijdMinuten;
 
-    private boolean optimaal;
+    private final String aankomstVertraging;
 
-    private Date geplandeVertrekTijd;
+    private final boolean optimaal;
 
-    private Date actueleVertrekTijd;
+    private final Date geplandeVertrekTijd;
 
-    private Date geplandeAankomstTijd;
+    private final Date actueleVertrekTijd;
 
-    private Date actueleAankomstTijd;
+    private final Date geplandeAankomstTijd;
 
-    private String status;
+    private final Date actueleAankomstTijd;
 
-    private final List<ReisDeel> reisDelen = new LinkedList<ReisDeel>();
+    private final String status;
+
+    private final List<ReisDeel> reisDelen;
+
+    ReisMogelijkheid(Melding melding, int aantalOverstappen, int geplandeReisTijdMinuten, int actueleReisTijdMinuten,
+            String aankomstVertraging, boolean optimaal, Date geplandeVertrekTijd, Date actueleVertrekTijd,
+            Date geplandeAankomstTijd, Date actueleAankomstTijd, String status, List<ReisDeel> reisDelen) {
+        super();
+        this.melding = melding;
+        this.aantalOverstappen = aantalOverstappen;
+        this.geplandeReisTijdMinuten = geplandeReisTijdMinuten;
+        this.actueleReisTijdMinuten = actueleReisTijdMinuten;
+        this.aankomstVertraging = aankomstVertraging;
+        this.optimaal = optimaal;
+        this.geplandeVertrekTijd = geplandeVertrekTijd;
+        this.actueleVertrekTijd = actueleVertrekTijd;
+        this.geplandeAankomstTijd = geplandeAankomstTijd;
+        this.actueleAankomstTijd = actueleAankomstTijd;
+        this.status = status;
+        this.reisDelen = Collections.unmodifiableList(reisDelen);
+    }
+
+    public Melding getMelding() {
+        return melding;
+    }
 
     public int getAantalOverstappen() {
         return aantalOverstappen;
-    }
-
-    public void setAantalOverstappen(int aantalOverstappen) {
-        this.aantalOverstappen = aantalOverstappen;
     }
 
     public int getGeplandeReisTijdMinuten() {
         return geplandeReisTijdMinuten;
     }
 
-    public void setGeplandeReisTijdMinuten(int geplandeReisTijdMinuten) {
-        this.geplandeReisTijdMinuten = geplandeReisTijdMinuten;
-    }
-
     public int getActueleReisTijdMinuten() {
         return actueleReisTijdMinuten;
-    }
-
-    public void setActueleReisTijdMinuten(int actueleReisTijdMinuten) {
-        this.actueleReisTijdMinuten = actueleReisTijdMinuten;
-    }
-
-    public boolean isOptimaal() {
-        return optimaal;
-    }
-
-    public void setOptimaal(boolean optimaal) {
-        this.optimaal = optimaal;
-    }
-
-    public Date getGeplandeVertrekTijd() {
-        return geplandeVertrekTijd;
-    }
-
-    public void setGeplandeVertrekTijd(Date geplandeVertrekTijd) {
-        this.geplandeVertrekTijd = geplandeVertrekTijd;
-    }
-
-    public Date getActueleVertrekTijd() {
-        return actueleVertrekTijd;
-    }
-
-    public void setActueleVertrekTijd(Date actueleVertrekTijd) {
-        this.actueleVertrekTijd = actueleVertrekTijd;
-    }
-
-    public Date getGeplandeAankomstTijd() {
-        return geplandeAankomstTijd;
-    }
-
-    public void setGeplandeAankomstTijd(Date geplandeAankomstTijd) {
-        this.geplandeAankomstTijd = geplandeAankomstTijd;
-    }
-
-    public Date getActueleAankomstTijd() {
-        return actueleAankomstTijd;
-    }
-
-    public void setActueleAankomstTijd(Date actueleAankomstTijd) {
-        this.actueleAankomstTijd = actueleAankomstTijd;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public List<ReisDeel> getReisDelen() {
-        return reisDelen;
     }
 
     public String getAankomstVertraging() {
         return aankomstVertraging;
     }
 
-    public void setAankomstVertraging(String aankomstVertraging) {
-        this.aankomstVertraging = aankomstVertraging;
+    public boolean isOptimaal() {
+        return optimaal;
+    }
+
+    public Date getGeplandeVertrekTijd() {
+        return geplandeVertrekTijd;
+    }
+
+    public Date getActueleVertrekTijd() {
+        return actueleVertrekTijd;
+    }
+
+    public Date getGeplandeAankomstTijd() {
+        return geplandeAankomstTijd;
+    }
+
+    public Date getActueleAankomstTijd() {
+        return actueleAankomstTijd;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public List<ReisDeel> getReisDelen() {
+        return reisDelen;
+    }
+
+    /**
+     * @see java.lang.Object#hashCode()
+     */
+    @Override
+    public int hashCode() {
+        return HashCodeBuilder.reflectionHashCode(this);
+    }
+
+    /**
+     * @see java.lang.Object#equals(java.lang.Object)
+     */
+    @Override
+    public boolean equals(Object obj) {
+        return EqualsBuilder.reflectionEquals(this, obj);
+    }
+
+    /**
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this);
     }
 }

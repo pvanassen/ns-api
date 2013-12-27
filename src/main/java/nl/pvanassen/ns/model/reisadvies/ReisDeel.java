@@ -1,7 +1,11 @@
 package nl.pvanassen.ns.model.reisadvies;
 
-import java.util.LinkedList;
+import java.util.Collections;
 import java.util.List;
+
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
  * http://www.ns.nl/api/api#api-documentatie-reisadviezen
@@ -11,86 +15,95 @@ import java.util.List;
  */
 public class ReisDeel {
 
-    private String reisSoort;
+    private final String reisSoort;
 
-    private String vervoerder;
+    private final String vervoerder;
 
-    private String vervoerType;
+    private final String vervoerType;
 
-    private int ritNummer;
+    private final int ritNummer;
 
-    private String status;
+    private final String status;
 
-    private final List<ReisStop> reisStops = new LinkedList<ReisStop>();
+    private final List<ReisStop> reisStops;
 
-    private String ongeplandeStoringId;
+    private final String ongeplandeStoringId;
 
-    private String geplandeStoringId;
+    private final String geplandeStoringId;
 
-    private final List<String> reisDetails = new LinkedList<String>();
+    private final List<String> reisDetails;
+
+    ReisDeel(String reisSoort, String vervoerder, String vervoerType, int ritNummer, String status,
+            List<ReisStop> reisStops, String ongeplandeStoringId, String geplandeStoringId, List<String> reisDetails) {
+        super();
+        this.reisSoort = reisSoort;
+        this.vervoerder = vervoerder;
+        this.vervoerType = vervoerType;
+        this.ritNummer = ritNummer;
+        this.status = status;
+        this.reisStops = Collections.unmodifiableList(reisStops);
+        this.ongeplandeStoringId = ongeplandeStoringId;
+        this.geplandeStoringId = geplandeStoringId;
+        this.reisDetails = Collections.unmodifiableList(reisDetails);
+    }
 
     public String getReisSoort() {
         return reisSoort;
-    }
-
-    public String getOngeplandeStoringId() {
-        return ongeplandeStoringId;
-    }
-
-    public void setOngeplandeStoringId(String ongeplandeStoringId) {
-        this.ongeplandeStoringId = ongeplandeStoringId;
-    }
-
-    public String getGeplandeStoringId() {
-        return geplandeStoringId;
-    }
-
-    public void setGeplandeStoringId(String geplandeStoringId) {
-        this.geplandeStoringId = geplandeStoringId;
-    }
-
-    public void setReisSoort(String reisSoort) {
-        this.reisSoort = reisSoort;
     }
 
     public String getVervoerder() {
         return vervoerder;
     }
 
-    public void setVervoerder(String vervoerder) {
-        this.vervoerder = vervoerder;
-    }
-
     public String getVervoerType() {
         return vervoerType;
-    }
-
-    public void setVervoerType(String vervoerType) {
-        this.vervoerType = vervoerType;
     }
 
     public int getRitNummer() {
         return ritNummer;
     }
 
-    public void setRitNummer(int ritNummer) {
-        this.ritNummer = ritNummer;
-    }
-
     public String getStatus() {
         return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
     }
 
     public List<ReisStop> getReisStops() {
         return reisStops;
     }
 
+    public String getOngeplandeStoringId() {
+        return ongeplandeStoringId;
+    }
+
+    public String getGeplandeStoringId() {
+        return geplandeStoringId;
+    }
+
     public List<String> getReisDetails() {
         return reisDetails;
     }
 
+    /**
+     * @see java.lang.Object#hashCode()
+     */
+    @Override
+    public int hashCode() {
+        return HashCodeBuilder.reflectionHashCode(this);
+    }
+
+    /**
+     * @see java.lang.Object#equals(java.lang.Object)
+     */
+    @Override
+    public boolean equals(Object obj) {
+        return EqualsBuilder.reflectionEquals(this, obj);
+    }
+
+    /**
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this);
+    }
 }

@@ -2,6 +2,10 @@ package nl.pvanassen.ns.model.reisadvies;
 
 import java.util.Date;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 /**
  * http://www.ns.nl/api/api#api-documentatie-reisadviezen
  * 
@@ -10,44 +14,59 @@ import java.util.Date;
  */
 public class ReisStop {
 
-    private String naam;
+    private final String naam;
 
-    private Date tijd;
+    private final Date tijd;
 
-    private int spoor;
+    private final int spoor;
 
-    private boolean gewijzigdVertrekspoor;
+    private final boolean gewijzigdVertrekspoor;
+
+    ReisStop(String naam, Date tijd, int spoor, boolean gewijzigdVertrekspoor) {
+        super();
+        this.naam = naam;
+        this.tijd = tijd;
+        this.spoor = spoor;
+        this.gewijzigdVertrekspoor = gewijzigdVertrekspoor;
+    }
 
     public String getNaam() {
         return naam;
-    }
-
-    public void setNaam(String naam) {
-        this.naam = naam;
     }
 
     public Date getTijd() {
         return tijd;
     }
 
-    public void setTijd(Date tijd) {
-        this.tijd = tijd;
-    }
-
     public int getSpoor() {
         return spoor;
-    }
-
-    public void setSpoor(int spoor) {
-        this.spoor = spoor;
     }
 
     public boolean isGewijzigdVertrekspoor() {
         return gewijzigdVertrekspoor;
     }
 
-    public void setGewijzigdVertrekspoor(boolean gewijzigdVertrekspoor) {
-        this.gewijzigdVertrekspoor = gewijzigdVertrekspoor;
+    /**
+     * @see java.lang.Object#hashCode()
+     */
+    @Override
+    public int hashCode() {
+        return HashCodeBuilder.reflectionHashCode(this);
     }
 
+    /**
+     * @see java.lang.Object#equals(java.lang.Object)
+     */
+    @Override
+    public boolean equals(Object obj) {
+        return EqualsBuilder.reflectionEquals(this, obj);
+    }
+
+    /**
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this);
+    }
 }
