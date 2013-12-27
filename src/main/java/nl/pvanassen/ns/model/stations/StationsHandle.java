@@ -23,8 +23,8 @@ public class StationsHandle implements Handle<Stations> {
             int uicCode = Integer.parseInt(stationXml.child("UICCode").content());
             double lat = Double.parseDouble(stationXml.child("Lat").content());
             double lon = Double.parseDouble(stationXml.child("Lon").content());
-            List<String> synoniemen = new ArrayList<String>(stationXml.children("Synoniemen").size());
-            for (Xml synomiemXml : stationXml.children("Synoniemen")) {
+            List<String> synoniemen = new ArrayList<String>(stationXml.child("Synoniemen").children("Synoniem").size());
+            for (Xml synomiemXml : stationXml.child("Synoniemen").children("Synoniem")) {
                 synoniemen.add(synomiemXml.content());
             }
             stations.add(new Station(code, type, namen, land, uicCode, lat, lon, synoniemen));
