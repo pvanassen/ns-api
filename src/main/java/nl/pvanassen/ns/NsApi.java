@@ -1,5 +1,6 @@
 package nl.pvanassen.ns;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
@@ -44,7 +45,7 @@ public class NsApi {
         handleMap.put(Storingen.class, new StoringenHandle());
     }
 
-    public <T> T getApiResponse(ApiRequest<T> request) {
+    public <T> T getApiResponse(ApiRequest<T> request) throws IOException {
         InputStream stream = null;
         try {
             stream = httpConnection.getContent(NsApi.BASE_URL + request.getPath() + "?" + request.getRequestString());
