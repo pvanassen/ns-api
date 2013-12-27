@@ -2,11 +2,11 @@ package nl.pvanassen.ns;
 
 import nl.pvanassen.ns.model.vertrektijden.ActueleVertrekTijden;
 
-public class ActueleVertrekTijdenRequest extends AbstractApiRequest<ActueleVertrekTijden> {
+class ActueleVertrekTijdenRequest extends ApiRequest<ActueleVertrekTijden> {
 
     private final String station;
-
-    public ActueleVertrekTijdenRequest(String station) {
+    
+    ActueleVertrekTijdenRequest(String station) {
         this.station = station;
     }
 

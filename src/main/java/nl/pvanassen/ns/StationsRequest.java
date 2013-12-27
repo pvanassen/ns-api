@@ -2,7 +2,12 @@ package nl.pvanassen.ns;
 
 import nl.pvanassen.ns.model.stations.Stations;
 
-public class StationsRequest extends AbstractApiRequest<Stations> {
+class StationsRequest extends ApiRequest<Stations> {
+    /**
+     * Limiting scope
+     */
+    StationsRequest() {
+    }
 
     @Override
     String getPath() {
