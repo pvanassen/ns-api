@@ -1,6 +1,8 @@
 package nl.pvanassen.ns.model.vertrektijden;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
 
 /**
  * http://www.ns.nl/api/api#api-documentatie-actuele-vertrektijden
@@ -12,7 +14,7 @@ public class VertrekkendeTrein {
 	private final int ritNummer;
 	private final Date vertrekTijd;
 	private final String vertrekVertraging;
-	private final Integer vertrekVertragingMinuten;
+	private final int vertrekVertragingMinuten;
 	private final String vertrekVertragingTekst;
 	private final String eindBestemming;
 	private final String treinSoort;
@@ -42,7 +44,7 @@ public class VertrekkendeTrein {
 	 * @param opmerkingen
 	 */
 	public VertrekkendeTrein(int ritNummer, Date vertrekTijd,
-			String vertrekVertraging, Integer vertrekVertragingMinuten,
+			String vertrekVertraging, int vertrekVertragingMinuten,
 			String vertrekVertragingTekst, String eindBestemming,
 			String treinSoort, String routeTekst, String vervoerder,
 			String vertrekSpoor, boolean gewijzigdVertrekspoor, String reisTip,
@@ -110,8 +112,8 @@ public class VertrekkendeTrein {
 	public List<String> getOpmerkingen() {
 		return opmerkingen;
 	}
-	
-	public Integer getVertrekVertragingMinuten() {
+
+	public int getVertrekVertragingMinuten() {
 		return vertrekVertragingMinuten;
 	}
 
@@ -141,10 +143,7 @@ public class VertrekkendeTrein {
 				* result
 				+ ((vertrekVertraging == null) ? 0 : vertrekVertraging
 						.hashCode());
-		result = prime
-				* result
-				+ ((vertrekVertragingMinuten == null) ? 0
-						: vertrekVertragingMinuten.hashCode());
+		result = prime * result + vertrekVertragingMinuten;
 		result = prime
 				* result
 				+ ((vertrekVertragingTekst == null) ? 0
@@ -231,12 +230,7 @@ public class VertrekkendeTrein {
 		} else if (!vertrekVertraging.equals(other.vertrekVertraging)) {
 			return false;
 		}
-		if (vertrekVertragingMinuten == null) {
-			if (other.vertrekVertragingMinuten != null) {
-				return false;
-			}
-		} else if (!vertrekVertragingMinuten
-				.equals(other.vertrekVertragingMinuten)) {
+		if (vertrekVertragingMinuten != other.vertrekVertragingMinuten) {
 			return false;
 		}
 		if (vertrekVertragingTekst == null) {
@@ -271,6 +265,5 @@ public class VertrekkendeTrein {
 				+ ", gewijzigdVertrekspoor=" + gewijzigdVertrekspoor
 				+ ", reisTip=" + reisTip + ", opmerkingen=" + opmerkingen + "]";
 	}
-
 
 }

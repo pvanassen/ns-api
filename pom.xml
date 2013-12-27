@@ -37,7 +37,6 @@
 	<parent>
 		<groupId>nl.pvanassen</groupId>
 		<artifactId>parent</artifactId>
-		<version>0.1</version>
-		<relativePath>../parent</relativePath>
+		<version>0.2</version>
 	</parent>
 </project>

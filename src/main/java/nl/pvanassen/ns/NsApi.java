@@ -11,7 +11,6 @@ import nl.pvanassen.ns.model.vertrektijden.ActueleVertrekTijden;
 
 import org.apache.commons.io.IOUtils;
 
-
 /**
  * Starting point for using the NS api
  * 
@@ -20,28 +19,28 @@ import org.apache.commons.io.IOUtils;
  */
 public class NsApi {
 	private final HttpConnection httpConnection;
-	
+
 	private static final String BASE_URL = "http://webservices.ns.nl/";
-	
+
 	private final Map<Class<?>, Handle<?>> handleMap = new HashMap<Class<?>, Handle<?>>();
-	
+
 	public NsApi(String username, String password) {
-		httpConnection = new HttpConnection(username, password); 
-		handleMap.put(ActueleVertrekTijden.class, new ActueleVertrekTijdenHandle());
+		httpConnection = new HttpConnection(username, password);
+		handleMap.put(ActueleVertrekTijden.class,
+				new ActueleVertrekTijdenHandle());
 	}
 
 	public <T> T getApiResponse(ApiRequest<T> request) {
 		InputStream stream = null;
 		try {
-			stream = httpConnection.getContent(BASE_URL + request.getPath() + "?" + request.getRequestString());
+			stream = httpConnection.getContent(BASE_URL + request.getPath()
+					+ "?" + request.getRequestString());
 			@SuppressWarnings("unchecked")
 			Handle<T> handle = (Handle<T>) handleMap.get(request.getType());
 			return handle.getModel(stream);
-		}
-		finally {
+		} finally {
 			IOUtils.closeQuietly(stream);
 		}
 	}
 
-	
 }

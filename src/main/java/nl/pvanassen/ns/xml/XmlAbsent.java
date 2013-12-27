@@ -5,6 +5,7 @@ import java.util.List;
 
 public class XmlAbsent extends Xml {
 	private final String name;
+
 	public XmlAbsent(String name) {
 		this.name = name;
 	}

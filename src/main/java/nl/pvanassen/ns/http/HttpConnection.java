@@ -20,14 +20,14 @@ import org.slf4j.LoggerFactory;
 public class HttpConnection {
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 	private final HttpClient httpclient;
-	
+
 	public HttpConnection(String username, String password) {
 		BasicCredentialsProvider credentialsProvider = new BasicCredentialsProvider();
-		credentialsProvider.setCredentials(new AuthScope("webservices.ns.nl", 80),
-				new UsernamePasswordCredentials(username, password));
-		httpclient = HttpClientBuilder.create().setDefaultCredentialsProvider(credentialsProvider).build();
+		credentialsProvider.setCredentials(new AuthScope("webservices.ns.nl",
+				80), new UsernamePasswordCredentials(username, password));
+		httpclient = HttpClientBuilder.create()
+				.setDefaultCredentialsProvider(credentialsProvider).build();
 	}
-	
 
 	public InputStream getContent(String url) {
 		HttpGet httpget = new HttpGet(url);

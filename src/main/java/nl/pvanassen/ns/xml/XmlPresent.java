@@ -88,14 +88,17 @@ public class XmlPresent extends Xml {
 		children.add(child);
 	}
 
+	@Override
 	public String name() {
 		return name;
 	}
 
+	@Override
 	public String content() {
 		return content;
 	}
 
+	@Override
 	public Xml child(String name) {
 		List<Xml> children = children(name);
 		if (children.size() != 1) {
@@ -105,11 +108,13 @@ public class XmlPresent extends Xml {
 		return children.get(0);
 	}
 
+	@Override
 	public List<Xml> children(String name) {
 		List<Xml> children = nameChildren.get(name);
 		return children == null ? new ArrayList<Xml>() : children;
 	}
 
+	@Override
 	public String string(String name) {
 		String value = nameAttributes.get(name);
 		if (value == null)
@@ -118,10 +123,12 @@ public class XmlPresent extends Xml {
 		return value;
 	}
 
+	@Override
 	public int integer(String name) {
 		return Integer.parseInt(string(name));
 	}
 
+	@Override
 	public boolean isPresent(String name) {
 		return nameChildren.containsKey(name);
 	}
