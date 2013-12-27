@@ -1,0 +1,2501 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+
+
+<ReisMogelijkheden>
+	
+		<ReisMogelijkheid>	
+			
+			<AantalOverstappen>1</AantalOverstappen>
+			<GeplandeReisTijd>1:34</GeplandeReisTijd>
+			
+				<ActueleReisTijd>1:34</ActueleReisTijd>
+			
+			
+			
+			<Optimaal>false</Optimaal>
+			<GeplandeVertrekTijd>2013-12-27T16:20:00+0100</GeplandeVertrekTijd>
+			<ActueleVertrekTijd>2013-12-27T16:20:00+0100</ActueleVertrekTijd>
+			<GeplandeAankomstTijd>2013-12-27T17:54:00+0100</GeplandeAankomstTijd>
+			<ActueleAankomstTijd>2013-12-27T17:54:00+0100</ActueleAankomstTijd>
+ 			
+            
+ 			    <Status>VOLGENS-PLAN</Status>
+ 			
+			
+ 				<ReisDeel reisSoort="TRAIN">
+					
+                        
+					    <Vervoerder>NS</Vervoerder>
+						<VervoerType>Intercity</VervoerType>
+						<RitNummer>12557</RitNummer>
+             			
+                        
+                              <Status>VOLGENS-PLAN</Status>
+                          
+						
+                         
+						
+                        
+						
+					
+					
+					<ReisStop>
+					  
+						
+							<Naam>Utrecht Centraal</Naam>
+							<Tijd>2013-12-27T16:20:00+0100</Tijd>
+							
+							  
+								  
+								
+									<Spoor wijziging="false">11a</Spoor>
+								 
+														
+						
+						
+					
+					</ReisStop>
+					  
+						
+							
+								<ReisStop>
+									<Naam>Amersfoort</Naam>
+									<Tijd>2013-12-27T16:37:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+							<ReisStop>
+								<Naam>Zwolle</Naam>
+								<Tijd>2013-12-27T17:12:00+0100</Tijd>
+								
+								  
+									  
+									
+										<Spoor wijziging="false">6</Spoor>
+									 
+								 
+							</ReisStop>
+						
+						
+					
+				</ReisDeel>
+			
+ 				<ReisDeel reisSoort="TRAIN">
+					
+                        
+					    <Vervoerder>NS</Vervoerder>
+						<VervoerType>Sprinter</VervoerType>
+						<RitNummer>7957</RitNummer>
+             			
+                        
+                              <Status>VOLGENS-PLAN</Status>
+                          
+						
+                         
+						
+                        
+						
+					
+					
+					<ReisStop>
+					  
+						
+							<Naam>Zwolle</Naam>
+							<Tijd>2013-12-27T17:19:00+0100</Tijd>
+							
+							  
+								  
+								
+									<Spoor wijziging="false">9</Spoor>
+								 
+														
+						
+						
+					
+					</ReisStop>
+					  
+						
+							
+								<ReisStop>
+									<Naam>Heino</Naam>
+									<Tijd>2013-12-27T17:30:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Raalte</Naam>
+									<Tijd>2013-12-27T17:35:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Nijverdal</Naam>
+									<Tijd>2013-12-27T17:46:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+							<ReisStop>
+								<Naam>Wierden</Naam>
+								<Tijd>2013-12-27T17:54:00+0100</Tijd>
+								
+								  
+									  
+									
+										<Spoor wijziging="false">3</Spoor>
+									 
+								 
+							</ReisStop>
+						
+						
+					
+				</ReisDeel>
+			
+		</ReisMogelijkheid>
+	
+		<ReisMogelijkheid>	
+			
+			<AantalOverstappen>1</AantalOverstappen>
+			<GeplandeReisTijd>1:27</GeplandeReisTijd>
+			
+				<ActueleReisTijd>1:27</ActueleReisTijd>
+			
+			
+			
+			<Optimaal>false</Optimaal>
+			<GeplandeVertrekTijd>2013-12-27T16:35:00+0100</GeplandeVertrekTijd>
+			<ActueleVertrekTijd>2013-12-27T16:35:00+0100</ActueleVertrekTijd>
+			<GeplandeAankomstTijd>2013-12-27T18:02:00+0100</GeplandeAankomstTijd>
+			<ActueleAankomstTijd>2013-12-27T18:02:00+0100</ActueleAankomstTijd>
+ 			
+            
+ 			    <Status>VOLGENS-PLAN</Status>
+ 			
+			
+ 				<ReisDeel reisSoort="TRAIN">
+					
+                        
+					    <Vervoerder>NS</Vervoerder>
+						<VervoerType>Intercity</VervoerType>
+						<RitNummer>1759</RitNummer>
+             			
+                        
+                              <Status>VOLGENS-PLAN</Status>
+                          
+						
+                         
+						
+                        
+						
+					
+					
+					<ReisStop>
+					  
+						
+							<Naam>Utrecht Centraal</Naam>
+							<Tijd>2013-12-27T16:35:00+0100</Tijd>
+							
+							  
+								  
+								
+									<Spoor wijziging="false">11a</Spoor>
+								 
+														
+						
+						
+					
+					</ReisStop>
+					  
+						
+							
+								<ReisStop>
+									<Naam>Amersfoort</Naam>
+									<Tijd>2013-12-27T16:53:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+							<ReisStop>
+								<Naam>Apeldoorn</Naam>
+								<Tijd>2013-12-27T17:17:00+0100</Tijd>
+								
+								  
+									  
+									
+										<Spoor wijziging="false">4</Spoor>
+									 
+								 
+							</ReisStop>
+						
+						
+					
+				</ReisDeel>
+			
+ 				<ReisDeel reisSoort="TRAIN">
+					
+                        
+					    <Vervoerder>NS</Vervoerder>
+						<VervoerType>Sprinter</VervoerType>
+						<RitNummer>7059</RitNummer>
+             			
+                        
+                              <Status>VOLGENS-PLAN</Status>
+                          
+						
+                         
+						
+                        
+						
+					
+					
+					<ReisStop>
+					  
+						
+							<Naam>Apeldoorn</Naam>
+							<Tijd>2013-12-27T17:21:00+0100</Tijd>
+							
+							  
+								  
+								
+									<Spoor wijziging="false">1</Spoor>
+								 
+														
+						
+						
+					
+					</ReisStop>
+					  
+						
+							
+								<ReisStop>
+									<Naam>Apeldoorn Osseveld</Naam>
+									<Tijd>2013-12-27T17:24:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Twello</Naam>
+									<Tijd>2013-12-27T17:29:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Deventer</Naam>
+									<Tijd>2013-12-27T17:36:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Deventer Colmschate</Naam>
+									<Tijd>2013-12-27T17:41:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Holten</Naam>
+									<Tijd>2013-12-27T17:50:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Rijssen</Naam>
+									<Tijd>2013-12-27T17:56:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+							<ReisStop>
+								<Naam>Wierden</Naam>
+								<Tijd>2013-12-27T18:02:00+0100</Tijd>
+								
+								  
+									  
+									
+										<Spoor wijziging="false">1</Spoor>
+									 
+								 
+							</ReisStop>
+						
+						
+					
+				</ReisDeel>
+			
+		</ReisMogelijkheid>
+	
+		<ReisMogelijkheid>	
+			
+			<AantalOverstappen>1</AantalOverstappen>
+			<GeplandeReisTijd>1:34</GeplandeReisTijd>
+			
+				<ActueleReisTijd>1:34</ActueleReisTijd>
+			
+			
+			
+			<Optimaal>false</Optimaal>
+			<GeplandeVertrekTijd>2013-12-27T16:50:00+0100</GeplandeVertrekTijd>
+			<ActueleVertrekTijd>2013-12-27T16:50:00+0100</ActueleVertrekTijd>
+			<GeplandeAankomstTijd>2013-12-27T18:24:00+0100</GeplandeAankomstTijd>
+			<ActueleAankomstTijd>2013-12-27T18:24:00+0100</ActueleAankomstTijd>
+ 			
+            
+ 			    <Status>VOLGENS-PLAN</Status>
+ 			
+			
+ 				<ReisDeel reisSoort="TRAIN">
+					
+                        
+					    <Vervoerder>NS</Vervoerder>
+						<VervoerType>Intercity</VervoerType>
+						<RitNummer>559</RitNummer>
+             			
+                        
+                              <Status>VOLGENS-PLAN</Status>
+                          
+						
+                         
+						
+                        
+						
+					
+					
+					<ReisStop>
+					  
+						
+							<Naam>Utrecht Centraal</Naam>
+							<Tijd>2013-12-27T16:50:00+0100</Tijd>
+							
+							  
+								  
+								
+									<Spoor wijziging="false">11</Spoor>
+								 
+														
+						
+						
+					
+					</ReisStop>
+					  
+						
+							
+								<ReisStop>
+									<Naam>Amersfoort</Naam>
+									<Tijd>2013-12-27T17:07:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+							<ReisStop>
+								<Naam>Zwolle</Naam>
+								<Tijd>2013-12-27T17:42:00+0100</Tijd>
+								
+								  
+									  
+									
+										<Spoor wijziging="false">7</Spoor>
+									 
+								 
+							</ReisStop>
+						
+						
+					
+				</ReisDeel>
+			
+ 				<ReisDeel reisSoort="TRAIN">
+					
+                        
+					    <Vervoerder>NS</Vervoerder>
+						<VervoerType>Sprinter</VervoerType>
+						<RitNummer>7959</RitNummer>
+             			
+                        
+                              <Status>VOLGENS-PLAN</Status>
+                          
+						
+                         
+						
+                        
+						
+					
+					
+					<ReisStop>
+					  
+						
+							<Naam>Zwolle</Naam>
+							<Tijd>2013-12-27T17:49:00+0100</Tijd>
+							
+							  
+								  
+								
+									<Spoor wijziging="false">9</Spoor>
+								 
+														
+						
+						
+					
+					</ReisStop>
+					  
+						
+							
+								<ReisStop>
+									<Naam>Heino</Naam>
+									<Tijd>2013-12-27T18:00:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Raalte</Naam>
+									<Tijd>2013-12-27T18:05:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Nijverdal</Naam>
+									<Tijd>2013-12-27T18:16:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+							<ReisStop>
+								<Naam>Wierden</Naam>
+								<Tijd>2013-12-27T18:24:00+0100</Tijd>
+								
+								  
+									  
+									
+										<Spoor wijziging="false">3</Spoor>
+									 
+								 
+							</ReisStop>
+						
+						
+					
+				</ReisDeel>
+			
+		</ReisMogelijkheid>
+	
+		<ReisMogelijkheid>	
+			
+			<AantalOverstappen>2</AantalOverstappen>
+			<GeplandeReisTijd>1:39</GeplandeReisTijd>
+			
+				<ActueleReisTijd>1:39</ActueleReisTijd>
+			
+			
+			
+			<Optimaal>false</Optimaal>
+			<GeplandeVertrekTijd>2013-12-27T17:05:00+0100</GeplandeVertrekTijd>
+			<ActueleVertrekTijd>2013-12-27T17:05:00+0100</ActueleVertrekTijd>
+			<GeplandeAankomstTijd>2013-12-27T18:44:00+0100</GeplandeAankomstTijd>
+			<ActueleAankomstTijd>2013-12-27T18:44:00+0100</ActueleAankomstTijd>
+ 			
+            
+ 			    <Status>VOLGENS-PLAN</Status>
+ 			
+			
+ 				<ReisDeel reisSoort="TRAIN">
+					
+                        
+					    <Vervoerder>NS</Vervoerder>
+						<VervoerType>Intercity</VervoerType>
+						<RitNummer>11759</RitNummer>
+             			
+                        
+                              <Status>VOLGENS-PLAN</Status>
+                          
+						
+                         
+						
+                        
+						
+					
+					
+					<ReisStop>
+					  
+						
+							<Naam>Utrecht Centraal</Naam>
+							<Tijd>2013-12-27T17:05:00+0100</Tijd>
+							
+							  
+								  
+								
+									<Spoor wijziging="false">11a</Spoor>
+								 
+														
+						
+						
+					
+					</ReisStop>
+					  
+						
+							
+							<ReisStop>
+								<Naam>Amersfoort</Naam>
+								<Tijd>2013-12-27T17:21:00+0100</Tijd>
+								
+								  
+									  
+									
+										<Spoor wijziging="false">2b</Spoor>
+									 
+								 
+							</ReisStop>
+						
+						
+					
+				</ReisDeel>
+			
+ 				<ReisDeel reisSoort="TRAIN">
+					
+                        
+					    <Vervoerder>NS</Vervoerder>
+						<VervoerType>Intercity</VervoerType>
+						<RitNummer>1661</RitNummer>
+             			
+                        
+                              <Status>VOLGENS-PLAN</Status>
+                          
+						
+                         
+						
+                        
+						
+					
+					
+					<ReisStop>
+					  
+						
+							<Naam>Amersfoort</Naam>
+							<Tijd>2013-12-27T17:23:00+0100</Tijd>
+							
+							  
+								  
+								
+									<Spoor wijziging="false">1</Spoor>
+								 
+														
+						
+						
+					
+					</ReisStop>
+					  
+						
+							
+							<ReisStop>
+								<Naam>Apeldoorn</Naam>
+								<Tijd>2013-12-27T17:47:00+0100</Tijd>
+								
+								  
+									  
+									
+										<Spoor wijziging="false">4</Spoor>
+									 
+								 
+							</ReisStop>
+						
+						
+					
+				</ReisDeel>
+			
+ 				<ReisDeel reisSoort="TRAIN">
+					
+                        
+					    <Vervoerder>NS</Vervoerder>
+						<VervoerType>Sprinter</VervoerType>
+						<RitNummer>7061</RitNummer>
+             			
+                        
+                              <Status>VOLGENS-PLAN</Status>
+                          
+						
+                         
+						
+                        
+						
+					
+					
+					<ReisStop>
+					  
+						
+							<Naam>Apeldoorn</Naam>
+							<Tijd>2013-12-27T17:51:00+0100</Tijd>
+							
+							  
+								  
+								
+									<Spoor wijziging="false">4</Spoor>
+								 
+														
+						
+						
+					
+					</ReisStop>
+					  
+						
+							
+								<ReisStop>
+									<Naam>Apeldoorn Osseveld</Naam>
+									<Tijd>2013-12-27T17:54:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Twello</Naam>
+									<Tijd>2013-12-27T17:59:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Deventer</Naam>
+									<Tijd>2013-12-27T18:06:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Deventer Colmschate</Naam>
+									<Tijd>2013-12-27T18:11:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Holten</Naam>
+									<Tijd>2013-12-27T18:20:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Rijssen</Naam>
+									<Tijd>2013-12-27T18:38:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+							<ReisStop>
+								<Naam>Wierden</Naam>
+								<Tijd>2013-12-27T18:44:00+0100</Tijd>
+								
+								  
+									  
+									
+										<Spoor wijziging="false">1</Spoor>
+									 
+								 
+							</ReisStop>
+						
+						
+					
+				</ReisDeel>
+			
+		</ReisMogelijkheid>
+	
+		<ReisMogelijkheid>	
+			
+			<AantalOverstappen>1</AantalOverstappen>
+			<GeplandeReisTijd>1:34</GeplandeReisTijd>
+			
+				<ActueleReisTijd>1:34</ActueleReisTijd>
+			
+			
+			
+			<Optimaal>false</Optimaal>
+			<GeplandeVertrekTijd>2013-12-27T17:20:00+0100</GeplandeVertrekTijd>
+			<ActueleVertrekTijd>2013-12-27T17:20:00+0100</ActueleVertrekTijd>
+			<GeplandeAankomstTijd>2013-12-27T18:54:00+0100</GeplandeAankomstTijd>
+			<ActueleAankomstTijd>2013-12-27T18:54:00+0100</ActueleAankomstTijd>
+ 			
+            
+ 			    <Status>VOLGENS-PLAN</Status>
+ 			
+			
+ 				<ReisDeel reisSoort="TRAIN">
+					
+                        
+					    <Vervoerder>NS</Vervoerder>
+						<VervoerType>Intercity</VervoerType>
+						<RitNummer>12561</RitNummer>
+             			
+                        
+                              <Status>VOLGENS-PLAN</Status>
+                          
+						
+                         
+						
+                        
+						
+					
+					
+					<ReisStop>
+					  
+						
+							<Naam>Utrecht Centraal</Naam>
+							<Tijd>2013-12-27T17:20:00+0100</Tijd>
+							
+							  
+								  
+								
+									<Spoor wijziging="false">11a</Spoor>
+								 
+														
+						
+						
+					
+					</ReisStop>
+					  
+						
+							
+								<ReisStop>
+									<Naam>Amersfoort</Naam>
+									<Tijd>2013-12-27T17:37:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+							<ReisStop>
+								<Naam>Zwolle</Naam>
+								<Tijd>2013-12-27T18:12:00+0100</Tijd>
+								
+								  
+									  
+									
+										<Spoor wijziging="false">6</Spoor>
+									 
+								 
+							</ReisStop>
+						
+						
+					
+				</ReisDeel>
+			
+ 				<ReisDeel reisSoort="TRAIN">
+					
+                        
+					    <Vervoerder>NS</Vervoerder>
+						<VervoerType>Sprinter</VervoerType>
+						<RitNummer>7961</RitNummer>
+             			
+                        
+                              <Status>VOLGENS-PLAN</Status>
+                          
+						
+                         
+						
+                        
+						
+					
+					
+					<ReisStop>
+					  
+						
+							<Naam>Zwolle</Naam>
+							<Tijd>2013-12-27T18:19:00+0100</Tijd>
+							
+							  
+								  
+								
+									<Spoor wijziging="false">9</Spoor>
+								 
+														
+						
+						
+					
+					</ReisStop>
+					  
+						
+							
+								<ReisStop>
+									<Naam>Heino</Naam>
+									<Tijd>2013-12-27T18:30:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Raalte</Naam>
+									<Tijd>2013-12-27T18:35:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Nijverdal</Naam>
+									<Tijd>2013-12-27T18:46:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+							<ReisStop>
+								<Naam>Wierden</Naam>
+								<Tijd>2013-12-27T18:54:00+0100</Tijd>
+								
+								  
+									  
+									
+										<Spoor wijziging="false">3</Spoor>
+									 
+								 
+							</ReisStop>
+						
+						
+					
+				</ReisDeel>
+			
+		</ReisMogelijkheid>
+	
+		<ReisMogelijkheid>	
+			
+			<AantalOverstappen>1</AantalOverstappen>
+			<GeplandeReisTijd>1:27</GeplandeReisTijd>
+			
+				<ActueleReisTijd>1:27</ActueleReisTijd>
+			
+			
+			
+			<Optimaal>false</Optimaal>
+			<GeplandeVertrekTijd>2013-12-27T17:35:00+0100</GeplandeVertrekTijd>
+			<ActueleVertrekTijd>2013-12-27T17:35:00+0100</ActueleVertrekTijd>
+			<GeplandeAankomstTijd>2013-12-27T19:02:00+0100</GeplandeAankomstTijd>
+			<ActueleAankomstTijd>2013-12-27T19:02:00+0100</ActueleAankomstTijd>
+ 			
+            
+ 			    <Status>VOLGENS-PLAN</Status>
+ 			
+			
+ 				<ReisDeel reisSoort="TRAIN">
+					
+                        
+					    <Vervoerder>NS</Vervoerder>
+						<VervoerType>Intercity</VervoerType>
+						<RitNummer>1763</RitNummer>
+             			
+                        
+                              <Status>VOLGENS-PLAN</Status>
+                          
+						
+                         
+						
+                        
+						
+					
+					
+					<ReisStop>
+					  
+						
+							<Naam>Utrecht Centraal</Naam>
+							<Tijd>2013-12-27T17:35:00+0100</Tijd>
+							
+							  
+								  
+								
+									<Spoor wijziging="false">11a</Spoor>
+								 
+														
+						
+						
+					
+					</ReisStop>
+					  
+						
+							
+								<ReisStop>
+									<Naam>Amersfoort</Naam>
+									<Tijd>2013-12-27T17:53:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+							<ReisStop>
+								<Naam>Apeldoorn</Naam>
+								<Tijd>2013-12-27T18:17:00+0100</Tijd>
+								
+								  
+									  
+									
+										<Spoor wijziging="false">4</Spoor>
+									 
+								 
+							</ReisStop>
+						
+						
+					
+				</ReisDeel>
+			
+ 				<ReisDeel reisSoort="TRAIN">
+					
+                        
+					    <Vervoerder>NS</Vervoerder>
+						<VervoerType>Sprinter</VervoerType>
+						<RitNummer>7063</RitNummer>
+             			
+                        
+                              <Status>VOLGENS-PLAN</Status>
+                          
+						
+                         
+						
+                        
+						
+					
+					
+					<ReisStop>
+					  
+						
+							<Naam>Apeldoorn</Naam>
+							<Tijd>2013-12-27T18:21:00+0100</Tijd>
+							
+							  
+								  
+								
+									<Spoor wijziging="false">1</Spoor>
+								 
+														
+						
+						
+					
+					</ReisStop>
+					  
+						
+							
+								<ReisStop>
+									<Naam>Apeldoorn Osseveld</Naam>
+									<Tijd>2013-12-27T18:24:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Twello</Naam>
+									<Tijd>2013-12-27T18:29:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Deventer</Naam>
+									<Tijd>2013-12-27T18:36:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Deventer Colmschate</Naam>
+									<Tijd>2013-12-27T18:41:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Holten</Naam>
+									<Tijd>2013-12-27T18:50:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Rijssen</Naam>
+									<Tijd>2013-12-27T18:56:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+							<ReisStop>
+								<Naam>Wierden</Naam>
+								<Tijd>2013-12-27T19:02:00+0100</Tijd>
+								
+								  
+									  
+									
+										<Spoor wijziging="false">1</Spoor>
+									 
+								 
+							</ReisStop>
+						
+						
+					
+				</ReisDeel>
+			
+		</ReisMogelijkheid>
+	
+		<ReisMogelijkheid>	
+			
+			<AantalOverstappen>1</AantalOverstappen>
+			<GeplandeReisTijd>1:34</GeplandeReisTijd>
+			
+				<ActueleReisTijd>1:34</ActueleReisTijd>
+			
+			
+			
+			<Optimaal>false</Optimaal>
+			<GeplandeVertrekTijd>2013-12-27T17:50:00+0100</GeplandeVertrekTijd>
+			<ActueleVertrekTijd>2013-12-27T17:50:00+0100</ActueleVertrekTijd>
+			<GeplandeAankomstTijd>2013-12-27T19:24:00+0100</GeplandeAankomstTijd>
+			<ActueleAankomstTijd>2013-12-27T19:24:00+0100</ActueleAankomstTijd>
+ 			
+            
+ 			    <Status>VOLGENS-PLAN</Status>
+ 			
+			
+ 				<ReisDeel reisSoort="TRAIN">
+					
+                        
+					    <Vervoerder>NS</Vervoerder>
+						<VervoerType>Intercity</VervoerType>
+						<RitNummer>563</RitNummer>
+             			
+                        
+                              <Status>VOLGENS-PLAN</Status>
+                          
+						
+                         
+						
+                        
+						
+					
+					
+					<ReisStop>
+					  
+						
+							<Naam>Utrecht Centraal</Naam>
+							<Tijd>2013-12-27T17:50:00+0100</Tijd>
+							
+							  
+								  
+								
+									<Spoor wijziging="false">11</Spoor>
+								 
+														
+						
+						
+					
+					</ReisStop>
+					  
+						
+							
+								<ReisStop>
+									<Naam>Amersfoort</Naam>
+									<Tijd>2013-12-27T18:07:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+							<ReisStop>
+								<Naam>Zwolle</Naam>
+								<Tijd>2013-12-27T18:42:00+0100</Tijd>
+								
+								  
+									  
+									
+										<Spoor wijziging="false">7</Spoor>
+									 
+								 
+							</ReisStop>
+						
+						
+					
+				</ReisDeel>
+			
+ 				<ReisDeel reisSoort="TRAIN">
+					
+                        
+					    <Vervoerder>NS</Vervoerder>
+						<VervoerType>Sprinter</VervoerType>
+						<RitNummer>7963</RitNummer>
+             			
+                        
+                              <Status>VOLGENS-PLAN</Status>
+                          
+						
+                         
+						
+                        
+						
+					
+					
+					<ReisStop>
+					  
+						
+							<Naam>Zwolle</Naam>
+							<Tijd>2013-12-27T18:49:00+0100</Tijd>
+							
+							  
+								  
+								
+									<Spoor wijziging="false">9</Spoor>
+								 
+														
+						
+						
+					
+					</ReisStop>
+					  
+						
+							
+								<ReisStop>
+									<Naam>Heino</Naam>
+									<Tijd>2013-12-27T19:00:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Raalte</Naam>
+									<Tijd>2013-12-27T19:05:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Nijverdal</Naam>
+									<Tijd>2013-12-27T19:16:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+							<ReisStop>
+								<Naam>Wierden</Naam>
+								<Tijd>2013-12-27T19:24:00+0100</Tijd>
+								
+								  
+									  
+									
+										<Spoor wijziging="false">1</Spoor>
+									 
+								 
+							</ReisStop>
+						
+						
+					
+				</ReisDeel>
+			
+		</ReisMogelijkheid>
+	
+		<ReisMogelijkheid>	
+			
+			<AantalOverstappen>2</AantalOverstappen>
+			<GeplandeReisTijd>1:27</GeplandeReisTijd>
+			
+				<ActueleReisTijd>1:27</ActueleReisTijd>
+			
+			
+			
+			<Optimaal>false</Optimaal>
+			<GeplandeVertrekTijd>2013-12-27T18:05:00+0100</GeplandeVertrekTijd>
+			<ActueleVertrekTijd>2013-12-27T18:05:00+0100</ActueleVertrekTijd>
+			<GeplandeAankomstTijd>2013-12-27T19:32:00+0100</GeplandeAankomstTijd>
+			<ActueleAankomstTijd>2013-12-27T19:32:00+0100</ActueleAankomstTijd>
+ 			
+            
+ 			    <Status>VERTRAAGD</Status>
+ 			
+			
+ 				<ReisDeel reisSoort="TRAIN">
+					
+                        
+					    <Vervoerder>NS</Vervoerder>
+						<VervoerType>Intercity</VervoerType>
+						<RitNummer>11763</RitNummer>
+             			
+                        
+                              <Status>VOLGENS-PLAN</Status>
+                          
+						
+                         
+						
+                        
+						
+					
+					
+					<ReisStop>
+					  
+						
+							<Naam>Utrecht Centraal</Naam>
+							<Tijd>2013-12-27T18:05:00+0100</Tijd>
+							
+							  
+								
+									<Spoor wijziging="true">11</Spoor>
+								  
+								 
+														
+						
+						
+					
+					</ReisStop>
+					  
+						
+							
+							<ReisStop>
+								<Naam>Amersfoort</Naam>
+								<Tijd>2013-12-27T18:21:00+0100</Tijd>
+								
+								  
+									
+										<Spoor wijziging="true">2</Spoor>
+									  
+									 
+								 
+							</ReisStop>
+						
+						
+					
+				</ReisDeel>
+			
+ 				<ReisDeel reisSoort="TRAIN">
+					
+                        
+					    <Vervoerder>NS</Vervoerder>
+						<VervoerType>Intercity</VervoerType>
+						<RitNummer>1665</RitNummer>
+             			
+                        
+                              <Status>VERTRAAGD</Status>
+                          
+						
+                         
+						
+                        
+						
+					
+					
+					<ReisStop>
+					  
+						
+							<Naam>Amersfoort</Naam>
+							<Tijd>2013-12-27T18:23:00+0100</Tijd>
+							
+								<VertrekVertraging>+5 min</VertrekVertraging>
+							
+							  
+								  
+								
+									<Spoor wijziging="false">1</Spoor>
+								 
+														
+						
+						
+					
+					</ReisStop>
+					  
+						
+							
+								<ReisStop>
+									<Naam>Apeldoorn</Naam>
+									<Tijd>2013-12-27T18:48:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+							<ReisStop>
+								<Naam>Deventer</Naam>
+								<Tijd>2013-12-27T18:58:00+0100</Tijd>
+								
+									<VertrekVertraging>+2 min</VertrekVertraging>
+								
+								  
+									  
+									
+										<Spoor wijziging="false">3</Spoor>
+									 
+								 
+							</ReisStop>
+						
+						
+					
+				</ReisDeel>
+			
+ 				<ReisDeel reisSoort="TRAIN">
+					
+                        
+					    <Vervoerder>NS</Vervoerder>
+						<VervoerType>Sprinter</VervoerType>
+						<RitNummer>7065</RitNummer>
+             			
+                        
+                              <Status>VOLGENS-PLAN</Status>
+                          
+						
+                         
+						
+                        
+						
+					
+					
+					<ReisStop>
+					  
+						
+							<Naam>Deventer</Naam>
+							<Tijd>2013-12-27T19:06:00+0100</Tijd>
+							
+							  
+								  
+								
+									<Spoor wijziging="false">3</Spoor>
+								 
+														
+						
+						
+					
+					</ReisStop>
+					  
+						
+							
+								<ReisStop>
+									<Naam>Deventer Colmschate</Naam>
+									<Tijd>2013-12-27T19:11:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Holten</Naam>
+									<Tijd>2013-12-27T19:20:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Rijssen</Naam>
+									<Tijd>2013-12-27T19:26:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+							<ReisStop>
+								<Naam>Wierden</Naam>
+								<Tijd>2013-12-27T19:32:00+0100</Tijd>
+								
+								  
+									  
+									
+										<Spoor wijziging="false">1</Spoor>
+									 
+								 
+							</ReisStop>
+						
+						
+					
+				</ReisDeel>
+			
+		</ReisMogelijkheid>
+	
+		<ReisMogelijkheid>	
+			
+			<AantalOverstappen>1</AantalOverstappen>
+			<GeplandeReisTijd>1:34</GeplandeReisTijd>
+			
+				<ActueleReisTijd>1:34</ActueleReisTijd>
+			
+			
+			
+			<Optimaal>true</Optimaal>
+			<GeplandeVertrekTijd>2013-12-27T18:20:00+0100</GeplandeVertrekTijd>
+			<ActueleVertrekTijd>2013-12-27T18:20:00+0100</ActueleVertrekTijd>
+			<GeplandeAankomstTijd>2013-12-27T19:54:00+0100</GeplandeAankomstTijd>
+			<ActueleAankomstTijd>2013-12-27T19:54:00+0100</ActueleAankomstTijd>
+ 			
+            
+ 			    <Status>VOLGENS-PLAN</Status>
+ 			
+			
+ 				<ReisDeel reisSoort="TRAIN">
+					
+                        
+					    <Vervoerder>NS</Vervoerder>
+						<VervoerType>Intercity</VervoerType>
+						<RitNummer>12565</RitNummer>
+             			
+                        
+                              <Status>VOLGENS-PLAN</Status>
+                          
+						
+                         
+						
+                        
+						
+					
+					
+					<ReisStop>
+					  
+						
+							<Naam>Utrecht Centraal</Naam>
+							<Tijd>2013-12-27T18:20:00+0100</Tijd>
+							
+							  
+								
+									<Spoor wijziging="true">11</Spoor>
+								  
+								 
+														
+						
+						
+					
+					</ReisStop>
+					  
+						
+							
+								<ReisStop>
+									<Naam>Amersfoort</Naam>
+									<Tijd>2013-12-27T18:37:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+							<ReisStop>
+								<Naam>Zwolle</Naam>
+								<Tijd>2013-12-27T19:12:00+0100</Tijd>
+								
+								  
+									  
+									
+										<Spoor wijziging="false">6b</Spoor>
+									 
+								 
+							</ReisStop>
+						
+						
+					
+				</ReisDeel>
+			
+ 				<ReisDeel reisSoort="TRAIN">
+					
+                        
+					    <Vervoerder>NS</Vervoerder>
+						<VervoerType>Sprinter</VervoerType>
+						<RitNummer>7965</RitNummer>
+             			
+                        
+                              <Status>VOLGENS-PLAN</Status>
+                          
+						
+                         
+						
+                        
+						
+					
+					
+					<ReisStop>
+					  
+						
+							<Naam>Zwolle</Naam>
+							<Tijd>2013-12-27T19:19:00+0100</Tijd>
+							
+							  
+								  
+								
+									<Spoor wijziging="false">9</Spoor>
+								 
+														
+						
+						
+					
+					</ReisStop>
+					  
+						
+							
+								<ReisStop>
+									<Naam>Heino</Naam>
+									<Tijd>2013-12-27T19:30:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Raalte</Naam>
+									<Tijd>2013-12-27T19:35:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Nijverdal</Naam>
+									<Tijd>2013-12-27T19:46:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+							<ReisStop>
+								<Naam>Wierden</Naam>
+								<Tijd>2013-12-27T19:54:00+0100</Tijd>
+								
+								  
+									  
+									
+										<Spoor wijziging="false">3</Spoor>
+									 
+								 
+							</ReisStop>
+						
+						
+					
+				</ReisDeel>
+			
+		</ReisMogelijkheid>
+	
+		<ReisMogelijkheid>	
+			
+			<AantalOverstappen>1</AantalOverstappen>
+			<GeplandeReisTijd>1:27</GeplandeReisTijd>
+			
+				<ActueleReisTijd>1:27</ActueleReisTijd>
+			
+			
+			
+			<Optimaal>false</Optimaal>
+			<GeplandeVertrekTijd>2013-12-27T18:35:00+0100</GeplandeVertrekTijd>
+			<ActueleVertrekTijd>2013-12-27T18:35:00+0100</ActueleVertrekTijd>
+			<GeplandeAankomstTijd>2013-12-27T20:02:00+0100</GeplandeAankomstTijd>
+			<ActueleAankomstTijd>2013-12-27T20:02:00+0100</ActueleAankomstTijd>
+ 			
+            
+ 			    <Status>VOLGENS-PLAN</Status>
+ 			
+			
+ 				<ReisDeel reisSoort="TRAIN">
+					
+                        
+					    <Vervoerder>NS</Vervoerder>
+						<VervoerType>Intercity</VervoerType>
+						<RitNummer>1767</RitNummer>
+             			
+                        
+                              <Status>VOLGENS-PLAN</Status>
+                          
+						
+                         
+						
+                        
+						
+					
+					
+					<ReisStop>
+					  
+						
+							<Naam>Utrecht Centraal</Naam>
+							<Tijd>2013-12-27T18:35:00+0100</Tijd>
+							
+							  
+								  
+								
+									<Spoor wijziging="false">11</Spoor>
+								 
+														
+						
+						
+					
+					</ReisStop>
+					  
+						
+							
+								<ReisStop>
+									<Naam>Amersfoort</Naam>
+									<Tijd>2013-12-27T18:53:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+							<ReisStop>
+								<Naam>Apeldoorn</Naam>
+								<Tijd>2013-12-27T19:17:00+0100</Tijd>
+								
+								  
+									  
+									
+										<Spoor wijziging="false">4</Spoor>
+									 
+								 
+							</ReisStop>
+						
+						
+					
+				</ReisDeel>
+			
+ 				<ReisDeel reisSoort="TRAIN">
+					
+                        
+					    <Vervoerder>NS</Vervoerder>
+						<VervoerType>Sprinter</VervoerType>
+						<RitNummer>7067</RitNummer>
+             			
+                        
+                              <Status>VOLGENS-PLAN</Status>
+                          
+						
+                         
+						
+                        
+						
+					
+					
+					<ReisStop>
+					  
+						
+							<Naam>Apeldoorn</Naam>
+							<Tijd>2013-12-27T19:21:00+0100</Tijd>
+							
+							  
+								  
+								
+									<Spoor wijziging="false">1</Spoor>
+								 
+														
+						
+						
+					
+					</ReisStop>
+					  
+						
+							
+								<ReisStop>
+									<Naam>Apeldoorn Osseveld</Naam>
+									<Tijd>2013-12-27T19:24:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Twello</Naam>
+									<Tijd>2013-12-27T19:29:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Deventer</Naam>
+									<Tijd>2013-12-27T19:36:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Deventer Colmschate</Naam>
+									<Tijd>2013-12-27T19:41:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Holten</Naam>
+									<Tijd>2013-12-27T19:50:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Rijssen</Naam>
+									<Tijd>2013-12-27T19:56:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+							<ReisStop>
+								<Naam>Wierden</Naam>
+								<Tijd>2013-12-27T20:02:00+0100</Tijd>
+								
+								  
+									  
+									
+										<Spoor wijziging="false">1</Spoor>
+									 
+								 
+							</ReisStop>
+						
+						
+					
+				</ReisDeel>
+			
+		</ReisMogelijkheid>
+	
+		<ReisMogelijkheid>	
+			
+			<AantalOverstappen>1</AantalOverstappen>
+			<GeplandeReisTijd>1:34</GeplandeReisTijd>
+			
+				<ActueleReisTijd>1:34</ActueleReisTijd>
+			
+			
+			
+			<Optimaal>false</Optimaal>
+			<GeplandeVertrekTijd>2013-12-27T18:50:00+0100</GeplandeVertrekTijd>
+			<ActueleVertrekTijd>2013-12-27T18:50:00+0100</ActueleVertrekTijd>
+			<GeplandeAankomstTijd>2013-12-27T20:24:00+0100</GeplandeAankomstTijd>
+			<ActueleAankomstTijd>2013-12-27T20:24:00+0100</ActueleAankomstTijd>
+ 			
+            
+ 			    <Status>VOLGENS-PLAN</Status>
+ 			
+			
+ 				<ReisDeel reisSoort="TRAIN">
+					
+                        
+					    <Vervoerder>NS</Vervoerder>
+						<VervoerType>Intercity</VervoerType>
+						<RitNummer>567</RitNummer>
+             			
+                        
+                              <Status>VOLGENS-PLAN</Status>
+                          
+						
+                         
+						
+                        
+						
+					
+					
+					<ReisStop>
+					  
+						
+							<Naam>Utrecht Centraal</Naam>
+							<Tijd>2013-12-27T18:50:00+0100</Tijd>
+							
+							  
+								  
+								
+									<Spoor wijziging="false">11</Spoor>
+								 
+														
+						
+						
+					
+					</ReisStop>
+					  
+						
+							
+								<ReisStop>
+									<Naam>Amersfoort</Naam>
+									<Tijd>2013-12-27T19:07:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+							<ReisStop>
+								<Naam>Zwolle</Naam>
+								<Tijd>2013-12-27T19:42:00+0100</Tijd>
+								
+								  
+									  
+									
+										<Spoor wijziging="false">7</Spoor>
+									 
+								 
+							</ReisStop>
+						
+						
+					
+				</ReisDeel>
+			
+ 				<ReisDeel reisSoort="TRAIN">
+					
+                        
+					    <Vervoerder>NS</Vervoerder>
+						<VervoerType>Sprinter</VervoerType>
+						<RitNummer>7967</RitNummer>
+             			
+                        
+                              <Status>VOLGENS-PLAN</Status>
+                          
+						
+                         
+						
+                        
+						
+					
+					
+					<ReisStop>
+					  
+						
+							<Naam>Zwolle</Naam>
+							<Tijd>2013-12-27T19:49:00+0100</Tijd>
+							
+							  
+								  
+								
+									<Spoor wijziging="false">9</Spoor>
+								 
+														
+						
+						
+					
+					</ReisStop>
+					  
+						
+							
+								<ReisStop>
+									<Naam>Heino</Naam>
+									<Tijd>2013-12-27T20:00:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Raalte</Naam>
+									<Tijd>2013-12-27T20:05:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Nijverdal</Naam>
+									<Tijd>2013-12-27T20:16:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+							<ReisStop>
+								<Naam>Wierden</Naam>
+								<Tijd>2013-12-27T20:24:00+0100</Tijd>
+								
+								  
+									  
+									
+										<Spoor wijziging="false">3</Spoor>
+									 
+								 
+							</ReisStop>
+						
+						
+					
+				</ReisDeel>
+			
+		</ReisMogelijkheid>
+	
+		<ReisMogelijkheid>	
+			
+			<AantalOverstappen>2</AantalOverstappen>
+			<GeplandeReisTijd>1:39</GeplandeReisTijd>
+			
+				<ActueleReisTijd>1:39</ActueleReisTijd>
+			
+			
+			
+			<Optimaal>false</Optimaal>
+			<GeplandeVertrekTijd>2013-12-27T19:05:00+0100</GeplandeVertrekTijd>
+			<ActueleVertrekTijd>2013-12-27T19:05:00+0100</ActueleVertrekTijd>
+			<GeplandeAankomstTijd>2013-12-27T20:44:00+0100</GeplandeAankomstTijd>
+			<ActueleAankomstTijd>2013-12-27T20:44:00+0100</ActueleAankomstTijd>
+ 			
+            
+ 			    <Status>VOLGENS-PLAN</Status>
+ 			
+			
+ 				<ReisDeel reisSoort="TRAIN">
+					
+                        
+					    <Vervoerder>NS</Vervoerder>
+						<VervoerType>Intercity</VervoerType>
+						<RitNummer>11767</RitNummer>
+             			
+                        
+                              <Status>VOLGENS-PLAN</Status>
+                          
+						
+                         
+						
+                        
+						
+					
+					
+					<ReisStop>
+					  
+						
+							<Naam>Utrecht Centraal</Naam>
+							<Tijd>2013-12-27T19:05:00+0100</Tijd>
+							
+							  
+								
+									<Spoor wijziging="true">11</Spoor>
+								  
+								 
+														
+						
+						
+					
+					</ReisStop>
+					  
+						
+							
+							<ReisStop>
+								<Naam>Amersfoort</Naam>
+								<Tijd>2013-12-27T19:21:00+0100</Tijd>
+								
+								  
+									  
+									
+										<Spoor wijziging="false">2b</Spoor>
+									 
+								 
+							</ReisStop>
+						
+						
+					
+				</ReisDeel>
+			
+ 				<ReisDeel reisSoort="TRAIN">
+					
+                        
+					    <Vervoerder>NS</Vervoerder>
+						<VervoerType>Intercity</VervoerType>
+						<RitNummer>1669</RitNummer>
+             			
+                        
+                              <Status>VOLGENS-PLAN</Status>
+                          
+						
+                         
+						
+                        
+						
+					
+					
+					<ReisStop>
+					  
+						
+							<Naam>Amersfoort</Naam>
+							<Tijd>2013-12-27T19:23:00+0100</Tijd>
+							
+							  
+								  
+								
+									<Spoor wijziging="false">1</Spoor>
+								 
+														
+						
+						
+					
+					</ReisStop>
+					  
+						
+							
+							<ReisStop>
+								<Naam>Apeldoorn</Naam>
+								<Tijd>2013-12-27T19:47:00+0100</Tijd>
+								
+								  
+									  
+									
+										<Spoor wijziging="false">4</Spoor>
+									 
+								 
+							</ReisStop>
+						
+						
+					
+				</ReisDeel>
+			
+ 				<ReisDeel reisSoort="TRAIN">
+					
+                        
+					    <Vervoerder>NS</Vervoerder>
+						<VervoerType>Sprinter</VervoerType>
+						<RitNummer>7069</RitNummer>
+             			
+                        
+                              <Status>VOLGENS-PLAN</Status>
+                          
+						
+                         
+						
+                        
+						
+					
+					
+					<ReisStop>
+					  
+						
+							<Naam>Apeldoorn</Naam>
+							<Tijd>2013-12-27T19:51:00+0100</Tijd>
+							
+							  
+								  
+								
+									<Spoor wijziging="false">4</Spoor>
+								 
+														
+						
+						
+					
+					</ReisStop>
+					  
+						
+							
+								<ReisStop>
+									<Naam>Apeldoorn Osseveld</Naam>
+									<Tijd>2013-12-27T19:54:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Twello</Naam>
+									<Tijd>2013-12-27T19:59:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Deventer</Naam>
+									<Tijd>2013-12-27T20:06:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Deventer Colmschate</Naam>
+									<Tijd>2013-12-27T20:11:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Holten</Naam>
+									<Tijd>2013-12-27T20:20:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Rijssen</Naam>
+									<Tijd>2013-12-27T20:38:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+							<ReisStop>
+								<Naam>Wierden</Naam>
+								<Tijd>2013-12-27T20:44:00+0100</Tijd>
+								
+								  
+									  
+									
+										<Spoor wijziging="false">1</Spoor>
+									 
+								 
+							</ReisStop>
+						
+						
+					
+				</ReisDeel>
+			
+		</ReisMogelijkheid>
+	
+		<ReisMogelijkheid>	
+			
+			<AantalOverstappen>1</AantalOverstappen>
+			<GeplandeReisTijd>1:34</GeplandeReisTijd>
+			
+				<ActueleReisTijd>1:34</ActueleReisTijd>
+			
+			
+			
+			<Optimaal>false</Optimaal>
+			<GeplandeVertrekTijd>2013-12-27T19:20:00+0100</GeplandeVertrekTijd>
+			<ActueleVertrekTijd>2013-12-27T19:20:00+0100</ActueleVertrekTijd>
+			<GeplandeAankomstTijd>2013-12-27T20:54:00+0100</GeplandeAankomstTijd>
+			<ActueleAankomstTijd>2013-12-27T20:54:00+0100</ActueleAankomstTijd>
+ 			
+            
+ 			    <Status>VOLGENS-PLAN</Status>
+ 			
+			
+ 				<ReisDeel reisSoort="TRAIN">
+					
+                        
+					    <Vervoerder>NS</Vervoerder>
+						<VervoerType>Intercity</VervoerType>
+						<RitNummer>12569</RitNummer>
+             			
+                        
+                              <Status>VOLGENS-PLAN</Status>
+                          
+						
+                         
+						
+                        
+						
+					
+					
+					<ReisStop>
+					  
+						
+							<Naam>Utrecht Centraal</Naam>
+							<Tijd>2013-12-27T19:20:00+0100</Tijd>
+							
+							  
+								  
+								
+									<Spoor wijziging="false">11a</Spoor>
+								 
+														
+						
+						
+					
+					</ReisStop>
+					  
+						
+							
+								<ReisStop>
+									<Naam>Amersfoort</Naam>
+									<Tijd>2013-12-27T19:37:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+							<ReisStop>
+								<Naam>Zwolle</Naam>
+								<Tijd>2013-12-27T20:12:00+0100</Tijd>
+								
+								  
+									  
+									
+										<Spoor wijziging="false">6b</Spoor>
+									 
+								 
+							</ReisStop>
+						
+						
+					
+				</ReisDeel>
+			
+ 				<ReisDeel reisSoort="TRAIN">
+					
+                        
+					    <Vervoerder>NS</Vervoerder>
+						<VervoerType>Sprinter</VervoerType>
+						<RitNummer>7969</RitNummer>
+             			
+                        
+                              <Status>VOLGENS-PLAN</Status>
+                          
+						
+                         
+						
+                        
+						
+					
+					
+					<ReisStop>
+					  
+						
+							<Naam>Zwolle</Naam>
+							<Tijd>2013-12-27T20:19:00+0100</Tijd>
+							
+							  
+								  
+								
+									<Spoor wijziging="false">9</Spoor>
+								 
+														
+						
+						
+					
+					</ReisStop>
+					  
+						
+							
+								<ReisStop>
+									<Naam>Heino</Naam>
+									<Tijd>2013-12-27T20:30:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Raalte</Naam>
+									<Tijd>2013-12-27T20:35:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Nijverdal</Naam>
+									<Tijd>2013-12-27T20:46:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+							<ReisStop>
+								<Naam>Wierden</Naam>
+								<Tijd>2013-12-27T20:54:00+0100</Tijd>
+								
+								  
+									  
+									
+										<Spoor wijziging="false">3</Spoor>
+									 
+								 
+							</ReisStop>
+						
+						
+					
+				</ReisDeel>
+			
+		</ReisMogelijkheid>
+	
+		<ReisMogelijkheid>	
+			
+			<AantalOverstappen>1</AantalOverstappen>
+			<GeplandeReisTijd>1:27</GeplandeReisTijd>
+			
+				<ActueleReisTijd>1:27</ActueleReisTijd>
+			
+			
+			
+			<Optimaal>false</Optimaal>
+			<GeplandeVertrekTijd>2013-12-27T19:35:00+0100</GeplandeVertrekTijd>
+			<ActueleVertrekTijd>2013-12-27T19:35:00+0100</ActueleVertrekTijd>
+			<GeplandeAankomstTijd>2013-12-27T21:02:00+0100</GeplandeAankomstTijd>
+			<ActueleAankomstTijd>2013-12-27T21:02:00+0100</ActueleAankomstTijd>
+ 			
+            
+ 			    <Status>VOLGENS-PLAN</Status>
+ 			
+			
+ 				<ReisDeel reisSoort="TRAIN">
+					
+                        
+					    <Vervoerder>NS</Vervoerder>
+						<VervoerType>Intercity</VervoerType>
+						<RitNummer>1771</RitNummer>
+             			
+                        
+                              <Status>VOLGENS-PLAN</Status>
+                          
+						
+                         
+						
+                        
+						
+					
+					
+					<ReisStop>
+					  
+						
+							<Naam>Utrecht Centraal</Naam>
+							<Tijd>2013-12-27T19:35:00+0100</Tijd>
+							
+							  
+								  
+								
+									<Spoor wijziging="false">11a</Spoor>
+								 
+														
+						
+						
+					
+					</ReisStop>
+					  
+						
+							
+								<ReisStop>
+									<Naam>Amersfoort</Naam>
+									<Tijd>2013-12-27T19:53:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+							<ReisStop>
+								<Naam>Apeldoorn</Naam>
+								<Tijd>2013-12-27T20:17:00+0100</Tijd>
+								
+								  
+									  
+									
+										<Spoor wijziging="false">4</Spoor>
+									 
+								 
+							</ReisStop>
+						
+						
+					
+				</ReisDeel>
+			
+ 				<ReisDeel reisSoort="TRAIN">
+					
+                        
+					    <Vervoerder>NS</Vervoerder>
+						<VervoerType>Sprinter</VervoerType>
+						<RitNummer>7071</RitNummer>
+             			
+                        
+                              <Status>VOLGENS-PLAN</Status>
+                          
+						
+                         
+						
+                        
+						
+					
+					
+					<ReisStop>
+					  
+						
+							<Naam>Apeldoorn</Naam>
+							<Tijd>2013-12-27T20:21:00+0100</Tijd>
+							
+							  
+								  
+								
+									<Spoor wijziging="false">1</Spoor>
+								 
+														
+						
+						
+					
+					</ReisStop>
+					  
+						
+							
+								<ReisStop>
+									<Naam>Apeldoorn Osseveld</Naam>
+									<Tijd>2013-12-27T20:24:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Twello</Naam>
+									<Tijd>2013-12-27T20:29:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Deventer</Naam>
+									<Tijd>2013-12-27T20:36:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Deventer Colmschate</Naam>
+									<Tijd>2013-12-27T20:41:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Holten</Naam>
+									<Tijd>2013-12-27T20:50:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Rijssen</Naam>
+									<Tijd>2013-12-27T20:56:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+							<ReisStop>
+								<Naam>Wierden</Naam>
+								<Tijd>2013-12-27T21:02:00+0100</Tijd>
+								
+								  
+									  
+									
+										<Spoor wijziging="false">1</Spoor>
+									 
+								 
+							</ReisStop>
+						
+						
+					
+				</ReisDeel>
+			
+		</ReisMogelijkheid>
+	
+		<ReisMogelijkheid>	
+			
+			<AantalOverstappen>1</AantalOverstappen>
+			<GeplandeReisTijd>1:34</GeplandeReisTijd>
+			
+				<ActueleReisTijd>1:34</ActueleReisTijd>
+			
+			
+			
+			<Optimaal>false</Optimaal>
+			<GeplandeVertrekTijd>2013-12-27T19:50:00+0100</GeplandeVertrekTijd>
+			<ActueleVertrekTijd>2013-12-27T19:50:00+0100</ActueleVertrekTijd>
+			<GeplandeAankomstTijd>2013-12-27T21:24:00+0100</GeplandeAankomstTijd>
+			<ActueleAankomstTijd>2013-12-27T21:24:00+0100</ActueleAankomstTijd>
+ 			
+            
+ 			    <Status>VOLGENS-PLAN</Status>
+ 			
+			
+ 				<ReisDeel reisSoort="TRAIN">
+					
+                        
+					    <Vervoerder>NS</Vervoerder>
+						<VervoerType>Intercity</VervoerType>
+						<RitNummer>571</RitNummer>
+             			
+                        
+                              <Status>VOLGENS-PLAN</Status>
+                          
+						
+                         
+						
+                        
+						
+					
+					
+					<ReisStop>
+					  
+						
+							<Naam>Utrecht Centraal</Naam>
+							<Tijd>2013-12-27T19:50:00+0100</Tijd>
+							
+							  
+								  
+								
+									<Spoor wijziging="false">11b</Spoor>
+								 
+														
+						
+						
+					
+					</ReisStop>
+					  
+						
+							
+								<ReisStop>
+									<Naam>Amersfoort</Naam>
+									<Tijd>2013-12-27T20:07:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+							<ReisStop>
+								<Naam>Zwolle</Naam>
+								<Tijd>2013-12-27T20:42:00+0100</Tijd>
+								
+								  
+									  
+									
+										<Spoor wijziging="false">7</Spoor>
+									 
+								 
+							</ReisStop>
+						
+						
+					
+				</ReisDeel>
+			
+ 				<ReisDeel reisSoort="TRAIN">
+					
+                        
+					    <Vervoerder>NS</Vervoerder>
+						<VervoerType>Sprinter</VervoerType>
+						<RitNummer>7971</RitNummer>
+             			
+                        
+                              <Status>VOLGENS-PLAN</Status>
+                          
+						
+                         
+						
+                        
+						
+					
+					
+					<ReisStop>
+					  
+						
+							<Naam>Zwolle</Naam>
+							<Tijd>2013-12-27T20:49:00+0100</Tijd>
+							
+							  
+								  
+								
+									<Spoor wijziging="false">9</Spoor>
+								 
+														
+						
+						
+					
+					</ReisStop>
+					  
+						
+							
+								<ReisStop>
+									<Naam>Heino</Naam>
+									<Tijd>2013-12-27T21:00:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Raalte</Naam>
+									<Tijd>2013-12-27T21:05:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+								<ReisStop>
+									<Naam>Nijverdal</Naam>
+									<Tijd>2013-12-27T21:16:00+0100</Tijd>
+																		
+								</ReisStop>
+							
+							<ReisStop>
+								<Naam>Wierden</Naam>
+								<Tijd>2013-12-27T21:24:00+0100</Tijd>
+								
+								  
+									  
+									
+										<Spoor wijziging="false">1</Spoor>
+									 
+								 
+							</ReisStop>
+						
+						
+					
+				</ReisDeel>
+			
+		</ReisMogelijkheid>
+	
+</ReisMogelijkheden>
+			
