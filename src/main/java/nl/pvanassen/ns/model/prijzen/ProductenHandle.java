@@ -15,7 +15,7 @@ public class ProductenHandle implements Handle<Producten> {
         List<Product> producten = new LinkedList<Product>();
         Xml xml = Xml.getXml(stream, "Producten");
         int tariefEenheden = Integer.parseInt(xml.child("Tariefeenheden").content());
-        for (Xml productXml : xml.children("Product ")) {
+        for (Xml productXml : xml.children("Product")) {
             String naam = productXml.string("naam");
             List<Prijs> prijzen = new ArrayList<Prijs>(productXml.children("Prijs").size());
             for (Xml prijsXml : productXml.children("Prijs")) {
