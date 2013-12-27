@@ -1,10 +1,11 @@
 package nl.pvanassen.ns;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import nl.pvanassen.ns.model.prijzen.Producten;
 import nl.pvanassen.ns.model.reisadvies.ReisMogelijkheden;
 import nl.pvanassen.ns.model.stations.Stations;
 import nl.pvanassen.ns.model.storingen.Storingen;
@@ -71,4 +72,41 @@ public class RequestBuilderTest {
         Date now = new Date();
         RequestBuilder.getReisadviesRequestBuilder("Amsterdam", "Utrecht").forArivalTime(now).forDepartureTime(now).build();
     }
+    
+    @Test
+    public void testGetPrijzenStringString() {
+        ApiRequest<Producten> request = RequestBuilder.getPrijzen("Amsterdam", "Dortrecht");
+        assertEquals("ns-api-prijzen-v2", request.getPath());
+        assertEquals("from=Amsterdam&to=Dortrecht&", request.getRequestString());
+        assertEquals(Producten.class, request.getType());
+    }
+
+    @Test
+    public void testGetPrijzenStringStringString() {
+        ApiRequest<Producten> request = RequestBuilder.getPrijzen("Amsterdam", "Dortrecht", "Groningen");
+        assertEquals("ns-api-prijzen-v2", request.getPath());
+        assertEquals("from=Amsterdam&to=Dortrecht&via=Groningen&", request.getRequestString());
+        assertEquals(Producten.class, request.getType());
+    }
+
+    @Test
+    public void testGetPrijzenStringStringDate() {
+        SimpleDateFormat format = new SimpleDateFormat(NsApi.DATETIME_FORMAT);
+        Date now = new Date();
+        ApiRequest<Producten> request = RequestBuilder.getPrijzen("Amsterdam", "Dortrecht", now);
+        assertEquals("ns-api-prijzen-v2", request.getPath());
+        assertEquals("from=Amsterdam&to=Dortrecht&dateTime=" + format.format(now), request.getRequestString());
+        assertEquals(Producten.class, request.getType());
+    }
+
+    @Test
+    public void testGetPrijzenStringStringStringDate() {
+        SimpleDateFormat format = new SimpleDateFormat(NsApi.DATETIME_FORMAT);
+        Date now = new Date();
+        ApiRequest<Producten> request = RequestBuilder.getPrijzen("Amsterdam", "Dortrecht", "Groningen", now);
+        assertEquals("ns-api-prijzen-v2", request.getPath());
+        assertEquals("from=Amsterdam&to=Dortrecht&via=Groningen&dateTime=" + format.format(now), request.getRequestString());
+        assertEquals(Producten.class, request.getType());
+    }
+
 }
