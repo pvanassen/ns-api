@@ -11,99 +11,110 @@ import java.util.List;
  * 
  */
 public class ReisMogelijkheid {
-	private int aantalOverstappen;
-	private int geplandeReisTijdMinuten;
-	private int actueleReisTijdMinuten;
-	private String aankomstVertraging;
-	private boolean optimaal;
-	private Date geplandeVertrekTijd;
-	private Date actueleVertrekTijd;
-	private Date geplandeAankomstTijd;
-	private Date actueleAankomstTijd;
-	private String status;
-	private final List<ReisDeel> reisDelen = new LinkedList<ReisDeel>();
 
-	public int getAantalOverstappen() {
-		return aantalOverstappen;
-	}
+    private int aantalOverstappen;
 
-	public void setAantalOverstappen(int aantalOverstappen) {
-		this.aantalOverstappen = aantalOverstappen;
-	}
+    private int geplandeReisTijdMinuten;
 
-	public int getGeplandeReisTijdMinuten() {
-		return geplandeReisTijdMinuten;
-	}
+    private int actueleReisTijdMinuten;
 
-	public void setGeplandeReisTijdMinuten(int geplandeReisTijdMinuten) {
-		this.geplandeReisTijdMinuten = geplandeReisTijdMinuten;
-	}
+    private String aankomstVertraging;
 
-	public int getActueleReisTijdMinuten() {
-		return actueleReisTijdMinuten;
-	}
+    private boolean optimaal;
 
-	public void setActueleReisTijdMinuten(int actueleReisTijdMinuten) {
-		this.actueleReisTijdMinuten = actueleReisTijdMinuten;
-	}
+    private Date geplandeVertrekTijd;
 
-	public boolean isOptimaal() {
-		return optimaal;
-	}
+    private Date actueleVertrekTijd;
 
-	public void setOptimaal(boolean optimaal) {
-		this.optimaal = optimaal;
-	}
+    private Date geplandeAankomstTijd;
 
-	public Date getGeplandeVertrekTijd() {
-		return geplandeVertrekTijd;
-	}
+    private Date actueleAankomstTijd;
 
-	public void setGeplandeVertrekTijd(Date geplandeVertrekTijd) {
-		this.geplandeVertrekTijd = geplandeVertrekTijd;
-	}
+    private String status;
 
-	public Date getActueleVertrekTijd() {
-		return actueleVertrekTijd;
-	}
+    private final List<ReisDeel> reisDelen = new LinkedList<ReisDeel>();
 
-	public void setActueleVertrekTijd(Date actueleVertrekTijd) {
-		this.actueleVertrekTijd = actueleVertrekTijd;
-	}
+    public int getAantalOverstappen() {
+        return aantalOverstappen;
+    }
 
-	public Date getGeplandeAankomstTijd() {
-		return geplandeAankomstTijd;
-	}
+    public void setAantalOverstappen(int aantalOverstappen) {
+        this.aantalOverstappen = aantalOverstappen;
+    }
 
-	public void setGeplandeAankomstTijd(Date geplandeAankomstTijd) {
-		this.geplandeAankomstTijd = geplandeAankomstTijd;
-	}
+    public int getGeplandeReisTijdMinuten() {
+        return geplandeReisTijdMinuten;
+    }
 
-	public Date getActueleAankomstTijd() {
-		return actueleAankomstTijd;
-	}
+    public void setGeplandeReisTijdMinuten(int geplandeReisTijdMinuten) {
+        this.geplandeReisTijdMinuten = geplandeReisTijdMinuten;
+    }
 
-	public void setActueleAankomstTijd(Date actueleAankomstTijd) {
-		this.actueleAankomstTijd = actueleAankomstTijd;
-	}
+    public int getActueleReisTijdMinuten() {
+        return actueleReisTijdMinuten;
+    }
 
-	public String getStatus() {
-		return status;
-	}
+    public void setActueleReisTijdMinuten(int actueleReisTijdMinuten) {
+        this.actueleReisTijdMinuten = actueleReisTijdMinuten;
+    }
 
-	public void setStatus(String status) {
-		this.status = status;
-	}
+    public boolean isOptimaal() {
+        return optimaal;
+    }
 
-	public List<ReisDeel> getReisDelen() {
-		return reisDelen;
-	}
+    public void setOptimaal(boolean optimaal) {
+        this.optimaal = optimaal;
+    }
 
-	public String getAankomstVertraging() {
-		return aankomstVertraging;
-	}
+    public Date getGeplandeVertrekTijd() {
+        return geplandeVertrekTijd;
+    }
 
-	public void setAankomstVertraging(String aankomstVertraging) {
-		this.aankomstVertraging = aankomstVertraging;
-	}
+    public void setGeplandeVertrekTijd(Date geplandeVertrekTijd) {
+        this.geplandeVertrekTijd = geplandeVertrekTijd;
+    }
+
+    public Date getActueleVertrekTijd() {
+        return actueleVertrekTijd;
+    }
+
+    public void setActueleVertrekTijd(Date actueleVertrekTijd) {
+        this.actueleVertrekTijd = actueleVertrekTijd;
+    }
+
+    public Date getGeplandeAankomstTijd() {
+        return geplandeAankomstTijd;
+    }
+
+    public void setGeplandeAankomstTijd(Date geplandeAankomstTijd) {
+        this.geplandeAankomstTijd = geplandeAankomstTijd;
+    }
+
+    public Date getActueleAankomstTijd() {
+        return actueleAankomstTijd;
+    }
+
+    public void setActueleAankomstTijd(Date actueleAankomstTijd) {
+        this.actueleAankomstTijd = actueleAankomstTijd;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public List<ReisDeel> getReisDelen() {
+        return reisDelen;
+    }
+
+    public String getAankomstVertraging() {
+        return aankomstVertraging;
+    }
+
+    public void setAankomstVertraging(String aankomstVertraging) {
+        this.aankomstVertraging = aankomstVertraging;
+    }
 }

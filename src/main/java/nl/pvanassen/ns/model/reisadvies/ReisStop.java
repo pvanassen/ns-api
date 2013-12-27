@@ -9,41 +9,45 @@ import java.util.Date;
  * 
  */
 public class ReisStop {
-	private String naam;
-	private Date tijd;
-	private int spoor;
-	private boolean gewijzigdVertrekspoor;
 
-	public String getNaam() {
-		return naam;
-	}
+    private String naam;
 
-	public void setNaam(String naam) {
-		this.naam = naam;
-	}
+    private Date tijd;
 
-	public Date getTijd() {
-		return tijd;
-	}
+    private int spoor;
 
-	public void setTijd(Date tijd) {
-		this.tijd = tijd;
-	}
+    private boolean gewijzigdVertrekspoor;
 
-	public int getSpoor() {
-		return spoor;
-	}
+    public String getNaam() {
+        return naam;
+    }
 
-	public void setSpoor(int spoor) {
-		this.spoor = spoor;
-	}
+    public void setNaam(String naam) {
+        this.naam = naam;
+    }
 
-	public boolean isGewijzigdVertrekspoor() {
-		return gewijzigdVertrekspoor;
-	}
+    public Date getTijd() {
+        return tijd;
+    }
 
-	public void setGewijzigdVertrekspoor(boolean gewijzigdVertrekspoor) {
-		this.gewijzigdVertrekspoor = gewijzigdVertrekspoor;
-	}
+    public void setTijd(Date tijd) {
+        this.tijd = tijd;
+    }
+
+    public int getSpoor() {
+        return spoor;
+    }
+
+    public void setSpoor(int spoor) {
+        this.spoor = spoor;
+    }
+
+    public boolean isGewijzigdVertrekspoor() {
+        return gewijzigdVertrekspoor;
+    }
+
+    public void setGewijzigdVertrekspoor(boolean gewijzigdVertrekspoor) {
+        this.gewijzigdVertrekspoor = gewijzigdVertrekspoor;
+    }
 
 }

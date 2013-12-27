@@ -10,18 +10,20 @@ import java.util.List;
  * 
  */
 public class ReisMogelijkheden {
-	private Melding melding;
-	private final List<ReisMogelijkheid> reisMogelijkheid = new LinkedList<ReisMogelijkheid>();
 
-	public List<ReisMogelijkheid> getReisMogelijkheid() {
-		return reisMogelijkheid;
-	}
+    private Melding melding;
 
-	public Melding getMelding() {
-		return melding;
-	}
+    private final List<ReisMogelijkheid> reisMogelijkheid = new LinkedList<ReisMogelijkheid>();
 
-	public void setMelding(Melding melding) {
-		this.melding = melding;
-	}
+    public List<ReisMogelijkheid> getReisMogelijkheid() {
+        return reisMogelijkheid;
+    }
+
+    public Melding getMelding() {
+        return melding;
+    }
+
+    public void setMelding(Melding melding) {
+        this.melding = melding;
+    }
 }

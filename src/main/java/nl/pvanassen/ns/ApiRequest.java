@@ -2,9 +2,9 @@ package nl.pvanassen.ns;
 
 public interface ApiRequest<T> {
 
-	String getPath();
+    String getPath();
 
-	String getRequestString();
+    String getRequestString();
 
-	Class<T> getType();
+    Class<T> getType();
 }

@@ -10,57 +10,64 @@ import java.util.List;
  * 
  */
 public class Station {
-	private final String code;
-	private final String type;
-	private final Namen namen;
-	private final String land;
-	private final int uicCode;
-	private final double lat;
-	private final double lon;
-	private final List<String> synoniemen = new LinkedList<String>();
 
-	public Station(String code, String type, Namen namen, String land,
-			int uicCode, double lat, double lon) {
-		super();
-		this.code = code;
-		this.type = type;
-		this.namen = namen;
-		this.land = land;
-		this.uicCode = uicCode;
-		this.lat = lat;
-		this.lon = lon;
-	}
+    private final String code;
 
-	public String getCode() {
-		return code;
-	}
+    private final String type;
 
-	public String getType() {
-		return type;
-	}
+    private final Namen namen;
 
-	public Namen getNamen() {
-		return namen;
-	}
+    private final String land;
 
-	public String getLand() {
-		return land;
-	}
+    private final int uicCode;
 
-	public int getUicCode() {
-		return uicCode;
-	}
+    private final double lat;
 
-	public double getLat() {
-		return lat;
-	}
+    private final double lon;
 
-	public double getLon() {
-		return lon;
-	}
+    private final List<String> synoniemen = new LinkedList<String>();
 
-	public List<String> getSynoniemen() {
-		return synoniemen;
-	}
+    public Station(String code, String type, Namen namen, String land, int uicCode, double lat, double lon) {
+        super();
+        this.code = code;
+        this.type = type;
+        this.namen = namen;
+        this.land = land;
+        this.uicCode = uicCode;
+        this.lat = lat;
+        this.lon = lon;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public Namen getNamen() {
+        return namen;
+    }
+
+    public String getLand() {
+        return land;
+    }
+
+    public int getUicCode() {
+        return uicCode;
+    }
+
+    public double getLat() {
+        return lat;
+    }
+
+    public double getLon() {
+        return lon;
+    }
+
+    public List<String> getSynoniemen() {
+        return synoniemen;
+    }
 
 }

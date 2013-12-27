@@ -9,69 +9,75 @@ import java.util.Date;
  * 
  */
 public class Storing {
-	private String id;
-	private String traject;
-	private String periode;
-	private String reden;
-	private String advies;
-	private String bericht;
 
-	public String getId() {
-		return id;
-	}
+    private String id;
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    private String traject;
 
-	public String getTraject() {
-		return traject;
-	}
+    private String periode;
 
-	public void setTraject(String traject) {
-		this.traject = traject;
-	}
+    private String reden;
 
-	public String getPeriode() {
-		return periode;
-	}
+    private String advies;
 
-	public void setPeriode(String periode) {
-		this.periode = periode;
-	}
+    private String bericht;
 
-	public String getReden() {
-		return reden;
-	}
+    public String getId() {
+        return id;
+    }
 
-	public void setReden(String reden) {
-		this.reden = reden;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public String getAdvies() {
-		return advies;
-	}
+    public String getTraject() {
+        return traject;
+    }
 
-	public void setAdvies(String advies) {
-		this.advies = advies;
-	}
+    public void setTraject(String traject) {
+        this.traject = traject;
+    }
 
-	public String getBericht() {
-		return bericht;
-	}
+    public String getPeriode() {
+        return periode;
+    }
 
-	public void setBericht(String bericht) {
-		this.bericht = bericht;
-	}
+    public void setPeriode(String periode) {
+        this.periode = periode;
+    }
 
-	public Date getDatum() {
-		return datum;
-	}
+    public String getReden() {
+        return reden;
+    }
 
-	public void setDatum(Date datum) {
-		this.datum = datum;
-	}
+    public void setReden(String reden) {
+        this.reden = reden;
+    }
 
-	private Date datum;
+    public String getAdvies() {
+        return advies;
+    }
+
+    public void setAdvies(String advies) {
+        this.advies = advies;
+    }
+
+    public String getBericht() {
+        return bericht;
+    }
+
+    public void setBericht(String bericht) {
+        this.bericht = bericht;
+    }
+
+    public Date getDatum() {
+        return datum;
+    }
+
+    public void setDatum(Date datum) {
+        this.datum = datum;
+    }
+
+    private Date datum;
 
 }

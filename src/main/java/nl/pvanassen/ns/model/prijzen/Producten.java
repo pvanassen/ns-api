@@ -10,19 +10,21 @@ import java.util.List;
  * 
  */
 public class Producten {
-	private int tariefEenheden;
-	private final List<Product> producten = new LinkedList<Product>();
 
-	public int getTariefEenheden() {
-		return tariefEenheden;
-	}
+    private int tariefEenheden;
 
-	public void setTariefEenheden(int tariefEenheden) {
-		this.tariefEenheden = tariefEenheden;
-	}
+    private final List<Product> producten = new LinkedList<Product>();
 
-	public List<Product> getProducten() {
-		return producten;
-	}
+    public int getTariefEenheden() {
+        return tariefEenheden;
+    }
+
+    public void setTariefEenheden(int tariefEenheden) {
+        this.tariefEenheden = tariefEenheden;
+    }
+
+    public List<Product> getProducten() {
+        return producten;
+    }
 
 }

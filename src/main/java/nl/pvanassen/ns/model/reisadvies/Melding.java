@@ -7,31 +7,34 @@ package nl.pvanassen.ns.model.reisadvies;
  * 
  */
 public class Melding {
-	private String id;
-	private boolean ernstig;
-	private String text;
 
-	public String getId() {
-		return id;
-	}
+    private String id;
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    private boolean ernstig;
 
-	public boolean isErnstig() {
-		return ernstig;
-	}
+    private String text;
 
-	public void setErnstig(boolean ernstig) {
-		this.ernstig = ernstig;
-	}
+    public String getId() {
+        return id;
+    }
 
-	public String getText() {
-		return text;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public void setText(String text) {
-		this.text = text;
-	}
+    public boolean isErnstig() {
+        return ernstig;
+    }
+
+    public void setErnstig(boolean ernstig) {
+        this.ernstig = ernstig;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
 }
