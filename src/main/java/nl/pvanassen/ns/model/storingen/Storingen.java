@@ -1,6 +1,6 @@
 package nl.pvanassen.ns.model.storingen;
 
-import java.util.LinkedList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -11,9 +11,14 @@ import java.util.List;
  */
 public class Storingen {
 
-    private final List<Storing> ongeplandeStoringen = new LinkedList<Storing>();
+    private final List<Storing> ongeplandeStoringen;
 
-    private final List<Storing> geplandeStoringen = new LinkedList<Storing>();
+    private final List<Storing> geplandeStoringen;
+
+    Storingen(List<Storing> ongeplandeStoringen, List<Storing> geplandeStoringen) {
+        this.ongeplandeStoringen = Collections.unmodifiableList(ongeplandeStoringen);
+        this.geplandeStoringen = Collections.unmodifiableList(geplandeStoringen);
+    }
 
     public List<Storing> getOngeplandeStoringen() {
         return ongeplandeStoringen;
