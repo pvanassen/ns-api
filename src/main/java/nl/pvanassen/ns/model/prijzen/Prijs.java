@@ -33,6 +33,9 @@ public class Prijs {
         return klasse;
     }
 
+    /**
+     * @return Price in eurocent amounts
+     */
     public int getPrijs() {
         return prijs;
     }
