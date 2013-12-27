@@ -1,7 +1,10 @@
 package nl.pvanassen.ns.model.prijzen;
 
-import java.util.LinkedList;
 import java.util.List;
+
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
  * http://www.ns.nl/api/api#api-documentatie-prijzen Producten element
@@ -11,20 +14,44 @@ import java.util.List;
  */
 public class Producten {
 
-    private int tariefEenheden;
+    private final int tariefEenheden;
 
-    private final List<Product> producten = new LinkedList<Product>();
+    private final List<Product> producten;
+
+    Producten(int tariefEenheden, List<Product> producten) {
+        super();
+        this.tariefEenheden = tariefEenheden;
+        this.producten = producten;
+    }
 
     public int getTariefEenheden() {
         return tariefEenheden;
     }
 
-    public void setTariefEenheden(int tariefEenheden) {
-        this.tariefEenheden = tariefEenheden;
-    }
-
     public List<Product> getProducten() {
         return producten;
     }
+    /**
+     * @see java.lang.Object#hashCode()
+     */
+    @Override
+    public int hashCode() {
+        return HashCodeBuilder.reflectionHashCode(this);
+    }
 
+    /**
+     * @see java.lang.Object#equals(java.lang.Object)
+     */
+    @Override
+    public boolean equals(Object obj) {
+        return EqualsBuilder.reflectionEquals(this, obj);
+    }
+
+    /**
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this);
+    }
 }
