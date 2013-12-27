@@ -44,8 +44,8 @@ public class ReisadviesHandle implements Handle<ReisMogelijkheden> {
                 Date actueleAankomstTijd = format.parse(reisMovelijkheidXml.child("ActueleAankomstTijd").content());
                 String aankomstVertraging = reisMovelijkheidXml.child("AankomstVertraging").content();
                 String status =  reisMovelijkheidXml.child("Status").content();
-                List<ReisDeel> reisDelen = new ArrayList<ReisDeel>(xml.children("ReisDeel").size());
-                for (Xml reisDeelXml : xml.children("ReisDeel")) {
+                List<ReisDeel> reisDelen = new ArrayList<ReisDeel>(reisMovelijkheidXml.children("ReisDeel").size());
+                for (Xml reisDeelXml : reisMovelijkheidXml.children("ReisDeel")) {
                     String reisSoort = reisDeelXml.string("reisSoort");
                     String vervoerder = reisDeelXml.child("Vervoerder").content();
                     String vervoerType = reisDeelXml.child("VervoerType").content();
@@ -53,16 +53,16 @@ public class ReisadviesHandle implements Handle<ReisMogelijkheden> {
                     String statusReisdeel = reisDeelXml.child("Status").content();
                     String geplandeStoringId = reisDeelXml.child("GeplandeStoringId").content();
                     String ongeplandeStoringId = reisDeelXml.child("OngeplandeStoringId").content();
-                    List<ReisStop> reisStops = new ArrayList<ReisStop>(xml.children("ReisStop").size());
-                    for (Xml reisStopXml : xml.children("ReisStop")) {
+                    List<ReisStop> reisStops = new ArrayList<ReisStop>(reisDeelXml.children("ReisStop").size());
+                    for (Xml reisStopXml : reisDeelXml.children("ReisStop")) {
                         String naam = reisStopXml.child("Naam").content();
                         Date tijd = format.parse(reisStopXml.child("Tijd").content());
-                        int spoor = Integer.parseInt(reisStopXml.child("Spoor").content());
+                        String spoor = reisStopXml.child("Spoor").content();
                         boolean gewijzigdVertrekspoor = Boolean.parseBoolean(reisStopXml.child("Spoor").string("wijziging"));
                         reisStops.add(new ReisStop(naam, tijd, spoor, gewijzigdVertrekspoor));
                     }
-                    List<String> reisDetails = new ArrayList<String>(xml.child("Reisdetails").children("Reisdetail").size());
-                    for (Xml reisDetailXml : xml.child("Reisdetails").children("Reisdetail")) {
+                    List<String> reisDetails = new ArrayList<String>(reisDeelXml.child("Reisdetails").children("Reisdetail").size());
+                    for (Xml reisDetailXml : reisDeelXml.child("Reisdetails").children("Reisdetail")) {
                         reisDetails.add(reisDetailXml.content());
                     }
                     reisDelen.add(new ReisDeel(reisSoort, vervoerder, vervoerType, ritNummer, statusReisdeel, reisStops, ongeplandeStoringId, geplandeStoringId, reisDetails));

@@ -18,11 +18,11 @@ public class ReisStop {
 
     private final Date tijd;
 
-    private final int spoor;
+    private final String spoor;
 
     private final boolean gewijzigdVertrekspoor;
 
-    ReisStop(String naam, Date tijd, int spoor, boolean gewijzigdVertrekspoor) {
+    ReisStop(String naam, Date tijd, String spoor, boolean gewijzigdVertrekspoor) {
         super();
         this.naam = naam;
         this.tijd = tijd;
@@ -38,7 +38,7 @@ public class ReisStop {
         return tijd;
     }
 
-    public int getSpoor() {
+    public String getSpoor() {
         return spoor;
     }
 
