@@ -3,6 +3,10 @@ package nl.pvanassen.ns.model.vertrektijden;
 import java.util.Collections;
 import java.util.List;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 /**
  * http://www.ns.nl/api/api#api-documentatie-actuele-vertrektijden
  * 
@@ -26,10 +30,7 @@ public class ActueleVertrekTijden {
      */
     @Override
     public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + (vertrekkendeTreinen == null ? 0 : vertrekkendeTreinen.hashCode());
-        return result;
+        return HashCodeBuilder.reflectionHashCode(this);
     }
 
     /**
@@ -37,25 +38,7 @@ public class ActueleVertrekTijden {
      */
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (!(obj instanceof ActueleVertrekTijden)) {
-            return false;
-        }
-        ActueleVertrekTijden other = (ActueleVertrekTijden) obj;
-        if (vertrekkendeTreinen == null) {
-            if (other.vertrekkendeTreinen != null) {
-                return false;
-            }
-        }
-        else if (!vertrekkendeTreinen.equals(other.vertrekkendeTreinen)) {
-            return false;
-        }
-        return true;
+        return EqualsBuilder.reflectionEquals(this, obj);
     }
 
     /**
@@ -63,7 +46,7 @@ public class ActueleVertrekTijden {
      */
     @Override
     public String toString() {
-        return "ActueleVertrekTijden [vertrekkendeTreinen=" + vertrekkendeTreinen + "]";
+        return ToStringBuilder.reflectionToString(this);
     }
 
 }
