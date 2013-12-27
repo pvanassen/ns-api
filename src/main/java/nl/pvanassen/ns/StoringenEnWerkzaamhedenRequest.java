@@ -33,7 +33,7 @@ class StoringenEnWerkzaamhedenRequest extends ApiRequest<Storingen> {
     
     @Override
     String getPath() {
-        return "ns-api-stations-v2";
+        return "ns-api-storingen";
     }
 
     @Override
