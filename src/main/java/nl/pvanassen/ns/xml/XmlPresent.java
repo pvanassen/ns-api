@@ -98,7 +98,7 @@ public class XmlPresent extends Xml {
     public Xml child(String name) {
         List<Xml> children = children(name);
         if (children.size() != 1) {
-            logger.error("Could not find individual child node: " + name);
+            logger.info("Could not find individual child node: " + name);
             return new XmlAbsent(name);
         }
         return children.get(0);
