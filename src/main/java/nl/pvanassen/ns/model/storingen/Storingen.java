@@ -10,14 +10,16 @@ import java.util.List;
  * 
  */
 public class Storingen {
-	private final List<Storing> ongeplandeStoringen = new LinkedList<Storing>();
-	private final List<Storing> geplandeStoringen = new LinkedList<Storing>();
 
-	public List<Storing> getOngeplandeStoringen() {
-		return ongeplandeStoringen;
-	}
+    private final List<Storing> ongeplandeStoringen = new LinkedList<Storing>();
 
-	public List<Storing> getGeplandeStoringen() {
-		return geplandeStoringen;
-	}
+    private final List<Storing> geplandeStoringen = new LinkedList<Storing>();
+
+    public List<Storing> getOngeplandeStoringen() {
+        return ongeplandeStoringen;
+    }
+
+    public List<Storing> getGeplandeStoringen() {
+        return geplandeStoringen;
+    }
 }

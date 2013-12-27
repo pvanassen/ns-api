@@ -7,38 +7,41 @@ package nl.pvanassen.ns.model.prijzen;
  * 
  */
 public class Prijs {
-	private String korting;
-	private int klasse;
-	private int prijs;
 
-	public String getKorting() {
-		return korting;
-	}
+    private String korting;
 
-	public void setKorting(String korting) {
-		this.korting = korting;
-	}
+    private int klasse;
 
-	public int getKlasse() {
-		return klasse;
-	}
+    private int prijs;
 
-	public void setKlasse(int klasse) {
-		this.klasse = klasse;
-	}
+    public String getKorting() {
+        return korting;
+    }
 
-	/**
-	 * @return Prijs in eurocenten
-	 */
-	public int getPrijs() {
-		return prijs;
-	}
+    public void setKorting(String korting) {
+        this.korting = korting;
+    }
 
-	/**
-	 * @param prijs
-	 *            Prijs in eurocenten
-	 */
-	public void setPrijs(int prijs) {
-		this.prijs = prijs;
-	}
+    public int getKlasse() {
+        return klasse;
+    }
+
+    public void setKlasse(int klasse) {
+        this.klasse = klasse;
+    }
+
+    /**
+     * @return Prijs in eurocenten
+     */
+    public int getPrijs() {
+        return prijs;
+    }
+
+    /**
+     * @param prijs
+     *            Prijs in eurocenten
+     */
+    public void setPrijs(int prijs) {
+        this.prijs = prijs;
+    }
 }

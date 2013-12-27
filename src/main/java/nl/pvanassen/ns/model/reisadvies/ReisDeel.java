@@ -10,78 +10,87 @@ import java.util.List;
  * 
  */
 public class ReisDeel {
-	private String reisSoort;
-	private String vervoerder;
-	private String vervoerType;
-	private int ritNummer;
-	private String status;
-	private final List<ReisStop> reisStops = new LinkedList<ReisStop>();
-	private String ongeplandeStoringId;
-	private String geplandeStoringId;
-	private final List<String> reisDetails = new LinkedList<String>();
 
-	public String getReisSoort() {
-		return reisSoort;
-	}
+    private String reisSoort;
 
-	public String getOngeplandeStoringId() {
-		return ongeplandeStoringId;
-	}
+    private String vervoerder;
 
-	public void setOngeplandeStoringId(String ongeplandeStoringId) {
-		this.ongeplandeStoringId = ongeplandeStoringId;
-	}
+    private String vervoerType;
 
-	public String getGeplandeStoringId() {
-		return geplandeStoringId;
-	}
+    private int ritNummer;
 
-	public void setGeplandeStoringId(String geplandeStoringId) {
-		this.geplandeStoringId = geplandeStoringId;
-	}
+    private String status;
 
-	public void setReisSoort(String reisSoort) {
-		this.reisSoort = reisSoort;
-	}
+    private final List<ReisStop> reisStops = new LinkedList<ReisStop>();
 
-	public String getVervoerder() {
-		return vervoerder;
-	}
+    private String ongeplandeStoringId;
 
-	public void setVervoerder(String vervoerder) {
-		this.vervoerder = vervoerder;
-	}
+    private String geplandeStoringId;
 
-	public String getVervoerType() {
-		return vervoerType;
-	}
+    private final List<String> reisDetails = new LinkedList<String>();
 
-	public void setVervoerType(String vervoerType) {
-		this.vervoerType = vervoerType;
-	}
+    public String getReisSoort() {
+        return reisSoort;
+    }
 
-	public int getRitNummer() {
-		return ritNummer;
-	}
+    public String getOngeplandeStoringId() {
+        return ongeplandeStoringId;
+    }
 
-	public void setRitNummer(int ritNummer) {
-		this.ritNummer = ritNummer;
-	}
+    public void setOngeplandeStoringId(String ongeplandeStoringId) {
+        this.ongeplandeStoringId = ongeplandeStoringId;
+    }
 
-	public String getStatus() {
-		return status;
-	}
+    public String getGeplandeStoringId() {
+        return geplandeStoringId;
+    }
 
-	public void setStatus(String status) {
-		this.status = status;
-	}
+    public void setGeplandeStoringId(String geplandeStoringId) {
+        this.geplandeStoringId = geplandeStoringId;
+    }
 
-	public List<ReisStop> getReisStops() {
-		return reisStops;
-	}
+    public void setReisSoort(String reisSoort) {
+        this.reisSoort = reisSoort;
+    }
 
-	public List<String> getReisDetails() {
-		return reisDetails;
-	}
+    public String getVervoerder() {
+        return vervoerder;
+    }
+
+    public void setVervoerder(String vervoerder) {
+        this.vervoerder = vervoerder;
+    }
+
+    public String getVervoerType() {
+        return vervoerType;
+    }
+
+    public void setVervoerType(String vervoerType) {
+        this.vervoerType = vervoerType;
+    }
+
+    public int getRitNummer() {
+        return ritNummer;
+    }
+
+    public void setRitNummer(int ritNummer) {
+        this.ritNummer = ritNummer;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public List<ReisStop> getReisStops() {
+        return reisStops;
+    }
+
+    public List<String> getReisDetails() {
+        return reisDetails;
+    }
 
 }
