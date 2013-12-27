@@ -17,7 +17,7 @@ NsApi nsApi = new NsApi(username, password);
 Next step is to create a request, eg a 'actuele vertrektijden' request to get the current departures: 
 
 ```Java
-ActueleVertrekTijdenRequest request = new ActueleVertrekTijdenRequest(stationName);
+ApiRequest<ActueleVertrekTijden> request = RequestBuilder.getActueleVertrektijden(stationName)
 ```
 
 To do the actual request, you call getApiResponse with your request: 
