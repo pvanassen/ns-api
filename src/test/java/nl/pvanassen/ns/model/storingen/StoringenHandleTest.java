@@ -11,7 +11,7 @@ import org.junit.Test;
 public class StoringenHandleTest {
 
     @Test
-    public void testStoringen() {
+    public void testGetModel() {
         StoringenHandle handle = new StoringenHandle();
         Storingen storingen = handle.getModel(getClass().getResourceAsStream("/storingen.xml"));
         assertEquals(2, storingen.getOngeplandeStoringen().size());
