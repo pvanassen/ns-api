@@ -4,10 +4,10 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
-import nl.pvanassen.ns.handle.ActueleVertrekTijdenHandle;
 import nl.pvanassen.ns.handle.Handle;
 import nl.pvanassen.ns.http.HttpConnection;
 import nl.pvanassen.ns.model.vertrektijden.ActueleVertrekTijden;
+import nl.pvanassen.ns.model.vertrektijden.ActueleVertrekTijdenHandle;
 
 import org.apache.commons.io.IOUtils;
 

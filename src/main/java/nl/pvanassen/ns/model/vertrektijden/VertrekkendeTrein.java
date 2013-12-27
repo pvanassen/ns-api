@@ -56,7 +56,7 @@ public class VertrekkendeTrein {
      * @param reisTip
      * @param opmerkingen
      */
-    public VertrekkendeTrein(int ritNummer, Date vertrekTijd, String vertrekVertraging, int vertrekVertragingMinuten,
+    VertrekkendeTrein(int ritNummer, Date vertrekTijd, String vertrekVertraging, int vertrekVertragingMinuten,
             String vertrekVertragingTekst, String eindBestemming, String treinSoort, String routeTekst,
             String vervoerder, String vertrekSpoor, boolean gewijzigdVertrekspoor, String reisTip,
             List<String> opmerkingen) {

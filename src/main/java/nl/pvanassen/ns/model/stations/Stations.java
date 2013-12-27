@@ -12,7 +12,7 @@ public class Stations {
 
     private final List<Station> stations;
 
-    public Stations(List<Station> stations) {
+    Stations(List<Station> stations) {
         this.stations = stations;
     }
 

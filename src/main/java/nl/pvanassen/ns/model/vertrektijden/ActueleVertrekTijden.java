@@ -13,7 +13,7 @@ public class ActueleVertrekTijden {
 
     private final List<VertrekkendeTrein> vertrekkendeTreinen;
 
-    public ActueleVertrekTijden(List<VertrekkendeTrein> vertrekkendeTreinen) {
+    ActueleVertrekTijden(List<VertrekkendeTrein> vertrekkendeTreinen) {
         this.vertrekkendeTreinen = Collections.unmodifiableList(vertrekkendeTreinen);
     }
 

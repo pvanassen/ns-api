@@ -1,4 +1,4 @@
-package nl.pvanassen.ns.handle;
+package nl.pvanassen.ns.model.vertrektijden;
 
 import java.io.InputStream;
 import java.text.ParseException;
@@ -8,8 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import nl.pvanassen.ns.error.NsApiException;
-import nl.pvanassen.ns.model.vertrektijden.ActueleVertrekTijden;
-import nl.pvanassen.ns.model.vertrektijden.VertrekkendeTrein;
+import nl.pvanassen.ns.handle.Handle;
 import nl.pvanassen.ns.xml.Xml;
 
 import org.slf4j.Logger;

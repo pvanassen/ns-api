@@ -1,6 +1,7 @@
 package nl.pvanassen.ns.handle;
 
 import nl.pvanassen.ns.model.stations.Stations;
+import nl.pvanassen.ns.model.stations.StationsHandle;
 
 import org.junit.Assert;
 import org.junit.Test;

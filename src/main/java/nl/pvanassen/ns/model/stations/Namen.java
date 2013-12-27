@@ -14,7 +14,7 @@ public class Namen {
 
     private final String lang;
 
-    public Namen(String kort, String middel, String lang) {
+    Namen(String kort, String middel, String lang) {
         super();
         this.kort = kort;
         this.middel = middel;
