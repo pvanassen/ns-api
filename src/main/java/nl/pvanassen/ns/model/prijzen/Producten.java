@@ -31,6 +31,7 @@ public class Producten {
     public List<Product> getProducten() {
         return producten;
     }
+
     /**
      * @see java.lang.Object#hashCode()
      */

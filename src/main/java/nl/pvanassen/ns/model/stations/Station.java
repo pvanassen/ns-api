@@ -31,7 +31,8 @@ public class Station {
 
     private final List<String> synoniemen;
 
-    Station(String code, String type, Namen namen, String land, int uicCode, double lat, double lon, List<String> synoniemen) {
+    Station(String code, String type, Namen namen, String land, int uicCode, double lat, double lon,
+            List<String> synoniemen) {
         super();
         this.code = code;
         this.type = type;
@@ -74,7 +75,6 @@ public class Station {
     public List<String> getSynoniemen() {
         return synoniemen;
     }
-
 
     /**
      * @see java.lang.Object#hashCode()

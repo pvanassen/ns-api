@@ -17,7 +17,6 @@ public class Melding {
     private final boolean ernstig;
 
     private final String text;
-    
 
     Melding(String id, boolean ernstig, String text) {
         super();

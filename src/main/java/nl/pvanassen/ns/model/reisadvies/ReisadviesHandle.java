@@ -24,7 +24,8 @@ public class ReisadviesHandle implements Handle<ReisMogelijkheden> {
         SimpleDateFormat format = new SimpleDateFormat(NsApi.DATETIME_FORMAT);
         try {
             Xml xml = Xml.getXml(stream, "ReisMogelijkheden");
-            List<ReisMogelijkheid> reisMogelijkheden = new ArrayList<ReisMogelijkheid>(xml.children("ReisMogelijkheid").size());
+            List<ReisMogelijkheid> reisMogelijkheden = new ArrayList<ReisMogelijkheid>(xml.children("ReisMogelijkheid")
+                    .size());
             for (Xml reisMovelijkheidXml : xml.children("ReisMogelijkheid")) {
                 Melding melding = null;
                 if (reisMovelijkheidXml.isPresent("Melding")) {
@@ -35,15 +36,17 @@ public class ReisadviesHandle implements Handle<ReisMogelijkheden> {
                     melding = new Melding(id, ernstig, text);
                 }
                 int aantalOverstappen = Integer.parseInt(reisMovelijkheidXml.child("AantalOverstappen").content());
-                int geplandeReisTijdMinuten = getReistijdInMinuten(reisMovelijkheidXml.child("GeplandeReisTijd").content());
-                int actueleReisTijdMinuten = getReistijdInMinuten(reisMovelijkheidXml.child("ActueleReisTijd").content());
+                int geplandeReisTijdMinuten = getReistijdInMinuten(reisMovelijkheidXml.child("GeplandeReisTijd")
+                        .content());
+                int actueleReisTijdMinuten = getReistijdInMinuten(reisMovelijkheidXml.child("ActueleReisTijd")
+                        .content());
                 boolean optimaal = Boolean.parseBoolean(reisMovelijkheidXml.child("Optimaal").content());
                 Date geplandeVertrekTijd = format.parse(reisMovelijkheidXml.child("GeplandeVertrekTijd").content());
                 Date actueleVertrekTijd = format.parse(reisMovelijkheidXml.child("ActueleVertrekTijd").content());
                 Date geplandeAankomstTijd = format.parse(reisMovelijkheidXml.child("GeplandeAankomstTijd").content());
                 Date actueleAankomstTijd = format.parse(reisMovelijkheidXml.child("ActueleAankomstTijd").content());
                 String aankomstVertraging = reisMovelijkheidXml.child("AankomstVertraging").content();
-                String status =  reisMovelijkheidXml.child("Status").content();
+                String status = reisMovelijkheidXml.child("Status").content();
                 List<ReisDeel> reisDelen = new ArrayList<ReisDeel>(reisMovelijkheidXml.children("ReisDeel").size());
                 for (Xml reisDeelXml : reisMovelijkheidXml.children("ReisDeel")) {
                     String reisSoort = reisDeelXml.string("reisSoort");
@@ -58,16 +61,21 @@ public class ReisadviesHandle implements Handle<ReisMogelijkheden> {
                         String naam = reisStopXml.child("Naam").content();
                         Date tijd = format.parse(reisStopXml.child("Tijd").content());
                         String spoor = reisStopXml.child("Spoor").content();
-                        boolean gewijzigdVertrekspoor = Boolean.parseBoolean(reisStopXml.child("Spoor").string("wijziging"));
+                        boolean gewijzigdVertrekspoor = Boolean.parseBoolean(reisStopXml.child("Spoor").string(
+                                "wijziging"));
                         reisStops.add(new ReisStop(naam, tijd, spoor, gewijzigdVertrekspoor));
                     }
-                    List<String> reisDetails = new ArrayList<String>(reisDeelXml.child("Reisdetails").children("Reisdetail").size());
+                    List<String> reisDetails = new ArrayList<String>(reisDeelXml.child("Reisdetails")
+                            .children("Reisdetail").size());
                     for (Xml reisDetailXml : reisDeelXml.child("Reisdetails").children("Reisdetail")) {
                         reisDetails.add(reisDetailXml.content());
                     }
-                    reisDelen.add(new ReisDeel(reisSoort, vervoerder, vervoerType, ritNummer, statusReisdeel, reisStops, ongeplandeStoringId, geplandeStoringId, reisDetails));
+                    reisDelen.add(new ReisDeel(reisSoort, vervoerder, vervoerType, ritNummer, statusReisdeel,
+                            reisStops, ongeplandeStoringId, geplandeStoringId, reisDetails));
                 }
-                reisMogelijkheden.add(new ReisMogelijkheid(melding, aantalOverstappen, geplandeReisTijdMinuten, actueleReisTijdMinuten, aankomstVertraging, optimaal, geplandeVertrekTijd, actueleVertrekTijd, geplandeAankomstTijd, actueleAankomstTijd, status, reisDelen));
+                reisMogelijkheden.add(new ReisMogelijkheid(melding, aantalOverstappen, geplandeReisTijdMinuten,
+                        actueleReisTijdMinuten, aankomstVertraging, optimaal, geplandeVertrekTijd, actueleVertrekTijd,
+                        geplandeAankomstTijd, actueleAankomstTijd, status, reisDelen));
             }
             return new ReisMogelijkheden(reisMogelijkheden);
         }
