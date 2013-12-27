@@ -9,7 +9,6 @@ import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.UsernamePasswordCredentials;
-import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.BasicCredentialsProvider;
@@ -30,7 +29,7 @@ public class HttpConnection {
         httpclient = HttpClientBuilder.create().setDefaultCredentialsProvider(credentialsProvider).build();
     }
 
-    public InputStream getContent(String url) {
+    public InputStream getContent(String url) throws IOException {
         HttpGet httpget = new HttpGet(url);
         try {
             HttpResponse response = httpclient.execute(httpget);
@@ -42,13 +41,9 @@ public class HttpConnection {
             logger.error("Error while calling the webservice, entity is null");
             throw new NsApiException("Error while calling the webservice, entity is null");
         }
-        catch (ClientProtocolException e) {
-            logger.error("Error while calling the webservice", e);
-            throw new NsApiException("Error while calling the webservice", e);
-        }
         catch (IOException e) {
             logger.error("Error while calling the webservice", e);
-            throw new NsApiException("Error while calling the webservice", e);
+            throw e;
         }
     }
 }

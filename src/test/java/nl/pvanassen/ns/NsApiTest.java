@@ -1,5 +1,7 @@
 package nl.pvanassen.ns;
 
+import java.io.IOException;
+
 import nl.pvanassen.ns.error.NsApiException;
 
 import org.junit.Test;
@@ -18,7 +20,7 @@ public class NsApiTest {
     }
 
     @Test(expected=NsApiException.class)
-    public void testGetApiResponseString() {
+    public void testGetApiResponseString() throws IOException {
         NsApi nsApi = new NsApi("test", "invalid");
         nsApi.getApiResponse(new ApiRequest<String>() {
             @Override
@@ -37,7 +39,7 @@ public class NsApiTest {
     }
 
     @Test(expected=NsApiException.class)
-    public void testGetApiResponseStations() {
+    public void testGetApiResponseStations() throws IOException {
         NsApi nsApi = new NsApi("test", "invalid");
         nsApi.getApiResponse(new StationsRequest());
     }
