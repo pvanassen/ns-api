@@ -31,7 +31,7 @@ public class RequestBuilder {
      * 
      * @return All 'Actuele storingen' request
      */
-    public static ApiRequest<Storingen> getActueleStoringenRequest() {
+    public static ApiRequest<Storingen> getActueleStoringen() {
         return new StoringenEnWerkzaamhedenRequest(null, Boolean.TRUE, null);
     }
 
@@ -40,7 +40,7 @@ public class RequestBuilder {
      * 
      * @return All 'Geplanden werkzaamheden' request
      */
-    public static ApiRequest<Storingen> getGeplandeWerkzaamhedenRequest() {
+    public static ApiRequest<Storingen> getGeplandeWerkzaamheden() {
         return new StoringenEnWerkzaamhedenRequest(null, null, Boolean.TRUE);
     }
 
@@ -79,7 +79,7 @@ public class RequestBuilder {
         }
         
         public ReisadviesRequestBuilder forDepartureTime(Date dateTime) {
-            if (dateTime != null) {
+            if (this.dateTime != null) {
                 throw new IllegalArgumentException("Cannot set departure time, arival time already set");
             }
             this.dateTime = dateTime;
@@ -88,7 +88,7 @@ public class RequestBuilder {
         }
 
         public ReisadviesRequestBuilder forArivalTime(Date dateTime) {
-            if (dateTime != null) {
+            if (this.dateTime != null) {
                 throw new IllegalArgumentException("Cannot set arival time, departure time already set");
             }
             this.dateTime = dateTime;
