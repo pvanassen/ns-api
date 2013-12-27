@@ -27,7 +27,7 @@ public class StationsHandle implements Handle<Stations> {
             for (Xml synomiemXml : stationXml.children("Synoniemen")) {
                 synoniemen.add(synomiemXml.content());
             }
-            stations.add(new Station(code, type, namen, land, uicCode, lat, lon));
+            stations.add(new Station(code, type, namen, land, uicCode, lat, lon, synoniemen));
         }
         return new Stations(stations);
     }
