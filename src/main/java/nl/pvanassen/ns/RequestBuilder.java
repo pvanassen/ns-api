@@ -2,6 +2,7 @@ package nl.pvanassen.ns;
 
 import java.util.Date;
 
+import nl.pvanassen.ns.model.prijzen.Producten;
 import nl.pvanassen.ns.model.stations.Stations;
 import nl.pvanassen.ns.model.storingen.Storingen;
 import nl.pvanassen.ns.model.vertrektijden.ActueleVertrekTijden;
@@ -56,6 +57,23 @@ public class RequestBuilder {
     public static ReisadviesRequestBuilder getReisadviesRequestBuilder(String fromStation, String toStation) {
         return new ReisadviesRequestBuilder(fromStation, toStation);
     }
+    
+    public static ApiRequest<Producten> getPrijzen(String from, String to) {
+        return getPrijzen(from, to, null, null);
+    }
+
+    public static ApiRequest<Producten> getPrijzen(String from, String to, String via) {
+        return getPrijzen(from, to, via, null);
+    }
+
+    public static ApiRequest<Producten> getPrijzen(String from, String to, Date dateTime) {
+        return getPrijzen(from, to, null, dateTime);
+    }
+
+    public static ApiRequest<Producten> getPrijzen(String from, String to, String via, Date dateTime) {
+        return new PrijzenRequest(from, to, via, dateTime);
+    }
+
 
     public static class ReisadviesRequestBuilder {
         private final String fromStation;
