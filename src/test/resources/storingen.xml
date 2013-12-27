@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ 
+
+<Storingen>
+	<Ongepland>
+		
+			<Storing>
+				<id>prio-49726</id>
+			    
+					<Traject>Eindhoven-Deurne/Venlo</Traject>
+			    
+				
+					<Reden>defecte trein</Reden>
+			    
+				
+				
+					<Bericht><![CDATA[Tussen Eindhoven en Deurne rijden minder Sprinters door een defecte trein.
+Houdt u rekening met een extra reistijd van 15 - 30 min.
+De verstoring is naar verwachting rond 17:30 uur verholpen.
+]]></Bericht>
+			    
+				
+					<Datum>2013-12-27T16:43:00+0100</Datum>
+			    
+				
+			</Storing>
+		
+			<Storing>
+				<id>prio-49724</id>
+			    
+					<Traject>Rotterdam C.-Hoek v H. Strand</Traject>
+			    
+				
+					<Reden>beperkingen in de materieelinzet</Reden>
+			    
+				
+				
+					<Bericht><![CDATA[Tussen Rotterdam C. en Vlaardingen C. rijden minder Sprinters door beperkingen in de materieelinzet.
+Houdt u rekening met een extra reistijd van 15 - 30 min.
+De verstoring is naar verwachting rond 19:00 uur verholpen.
+]]></Bericht>
+			    
+				
+					<Datum>2013-12-27T14:48:00+0100</Datum>
+			    
+				
+			</Storing>
+		
+	</Ongepland>
+	<Gepland>
+		
+	</Gepland>
+</Storingen>
