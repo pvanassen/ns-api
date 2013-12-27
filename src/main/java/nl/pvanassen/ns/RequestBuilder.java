@@ -53,11 +53,11 @@ public class RequestBuilder {
     public static ApiRequest<Storingen> getActueleStoringen(String station) {
         return new StoringenEnWerkzaamhedenRequest(station, null, null);
     }
-    
+
     public static ReisadviesRequestBuilder getReisadviesRequestBuilder(String fromStation, String toStation) {
         return new ReisadviesRequestBuilder(fromStation, toStation);
     }
-    
+
     public static ApiRequest<Producten> getPrijzen(String from, String to) {
         return getPrijzen(from, to, null, null);
     }
@@ -74,28 +74,36 @@ public class RequestBuilder {
         return new PrijzenRequest(from, to, via, dateTime);
     }
 
-
     public static class ReisadviesRequestBuilder {
+
         private final String fromStation;
+
         private final String toStation;
+
         private String viaStation;
+
         private Integer previousAdvices;
+
         private Integer nextAdvices;
+
         private Date dateTime;
+
         private Boolean departure;
+
         private Boolean hslAllowed;
+
         private Boolean yearCard;
-        
+
         ReisadviesRequestBuilder(String fromStation, String toStation) {
             this.fromStation = fromStation;
             this.toStation = toStation;
         }
-        
+
         public ReisadviesRequestBuilder viaStation(String station) {
             this.viaStation = station;
             return this;
         }
-        
+
         public ReisadviesRequestBuilder forDepartureTime(Date dateTime) {
             if (this.dateTime != null) {
                 throw new IllegalArgumentException("Cannot set departure time, arival time already set");
@@ -118,17 +126,17 @@ public class RequestBuilder {
             this.previousAdvices = previousAdvices;
             return this;
         }
-        
+
         public ReisadviesRequestBuilder includeFutureAdvices(int nextAdvices) {
             this.nextAdvices = nextAdvices;
             return this;
         }
-        
+
         public ReisadviesRequestBuilder withHsl() {
             this.hslAllowed = Boolean.TRUE;
             return this;
         }
-        
+
         public ReisadviesRequestBuilder withoutHsl() {
             this.hslAllowed = Boolean.FALSE;
             return this;
@@ -145,8 +153,9 @@ public class RequestBuilder {
         }
 
         public ReisadviesRequest build() {
-            return new ReisadviesRequest(fromStation, toStation, viaStation, previousAdvices, nextAdvices, dateTime, departure, hslAllowed, yearCard);
+            return new ReisadviesRequest(fromStation, toStation, viaStation, previousAdvices, nextAdvices, dateTime,
+                    departure, hslAllowed, yearCard);
         }
     }
-    
+
 }

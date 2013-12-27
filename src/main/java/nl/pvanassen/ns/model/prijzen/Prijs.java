@@ -36,6 +36,7 @@ public class Prijs {
     public int getPrijs() {
         return prijs;
     }
+
     /**
      * @see java.lang.Object#hashCode()
      */

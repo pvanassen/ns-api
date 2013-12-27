@@ -31,7 +31,6 @@ public class Storingen {
     public List<Storing> getGeplandeStoringen() {
         return geplandeStoringen;
     }
-    
 
     /**
      * @see java.lang.Object#hashCode()

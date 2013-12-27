@@ -5,16 +5,24 @@ import java.util.Date;
 
 import nl.pvanassen.ns.model.reisadvies.ReisMogelijkheden;
 
+class ReisadviesRequest extends ApiRequest<ReisMogelijkheden> {
 
-class ReisadviesRequest extends ApiRequest<ReisMogelijkheden>{
     private final String fromStation;
+
     private final String toStation;
+
     private final String viaStation;
+
     private final Integer previousAdvices;
+
     private final Integer nextAdvices;
+
     private final Date dateTime;
+
     private final Boolean departure;
+
     private final Boolean hslAllowed;
+
     private final Boolean yearCard;
 
     ReisadviesRequest(String fromStation, String toStation, String viaStation, Integer previousAdvices,
@@ -30,7 +38,7 @@ class ReisadviesRequest extends ApiRequest<ReisMogelijkheden>{
         this.hslAllowed = hslAllowed;
         this.yearCard = yearCard;
     }
-    
+
     @Override
     String getPath() {
         return "ns-api-treinplanner";
@@ -51,7 +59,8 @@ class ReisadviesRequest extends ApiRequest<ReisMogelijkheden>{
             requestString.append("nextAdvices=").append(nextAdvices).append('&');
         }
         if (dateTime != null) {
-            requestString.append("dateTime=").append(new SimpleDateFormat(NsApi.DATETIME_FORMAT).format(dateTime)).append('&');
+            requestString.append("dateTime=").append(new SimpleDateFormat(NsApi.DATETIME_FORMAT).format(dateTime))
+                    .append('&');
         }
         if (departure != null) {
             requestString.append("departure=").append(departure).append('&');
@@ -64,7 +73,7 @@ class ReisadviesRequest extends ApiRequest<ReisMogelijkheden>{
         }
         return requestString.toString();
     }
-    
+
     @Override
     Class<ReisMogelijkheden> getType() {
         return ReisMogelijkheden.class;

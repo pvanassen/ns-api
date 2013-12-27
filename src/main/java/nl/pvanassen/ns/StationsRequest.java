@@ -3,6 +3,7 @@ package nl.pvanassen.ns;
 import nl.pvanassen.ns.model.stations.Stations;
 
 class StationsRequest extends ApiRequest<Stations> {
+
     /**
      * Limiting scope
      */

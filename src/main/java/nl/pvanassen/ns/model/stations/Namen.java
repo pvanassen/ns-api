@@ -36,7 +36,6 @@ public class Namen {
     public String getLang() {
         return lang;
     }
-    
 
     /**
      * @see java.lang.Object#hashCode()
