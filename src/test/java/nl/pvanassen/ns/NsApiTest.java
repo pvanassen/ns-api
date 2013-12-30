@@ -31,10 +31,6 @@ public class NsApiTest {
             String getRequestString() {
                 return "";
             }
-            @Override
-            Class<String> getType() {
-                return String.class;
-            }
         });
     }
 

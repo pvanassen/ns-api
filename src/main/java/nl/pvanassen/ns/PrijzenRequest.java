@@ -41,9 +41,4 @@ class PrijzenRequest extends ApiRequest<Producten> {
         return requestString.toString();
     }
 
-    @Override
-    Class<Producten> getType() {
-        return Producten.class;
-    }
-
 }

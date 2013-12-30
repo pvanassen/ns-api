@@ -1,15 +1,16 @@
 package nl.pvanassen.ns;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import nl.pvanassen.ns.model.prijzen.Producten;
 import nl.pvanassen.ns.model.reisadvies.ReisMogelijkheden;
-import nl.pvanassen.ns.model.stations.Stations;
+import nl.pvanassen.ns.model.stations.Station;
 import nl.pvanassen.ns.model.storingen.Storingen;
-import nl.pvanassen.ns.model.vertrektijden.ActueleVertrekTijden;
+import nl.pvanassen.ns.model.vertrektijden.VertrekkendeTrein;
 
 import org.junit.Test;
 
@@ -18,18 +19,16 @@ public class RequestBuilderTest {
 
     @Test
     public void testGetActueleVertrektijden() {
-        ApiRequest<ActueleVertrekTijden> request = RequestBuilder.getActueleVertrektijden("Utrecht Centraal");
+        ApiRequest<List<VertrekkendeTrein>> request = RequestBuilder.getActueleVertrektijden("Utrecht Centraal");
         assertEquals("ns-api-avt", request.getPath());
         assertEquals("station=Utrecht Centraal", request.getRequestString());
-        assertEquals(ActueleVertrekTijden.class, request.getType());
     }
 
     @Test
     public void testGetStations() {
-        ApiRequest<Stations> request = RequestBuilder.getStations();
+        ApiRequest<List<Station>> request = RequestBuilder.getStations();
         assertEquals("ns-api-stations-v2", request.getPath());
         assertEquals("", request.getRequestString());
-        assertEquals(Stations.class, request.getType());
     }
 
     @Test
@@ -37,7 +36,6 @@ public class RequestBuilderTest {
         ApiRequest<Storingen> request = RequestBuilder.getActueleStoringen("Utrecht Centraal");
         assertEquals("ns-api-storingen", request.getPath());
         assertEquals("station=Utrecht Centraal&", request.getRequestString());
-        assertEquals(Storingen.class, request.getType());
     }
 
     @Test
@@ -45,7 +43,6 @@ public class RequestBuilderTest {
         ApiRequest<Storingen> request = RequestBuilder.getGeplandeWerkzaamheden();
         assertEquals("ns-api-storingen", request.getPath());
         assertEquals("unplanned=true&", request.getRequestString());
-        assertEquals(Storingen.class, request.getType());
     }
 
     @Test
@@ -53,7 +50,6 @@ public class RequestBuilderTest {
         ApiRequest<Storingen> request = RequestBuilder.getActueleStoringen();
         assertEquals("ns-api-storingen", request.getPath());
         assertEquals("actual=true&", request.getRequestString());
-        assertEquals(Storingen.class, request.getType());
     }
 
     @Test
@@ -63,7 +59,6 @@ public class RequestBuilderTest {
         ApiRequest<ReisMogelijkheden> request = RequestBuilder.getReisadviesRequestBuilder("Amsterdam", "Utrecht").forArivalTime(now).viaStation("Hoorn").includeFutureAdvices(4).includePastAdvices(3).userHasNoYearCard().build();
         assertEquals("ns-api-treinplanner", request.getPath());
         assertEquals("fromStation=Amsterdam&toStation=Utrecht&viaStation=Hoorn&previousAdvices=3&nextAdvices=4&dateTime=" + format.format(now) + "&departure=false&yearCard=false&", request.getRequestString());
-        assertEquals(ReisMogelijkheden.class, request.getType());
     }
 
 
@@ -78,7 +73,6 @@ public class RequestBuilderTest {
         ApiRequest<Producten> request = RequestBuilder.getPrijzen("Amsterdam", "Dortrecht");
         assertEquals("ns-api-prijzen-v2", request.getPath());
         assertEquals("from=Amsterdam&to=Dortrecht&", request.getRequestString());
-        assertEquals(Producten.class, request.getType());
     }
 
     @Test
@@ -86,7 +80,6 @@ public class RequestBuilderTest {
         ApiRequest<Producten> request = RequestBuilder.getPrijzen("Amsterdam", "Dortrecht", "Groningen");
         assertEquals("ns-api-prijzen-v2", request.getPath());
         assertEquals("from=Amsterdam&to=Dortrecht&via=Groningen&", request.getRequestString());
-        assertEquals(Producten.class, request.getType());
     }
 
     @Test
@@ -96,7 +89,6 @@ public class RequestBuilderTest {
         ApiRequest<Producten> request = RequestBuilder.getPrijzen("Amsterdam", "Dortrecht", now);
         assertEquals("ns-api-prijzen-v2", request.getPath());
         assertEquals("from=Amsterdam&to=Dortrecht&dateTime=" + format.format(now), request.getRequestString());
-        assertEquals(Producten.class, request.getType());
     }
 
     @Test
@@ -106,7 +98,6 @@ public class RequestBuilderTest {
         ApiRequest<Producten> request = RequestBuilder.getPrijzen("Amsterdam", "Dortrecht", "Groningen", now);
         assertEquals("ns-api-prijzen-v2", request.getPath());
         assertEquals("from=Amsterdam&to=Dortrecht&via=Groningen&dateTime=" + format.format(now), request.getRequestString());
-        assertEquals(Producten.class, request.getType());
     }
 
 }

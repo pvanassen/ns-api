@@ -74,9 +74,4 @@ class ReisadviesRequest extends ApiRequest<ReisMogelijkheden> {
         return requestString.toString();
     }
 
-    @Override
-    Class<ReisMogelijkheden> getType() {
-        return ReisMogelijkheden.class;
-    }
-
 }

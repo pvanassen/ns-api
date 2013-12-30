@@ -1,12 +1,20 @@
 package nl.pvanassen.ns;
 
 import java.util.Date;
+import java.util.List;
 
 import nl.pvanassen.ns.model.prijzen.Producten;
-import nl.pvanassen.ns.model.stations.Stations;
+import nl.pvanassen.ns.model.stations.Station;
 import nl.pvanassen.ns.model.storingen.Storingen;
-import nl.pvanassen.ns.model.vertrektijden.ActueleVertrekTijden;
+import nl.pvanassen.ns.model.vertrektijden.VertrekkendeTrein;
 
+/**
+ * Request builder helper class. This class builds concrete implementations of the {@link ApiRequest} abstract class.
+ * Each of the calls corresponds with calls defined on <a href="http://www.ns.nl/api/api">NS API</a>.
+ * 
+ * @author Paul van Assen
+ * 
+ */
 public class RequestBuilder {
 
     // Only one instance possible. Pre-instantiating this
@@ -19,11 +27,21 @@ public class RequestBuilder {
         super();
     }
 
-    public static ApiRequest<ActueleVertrekTijden> getActueleVertrektijden(String station) {
+    /**
+     * This method builds a request to get the <a href="http://www.ns.nl/api/api#api-documentatie-actuele-vertrektijden">actuele vertrektijden</a> by station. 
+     * 
+     * @param station A train station to get the vertrektijden from. See the documentation for which notations are allowed
+     * @return The vertrektijden for this station
+     */
+    public static ApiRequest<List<VertrekkendeTrein>> getActueleVertrektijden(String station) {
         return new ActueleVertrekTijdenRequest(station);
     }
 
-    public static ApiRequest<Stations> getStations() {
+    /**
+     * This method builds a request to get all available <a href="http://www.ns.nl/api/api#api-documentatie-stationslijst">stations</a>.
+     * @return An object containing all stations
+     */
+    public static ApiRequest<List<Station>> getStations() {
         return INSTANCE;
     }
 
@@ -45,11 +63,6 @@ public class RequestBuilder {
         return new StoringenEnWerkzaamhedenRequest(null, null, Boolean.TRUE);
     }
 
-    /**
-     * Builds a request that will return all 'Geplande werkzaamheden'
-     * 
-     * @return All 'Geplanden werkzaamheden' request
-     */
     public static ApiRequest<Storingen> getActueleStoringen(String station) {
         return new StoringenEnWerkzaamhedenRequest(station, null, null);
     }

@@ -1,9 +1,8 @@
 package nl.pvanassen.ns.model.stations;
 
 import static org.junit.Assert.*;
-import nl.pvanassen.ns.model.stations.Station;
-import nl.pvanassen.ns.model.stations.Stations;
-import nl.pvanassen.ns.model.stations.StationsHandle;
+
+import java.util.List;
 
 import org.junit.Test;
 
@@ -12,11 +11,10 @@ public class StationsHandleTest {
     @Test
     public void testGetModel() {
         StationsHandle handle = new StationsHandle();
-        Stations stations = handle.getModel(getClass().getResourceAsStream("/stations.xml"));
+        List<Station> stations = handle.getModel(getClass().getResourceAsStream("/stations.xml"));
         assertNotNull(stations);
-        assertNotNull(stations.getStations());
-        assertNotEquals(0, stations.getStations().size());
-        Station stationDenBosch = stations.getStations().get(0);
+        assertNotEquals(0, stations.size());
+        Station stationDenBosch = stations.get(0);
         assertNotNull(stationDenBosch.getNamen());
         assertEquals("H'bosch", stationDenBosch.getNamen().getKort());
         assertEquals("'s-Hertogenbosch", stationDenBosch.getNamen().getMiddel());
