@@ -1,17 +1,27 @@
 package nl.pvanassen.ns.model.stations;
 
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 import nl.pvanassen.ns.handle.Handle;
 import nl.pvanassen.ns.xml.Xml;
 
-public class StationsHandle implements Handle<Stations> {
+/**
+ * Handles parsing the response from the NS and serializes it into a list of stations
+ * 
+ * @author Paul van Assen
+ * 
+ */
+public class StationsHandle implements Handle<List<Station>> {
 
+    /**
+     * 
+     * {@inheritDoc}
+     * 
+     * @see nl.pvanassen.ns.handle.Handle#getModel(java.io.InputStream)
+     */
     @Override
-    public Stations getModel(InputStream stream) {
+    public List<Station> getModel(InputStream stream) {
         List<Station> stations = new LinkedList<Station>();
         Xml xml = Xml.getXml(stream, "Stations");
         for (Xml stationXml : xml.children("Station")) {
@@ -29,6 +39,6 @@ public class StationsHandle implements Handle<Stations> {
             }
             stations.add(new Station(code, type, namen, land, uicCode, lat, lon, synoniemen));
         }
-        return new Stations(stations);
+        return Collections.unmodifiableList(stations);
     }
 }

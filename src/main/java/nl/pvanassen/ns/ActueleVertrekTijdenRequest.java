@@ -1,8 +1,10 @@
 package nl.pvanassen.ns;
 
-import nl.pvanassen.ns.model.vertrektijden.ActueleVertrekTijden;
+import java.util.List;
 
-class ActueleVertrekTijdenRequest extends ApiRequest<ActueleVertrekTijden> {
+import nl.pvanassen.ns.model.vertrektijden.VertrekkendeTrein;
+
+class ActueleVertrekTijdenRequest extends ApiRequest<List<VertrekkendeTrein>> {
 
     private final String station;
 
@@ -19,10 +21,4 @@ class ActueleVertrekTijdenRequest extends ApiRequest<ActueleVertrekTijden> {
     String getRequestString() {
         return "station=" + station;
     }
-
-    @Override
-    Class<ActueleVertrekTijden> getType() {
-        return ActueleVertrekTijden.class;
-    }
-
 }

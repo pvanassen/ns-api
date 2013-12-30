@@ -3,9 +3,7 @@ package nl.pvanassen.ns.model.vertrektijden;
 import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 import nl.pvanassen.ns.NsApi;
 import nl.pvanassen.ns.error.NsApiException;
@@ -15,12 +13,23 @@ import nl.pvanassen.ns.xml.Xml;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class ActueleVertrekTijdenHandle implements Handle<ActueleVertrekTijden> {
+/**
+ * Handle to de-serialize the actuele vertrektijden response
+ * 
+ * @author Paul van Assen
+ *
+ */
+public class ActueleVertrekTijdenHandle implements Handle<List<VertrekkendeTrein>> {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
+    /**
+     * {@inheritDoc}
+     * 
+     * @see nl.pvanassen.ns.handle.Handle#getModel(java.io.InputStream)
+     */
     @Override
-    public ActueleVertrekTijden getModel(InputStream stream) {
+    public List<VertrekkendeTrein> getModel(InputStream stream) {
         SimpleDateFormat format = new SimpleDateFormat(NsApi.DATETIME_FORMAT);
         try {
             List<VertrekkendeTrein> vertrekkendeTreinen = new LinkedList<VertrekkendeTrein>();
@@ -56,7 +65,7 @@ public class ActueleVertrekTijdenHandle implements Handle<ActueleVertrekTijden> 
                         vertrekVertragingMinuten, vertrekVertragingTekst, eindBestemming, treinSoort, routeTekst,
                         vervoerder, vertrekSpoor, gewijzigdVertrekspoor, reisTip, opmerkingen));
             }
-            return new ActueleVertrekTijden(vertrekkendeTreinen);
+            return Collections.unmodifiableList(vertrekkendeTreinen);
         }
         catch (ParseException e) {
             logger.error("Error parsing stream to actuele vertrektijden", e);

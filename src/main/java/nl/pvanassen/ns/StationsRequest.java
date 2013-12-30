@@ -1,8 +1,10 @@
 package nl.pvanassen.ns;
 
-import nl.pvanassen.ns.model.stations.Stations;
+import java.util.List;
 
-class StationsRequest extends ApiRequest<Stations> {
+import nl.pvanassen.ns.model.stations.Station;
+
+class StationsRequest extends ApiRequest<List<Station>> {
 
     /**
      * Limiting scope
@@ -20,9 +22,5 @@ class StationsRequest extends ApiRequest<Stations> {
         return "";
     }
 
-    @Override
-    Class<Stations> getType() {
-        return Stations.class;
-    }
 
 }

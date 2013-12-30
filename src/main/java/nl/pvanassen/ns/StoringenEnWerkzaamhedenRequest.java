@@ -54,10 +54,4 @@ class StoringenEnWerkzaamhedenRequest extends ApiRequest<Storingen> {
         }
         return requestString.toString();
     }
-
-    @Override
-    Class<Storingen> getType() {
-        return Storingen.class;
-    }
-
 }

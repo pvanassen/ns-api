@@ -3,11 +3,8 @@ package nl.pvanassen.ns.model.vertrektijden;
 import static org.junit.Assert.*;
 
 import java.util.Calendar;
+import java.util.List;
 import java.util.TimeZone;
-
-import nl.pvanassen.ns.model.vertrektijden.ActueleVertrekTijden;
-import nl.pvanassen.ns.model.vertrektijden.ActueleVertrekTijdenHandle;
-import nl.pvanassen.ns.model.vertrektijden.VertrekkendeTrein;
 
 import org.junit.Test;
 
@@ -16,13 +13,11 @@ public class ActueleVertrekTijdenHandleTest {
     @Test
     public void testGetModel() {
         ActueleVertrekTijdenHandle handle = new ActueleVertrekTijdenHandle();
-        ActueleVertrekTijden actueleVertrekTijden = handle.getModel(getClass().getResourceAsStream(
+        List<VertrekkendeTrein> vertrekkendeTreinen = handle.getModel(getClass().getResourceAsStream(
                 "/actuelevertrektijden.xml"));
-        assertNotNull(actueleVertrekTijden);
-        assertNotNull(actueleVertrekTijden.getVertrekkendeTreinen());
-        assertNotEquals(0, actueleVertrekTijden.getVertrekkendeTreinen().size());
-        assertEquals(15, actueleVertrekTijden.getVertrekkendeTreinen().size());
-        VertrekkendeTrein sprinterBreda = actueleVertrekTijden.getVertrekkendeTreinen().get(0);
+        assertNotNull(vertrekkendeTreinen);
+        assertEquals(15, vertrekkendeTreinen.size());
+        VertrekkendeTrein sprinterBreda = vertrekkendeTreinen.get(0);
         assertEquals("First train in the XML file departs to Breda", "Breda", sprinterBreda.getEindBestemming());
         assertEquals("Rit number should be 13677", 13677, sprinterBreda.getRitNummer());
         assertEquals("Expected a sprinter train", "Sprinter", sprinterBreda.getTreinSoort());
