@@ -7,7 +7,11 @@
 <ReisMogelijkheden>
 	
 		<ReisMogelijkheid>	
-			
+			<Melding>
+		    	<Id>2012_gn_asn_25feb_4mrt</Id>
+    			<Ernstig>false</Ernstig>
+    			<Text>Let op, werk aan het spoor Assen - Groningen</Text>
+  			</Melding>
 			<AantalOverstappen>1</AantalOverstappen>
 			<GeplandeReisTijd>1:34</GeplandeReisTijd>
 			
