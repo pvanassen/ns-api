@@ -7,7 +7,29 @@
 	<packaging>jar</packaging>
 
 	<url>http://www.pvanassen</url>
-
+	<licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	<developers>
+		<developer>
+			<id>pvanassen</id>
+			<name>Paul van Assen</name>
+			<email>source@pvanassen.nl</email>
+		</developer>
+	</developers>
+	<prerequisites>
+		<maven>3.0.4</maven>
+	</prerequisites>
+	<scm>
+		<connection>scm:git:git@github.com:pvanassen/ns-api.git</connection>
+		<developerConnection>scm:git:git@github.com:pvanassen/ns-api.git</developerConnection>
+		<url>https://github.com/pvanassen/ns-api</url>
+		<tag>HEAD</tag>
+	</scm>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
