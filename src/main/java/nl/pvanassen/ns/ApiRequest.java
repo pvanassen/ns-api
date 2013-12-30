@@ -1,5 +1,12 @@
 package nl.pvanassen.ns;
 
+/**
+ * Api request type. This type is the basis for all responses from the NS api.
+ * 
+ * @author Paul van Assen
+ * 
+ * @param <T> Result type
+ */
 public abstract class ApiRequest<T> {
 
     /**
@@ -12,6 +19,4 @@ public abstract class ApiRequest<T> {
     abstract String getPath();
 
     abstract String getRequestString();
-
-    abstract Class<T> getType();
 }
