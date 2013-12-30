@@ -12,15 +12,24 @@ class StationsRequest extends ApiRequest<List<Station>> {
     StationsRequest() {
     }
 
+    /**
+     * {@inheritDoc}
+     * 
+     * @see nl.pvanassen.ns.ApiRequest#getPath()
+     */
     @Override
     String getPath() {
         return "ns-api-stations-v2";
     }
 
+    /**
+     * {@inheritDoc}
+     * 
+     * @see nl.pvanassen.ns.ApiRequest#getRequestString()
+     */
     @Override
     String getRequestString() {
         return "";
     }
-
 
 }

@@ -16,7 +16,13 @@ public abstract class ApiRequest<T> {
         super();
     }
 
+    /**
+     * @return The path part of the request to make to the NS webservices
+     */
     abstract String getPath();
 
+    /**
+     * @return The querystring part of the request to make to the NS webservices
+     */
     abstract String getRequestString();
 }

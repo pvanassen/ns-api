@@ -39,11 +39,21 @@ class ReisadviesRequest extends ApiRequest<ReisMogelijkheden> {
         this.yearCard = yearCard;
     }
 
+    /**
+     * {@inheritDoc}
+     * 
+     * @see nl.pvanassen.ns.ApiRequest#getPath()
+     */
     @Override
     String getPath() {
         return "ns-api-treinplanner";
     }
 
+    /**
+     * {@inheritDoc}
+     * 
+     * @see nl.pvanassen.ns.ApiRequest#getRequestString()
+     */
     @Override
     String getRequestString() {
         StringBuilder requestString = new StringBuilder();

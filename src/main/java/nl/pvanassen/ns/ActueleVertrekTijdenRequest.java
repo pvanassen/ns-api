@@ -12,11 +12,23 @@ class ActueleVertrekTijdenRequest extends ApiRequest<List<VertrekkendeTrein>> {
         this.station = station;
     }
 
+    /**
+     * 
+     * {@inheritDoc}
+     * 
+     * @see nl.pvanassen.ns.ApiRequest#getPath()
+     */
     @Override
     String getPath() {
         return "ns-api-avt";
     }
 
+    /**
+     * 
+     * {@inheritDoc}
+     * 
+     * @see nl.pvanassen.ns.ApiRequest#getRequestString()
+     */
     @Override
     String getRequestString() {
         return "station=" + station;

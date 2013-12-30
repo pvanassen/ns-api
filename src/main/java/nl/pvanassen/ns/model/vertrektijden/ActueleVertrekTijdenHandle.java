@@ -17,7 +17,7 @@ import org.slf4j.LoggerFactory;
  * Handle to de-serialize the actuele vertrektijden response
  * 
  * @author Paul van Assen
- *
+ * 
  */
 public class ActueleVertrekTijdenHandle implements Handle<List<VertrekkendeTrein>> {
 

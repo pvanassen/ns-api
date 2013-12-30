@@ -28,9 +28,11 @@ public class RequestBuilder {
     }
 
     /**
-     * This method builds a request to get the <a href="http://www.ns.nl/api/api#api-documentatie-actuele-vertrektijden">actuele vertrektijden</a> by station. 
+     * This method builds a request to get the <a
+     * href="http://www.ns.nl/api/api#api-documentatie-actuele-vertrektijden">actuele vertrektijden</a> by station.
      * 
-     * @param station A train station to get the vertrektijden from. See the documentation for which notations are allowed
+     * @param station A train station to get the vertrektijden from. See the documentation for which notations are
+     *            allowed
      * @return The vertrektijden for this station
      */
     public static ApiRequest<List<VertrekkendeTrein>> getActueleVertrektijden(String station) {
@@ -38,7 +40,9 @@ public class RequestBuilder {
     }
 
     /**
-     * This method builds a request to get all available <a href="http://www.ns.nl/api/api#api-documentatie-stationslijst">stations</a>.
+     * This method builds a request to get all available <a
+     * href="http://www.ns.nl/api/api#api-documentatie-stationslijst">stations</a>.
+     * 
      * @return An object containing all stations
      */
     public static ApiRequest<List<Station>> getStations() {

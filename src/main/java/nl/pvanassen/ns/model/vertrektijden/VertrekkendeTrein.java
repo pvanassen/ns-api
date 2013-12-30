@@ -45,10 +45,8 @@ public class VertrekkendeTrein {
     /**
      * Constructor for vertrekkende trein (departing train)
      * 
-     * @param ritNummer
-     *            Ritnummer, number of the journey
-     * @param vertrekTijd
-     *            Vertrek tijd, departure time
+     * @param ritNummer Ritnummer, number of the journey
+     * @param vertrekTijd Vertrek tijd, departure time
      * @param vertrekVertraging
      * @param vertrekVertragingTekst
      * @param eindBestemming

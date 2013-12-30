@@ -35,11 +35,21 @@ class StoringenEnWerkzaamhedenRequest extends ApiRequest<Storingen> {
         this.unplanned = unplanned;
     }
 
+    /**
+     * {@inheritDoc}
+     * 
+     * @see nl.pvanassen.ns.ApiRequest#getPath()
+     */
     @Override
     String getPath() {
         return "ns-api-storingen";
     }
 
+    /**
+     * {@inheritDoc}
+     * 
+     * @see nl.pvanassen.ns.ApiRequest#getRequestString()
+     */
     @Override
     String getRequestString() {
         StringBuilder requestString = new StringBuilder();
