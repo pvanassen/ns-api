@@ -58,8 +58,8 @@ public class NsApi {
 
     /**
      * Method that makes a call to the NS. The request parameter defines what data to pull. The serialized data of the
-     * request is returned, or an exception is thrown. For all request types, see <a href="http://www.ns.nl/api/api">NS API</a> and
-     * {@link nl.pvanassen.ns.RequestBuilder}
+     * request is returned, or an exception is thrown. For all request types, see <a href="http://www.ns.nl/api/api">NS
+     * API</a> and {@link nl.pvanassen.ns.RequestBuilder}
      * 
      * @see nl.pvanassen.ns.RequestBuilder
      * @param request Data to request

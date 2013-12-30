@@ -22,11 +22,22 @@ class PrijzenRequest extends ApiRequest<Producten> {
         this.dateTime = dateTime;
     }
 
+    /**
+     * {@inheritDoc}
+     * 
+     * @see nl.pvanassen.ns.ApiRequest#getPath()
+     */
     @Override
     String getPath() {
         return "ns-api-prijzen-v2";
     }
 
+    /**
+     * 
+     * {@inheritDoc}
+     * 
+     * @see nl.pvanassen.ns.ApiRequest#getRequestString()
+     */
     @Override
     String getRequestString() {
         StringBuilder requestString = new StringBuilder();
