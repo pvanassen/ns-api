@@ -9,17 +9,14 @@ import nl.pvanassen.ns.error.NsApiException;
 import nl.pvanassen.ns.handle.Handle;
 import nl.pvanassen.ns.http.HttpConnection;
 import nl.pvanassen.ns.model.reisadvies.ReisadviesHandle;
-import nl.pvanassen.ns.model.stations.Stations;
 import nl.pvanassen.ns.model.stations.StationsHandle;
-import nl.pvanassen.ns.model.storingen.Storingen;
 import nl.pvanassen.ns.model.storingen.StoringenHandle;
-import nl.pvanassen.ns.model.vertrektijden.ActueleVertrekTijden;
 import nl.pvanassen.ns.model.vertrektijden.ActueleVertrekTijdenHandle;
 
 import org.apache.commons.io.IOUtils;
 
 /**
- * Starting point for using the NS api
+ * Main class for calling the NS api. The NS API is documented at <a href="http://www.ns.nl/api/api">NS API</a>
  * 
  * @author Paul van Assen
  * 
@@ -37,6 +34,13 @@ public class NsApi {
 
     private final Map<Class<?>, Handle<?>> handleMap = new HashMap<Class<?>, Handle<?>>();
 
+    /**
+     * Constructor for the NS api handle. Takes a username and password as parameters. A username/password can be
+     * requested at <a href="http://www.ns.nl/api/api">NS API</a>
+     * 
+     * @param username Username supplied by the NS
+     * @param password Password supplied by the NS
+     */
     public NsApi(String username, String password) {
         if (username == null || password == null) {
             throw new NullPointerException("Username or password cannot be null");
@@ -46,20 +50,31 @@ public class NsApi {
             throw new IllegalArgumentException("Username or password cannot be empty");
         }
         httpConnection = new HttpConnection(username, password);
-        handleMap.put(ActueleVertrekTijden.class, new ActueleVertrekTijdenHandle());
-        handleMap.put(Stations.class, new StationsHandle());
-        handleMap.put(Storingen.class, new StoringenHandle());
+        handleMap.put(ActueleVertrekTijdenRequest.class, new ActueleVertrekTijdenHandle());
+        handleMap.put(StationsRequest.class, new StationsHandle());
+        handleMap.put(StoringenEnWerkzaamhedenRequest.class, new StoringenHandle());
         handleMap.put(ReisadviesRequest.class, new ReisadviesHandle());
     }
 
-    public <T> T getApiResponse(ApiRequest<T> request) throws IOException {
+    /**
+     * Method that makes a call to the NS. The request parameter defines what data to pull. The serialized data of the
+     * request is returned, or an exception is thrown. For all request types, see <a href="http://www.ns.nl/api/api">NS API</a> and
+     * {@link nl.pvanassen.ns.RequestBuilder}
+     * 
+     * @see nl.pvanassen.ns.RequestBuilder
+     * @param request Data to request
+     * @return Serialized response
+     * @throws IOException In case of an network error
+     * @throws NsApiException In case of any other error than a network error
+     */
+    public <T> T getApiResponse(ApiRequest<T> request) throws IOException, NsApiException {
         InputStream stream = null;
         try {
             stream = httpConnection.getContent(NsApi.BASE_URL + request.getPath() + "?" + request.getRequestString());
             @SuppressWarnings("unchecked")
-            Handle<T> handle = (Handle<T>) handleMap.get(request.getType());
+            Handle<T> handle = (Handle<T>) handleMap.get(request.getClass());
             if (handle == null) {
-                throw new NsApiException("Unknown request type " + request.getType());
+                throw new NsApiException("Unknown request type " + request.getClass());
             }
             return handle.getModel(stream);
         }
