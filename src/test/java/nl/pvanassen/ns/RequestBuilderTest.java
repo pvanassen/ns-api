@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 import nl.pvanassen.ns.model.prijzen.Producten;
-import nl.pvanassen.ns.model.reisadvies.ReisMogelijkheden;
+import nl.pvanassen.ns.model.reisadvies.ReisMogelijkheid;
 import nl.pvanassen.ns.model.stations.Station;
 import nl.pvanassen.ns.model.storingen.Storingen;
 import nl.pvanassen.ns.model.vertrektijden.VertrekkendeTrein;
@@ -56,7 +56,7 @@ public class RequestBuilderTest {
     public void testGetReisadviesRequestBuilder() {
         SimpleDateFormat format = new SimpleDateFormat(NsApi.DATETIME_FORMAT);
         Date now = new Date();
-        ApiRequest<ReisMogelijkheden> request = RequestBuilder.getReisadviesRequestBuilder("Amsterdam", "Utrecht").forArrivalTime(now).viaStation("Hoorn").includeFutureAdvices(4).includePastAdvices(3).userHasNoYearCard().build();
+        ApiRequest<List<ReisMogelijkheid>> request = RequestBuilder.getReisadviesRequestBuilder("Amsterdam", "Utrecht").forArrivalTime(now).viaStation("Hoorn").includeFutureAdvices(4).includePastAdvices(3).userHasNoYearCard().build();
         assertEquals("ns-api-treinplanner", request.getPath());
         assertEquals("fromStation=Amsterdam&toStation=Utrecht&viaStation=Hoorn&previousAdvices=3&nextAdvices=4&dateTime=" + format.format(now) + "&departure=false&yearCard=false&", request.getRequestString());
     }

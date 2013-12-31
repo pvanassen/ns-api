@@ -2,10 +2,11 @@ package nl.pvanassen.ns;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
-import nl.pvanassen.ns.model.reisadvies.ReisMogelijkheden;
+import nl.pvanassen.ns.model.reisadvies.ReisMogelijkheid;
 
-class ReisadviesRequest extends ApiRequest<ReisMogelijkheden> {
+class ReisadviesRequest extends ApiRequest<List<ReisMogelijkheid>> {
 
     private final String fromStation;
 

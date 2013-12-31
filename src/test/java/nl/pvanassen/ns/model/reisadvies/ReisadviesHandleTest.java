@@ -2,6 +2,7 @@ package nl.pvanassen.ns.model.reisadvies;
 
 import static org.junit.Assert.*;
 
+import java.util.List;
 import java.util.TimeZone;
 
 import org.junit.Test;
@@ -12,11 +13,10 @@ public class ReisadviesHandleTest {
     public void testGetModel() {
         TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
         ReisadviesHandle handle = new ReisadviesHandle();
-        ReisMogelijkheden mogelijkheden = handle.getModel(getClass().getResourceAsStream("/reisadvies.xml"));
+        List<ReisMogelijkheid> mogelijkheden = handle.getModel(getClass().getResourceAsStream("/reisadvies.xml"));
         assertNotNull(mogelijkheden);
-        assertNotNull(mogelijkheden.getReisMogelijkheid());
-        assertEquals(15, mogelijkheden.getReisMogelijkheid().size());
-        ReisMogelijkheid intercity = mogelijkheden.getReisMogelijkheid().get(0);
+        assertEquals(15, mogelijkheden.size());
+        ReisMogelijkheid intercity = mogelijkheden.get(0);
         assertEquals(1, intercity.getAantalOverstappen());
         assertEquals(94, intercity.getGeplandeReisTijdMinuten());
         assertEquals(94, intercity.getActueleReisTijdMinuten());
