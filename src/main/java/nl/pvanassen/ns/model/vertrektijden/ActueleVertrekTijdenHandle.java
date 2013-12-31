@@ -14,7 +14,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Handle to de-serialize the actuele vertrektijden response
+ * Handle to de-serialize the actuele vertrektijden response. For more information see <a
+ * href="http://www.ns.nl/api/api#api-documentatie-actuele-vertrektijden">documentatie actuele vertrektijden</a>
  * 
  * @author Paul van Assen
  * 
