@@ -3,7 +3,7 @@
 
 NS API
 ======
-An API for talking to the NS (Dutch railways) API interface written in Java [![NS API](http://www.ns.nl/api/api). 
+An API for talking to the NS (Dutch railways) [API](http://www.ns.nl/api/api) interface written in Java. 
 The NS is using a mix between Dutch and English terms in their API. This 
 reflects back to the Java implementation. The preferred language is English 
 but some Dutch terms show up. Javadoc is English. When Dutch terms are used 
@@ -11,7 +11,7 @@ a translation is provided
 
 Usage
 =====
-To use the NS api you need to register an account with the NS. You can apply for an account at http://www.ns.nl/api/api. 
+To use the NS api you need to register an account with the NS. You can apply for an account at [NS API](http://www.ns.nl/api/api). 
 
 You will receive a username and password. To use the Java api, you initialize the NsApi object: 
 
