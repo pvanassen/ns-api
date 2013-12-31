@@ -56,50 +56,95 @@ public class ReisMogelijkheid {
         this.reisDelen = Collections.unmodifiableList(reisDelen);
     }
 
+    /**
+     * @return A list of 'meldingen', or an empty list if none found
+     */
     public List<Melding> getMeldingen() {
         return meldingen;
     }
 
+    /**
+     * @return Number of transfers
+     */
     public int getAantalOverstappen() {
         return aantalOverstappen;
     }
-
+    /**
+     * @return Trip time in minutes according to the day-planning
+     */
     public int getGeplandeReisTijdMinuten() {
         return geplandeReisTijdMinuten;
     }
 
+    /**
+     * @return Trip time in minutes according to the most current estimations
+     */
     public int getActueleReisTijdMinuten() {
         return actueleReisTijdMinuten;
     }
 
+    /**
+     * @return Textual representation of the delay time on arrival
+     */
     public String getAankomstVertraging() {
         return aankomstVertraging;
     }
 
+    /**
+     * @return False if this trip is not the most optimal one. 
+     */
     public boolean isOptimaal() {
         return optimaal;
     }
 
+    /**
+     * @return Planned time of departure
+     */
     public Date getGeplandeVertrekTijd() {
         return geplandeVertrekTijd;
     }
 
+    /**
+     * @return Actual time of departure according to the most current estimations
+     */
     public Date getActueleVertrekTijd() {
         return actueleVertrekTijd;
     }
 
+    /**
+     * @return Planned time of arrival according to the day-planning
+     */
     public Date getGeplandeAankomstTijd() {
         return geplandeAankomstTijd;
     }
 
+    /**
+     * @return Actual time of arrival according to the most current estimations
+     */
     public Date getActueleAankomstTijd() {
         return actueleAankomstTijd;
     }
 
+    /**
+     * The status of a ride can consit of the following values:
+     * <ul>
+     * <li>VOLGENS-PLAN: As planned</li>
+     * <li>GEANNULEERD: Canceled</li>
+     * <li>GEWIJZIGD: Small change in the schedule made on the day itself</li>
+     * <li>OVERSTAP-NIET-MOGELIJK: No transfer possibke</li>
+     * <li>VERTRAAGD: Delayed</li>
+     * <li>NIEUW: Extra train</li>
+     * </ul>
+     * 
+     * @return Status of this ride.
+     */
     public String getStatus() {
         return status;
     }
-
+    
+    /**
+     * @return All travel legs
+     */
     public List<ReisDeel> getReisDelen() {
         return reisDelen;
     }
