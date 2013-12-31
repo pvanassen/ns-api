@@ -54,7 +54,7 @@ public class ActueleVertrekTijdenHandle implements Handle<List<VertrekkendeTrein
                 String routeTekst = vertrekkendeTreinXml.child("RouteTekst").content();
                 String vervoerder = vertrekkendeTreinXml.child("Vervoerder").content();
                 String vertrekSpoor = vertrekkendeTreinXml.child("VertrekSpoor").content();
-                boolean gewijzigdVertrekspoor = Boolean.valueOf(vertrekkendeTreinXml.child("VertrekSpoor").string(
+                boolean gewijzigdVertrekspoor = Boolean.valueOf(vertrekkendeTreinXml.child("VertrekSpoor").attr(
                         "wijziging"));
                 List<String> opmerkingen = new LinkedList<String>();
                 for (Xml opm : vertrekkendeTreinXml.children("Opmerkingen")) {

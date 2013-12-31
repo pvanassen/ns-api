@@ -13,7 +13,8 @@ import org.slf4j.LoggerFactory;
 import org.w3c.dom.*;
 
 /**
- * From http://blog.another-d-mention.ro/programming/the-simplest-way-to-parse-xml -in-java/
+ * From <a href="http://blog.another-d-mention.ro/programming/the-simplest-way-to-parse-xml -in-java/">the simplest way
+ * to parse XML</a>
  * 
  * @author Paul van Assen
  * 
@@ -46,6 +47,12 @@ public class XmlPresent extends Xml {
         }
     }
 
+    /**
+     * Called by abstract xml class to instantiate root element
+     * 
+     * @param stream Stream to use
+     * @param rootName Root name to use
+     */
     protected XmlPresent(InputStream stream, String rootName) {
         this(XmlPresent.rootElement(stream, rootName));
     }
@@ -84,16 +91,31 @@ public class XmlPresent extends Xml {
         children.add(child);
     }
 
+    /**
+     * {@inheritDoc}
+     * 
+     * @see nl.pvanassen.ns.xml.Xml#name()
+     */
     @Override
     public String name() {
         return name;
     }
 
+    /**
+     * {@inheritDoc}
+     * 
+     * @see nl.pvanassen.ns.xml.Xml#content()
+     */
     @Override
     public String content() {
         return content;
     }
 
+    /**
+     * {@inheritDoc}
+     * 
+     * @see nl.pvanassen.ns.xml.Xml#child(java.lang.String)
+     */
     @Override
     public Xml child(String name) {
         List<Xml> children = children(name);
@@ -104,14 +126,24 @@ public class XmlPresent extends Xml {
         return children.get(0);
     }
 
+    /**
+     * {@inheritDoc}
+     * 
+     * @see nl.pvanassen.ns.xml.Xml#children(java.lang.String)
+     */
     @Override
     public List<Xml> children(String name) {
         List<Xml> children = nameChildren.get(name);
         return children == null ? new ArrayList<Xml>() : children;
     }
 
+    /**
+     * {@inheritDoc}
+     * 
+     * @see nl.pvanassen.ns.xml.Xml#attr(java.lang.String)
+     */
     @Override
-    public String string(String name) {
+    public String attr(String name) {
         String value = nameAttributes.get(name);
         if (value == null) {
             throw new NsApiException("Could not find attribute: " + name + ", in node: " + this.name);
@@ -119,11 +151,11 @@ public class XmlPresent extends Xml {
         return value;
     }
 
-    @Override
-    public int integer(String name) {
-        return Integer.parseInt(string(name));
-    }
-
+    /**
+     * {@inheritDoc}
+     * 
+     * @see nl.pvanassen.ns.xml.Xml#isPresent(java.lang.String)
+     */
     @Override
     public boolean isPresent(String name) {
         return nameChildren.containsKey(name);

@@ -49,7 +49,7 @@ public class ReisadviesHandle implements Handle<ReisMogelijkheden> {
                 String status = reisMovelijkheidXml.child("Status").content();
                 List<ReisDeel> reisDelen = new ArrayList<ReisDeel>(reisMovelijkheidXml.children("ReisDeel").size());
                 for (Xml reisDeelXml : reisMovelijkheidXml.children("ReisDeel")) {
-                    String reisSoort = reisDeelXml.string("reisSoort");
+                    String reisSoort = reisDeelXml.attr("reisSoort");
                     String vervoerder = reisDeelXml.child("Vervoerder").content();
                     String vervoerType = reisDeelXml.child("VervoerType").content();
                     int ritNummer = Integer.parseInt(reisDeelXml.child("RitNummer").content());
@@ -61,7 +61,7 @@ public class ReisadviesHandle implements Handle<ReisMogelijkheden> {
                         String naam = reisStopXml.child("Naam").content();
                         Date tijd = format.parse(reisStopXml.child("Tijd").content());
                         String spoor = reisStopXml.child("Spoor").content();
-                        boolean gewijzigdVertrekspoor = Boolean.parseBoolean(reisStopXml.child("Spoor").string(
+                        boolean gewijzigdVertrekspoor = Boolean.parseBoolean(reisStopXml.child("Spoor").attr(
                                 "wijziging"));
                         reisStops.add(new ReisStop(naam, tijd, spoor, gewijzigdVertrekspoor));
                     }
