@@ -24,10 +24,16 @@ public class Storingen {
         this.geplandeStoringen = Collections.unmodifiableList(geplandeStoringen);
     }
 
+    /**
+     * @return List of unplanned disruptions
+     */
     public List<Storing> getOngeplandeStoringen() {
         return ongeplandeStoringen;
     }
 
+    /**
+     * @return List of planned disruptions
+     */
     public List<Storing> getGeplandeStoringen() {
         return geplandeStoringen;
     }
