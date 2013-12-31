@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ActueleVertrekTijden>
+<VertrekkendeTrein>
+  <RitNummer>31156</RitNummer>
+  <VertrekTijd>2012-02-22T15:32:00+0100</VertrekTijd>
+  <EindBestemming>Tiel</EindBestemming>
+  <TreinSoort>Stoptrein</TreinSoort>
+  <RouteTekst>Elst</RouteTekst>
+  <Vervoerder>Syntus</Vervoerder>
+  <VertrekSpoor wijziging="false">4</VertrekSpoor>
+  <ReisTip>Stopt niet in Arnhem Zuid</ReisTip>
+</VertrekkendeTrein>
+</ActueleVertrekTijden>

@@ -2,6 +2,7 @@ package nl.pvanassen.ns.model.reisadvies;
 
 import java.util.List;
 import java.util.TimeZone;
+import static org.junit.Assert.*;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -9,47 +10,156 @@ import org.junit.Test;
 public class ReisadviesHandleTest {
 
     @Test
-    public void testGetModel() {
+    public void testActualReisadvies() {
         TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
         ReisadviesHandle handle = new ReisadviesHandle();
-        List<ReisMogelijkheid> mogelijkheden = handle.getModel(getClass().getResourceAsStream("/reisadvies.xml"));
-        Assert.assertNotNull(mogelijkheden);
-        Assert.assertEquals(15, mogelijkheden.size());
+        List<ReisMogelijkheid> mogelijkheden = handle.getModel(getClass().getResourceAsStream(
+                "/reisadvies/reisadvies-actual.xml"));
+        assertNotNull(mogelijkheden);
+        assertEquals(15, mogelijkheden.size());
         ReisMogelijkheid intercity = mogelijkheden.get(0);
-        Assert.assertEquals(1, intercity.getAantalOverstappen());
-        Assert.assertEquals(94, intercity.getGeplandeReisTijdMinuten());
-        Assert.assertEquals(94, intercity.getActueleReisTijdMinuten());
-        Assert.assertEquals("Fri Dec 27 16:54:00 GMT 2013", intercity.getGeplandeAankomstTijd().toString());
-        Assert.assertEquals("Fri Dec 27 16:54:00 GMT 2013", intercity.getActueleAankomstTijd().toString());
-        Assert.assertNull(intercity.getAankomstVertraging());
-        Assert.assertEquals("Fri Dec 27 15:20:00 GMT 2013", intercity.getGeplandeVertrekTijd().toString());
-        Assert.assertEquals("Fri Dec 27 15:20:00 GMT 2013", intercity.getActueleVertrekTijd().toString());
-        Assert.assertNotNull(intercity.getMeldingen());
-        Assert.assertEquals(1, intercity.getMeldingen().size());
+        assertEquals(1, intercity.getAantalOverstappen());
+        assertEquals(94, intercity.getGeplandeReisTijdMinuten());
+        assertEquals(94, intercity.getActueleReisTijdMinuten());
+        assertTrue(intercity.isOptimaal());
+        assertEquals("Fri Dec 27 16:54:00 GMT 2013", intercity.getGeplandeAankomstTijd().toString());
+        assertEquals("Fri Dec 27 16:54:00 GMT 2013", intercity.getActueleAankomstTijd().toString());
+        assertNull(intercity.getAankomstVertraging());
+        assertEquals("Fri Dec 27 15:20:00 GMT 2013", intercity.getGeplandeVertrekTijd().toString());
+        assertEquals("Fri Dec 27 15:20:00 GMT 2013", intercity.getActueleVertrekTijd().toString());
+        assertNotNull(intercity.getMeldingen());
+        assertEquals(1, intercity.getMeldingen().size());
         Melding melding = intercity.getMeldingen().get(0);
-        Assert.assertEquals("2012_gn_asn_25feb_4mrt", melding.getId());
-        Assert.assertEquals("Let op, werk aan het spoor Assen - Groningen", melding.getText());
-        Assert.assertFalse(melding.isErnstig());
-        Assert.assertEquals("VOLGENS-PLAN", intercity.getStatus());
-        Assert.assertNotNull(intercity.getReisDelen());
-        Assert.assertEquals(2, intercity.getReisDelen().size());
+        assertEquals("2012_gn_asn_25feb_4mrt", melding.getId());
+        assertEquals("Let op, werk aan het spoor Assen - Groningen", melding.getText());
+        assertFalse(melding.isErnstig());
+        assertEquals("VOLGENS-PLAN", intercity.getStatus());
+        assertNotNull(intercity.getReisDelen());
+        assertEquals(2, intercity.getReisDelen().size());
         ReisDeel utrechtZwolle = intercity.getReisDelen().get(0);
-        Assert.assertNull(utrechtZwolle.getGeplandeStoringId());
-        Assert.assertNull(utrechtZwolle.getOngeplandeStoringId());
-        Assert.assertNotNull(utrechtZwolle.getReisDetails());
-        Assert.assertEquals(0, utrechtZwolle.getReisDetails().size());
-        Assert.assertEquals("TRAIN", utrechtZwolle.getReisSoort());
-        Assert.assertEquals(12557, utrechtZwolle.getRitNummer());
-        Assert.assertEquals("VOLGENS-PLAN", utrechtZwolle.getStatus());
-        Assert.assertEquals("NS", utrechtZwolle.getVervoerder());
-        Assert.assertEquals("Intercity", utrechtZwolle.getVervoerType());
-        Assert.assertNotNull(utrechtZwolle.getReisStops());
-        Assert.assertEquals(3, utrechtZwolle.getReisStops().size());
+        assertNull(utrechtZwolle.getGeplandeStoringId());
+        assertNull(utrechtZwolle.getOngeplandeStoringId());
+        assertNotNull(utrechtZwolle.getReisDetails());
+        assertEquals(0, utrechtZwolle.getReisDetails().size());
+        assertEquals("TRAIN", utrechtZwolle.getReisSoort());
+        assertEquals(12557, utrechtZwolle.getRitNummer());
+        assertEquals("VOLGENS-PLAN", utrechtZwolle.getStatus());
+        assertEquals("NS", utrechtZwolle.getVervoerder());
+        assertEquals("Intercity", utrechtZwolle.getVervoerType());
+        assertNotNull(utrechtZwolle.getReisStops());
+        assertEquals(3, utrechtZwolle.getReisStops().size());
         ReisStop utrecht = utrechtZwolle.getReisStops().get(0);
-        Assert.assertEquals("Utrecht Centraal", utrecht.getNaam());
-        Assert.assertEquals("11a", utrecht.getSpoor());
-        Assert.assertEquals("Fri Dec 27 15:20:00 GMT 2013", utrecht.getTijd().toString());
-        Assert.assertEquals(false, utrecht.isGewijzigdVertrekspoor());
+        assertEquals("Utrecht Centraal", utrecht.getNaam());
+        assertEquals("11a", utrecht.getSpoor());
+        assertEquals("Fri Dec 27 15:20:00 GMT 2013", utrecht.getTijd().toString());
+        assertEquals(false, utrecht.isGewijzigdVertrekspoor());
+    }
+
+    @Test
+    public void testExample1() {
+        TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
+        ReisadviesHandle handle = new ReisadviesHandle();
+        List<ReisMogelijkheid> mogelijkheden = handle.getModel(getClass().getResourceAsStream(
+                "/reisadvies/reisadvies-example1.xml"));
+        assertNotNull(mogelijkheden);
+        assertEquals(1, mogelijkheden.size());
+        ReisMogelijkheid intercity = mogelijkheden.get(0);
+        assertEquals(1, intercity.getAantalOverstappen());
+        assertEquals(90, intercity.getGeplandeReisTijdMinuten());
+        assertEquals(90, intercity.getActueleReisTijdMinuten());
+        assertFalse(intercity.isOptimaal());
+        assertEquals("Mon Feb 27 13:21:00 GMT 2012", intercity.getGeplandeAankomstTijd().toString());
+        assertEquals("Mon Feb 27 13:21:00 GMT 2012", intercity.getActueleAankomstTijd().toString());
+        assertNull(intercity.getAankomstVertraging());
+        assertEquals("Mon Feb 27 11:51:00 GMT 2012", intercity.getGeplandeVertrekTijd().toString());
+        assertEquals("Mon Feb 27 11:51:00 GMT 2012", intercity.getActueleVertrekTijd().toString());
+        assertNotNull(intercity.getMeldingen());
+        assertEquals(0, intercity.getMeldingen().size());
+        assertEquals("NIET-OPTIMAAL", intercity.getStatus());
+        assertNotNull(intercity.getReisDelen());
+        assertEquals(2, intercity.getReisDelen().size());
+        ReisDeel utrechtApeldoorn = intercity.getReisDelen().get(0);
+        assertNull(utrechtApeldoorn.getGeplandeStoringId());
+        assertNull(utrechtApeldoorn.getOngeplandeStoringId());
+        assertNotNull(utrechtApeldoorn.getReisDetails());
+        assertEquals(0, utrechtApeldoorn.getReisDetails().size());
+        assertEquals("TRAIN", utrechtApeldoorn.getReisSoort());
+        assertEquals(1743, utrechtApeldoorn.getRitNummer());
+        assertEquals("VOLGENS-PLAN", utrechtApeldoorn.getStatus());
+        assertEquals("NS", utrechtApeldoorn.getVervoerder());
+        assertEquals("Intercity", utrechtApeldoorn.getVervoerType());
+        assertNotNull(utrechtApeldoorn.getReisStops());
+        assertEquals(3, utrechtApeldoorn.getReisStops().size());
+        ReisStop utrecht = utrechtApeldoorn.getReisStops().get(0);
+        assertEquals("Utrecht Centraal", utrecht.getNaam());
+        assertEquals("11", utrecht.getSpoor());
+        assertEquals("Mon Feb 27 11:51:00 GMT 2012", utrecht.getTijd().toString());
+        assertEquals(false, utrecht.isGewijzigdVertrekspoor());
+    }
+
+    @Test
+    public void testOngeplandeStoring() {
+        TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
+        ReisadviesHandle handle = new ReisadviesHandle();
+        List<ReisMogelijkheid> mogelijkheden = handle.getModel(getClass().getResourceAsStream(
+                "/reisadvies/reisadvies-ongeplandestoring.xml"));
+        assertNotNull(mogelijkheden);
+        assertEquals(1, mogelijkheden.size());
+        ReisMogelijkheid intercity = mogelijkheden.get(0);
+        assertNotNull(intercity.getMeldingen());
+        assertEquals(1, intercity.getMeldingen().size());
+        Melding melding = intercity.getMeldingen().get(0);
+        assertEquals("", melding.getId());
+        assertEquals("Dit reisadvies vervalt", melding.getText());
+        assertTrue(melding.isErnstig());
+        assertEquals(0, intercity.getAantalOverstappen());
+        assertEquals(32, intercity.getGeplandeReisTijdMinuten());
+        assertEquals(32, intercity.getActueleReisTijdMinuten());
+        assertFalse(intercity.isOptimaal());
+        assertEquals("Fri Mar 02 12:28:00 GMT 2012", intercity.getGeplandeAankomstTijd().toString());
+        assertEquals("Fri Mar 02 12:28:00 GMT 2012", intercity.getActueleAankomstTijd().toString());
+        assertNull(intercity.getAankomstVertraging());
+        assertEquals("Fri Mar 02 11:56:00 GMT 2012", intercity.getGeplandeVertrekTijd().toString());
+        assertEquals("Fri Mar 02 11:56:00 GMT 2012", intercity.getActueleVertrekTijd().toString());
+        assertEquals("NIET-MOGELIJK", intercity.getStatus());
+        assertNotNull(intercity.getReisDelen());
+        assertEquals(1, intercity.getReisDelen().size());
+        ReisDeel maastrichtRoermond = intercity.getReisDelen().get(0);
+        assertNull(maastrichtRoermond.getGeplandeStoringId());
+        assertEquals("prio-24008", maastrichtRoermond.getOngeplandeStoringId());
+        assertNotNull(maastrichtRoermond.getReisDetails());
+        assertEquals(0, maastrichtRoermond.getReisDetails().size());
+        assertEquals("TRAIN", maastrichtRoermond.getReisSoort());
+        assertEquals(848, maastrichtRoermond.getRitNummer());
+        assertEquals("GEANNULEERD", maastrichtRoermond.getStatus());
+        assertEquals("NS", maastrichtRoermond.getVervoerder());
+        assertEquals("Intercity", maastrichtRoermond.getVervoerType());
+        assertNotNull(maastrichtRoermond.getReisStops());
+        assertEquals(3, maastrichtRoermond.getReisStops().size());
+        ReisStop maastricht = maastrichtRoermond.getReisStops().get(0);
+        assertEquals("Maastricht", maastricht.getNaam());
+        assertEquals("3", maastricht.getSpoor());
+        assertEquals("Fri Mar 02 11:56:00 GMT 2012", maastricht.getTijd().toString());
+        assertEquals(false, maastricht.isGewijzigdVertrekspoor());
+    }
+
+    @Test
+    public void testReisDetail() {
+        TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
+        ReisadviesHandle handle = new ReisadviesHandle();
+        List<ReisMogelijkheid> mogelijkheden = handle.getModel(getClass().getResourceAsStream(
+                "/reisadvies/reisadvies-reisdetails.xml"));
+        assertNotNull(mogelijkheden);
+        assertEquals(1, mogelijkheden.size());
+        ReisMogelijkheid intercity = mogelijkheden.get(0);
+        assertNotNull(intercity.getMeldingen());
+        ReisDeel reisDeel = intercity.getReisDelen().get(0);
+        assertNotNull(reisDeel.getReisDetails());
+        assertEquals(4, reisDeel.getReisDetails().size());
+        assertEquals("Reserveren buitenl. aanbevolen", reisDeel.getReisDetails().get(0));
+        assertEquals("Bar/Buffet", reisDeel.getReisDetails().get(1));
+        assertEquals("Rolstoel plaatsen", reisDeel.getReisDetails().get(2));
+        assertEquals("Geen fietsen tot 1 april 2012", reisDeel.getReisDetails().get(3));
     }
 
 }

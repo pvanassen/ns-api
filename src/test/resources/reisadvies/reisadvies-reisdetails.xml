@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+  <ReisMogelijkheden>
+    <ReisMogelijkheid>
+      <AantalOverstappen>1</AantalOverstappen>
+      <GeplandeReisTijd>1:30</GeplandeReisTijd>
+      <ActueleReisTijd>1:30</ActueleReisTijd>
+      <Optimaal>false</Optimaal>
+      <GeplandeVertrekTijd>2012-02-27T12:51:00+0100</GeplandeVertrekTijd>
+      <ActueleVertrekTijd>2012-02-27T12:51:00+0100</ActueleVertrekTijd>
+      <GeplandeAankomstTijd>2012-02-27T14:21:00+0100</GeplandeAankomstTijd>
+      <ActueleAankomstTijd>2012-02-27T14:21:00+0100</ActueleAankomstTijd>
+      <Status>NIET-OPTIMAAL</Status>
+      <ReisDeel reisSoort="TRAIN">
+	    <Reisdetails>
+		  <Reisdetail>Reserveren buitenl. aanbevolen</Reisdetail>
+		  <Reisdetail>Bar/Buffet</Reisdetail>
+		  <Reisdetail>Rolstoel plaatsen</Reisdetail>
+		  <Reisdetail>Geen fietsen tot 1 april 2012</Reisdetail>
+		</Reisdetails>
+        <Vervoerder>NS</Vervoerder>
+        <VervoerType>Intercity</VervoerType>
+        <RitNummer>1743</RitNummer>
+        <Status>VOLGENS-PLAN</Status>
+        <ReisStop>
+          <Naam>Utrecht Centraal</Naam>
+          <Tijd>2012-02-27T12:51:00+0100</Tijd>
+          <Spoor wijziging="false">11</Spoor>
+        </ReisStop>
+        <ReisStop>
+          <Naam>Amersfoort</Naam>
+          <Tijd>2012-02-27T13:08:00+0100</Tijd>
+        </ReisStop>
+        <ReisStop>
+          <Naam>Apeldoorn</Naam>
+          <Tijd>2012-02-27T13:32:00+0100</Tijd>
+          <Spoor wijziging="false">4</Spoor>
+        </ReisStop>
+      </ReisDeel>
+      <ReisDeel reisSoort="TRAIN">
+        <Vervoerder>NS</Vervoerder>
+        <VervoerType>Sprinter</VervoerType>
+        <RitNummer>7043</RitNummer>
+        <Status>VOLGENS-PLAN</Status>
+        <ReisStop>
+          <Naam>Apeldoorn</Naam>
+          <Tijd>2012-02-27T13:38:00+0100</Tijd>
+          <Spoor wijziging="false">3</Spoor>
+        </ReisStop>
+        <ReisStop>
+          <Naam>Apeldoorn Osseveld</Naam>
+          <Tijd>2012-02-27T13:42:00+0100</Tijd>
+        </ReisStop>
+        <ReisStop>
+          <Naam>Twello</Naam>
+          <Tijd>2012-02-27T13:47:00+0100</Tijd>
+        </ReisStop>
+        <ReisStop>
+          <Naam>Deventer</Naam>
+          <Tijd>2012-02-27T13:55:00+0100</Tijd>
+        </ReisStop>
+        <ReisStop>
+          <Naam>Deventer Colmschate</Naam>
+          <Tijd>2012-02-27T14:00:00+0100</Tijd>
+        </ReisStop>
+        <ReisStop>
+          <Naam>Holten</Naam>
+          <Tijd>2012-02-27T14:08:00+0100</Tijd>
+        </ReisStop>
+        <ReisStop>
+          <Naam>Rijssen</Naam>
+          <Tijd>2012-02-27T14:15:00+0100</Tijd>
+        </ReisStop>
+        <ReisStop>
+          <Naam>Wierden</Naam>
+          <Tijd>2012-02-27T14:21:00+0100</Tijd>
+          <Spoor wijziging="false">1</Spoor>
+        </ReisStop>
+      </ReisDeel>
+    </ReisMogelijkheid>
+</ReisMogelijkheden>

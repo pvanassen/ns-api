@@ -51,7 +51,10 @@ public class ReisadviesHandle implements Handle<List<ReisMogelijkheid>> {
                         .content());
                 int actueleReisTijdMinuten = getReistijdInMinuten(reisMogelijkheidXml.child("ActueleReisTijd")
                         .content());
-                boolean optimaal = Boolean.parseBoolean(reisMogelijkheidXml.child("Optimaal").content());
+                boolean optimaal = true;
+                if (reisMogelijkheidXml.isPresent("Optimaal")) {
+                    optimaal = Boolean.parseBoolean(reisMogelijkheidXml.child("Optimaal").content());
+                }
                 Date geplandeVertrekTijd = format.parse(reisMogelijkheidXml.child("GeplandeVertrekTijd").content());
                 Date actueleVertrekTijd = format.parse(reisMogelijkheidXml.child("ActueleVertrekTijd").content());
                 Date geplandeAankomstTijd = format.parse(reisMogelijkheidXml.child("GeplandeAankomstTijd").content());

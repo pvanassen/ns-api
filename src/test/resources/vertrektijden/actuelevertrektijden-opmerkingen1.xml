@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ActueleVertrekTijden>
+<VertrekkendeTrein>
+  <RitNummer>669</RitNummer>
+  <VertrekTijd>2012-02-22T17:13:00+0100</VertrekTijd>
+  <EindBestemming>Rotterdam Centraal</EindBestemming>
+  <TreinSoort>Intercity</TreinSoort>
+  <RouteTekst>Schiphol, Den Haag HS</RouteTekst>
+  <Vervoerder>NS</Vervoerder>
+  <VertrekSpoor wijziging="false">15a</VertrekSpoor>
+  <Opmerkingen>
+    <Opmerking>Rijdt vandaag niet</Opmerking>
+  </Opmerkingen>
+</VertrekkendeTrein>
+</ActueleVertrekTijden>

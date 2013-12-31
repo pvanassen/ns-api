@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ActueleVertrekTijden>
+  <VertrekkendeTrein>
+    <RitNummer>7478</RitNummer>
+    <VertrekTijd>2012-02-19T22:47:00+0100</VertrekTijd>
+    <VertrekVertraging>PT2M</VertrekVertraging>
+    <VertrekVertragingTekst>+2 min</VertrekVertragingTekst>
+    <EindBestemming>Breukelen</EindBestemming>
+    <TreinSoort>Sprinter</TreinSoort>
+    <Vervoerder>NS</Vervoerder>
+    <VertrekSpoor wijziging="true">7</VertrekSpoor>
+  </VertrekkendeTrein>
+  <VertrekkendeTrein>
+    <RitNummer>20578</RitNummer>
+    <VertrekTijd>2012-02-19T22:47:00+0100</VertrekTijd>
+    <EindBestemming>Rotterdam Centraal</EindBestemming>
+    <TreinSoort>Intercity</TreinSoort>
+    <RouteTekst>Gouda, R'dam Alexander</RouteTekst>
+    <Vervoerder>NS</Vervoerder>
+    <VertrekSpoor wijziging="false">9b</VertrekSpoor>
+  </VertrekkendeTrein>
+  <VertrekkendeTrein>
+    <RitNummer>5683</RitNummer>
+    <VertrekTijd>2012-02-19T22:50:00+0100</VertrekTijd>
+    <EindBestemming>Zwolle</EindBestemming>
+    <TreinSoort>Sprinter</TreinSoort>
+    <RouteTekst>Utrecht Overv, Den Dolder, Amersfoort</RouteTekst>
+    <Vervoerder>NS</Vervoerder>
+    <VertrekSpoor wijziging="false">3</VertrekSpoor>
+  </VertrekkendeTrein>
+</ActueleVertrekTijden>

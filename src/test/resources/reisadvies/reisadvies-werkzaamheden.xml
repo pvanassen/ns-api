@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ReisMogelijkheden>
+<ReisMogelijkheid>
+  <Melding>
+    <Id>2012_gn_asn_25feb_4mrt</Id>
+    <Ernstig>false</Ernstig>
+    <Text>Let op, werk aan het spoor Assen - Groningen</Text>
+  </Melding>
+  <AantalOverstappen>1</AantalOverstappen>
+  <GeplandeReisTijd>1:18</GeplandeReisTijd>
+  <ActueleReisTijd>1:18</ActueleReisTijd>
+  <Optimaal>false</Optimaal>
+  <GeplandeVertrekTijd>2012-03-02T13:17:00+0100</GeplandeVertrekTijd>
+  <ActueleVertrekTijd>2012-03-02T13:17:00+0100</ActueleVertrekTijd>
+  <GeplandeAankomstTijd>2012-03-02T14:35:00+0100</GeplandeAankomstTijd>
+  <ActueleAankomstTijd>2012-03-02T14:35:00+0100</ActueleAankomstTijd>
+  <Status>VOLGENS-PLAN</Status>
+  <ReisDeel reisSoort="TRAIN">
+    <Vervoerder>NS</Vervoerder>
+    <VervoerType>Intercity</VervoerType>
+    <RitNummer>541</RitNummer>
+    <Status>VOLGENS-PLAN</Status>
+    <ReisStop>
+      <Naam>Zwolle</Naam>
+      <Tijd>2012-03-02T13:17:00+0100</Tijd>
+      <Spoor wijziging="false">3</Spoor>
+    </ReisStop>
+    <ReisStop>
+      <Naam>Assen</Naam>
+      <Tijd>2012-03-02T13:57:00+0100</Tijd>
+      <Spoor wijziging="false">2</Spoor>
+    </ReisStop>
+  </ReisDeel>
+  <ReisDeel reisSoort="TRAIN">
+    <Vervoerder>NS</Vervoerder>
+    <VervoerType>Snelbus i.p.v. Trein</VervoerType>
+    <RitNummer>0</RitNummer>
+    <Status>VOLGENS-PLAN</Status>
+    <Reisdetails>
+      <Reisdetail>Fiets meenemen niet mogelijk</Reisdetail>
+    </Reisdetails>
+    <GeplandeStoringId>2012_gn_asn_25feb_4mrt</GeplandeStoringId>
+    <ReisStop>
+      <Naam>Assen</Naam>
+      <Tijd>2012-03-02T14:05:00+0100</Tijd>
+      <Spoor wijziging="false" />
+    </ReisStop>
+    <ReisStop>
+      <Naam>Groningen</Naam>
+      <Tijd>2012-03-02T14:35:00+0100</Tijd>
+      <Spoor wijziging="false" />
+    </ReisStop>
+  </ReisDeel>
+</ReisMogelijkheid>
+</ReisMogelijkheden>
