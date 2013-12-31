@@ -14,7 +14,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  */
 public class ReisMogelijkheid {
 
-    private final Melding melding;
+    private final List<Melding> meldingen;
 
     private final int aantalOverstappen;
 
@@ -38,11 +38,11 @@ public class ReisMogelijkheid {
 
     private final List<ReisDeel> reisDelen;
 
-    ReisMogelijkheid(Melding melding, int aantalOverstappen, int geplandeReisTijdMinuten, int actueleReisTijdMinuten,
+    ReisMogelijkheid(List<Melding> meldingen, int aantalOverstappen, int geplandeReisTijdMinuten, int actueleReisTijdMinuten,
             String aankomstVertraging, boolean optimaal, Date geplandeVertrekTijd, Date actueleVertrekTijd,
             Date geplandeAankomstTijd, Date actueleAankomstTijd, String status, List<ReisDeel> reisDelen) {
         super();
-        this.melding = melding;
+        this.meldingen = Collections.unmodifiableList(meldingen);
         this.aantalOverstappen = aantalOverstappen;
         this.geplandeReisTijdMinuten = geplandeReisTijdMinuten;
         this.actueleReisTijdMinuten = actueleReisTijdMinuten;
@@ -56,8 +56,8 @@ public class ReisMogelijkheid {
         this.reisDelen = Collections.unmodifiableList(reisDelen);
     }
 
-    public Melding getMelding() {
-        return melding;
+    public List<Melding> getMeldingen() {
+        return meldingen;
     }
 
     public int getAantalOverstappen() {

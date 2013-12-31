@@ -25,8 +25,9 @@ public class ReisadviesHandleTest {
         assertNull(intercity.getAankomstVertraging());
         assertEquals("Fri Dec 27 15:20:00 GMT 2013", intercity.getGeplandeVertrekTijd().toString());
         assertEquals("Fri Dec 27 15:20:00 GMT 2013", intercity.getActueleVertrekTijd().toString());
-        assertNotNull(intercity.getMelding());
-        Melding melding = intercity.getMelding();
+        assertNotNull(intercity.getMeldingen());
+        assertEquals(1, intercity.getMeldingen().size());
+        Melding melding = intercity.getMeldingen().get(0);
         assertEquals("2012_gn_asn_25feb_4mrt", melding.getId());
         assertEquals("Let op, werk aan het spoor Assen - Groningen", melding.getText());
         assertFalse(melding.isErnstig());
