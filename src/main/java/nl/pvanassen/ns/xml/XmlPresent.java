@@ -32,6 +32,12 @@ public class XmlPresent extends Xml {
     private final Map<String, List<Xml>> nameChildren = new HashMap<String, List<Xml>>();
 
     private static Element rootElement(InputStream stream, String rootName) {
+        if (stream == null) {
+            throw new NullPointerException("Inputstream cannot be null");
+        }
+        if (rootName == null) {
+            throw new NullPointerException("Name of the root element cannot be null");
+        }
         try {
             DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = builderFactory.newDocumentBuilder();

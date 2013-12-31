@@ -11,7 +11,7 @@ public class StoringenHandleTest {
     @Test
     public void testGetModel() {
         StoringenHandle handle = new StoringenHandle();
-        Storingen storingen = handle.getModel(getClass().getResourceAsStream("/storingen.xml"));
+        Storingen storingen = handle.getModel(getClass().getResourceAsStream("/storingen/storingen-actual.xml"));
         Assert.assertEquals(2, storingen.getOngeplandeStoringen().size());
         Storing deurne = storingen.getOngeplandeStoringen().get(0);
         Assert.assertEquals("prio-49726", deurne.getId());

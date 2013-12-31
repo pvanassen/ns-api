@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ReisMogelijkheden>
+<ReisMogelijkheid>
+  <Melding>
+    <Id />
+    <Ernstig>true</Ernstig>
+    <Text>Dit reisadvies vervalt</Text>
+  </Melding>
+  <AantalOverstappen>0</AantalOverstappen>
+  <GeplandeReisTijd>0:32</GeplandeReisTijd>
+  <ActueleReisTijd>0:32</ActueleReisTijd>
+  <Optimaal>false</Optimaal>
+  <GeplandeVertrekTijd>2012-03-02T12:56:00+0100</GeplandeVertrekTijd>
+  <ActueleVertrekTijd>2012-03-02T12:56:00+0100</ActueleVertrekTijd>
+  <GeplandeAankomstTijd>2012-03-02T13:28:00+0100</GeplandeAankomstTijd>
+  <ActueleAankomstTijd>2012-03-02T13:28:00+0100</ActueleAankomstTijd>
+  <Status>NIET-MOGELIJK</Status>
+  <ReisDeel reisSoort="TRAIN">
+    <Vervoerder>NS</Vervoerder>
+    <VervoerType>Intercity</VervoerType>
+    <RitNummer>848</RitNummer>
+    <Status>GEANNULEERD</Status>
+    <OngeplandeStoringId>prio-24008</OngeplandeStoringId>
+    <ReisStop>
+      <Naam>Maastricht</Naam>
+      <Tijd>2012-03-02T12:56:00+0100</Tijd>
+      <Spoor wijziging="false">3</Spoor>
+    </ReisStop>
+    <ReisStop>
+      <Naam>Sittard</Naam>
+      <Tijd>2012-03-02T13:13:00+0100</Tijd>
+    </ReisStop>
+    <ReisStop>
+      <Naam>Roermond</Naam>
+      <Tijd>2012-03-02T13:28:00+0100</Tijd>
+      <Spoor wijziging="false">2</Spoor>
+    </ReisStop>
+  </ReisDeel>
+</ReisMogelijkheid>
+</ReisMogelijkheden>

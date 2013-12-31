@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ActueleVertrekTijden>
+<VertrekkendeTrein>
+  <RitNummer>9339</RitNummer>
+  <VertrekTijd>2012-02-21T15:30:00+0100</VertrekTijd>
+  <VertrekVertraging>PT1M</VertrekVertraging>
+  <VertrekVertragingTekst>+1 min</VertrekVertragingTekst>
+  <EindBestemming>Amsterdam Centraal</EindBestemming>
+  <TreinSoort>Thalys</TreinSoort>
+  <Vervoerder>NS Hispeed</Vervoerder>
+  <VertrekSpoor wijziging="false">1-2</VertrekSpoor>
+  <Opmerkingen>
+    <Opmerking>Niet instappen</Opmerking>
+  </Opmerkingen>
+</VertrekkendeTrein></ActueleVertrekTijden>

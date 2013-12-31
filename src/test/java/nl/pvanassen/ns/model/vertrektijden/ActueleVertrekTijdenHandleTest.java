@@ -13,7 +13,7 @@ public class ActueleVertrekTijdenHandleTest {
     public void testGetModel() {
         ActueleVertrekTijdenHandle handle = new ActueleVertrekTijdenHandle();
         List<VertrekkendeTrein> vertrekkendeTreinen = handle.getModel(getClass().getResourceAsStream(
-                "/actuelevertrektijden.xml"));
+                "/vertrektijden/actuelevertrektijden-actual.xml"));
         Assert.assertNotNull(vertrekkendeTreinen);
         Assert.assertEquals(15, vertrekkendeTreinen.size());
         VertrekkendeTrein sprinterBreda = vertrekkendeTreinen.get(0);

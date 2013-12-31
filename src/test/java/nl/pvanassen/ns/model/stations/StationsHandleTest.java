@@ -10,7 +10,7 @@ public class StationsHandleTest {
     @Test
     public void testGetModel() {
         StationsHandle handle = new StationsHandle();
-        List<Station> stations = handle.getModel(getClass().getResourceAsStream("/stations.xml"));
+        List<Station> stations = handle.getModel(getClass().getResourceAsStream("/stations/stations-actual.xml"));
         Assert.assertNotNull(stations);
         Assert.assertNotEquals(0, stations.size());
         Station stationDenBosch = stations.get(0);

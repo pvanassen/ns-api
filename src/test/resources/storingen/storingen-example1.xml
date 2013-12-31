@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Storingen>
+  <Ongepland>
+    <Storing>
+      <id>prio-13345</id>
+      <Traject>'s-Hertogenbosch-Nijmegen</Traject>
+      <Reden>beperkingen op last van de politie</Reden>
+      <Bericht></Bericht>
+      <Datum>2010-12-16T11:16:00+0100</Datum>
+    </Storing>
+  </Ongepland>
+  <Gepland>
+    <Storing>
+      <id>2010_almo_wp_18_19dec</id>
+      <Traject>Almere Oostvaarders-Weesp/Naarden-Bussum</Traject>
+      <Periode>zaterdag 18 en zondag 19 december</Periode>
+      <Reden>Beperkt treinverkeer, businzet en/of omreizen, extra reistijd 15-30 min.</Reden>
+      <Advies>Maak gebruik van de overige treinen of de bussen:                 reis tussen Weesp en Almere Centrum met de NS-bus in                 plaats van de trein tussen Almere Centrum en Lelystad                 Centrum rijden vier Sprinters per uur reis tussen Almere                 Muziekwijk en Naarden-Bussum via Weesp</Advies>
+      <Bericht></Bericht>
+    </Storing>
+  </Gepland>
+</Storingen>

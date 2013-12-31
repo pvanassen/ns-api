@@ -8,7 +8,7 @@ public class ProductenHandleTest {
     @Test
     public void testGetModel() {
         ProductenHandle handle = new ProductenHandle();
-        Producten producten = handle.getModel(getClass().getResourceAsStream("/prijzen.xml"));
+        Producten producten = handle.getModel(getClass().getResourceAsStream("/prijzen/prijzen-example.xml"));
         Assert.assertNotNull(producten);
         Assert.assertNotNull(producten.getProducten());
         Assert.assertEquals(2, producten.getProducten().size());
