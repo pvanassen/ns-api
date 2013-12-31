@@ -30,18 +30,30 @@ public class ReisStop {
         this.gewijzigdVertrekspoor = gewijzigdVertrekspoor;
     }
 
+    /**
+     * @return Station name
+     */
     public String getNaam() {
         return naam;
     }
-
+    
+    /**
+     * @return Date and time of arrival
+     */
     public Date getTijd() {
         return tijd;
     }
-
+    
+    /**
+     * @return Track if the train stops at the station
+     */
     public String getSpoor() {
         return spoor;
     }
 
+    /**
+     * @return True if the departure track has changed for this ride, compared to a normal ride
+     */
     public boolean isGewijzigdVertrekspoor() {
         return gewijzigdVertrekspoor;
     }
