@@ -25,14 +25,23 @@ public class Melding {
         this.text = text;
     }
 
+    /**
+     * @return The melding ID
+     */
     public String getId() {
         return id;
     }
 
+    /**
+     * @return Indication of the severity, true means severe, false less severe
+     */
     public boolean isErnstig() {
         return ernstig;
     }
 
+    /**
+     * @return The text of the 'melding'. The actual message
+     */
     public String getText() {
         return text;
     }
