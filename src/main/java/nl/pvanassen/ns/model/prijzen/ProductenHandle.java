@@ -28,11 +28,11 @@ public class ProductenHandle implements Handle<Producten> {
         Xml xml = Xml.getXml(stream, "Producten");
         int tariefEenheden = Integer.parseInt(xml.child("Tariefeenheden").content());
         for (Xml productXml : xml.children("Product")) {
-            String naam = productXml.string("naam");
+            String naam = productXml.attr("naam");
             List<Prijs> prijzen = new ArrayList<Prijs>(productXml.children("Prijs").size());
             for (Xml prijsXml : productXml.children("Prijs")) {
-                String korting = prijsXml.string("korting");
-                int klasse = Integer.parseInt(prijsXml.string("klasse"));
+                String korting = prijsXml.attr("korting");
+                int klasse = Integer.parseInt(prijsXml.attr("klasse"));
                 int prijs = Integer.parseInt(prijsXml.content().replace(",", ""));
                 prijzen.add(new Prijs(korting, klasse, prijs));
             }
