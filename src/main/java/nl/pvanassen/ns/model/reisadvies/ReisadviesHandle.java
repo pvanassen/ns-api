@@ -72,8 +72,10 @@ public class ReisadviesHandle implements Handle<List<ReisMogelijkheid>> {
                         String naam = reisStopXml.child("Naam").content();
                         Date tijd = format.parse(reisStopXml.child("Tijd").content());
                         String spoor = reisStopXml.child("Spoor").content();
-                        boolean gewijzigdVertrekspoor = Boolean.parseBoolean(reisStopXml.child("Spoor").attr(
-                                "wijziging"));
+                        boolean gewijzigdVertrekspoor = false;
+                        if (spoor != null) {
+                            gewijzigdVertrekspoor = Boolean.parseBoolean(reisStopXml.child("Spoor").attr("wijziging"));
+                        }
                         reisStops.add(new ReisStop(naam, tijd, spoor, gewijzigdVertrekspoor));
                     }
                     List<String> reisDetails = new ArrayList<String>(reisDeelXml.child("Reisdetails")
