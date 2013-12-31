@@ -9,7 +9,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
- * http://www.ns.nl/api/api#api-documentatie-actuele-vertrektijden
+ * Departing train object. For an exact explaination of all fields, please see For more information see <a href="http://www.ns.nl/api/api#api-documentatie-actuele-vertrektijden">documentatie actuele vertrektijden</a>
  * 
  * @author Paul van Assen
  * 
@@ -42,22 +42,6 @@ public class VertrekkendeTrein {
 
     private final List<String> opmerkingen;
 
-    /**
-     * Constructor for vertrekkende trein (departing train)
-     * 
-     * @param ritNummer Ritnummer, number of the journey
-     * @param vertrekTijd Vertrek tijd, departure time
-     * @param vertrekVertraging
-     * @param vertrekVertragingTekst
-     * @param eindBestemming
-     * @param treinSoort
-     * @param routeTekst
-     * @param vervoerder
-     * @param vertrekSpoor
-     * @param gewijzigdVertrekspoor
-     * @param reisTip
-     * @param opmerkingen
-     */
     VertrekkendeTrein(int ritNummer, Date vertrekTijd, String vertrekVertraging, int vertrekVertragingMinuten,
             String vertrekVertragingTekst, String eindBestemming, String treinSoort, String routeTekst,
             String vervoerder, String vertrekSpoor, boolean gewijzigdVertrekspoor, String reisTip,
@@ -78,56 +62,95 @@ public class VertrekkendeTrein {
         this.opmerkingen = Collections.unmodifiableList(opmerkingen);
     }
 
+    /**
+     * @return Identification number of a train
+     */
     public int getRitNummer() {
         return ritNummer;
     }
 
+    /**
+     * @return Departure time of a train
+     */
     public Date getVertrekTijd() {
         return vertrekTijd;
     }
 
+    /**
+     * @return If the train has a delay this is filled with the delay text as provided by the NS
+     */
     public String getVertrekVertraging() {
         return vertrekVertraging;
     }
+    
+    /**
+     * @return If the train has a delay this is filled the parsed 'vertrekVertraging', transformed into the amount of minutes a train is delayed
+     */
+    public int getVertrekVertragingMinuten() {
+        return vertrekVertragingMinuten;
+    }
 
+    /**
+     * @return Textual explanation of the delay
+     */
     public String getVertrekVertragingTekst() {
         return vertrekVertragingTekst;
     }
-
+    
+    /**
+     * @return Planned destination of the train, a station name 
+     */
     public String getEindBestemming() {
         return eindBestemming;
     }
 
+    /**
+     * @return Sort of train including but not limited to Intercity or Sprinter
+     */
     public String getTreinSoort() {
         return treinSoort;
     }
 
+    /**
+     * @return Short route text with a maximum of 4 stops. Usually a summary of the route
+     */
     public String getRouteTekst() {
         return routeTekst;
     }
 
+    /**
+     * @return The company running the train, usually 'NS'
+     */
     public String getVervoerder() {
         return vervoerder;
     }
 
+    /**
+     * @return Track/platform of departure
+     */
     public String getVertrekSpoor() {
         return vertrekSpoor;
     }
 
+    /**
+     * @return True if the departure track/platform was changed compared to the planned track/platform
+     */
     public boolean isGewijzigdVertrekspoor() {
         return gewijzigdVertrekspoor;
     }
 
+    /**
+     * @return Extra information about the train, for example, Intercity will stop at all stations
+     */
     public String getReisTip() {
         return reisTip;
     }
 
+    /**
+     * @return List of remarks about the train. This can provide extra information on why a train is not departing on time. 
+     */
     public List<String> getOpmerkingen() {
         return opmerkingen;
-    }
-
-    public int getVertrekVertragingMinuten() {
-        return vertrekVertragingMinuten;
     }
 
     /**
