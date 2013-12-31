@@ -23,11 +23,17 @@ public class Product {
         this.naam = naam;
         this.prijzen = prijzen;
     }
-
+    
+    /**
+     * @return Product name, currently 'Enkele reis' or 'Dag retour'
+     */
     public String getNaam() {
         return naam;
     }
 
+    /**
+     * @return List of actual prices
+     */
     public List<Prijs> getPrijzen() {
         return prijzen;
     }

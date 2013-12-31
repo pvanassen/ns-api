@@ -24,10 +24,16 @@ public class Producten {
         this.producten = producten;
     }
 
+    /**
+     * @return 'Tarief eenheden', the amount of zones the trip costs
+     */
     public int getTariefEenheden() {
         return tariefEenheden;
     }
-
+    
+    /**
+     * @return List of products. As by the NS api, currently always two products: 'Enkele reis' and 'Dagretour' 
+     */
     public List<Product> getProducten() {
         return producten;
     }
