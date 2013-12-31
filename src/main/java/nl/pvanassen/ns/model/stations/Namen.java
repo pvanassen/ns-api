@@ -25,14 +25,23 @@ public class Namen {
         this.lang = lang;
     }
 
+    /**
+     * @return Short name of a station, max 10 chars
+     */
     public String getKort() {
         return kort;
     }
 
+    /**
+     * @return Middle-long name of a station, max 16 chars
+     */
     public String getMiddel() {
         return middel;
     }
 
+    /**
+     * @return Long name of a station, max 25 chars
+     */
     public String getLang() {
         return lang;
     }

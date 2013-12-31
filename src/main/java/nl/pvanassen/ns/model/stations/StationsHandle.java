@@ -7,7 +7,7 @@ import nl.pvanassen.ns.handle.Handle;
 import nl.pvanassen.ns.xml.Xml;
 
 /**
- * Handles parsing the response from the NS and serializes it into a list of stations
+ * Handles parsing the response from the NS and de-serializes it into a list of stations
  * 
  * @author Paul van Assen
  * 
