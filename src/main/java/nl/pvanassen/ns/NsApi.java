@@ -7,7 +7,7 @@ import java.util.Map;
 
 import nl.pvanassen.ns.error.NsApiException;
 import nl.pvanassen.ns.handle.Handle;
-import nl.pvanassen.ns.http.HttpConnection;
+import nl.pvanassen.ns.model.prijzen.ProductenHandle;
 import nl.pvanassen.ns.model.reisadvies.ReisadviesHandle;
 import nl.pvanassen.ns.model.stations.StationsHandle;
 import nl.pvanassen.ns.model.storingen.StoringenHandle;
@@ -54,6 +54,7 @@ public class NsApi {
         handleMap.put(StationsRequest.class, new StationsHandle());
         handleMap.put(StoringenEnWerkzaamhedenRequest.class, new StoringenHandle());
         handleMap.put(ReisadviesRequest.class, new ReisadviesHandle());
+        handleMap.put(PrijzenRequest.class, new ProductenHandle());
     }
 
     /**

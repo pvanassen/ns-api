@@ -24,11 +24,17 @@ public class Prijs {
         this.klasse = klasse;
         this.prijs = prijs;
     }
-
+    
+    /**
+     * @return The name of the fare. 
+     */
     public String getKorting() {
         return korting;
     }
 
+    /**
+     * @return 1st or 2nd class
+     */
     public int getKlasse() {
         return klasse;
     }

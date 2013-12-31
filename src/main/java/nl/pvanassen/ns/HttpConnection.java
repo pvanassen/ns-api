@@ -1,4 +1,4 @@
-package nl.pvanassen.ns.http;
+package nl.pvanassen.ns;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -16,20 +16,38 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class HttpConnection {
+/**
+ * Internal class for handling http connections
+ * 
+ * @author Paul van Assen
+ *
+ */
+class HttpConnection {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
     private final HttpClient httpclient;
 
-    public HttpConnection(String username, String password) {
+    /**
+     * Constructor specifying username and password
+     * @param username Username for the API
+     * @param password Password for the API
+     */
+    HttpConnection(String username, String password) {
         BasicCredentialsProvider credentialsProvider = new BasicCredentialsProvider();
         credentialsProvider.setCredentials(new AuthScope("webservices.ns.nl", 80), new UsernamePasswordCredentials(
                 username, password));
         httpclient = HttpClientBuilder.create().setDefaultCredentialsProvider(credentialsProvider).build();
     }
-
-    public InputStream getContent(String url) throws IOException {
+    
+    /**
+     * Handling the webservice call
+     * @param url URL to call
+     * @return Input stream as a result, or an exception
+     * @throws IOException In case of an IO error
+     * @throws NsApiException In case of any other error
+     */
+    InputStream getContent(String url) throws IOException, NsApiException {
         HttpGet httpget = new HttpGet(url);
         try {
             HttpResponse response = httpclient.execute(httpget);
