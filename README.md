@@ -3,7 +3,11 @@
 
 NS API
 ======
-An API for talking to the NS (Dutch railways) API interface written in Java
+An API for talking to the NS (Dutch railways) API interface written in Java [![NS API](http://www.ns.nl/api/api). 
+The NS is using a mix between Dutch and English terms in their API. This 
+reflects back to the Java implementation. The preferred language is English 
+but some Dutch terms show up. Javadoc is English. When Dutch terms are used 
+a translation is provided
 
 Usage
 =====
@@ -29,3 +33,11 @@ ActueleVertrekTijden vertrekTijden = nsApi.getApiResponse(request);
 A new immutable object ActueleVertrekTijden is created containing the result of the API call. 
 
 All classes are immutable and thread safe.
+
+Code borrowing
+==============
+For parsing the XML I made use of the code found in this article: http://blog.another-d-mention.ro/programming/the-simplest-way-to-parse-xml-in-java/
+
+License
+=======
+The code is licensed under the Apache License. 
