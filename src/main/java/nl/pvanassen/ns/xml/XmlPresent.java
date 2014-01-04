@@ -150,11 +150,7 @@ public class XmlPresent extends Xml {
      */
     @Override
     public String attr(String name) {
-        String value = nameAttributes.get(name);
-        if (value == null) {
-            throw new NsApiException("Could not find attribute: " + name + ", in node: " + this.name);
-        }
-        return value;
+        return nameAttributes.get(name);
     }
 
     /**
