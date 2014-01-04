@@ -3,8 +3,6 @@ package nl.pvanassen.ns.xml;
 import java.io.InputStream;
 import java.util.List;
 
-import nl.pvanassen.ns.error.NsApiException;
-
 /**
  * Xml handling base class
  * 
@@ -55,12 +53,12 @@ public abstract class Xml {
      * 
      * @param name Name of the attribute to get
      * @return Value of the attribute if found, or an exception of not found
-     * @throws NsApiException Exception if attribute is not found
      */
-    public abstract String attr(String name) throws NsApiException;
+    public abstract String attr(String name);
 
     /**
      * Checks to see if an element is present
+     * 
      * @param name The name of the element to check
      * @return True if present
      */
