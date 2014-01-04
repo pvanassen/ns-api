@@ -36,14 +36,14 @@ public class ReisStop {
     public String getNaam() {
         return naam;
     }
-    
+
     /**
      * @return Date and time of arrival
      */
     public Date getTijd() {
         return tijd;
     }
-    
+
     /**
      * @return Track if the train stops at the station
      */

@@ -44,7 +44,7 @@ public class StoringenHandleTest {
         Assert.assertEquals("prio-13345", denboschNijmegen.getId());
         Assert.assertEquals("'s-Hertogenbosch-Nijmegen", denboschNijmegen.getTraject());
         Assert.assertEquals("beperkingen op last van de politie", denboschNijmegen.getReden());
-        Assert.assertEquals("",denboschNijmegen.getBericht());
+        Assert.assertEquals("", denboschNijmegen.getBericht());
         // 2013-12-27T16:43:00+0100
         Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("+0100"));
         calendar.set(Calendar.YEAR, 2010);
@@ -61,10 +61,13 @@ public class StoringenHandleTest {
         Storing almereOostvaarders = storingen.getGeplandeStoringen().get(0);
         Assert.assertEquals("2010_almo_wp_18_19dec", almereOostvaarders.getId());
         Assert.assertEquals("Almere Oostvaarders-Weesp/Naarden-Bussum", almereOostvaarders.getTraject());
-        Assert.assertEquals("Beperkt treinverkeer, businzet en/of omreizen, extra reistijd 15-30 min.", almereOostvaarders.getReden());
-        Assert.assertEquals("",almereOostvaarders.getBericht());
+        Assert.assertEquals("Beperkt treinverkeer, businzet en/of omreizen, extra reistijd 15-30 min.",
+                almereOostvaarders.getReden());
+        Assert.assertEquals("", almereOostvaarders.getBericht());
         Assert.assertNull(almereOostvaarders.getDatum());
-        Assert.assertEquals("Maak gebruik van de overige treinen of de bussen:                 reis tussen Weesp en Almere Centrum met de NS-bus in                 plaats van de trein tussen Almere Centrum en Lelystad                 Centrum rijden vier Sprinters per uur reis tussen Almere                 Muziekwijk en Naarden-Bussum via Weesp", almereOostvaarders.getAdvies());
+        Assert.assertEquals(
+                "Maak gebruik van de overige treinen of de bussen:                 reis tussen Weesp en Almere Centrum met de NS-bus in                 plaats van de trein tussen Almere Centrum en Lelystad                 Centrum rijden vier Sprinters per uur reis tussen Almere                 Muziekwijk en Naarden-Bussum via Weesp",
+                almereOostvaarders.getAdvies());
         Assert.assertEquals("zaterdag 18 en zondag 19 december", almereOostvaarders.getPeriode());
     }
 

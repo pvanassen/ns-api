@@ -7,7 +7,9 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
- * For the exact meaning of all fields, see <a href="http://www.ns.nl/api/api#api-documentatie-storingen-en-werkzaamheden">documentatie storingen en werkzaamheden</a>
+ * For the exact meaning of all fields, see <a
+ * href="http://www.ns.nl/api/api#api-documentatie-storingen-en-werkzaamheden">documentatie storingen en
+ * werkzaamheden</a>
  * 
  * @author Paul van Assen
  * 
@@ -64,8 +66,8 @@ public class Storing {
     }
 
     /**
-     * @return In case of planned maintenance, this contains a textual explanation of the period the maintenance
-     *            is planned
+     * @return In case of planned maintenance, this contains a textual explanation of the period the maintenance is
+     *         planned
      */
     public String getPeriode() {
         return periode;

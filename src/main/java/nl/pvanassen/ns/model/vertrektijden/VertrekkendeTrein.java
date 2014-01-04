@@ -9,7 +9,8 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
- * Departing train object. For an exact explaination of all fields, please see For more information see <a href="http://www.ns.nl/api/api#api-documentatie-actuele-vertrektijden">documentatie actuele vertrektijden</a>
+ * Departing train object. For an exact explaination of all fields, please see For more information see <a
+ * href="http://www.ns.nl/api/api#api-documentatie-actuele-vertrektijden">documentatie actuele vertrektijden</a>
  * 
  * @author Paul van Assen
  * 
@@ -82,9 +83,10 @@ public class VertrekkendeTrein {
     public String getVertrekVertraging() {
         return vertrekVertraging;
     }
-    
+
     /**
-     * @return If the train has a delay this is filled the parsed 'vertrekVertraging', transformed into the amount of minutes a train is delayed
+     * @return If the train has a delay this is filled the parsed 'vertrekVertraging', transformed into the amount of
+     *         minutes a train is delayed
      */
     public int getVertrekVertragingMinuten() {
         return vertrekVertragingMinuten;
@@ -96,9 +98,9 @@ public class VertrekkendeTrein {
     public String getVertrekVertragingTekst() {
         return vertrekVertragingTekst;
     }
-    
+
     /**
-     * @return Planned destination of the train, a station name 
+     * @return Planned destination of the train, a station name
      */
     public String getEindBestemming() {
         return eindBestemming;
@@ -147,7 +149,8 @@ public class VertrekkendeTrein {
     }
 
     /**
-     * @return List of remarks about the train. This can provide extra information on why a train is not departing on time. 
+     * @return List of remarks about the train. This can provide extra information on why a train is not departing on
+     *         time.
      */
     public List<String> getOpmerkingen() {
         return opmerkingen;

@@ -30,9 +30,9 @@ public class Producten {
     public int getTariefEenheden() {
         return tariefEenheden;
     }
-    
+
     /**
-     * @return List of products. As by the NS api, currently always two products: 'Enkele reis' and 'Dagretour' 
+     * @return List of products. As by the NS api, currently always two products: 'Enkele reis' and 'Dagretour'
      */
     public List<Product> getProducten() {
         return producten;

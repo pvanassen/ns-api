@@ -1,16 +1,16 @@
 package nl.pvanassen.ns.xml;
 
-import static org.junit.Assert.*;
-
 import java.util.List;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Almost the same test as XmlPresent, just to demonstrate, things won't break 
+ * Almost the same test as XmlPresent, just to demonstrate, things won't break
+ * 
  * @author Paul van Assen
- *
+ * 
  */
 public class XmlAbsentTest {
 
@@ -18,47 +18,46 @@ public class XmlAbsentTest {
 
     @Before
     public void setUp() {
-        absent = (XmlAbsent)Xml.getXml(getClass().getResourceAsStream(
-                "/test.xml"), "test").child("notexisting");        
+        absent = (XmlAbsent) Xml.getXml(getClass().getResourceAsStream("/test.xml"), "test").child("notexisting");
     }
 
     @Test
     public void testName() {
-        assertEquals("notexisting", absent.name());
+        Assert.assertEquals("notexisting", absent.name());
     }
 
     @Test
     public void testContent() {
-        assertNull(absent.child("content").content());
+        Assert.assertNull(absent.child("content").content());
     }
 
     @Test
     public void testChild() {
-        assertNotNull(absent.child("subelement"));
-        assertTrue(absent.child("subelement") instanceof XmlAbsent);
-        assertNotNull(absent.child("doesNotExist"));
-        assertTrue(absent.child("doesNotExist") instanceof XmlAbsent);
+        Assert.assertNotNull(absent.child("subelement"));
+        Assert.assertTrue(absent.child("subelement") instanceof XmlAbsent);
+        Assert.assertNotNull(absent.child("doesNotExist"));
+        Assert.assertTrue(absent.child("doesNotExist") instanceof XmlAbsent);
     }
 
     @Test
     public void testChildren() {
         Xml another = absent.child("another");
         List<Xml> children = another.children("nice");
-        assertNotNull(children);
-        assertEquals(0, children.size());
+        Assert.assertNotNull(children);
+        Assert.assertEquals(0, children.size());
     }
 
     @Test
     public void testAttr() {
         Xml subelement = absent.child("subelement");
-        assertNull("nice-and-pretty", subelement.attr("attribute"));
-        assertNull( subelement.attr("doesnotexist"));
+        Assert.assertNull("nice-and-pretty", subelement.attr("attribute"));
+        Assert.assertNull(subelement.attr("doesnotexist"));
     }
 
     @Test
     public void testIsPresent() {
-        assertFalse(absent.isPresent("doesnotexist"));
-        assertFalse(absent.isPresent("subelement"));
+        Assert.assertFalse(absent.isPresent("doesnotexist"));
+        Assert.assertFalse(absent.isPresent("subelement"));
     }
 
 }

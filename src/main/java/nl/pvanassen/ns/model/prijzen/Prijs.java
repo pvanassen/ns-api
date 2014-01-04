@@ -24,9 +24,9 @@ public class Prijs {
         this.klasse = klasse;
         this.prijs = prijs;
     }
-    
+
     /**
-     * @return The name of the fare. 
+     * @return The name of the fare.
      */
     public String getKorting() {
         return korting;
