@@ -9,6 +9,7 @@ reflects back to the Java implementation. The preferred language is English
 but some Dutch terms show up. Javadoc is English. When Dutch terms are used 
 a translation is provided
 
+
 Usage
 =====
 To use the NS api you need to register an account with the NS. You can apply for an account at [NS API](http://www.ns.nl/api/api). 
@@ -33,6 +34,17 @@ ActueleVertrekTijden vertrekTijden = nsApi.getApiResponse(request);
 A new immutable object ActueleVertrekTijden is created containing the result of the API call. 
 
 All classes are immutable and thread safe.
+
+Maven
+=====
+Version 1.0 of this api is available in the central maven repository: 
+```Xml
+<dependency>
+  <groupId>nl.pvanassen</groupId>
+  <artifactId>ns-api</artifactId>
+  <version>1.0</version>
+</dependency>
+```
 
 Code borrowing
 ==============
