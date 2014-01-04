@@ -1,6 +1,8 @@
 package nl.pvanassen.ns.model.reisadvies;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -38,9 +40,10 @@ public class ReisMogelijkheid {
 
     private final List<ReisDeel> reisDelen;
 
-    ReisMogelijkheid(List<Melding> meldingen, int aantalOverstappen, int geplandeReisTijdMinuten, int actueleReisTijdMinuten,
-            String aankomstVertraging, boolean optimaal, Date geplandeVertrekTijd, Date actueleVertrekTijd,
-            Date geplandeAankomstTijd, Date actueleAankomstTijd, String status, List<ReisDeel> reisDelen) {
+    ReisMogelijkheid(List<Melding> meldingen, int aantalOverstappen, int geplandeReisTijdMinuten,
+            int actueleReisTijdMinuten, String aankomstVertraging, boolean optimaal, Date geplandeVertrekTijd,
+            Date actueleVertrekTijd, Date geplandeAankomstTijd, Date actueleAankomstTijd, String status,
+            List<ReisDeel> reisDelen) {
         super();
         this.meldingen = Collections.unmodifiableList(meldingen);
         this.aantalOverstappen = aantalOverstappen;
@@ -69,6 +72,7 @@ public class ReisMogelijkheid {
     public int getAantalOverstappen() {
         return aantalOverstappen;
     }
+
     /**
      * @return Trip time in minutes according to the day-planning
      */
@@ -91,7 +95,7 @@ public class ReisMogelijkheid {
     }
 
     /**
-     * @return False if this trip is not the most optimal one. 
+     * @return False if this trip is not the most optimal one.
      */
     public boolean isOptimaal() {
         return optimaal;
@@ -141,7 +145,7 @@ public class ReisMogelijkheid {
     public String getStatus() {
         return status;
     }
-    
+
     /**
      * @return All travel legs
      */

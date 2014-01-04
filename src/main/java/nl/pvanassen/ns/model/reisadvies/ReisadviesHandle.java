@@ -108,6 +108,6 @@ public class ReisadviesHandle implements Handle<List<ReisMogelijkheid>> {
         }
         int hour = Integer.parseInt(time.substring(0, seperator));
         int minutes = Integer.parseInt(time.substring(seperator + 1));
-        return (hour * 60) + minutes;
+        return hour * 60 + minutes;
     }
 }

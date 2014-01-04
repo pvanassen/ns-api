@@ -20,7 +20,7 @@ import org.slf4j.LoggerFactory;
  * Internal class for handling http connections
  * 
  * @author Paul van Assen
- *
+ * 
  */
 class HttpConnection {
 
@@ -30,6 +30,7 @@ class HttpConnection {
 
     /**
      * Constructor specifying username and password
+     * 
      * @param username Username for the API
      * @param password Password for the API
      */
@@ -39,9 +40,10 @@ class HttpConnection {
                 username, password));
         httpclient = HttpClientBuilder.create().setDefaultCredentialsProvider(credentialsProvider).build();
     }
-    
+
     /**
      * Handling the webservice call
+     * 
      * @param url URL to call
      * @return Input stream as a result, or an exception
      * @throws IOException In case of an IO error

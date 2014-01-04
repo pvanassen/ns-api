@@ -8,7 +8,8 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
- * For the exact meaning of all the fields, see <a href="http://www.ns.nl/api/api#api-documentatie-stationslijst">documentatie stationslijst</a>
+ * For the exact meaning of all the fields, see <a
+ * href="http://www.ns.nl/api/api#api-documentatie-stationslijst">documentatie stationslijst</a>
  * 
  * @author Paul van Assen
  * 

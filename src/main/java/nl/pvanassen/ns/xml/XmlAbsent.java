@@ -56,7 +56,7 @@ public class XmlAbsent extends Xml {
     public List<Xml> children(String name) {
         return new ArrayList<Xml>();
     }
-    
+
     /**
      * {@inheritDoc}
      * 

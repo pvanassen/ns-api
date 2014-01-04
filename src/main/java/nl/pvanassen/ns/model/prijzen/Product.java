@@ -23,7 +23,7 @@ public class Product {
         this.naam = naam;
         this.prijzen = prijzen;
     }
-    
+
     /**
      * @return Product name, currently 'Enkele reis' or 'Dag retour'
      */

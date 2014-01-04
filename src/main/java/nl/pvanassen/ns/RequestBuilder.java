@@ -46,7 +46,7 @@ public class RequestBuilder {
      * @return An object containing all stations
      */
     public static ApiRequest<List<Station>> getStations() {
-        return INSTANCE;
+        return RequestBuilder.INSTANCE;
     }
 
     /**
@@ -94,7 +94,7 @@ public class RequestBuilder {
      * @return Request for getting the fares
      */
     public static ApiRequest<Producten> getPrijzen(String fromStation, String toStation) {
-        return getPrijzen(fromStation, toStation, null, null);
+        return RequestBuilder.getPrijzen(fromStation, toStation, null, null);
     }
 
     /**
@@ -107,7 +107,7 @@ public class RequestBuilder {
      * @return Request for getting the fares
      */
     public static ApiRequest<Producten> getPrijzen(String fromStation, String toStation, String viaStation) {
-        return getPrijzen(fromStation, toStation, viaStation, null);
+        return RequestBuilder.getPrijzen(fromStation, toStation, viaStation, null);
     }
 
     /**
@@ -120,7 +120,7 @@ public class RequestBuilder {
      * @return Request for getting the fares
      */
     public static ApiRequest<Producten> getPrijzen(String fromStation, String toStation, Date dateTime) {
-        return getPrijzen(fromStation, toStation, null, dateTime);
+        return RequestBuilder.getPrijzen(fromStation, toStation, null, dateTime);
     }
 
     /**
@@ -189,7 +189,7 @@ public class RequestBuilder {
          * @return The builder
          */
         public ReisadviesRequestBuilder viaStation(String station) {
-            this.viaStation = station;
+            viaStation = station;
             return this;
         }
 
@@ -205,7 +205,7 @@ public class RequestBuilder {
                 throw new IllegalArgumentException("Cannot set departure time, arival time already set");
             }
             this.dateTime = dateTime;
-            this.departure = true;
+            departure = true;
             return this;
         }
 
@@ -221,7 +221,7 @@ public class RequestBuilder {
                 throw new IllegalArgumentException("Cannot set arival time, departure time already set");
             }
             this.dateTime = dateTime;
-            this.departure = false;
+            departure = false;
             return this;
         }
 
@@ -255,7 +255,7 @@ public class RequestBuilder {
          * @return The builder
          */
         public ReisadviesRequestBuilder withHsl() {
-            this.hslAllowed = Boolean.TRUE;
+            hslAllowed = Boolean.TRUE;
             return this;
         }
 
@@ -265,7 +265,7 @@ public class RequestBuilder {
          * @return The builder
          */
         public ReisadviesRequestBuilder withoutHsl() {
-            this.hslAllowed = Boolean.FALSE;
+            hslAllowed = Boolean.FALSE;
             return this;
         }
 
@@ -277,7 +277,7 @@ public class RequestBuilder {
          * @return The builder
          */
         public ReisadviesRequestBuilder userHasYearCard() {
-            this.yearCard = Boolean.TRUE;
+            yearCard = Boolean.TRUE;
             return this;
         }
 
@@ -288,12 +288,13 @@ public class RequestBuilder {
          * @return The builder
          */
         public ReisadviesRequestBuilder userHasNoYearCard() {
-            this.yearCard = Boolean.FALSE;
+            yearCard = Boolean.FALSE;
             return this;
         }
 
         /**
          * Builds the request
+         * 
          * @return The request for getting 'reis adviezen'
          */
         public ReisadviesRequest build() {
