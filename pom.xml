@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<artifactId>ns-api</artifactId>
-	<version>1.0</version>
+	<version>1.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<url>http://www.pvanassen</url>
@@ -27,7 +27,7 @@
 		<connection>scm:git:git@github.com:pvanassen/ns-api.git</connection>
 		<developerConnection>scm:git:git@github.com:pvanassen/ns-api.git</developerConnection>
 		<url>https://github.com/pvanassen/ns-api</url>
-		<tag>ns-api-1.0</tag>
+		<tag>HEAD</tag>
 	</scm>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
