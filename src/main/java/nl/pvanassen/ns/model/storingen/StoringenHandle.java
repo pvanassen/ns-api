@@ -67,7 +67,10 @@ public class StoringenHandle implements Handle<Storingen> {
         String reden = storingXml.child("Reden").content();
         String advies = storingXml.child("Advies").content();
         String bericht = storingXml.child("Bericht").content();
-        Date datum = format.parse(storingXml.child("Datum").content());
+        Date datum = null;
+        if (storingXml.isPresent("Datum")) {
+            datum = format.parse(storingXml.child("Datum").content());
+        }
         return new Storing(id, traject, periode, reden, advies, bericht, datum);
     }
 
