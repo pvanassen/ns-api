@@ -13,6 +13,8 @@ import nl.pvanassen.ns.model.vertrektijden.VertrekkendeTrein;
 import org.junit.Assert;
 import org.junit.Test;
 
+import static nl.pvanassen.ns.ApiRequest.urlEncode;
+
 public class RequestBuilderTest {
 
     @Test
@@ -60,7 +62,7 @@ public class RequestBuilderTest {
         Assert.assertEquals("ns-api-treinplanner", request.getPath());
         Assert.assertEquals(
                 "fromStation=Amsterdam&toStation=Utrecht&viaStation=Hoorn&previousAdvices=3&nextAdvices=4&dateTime="
-                        + format.format(now) + "&departure=false&yearCard=false&", request.getRequestString());
+                        + urlEncode(format.format(now)) + "&departure=false&yearCard=false&", request.getRequestString());
     }
 
     @Test(expected = IllegalArgumentException.class)

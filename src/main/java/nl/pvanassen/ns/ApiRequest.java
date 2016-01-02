@@ -1,5 +1,8 @@
 package nl.pvanassen.ns;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 /**
  * Api request type. This type is the basis for all responses from the NS api.
  * 
@@ -25,4 +28,12 @@ public abstract class ApiRequest<T> {
      * @return The querystring part of the request to make to the NS webservices
      */
     abstract String getRequestString();
+
+    public static String urlEncode(String value) {
+        try {
+            return URLEncoder.encode(value, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            throw new IllegalStateException("Cannot URL encode " + value, e);
+        }
+    }
 }

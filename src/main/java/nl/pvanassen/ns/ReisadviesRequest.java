@@ -58,10 +58,10 @@ class ReisadviesRequest extends ApiRequest<List<ReisMogelijkheid>> {
     @Override
     String getRequestString() {
         StringBuilder requestString = new StringBuilder();
-        requestString.append("fromStation=").append(fromStation).append('&');
-        requestString.append("toStation=").append(toStation).append('&');
+        requestString.append("fromStation=").append(urlEncode(fromStation)).append('&');
+        requestString.append("toStation=").append(urlEncode(toStation)).append('&');
         if (viaStation != null && viaStation.trim().length() != 0) {
-            requestString.append("viaStation=").append(viaStation).append('&');
+            requestString.append("viaStation=").append(urlEncode(viaStation)).append('&');
         }
         if (previousAdvices != null) {
             requestString.append("previousAdvices=").append(previousAdvices).append('&');
@@ -70,7 +70,8 @@ class ReisadviesRequest extends ApiRequest<List<ReisMogelijkheid>> {
             requestString.append("nextAdvices=").append(nextAdvices).append('&');
         }
         if (dateTime != null) {
-            requestString.append("dateTime=").append(new SimpleDateFormat(NsApi.DATETIME_FORMAT).format(dateTime))
+            String dateAsString = new SimpleDateFormat(NsApi.DATETIME_FORMAT).format(dateTime);
+            requestString.append("dateTime=").append(urlEncode(dateAsString))
                     .append('&');
         }
         if (departure != null) {
@@ -84,5 +85,4 @@ class ReisadviesRequest extends ApiRequest<List<ReisMogelijkheid>> {
         }
         return requestString.toString();
     }
-
 }
