@@ -16,31 +16,18 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  * 
  */
 public class VertrekkendeTrein {
-
     private final int ritNummer;
-
     private final Date vertrekTijd;
-
     private final String vertrekVertraging;
-
     private final int vertrekVertragingMinuten;
-
     private final String vertrekVertragingTekst;
-
     private final String eindBestemming;
-
     private final String treinSoort;
-
     private final String routeTekst;
-
     private final String vervoerder;
-
     private final String vertrekSpoor;
-
     private final boolean gewijzigdVertrekspoor;
-
     private final String reisTip;
-
     private final List<String> opmerkingen;
 
     VertrekkendeTrein(int ritNummer, Date vertrekTijd, String vertrekVertraging, int vertrekVertragingMinuten,

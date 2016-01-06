@@ -14,9 +14,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  * 
  */
 public class Storingen {
-
     private final List<Storing> ongeplandeStoringen;
-
     private final List<Storing> geplandeStoringen;
 
     Storingen(List<Storing> ongeplandeStoringen, List<Storing> geplandeStoringen) {

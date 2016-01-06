@@ -13,9 +13,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  * 
  */
 public class Product {
-
     private final String naam;
-
     private final List<Prijs> prijzen;
 
     Product(String naam, List<Prijs> prijzen) {

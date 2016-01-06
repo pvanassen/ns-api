@@ -11,11 +11,8 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  * 
  */
 public class Melding {
-
     private final String id;
-
     private final boolean ernstig;
-
     private final String text;
 
     Melding(String id, boolean ernstig, String text) {

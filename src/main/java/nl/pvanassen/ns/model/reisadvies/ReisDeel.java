@@ -15,23 +15,14 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  * 
  */
 public class ReisDeel {
-
     private final String reisSoort;
-
     private final String vervoerder;
-
     private final String vervoerType;
-
     private final int ritNummer;
-
     private final String status;
-
     private final List<ReisStop> reisStops;
-
     private final String ongeplandeStoringId;
-
     private final String geplandeStoringId;
-
     private final List<String> reisDetails;
 
     ReisDeel(String reisSoort, String vervoerder, String vervoerType, int ritNummer, String status,

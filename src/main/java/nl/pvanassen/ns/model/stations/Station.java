@@ -15,21 +15,13 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  * 
  */
 public class Station {
-
     private final String code;
-
     private final String type;
-
     private final Namen namen;
-
     private final String land;
-
     private final int uicCode;
-
     private final double lat;
-
     private final double lon;
-
     private final List<String> synoniemen;
 
     Station(String code, String type, Namen namen, String land, int uicCode, double lat, double lon,

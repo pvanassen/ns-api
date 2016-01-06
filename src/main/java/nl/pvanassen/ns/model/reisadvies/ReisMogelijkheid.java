@@ -15,29 +15,17 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  * 
  */
 public class ReisMogelijkheid {
-
     private final List<Melding> meldingen;
-
     private final int aantalOverstappen;
-
     private final int geplandeReisTijdMinuten;
-
     private final int actueleReisTijdMinuten;
-
     private final String aankomstVertraging;
-
     private final boolean optimaal;
-
     private final Date geplandeVertrekTijd;
-
     private final Date actueleVertrekTijd;
-
     private final Date geplandeAankomstTijd;
-
     private final Date actueleAankomstTijd;
-
     private final String status;
-
     private final List<ReisDeel> reisDelen;
 
     ReisMogelijkheid(List<Melding> meldingen, int aantalOverstappen, int geplandeReisTijdMinuten,

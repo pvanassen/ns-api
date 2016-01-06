@@ -13,9 +13,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  * 
  */
 public class Producten {
-
     private final int tariefEenheden;
-
     private final List<Product> producten;
 
     Producten(int tariefEenheden, List<Product> producten) {

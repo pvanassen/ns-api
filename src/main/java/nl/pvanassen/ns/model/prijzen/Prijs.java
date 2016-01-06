@@ -11,11 +11,8 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  * 
  */
 public class Prijs {
-
     private final String korting;
-
     private final int klasse;
-
     private final int prijs;
 
     Prijs(String korting, int klasse, int prijs) {

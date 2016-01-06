@@ -13,13 +13,9 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  * 
  */
 public class ReisStop {
-
     private final String naam;
-
     private final Date tijd;
-
     private final String spoor;
-
     private final boolean gewijzigdVertrekspoor;
 
     ReisStop(String naam, Date tijd, String spoor, boolean gewijzigdVertrekspoor) {

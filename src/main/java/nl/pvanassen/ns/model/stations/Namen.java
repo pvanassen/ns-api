@@ -11,11 +11,8 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  * 
  */
 public class Namen {
-
     private final String kort;
-
     private final String middel;
-
     private final String lang;
 
     Namen(String kort, String middel, String lang) {

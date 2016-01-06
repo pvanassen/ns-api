@@ -15,19 +15,12 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  * 
  */
 public class Storing {
-
     private final String id;
-
     private final String traject;
-
     private final String periode;
-
     private final String reden;
-
     private final String advies;
-
     private final String bericht;
-
     private final Date datum;
 
     /**
@@ -96,7 +89,7 @@ public class Storing {
 
     /**
      * @return Date and time of the disruption
-     */
+    */
     public Date getDatum() {
         return datum;
     }
