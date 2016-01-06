@@ -36,8 +36,8 @@ public class StoringenHandle implements Handle<Storingen> {
     public Storingen getModel(InputStream stream) {
         SimpleDateFormat format = new SimpleDateFormat(NsApi.DATETIME_FORMAT);
         try {
-            List<Storing> geplandeStoringen = new LinkedList<Storing>();
-            List<Storing> ongeplandeStoringen = new LinkedList<Storing>();
+            List<Storing> geplandeStoringen = new LinkedList<>();
+            List<Storing> ongeplandeStoringen = new LinkedList<>();
 
             Xml xml = Xml.getXml(stream, "Storingen");
             if (xml.isPresent("Ongepland")) {

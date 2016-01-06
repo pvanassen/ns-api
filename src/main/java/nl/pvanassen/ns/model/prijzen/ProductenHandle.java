@@ -24,12 +24,12 @@ public class ProductenHandle implements Handle<Producten> {
      */
     @Override
     public Producten getModel(InputStream stream) {
-        List<Product> producten = new LinkedList<Product>();
+        List<Product> producten = new LinkedList<>();
         Xml xml = Xml.getXml(stream, "Producten");
         int tariefEenheden = Integer.parseInt(xml.child("Tariefeenheden").content());
         for (Xml productXml : xml.children("Product")) {
             String naam = productXml.attr("naam");
-            List<Prijs> prijzen = new ArrayList<Prijs>(productXml.children("Prijs").size());
+            List<Prijs> prijzen = new ArrayList<>(productXml.children("Prijs").size());
             for (Xml prijsXml : productXml.children("Prijs")) {
                 String korting = prijsXml.attr("korting");
                 int klasse = Integer.parseInt(prijsXml.attr("klasse"));

@@ -34,10 +34,10 @@ public class ReisadviesHandle implements Handle<List<ReisMogelijkheid>> {
         SimpleDateFormat format = new SimpleDateFormat(NsApi.DATETIME_FORMAT);
         try {
             Xml xml = Xml.getXml(stream, "ReisMogelijkheden");
-            List<ReisMogelijkheid> reisMogelijkheden = new ArrayList<ReisMogelijkheid>(xml.children("ReisMogelijkheid")
+            List<ReisMogelijkheid> reisMogelijkheden = new ArrayList<>(xml.children("ReisMogelijkheid")
                     .size());
             for (Xml reisMogelijkheidXml : xml.children("ReisMogelijkheid")) {
-                List<Melding> meldingen = new LinkedList<Melding>();
+                List<Melding> meldingen = new LinkedList<>();
                 if (reisMogelijkheidXml.isPresent("Melding")) {
                     for (Xml meldingXml : reisMogelijkheidXml.children("Melding")) {
                         String id = meldingXml.child("Id").content();
@@ -61,7 +61,7 @@ public class ReisadviesHandle implements Handle<List<ReisMogelijkheid>> {
                 Date actueleAankomstTijd = format.parse(reisMogelijkheidXml.child("ActueleAankomstTijd").content());
                 String aankomstVertraging = reisMogelijkheidXml.child("AankomstVertraging").content();
                 String status = reisMogelijkheidXml.child("Status").content();
-                List<ReisDeel> reisDelen = new ArrayList<ReisDeel>(reisMogelijkheidXml.children("ReisDeel").size());
+                List<ReisDeel> reisDelen = new ArrayList<>(reisMogelijkheidXml.children("ReisDeel").size());
                 for (Xml reisDeelXml : reisMogelijkheidXml.children("ReisDeel")) {
                     String reisSoort = reisDeelXml.attr("reisSoort");
                     String vervoerder = reisDeelXml.child("Vervoerder").content();
@@ -70,7 +70,7 @@ public class ReisadviesHandle implements Handle<List<ReisMogelijkheid>> {
                     String statusReisdeel = reisDeelXml.child("Status").content();
                     String geplandeStoringId = reisDeelXml.child("GeplandeStoringId").content();
                     String ongeplandeStoringId = reisDeelXml.child("OngeplandeStoringId").content();
-                    List<ReisStop> reisStops = new ArrayList<ReisStop>(reisDeelXml.children("ReisStop").size());
+                    List<ReisStop> reisStops = new ArrayList<>(reisDeelXml.children("ReisStop").size());
                     for (Xml reisStopXml : reisDeelXml.children("ReisStop")) {
                         String naam = reisStopXml.child("Naam").content();
                         Date tijd = format.parse(reisStopXml.child("Tijd").content());
@@ -81,7 +81,7 @@ public class ReisadviesHandle implements Handle<List<ReisMogelijkheid>> {
                         }
                         reisStops.add(new ReisStop(naam, tijd, spoor, gewijzigdVertrekspoor));
                     }
-                    List<String> reisDetails = new ArrayList<String>(reisDeelXml.child("Reisdetails")
+                    List<String> reisDetails = new ArrayList<>(reisDeelXml.child("Reisdetails")
                             .children("Reisdetail").size());
                     for (Xml reisDetailXml : reisDeelXml.child("Reisdetails").children("Reisdetail")) {
                         reisDetails.add(reisDetailXml.content());

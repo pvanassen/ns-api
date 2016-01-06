@@ -22,7 +22,7 @@ public class StationsHandle implements Handle<List<Station>> {
      */
     @Override
     public List<Station> getModel(InputStream stream) {
-        List<Station> stations = new LinkedList<Station>();
+        List<Station> stations = new LinkedList<>();
         Xml xml = Xml.getXml(stream, "Stations");
         for (Xml stationXml : xml.children("Station")) {
             String code = stationXml.child("Code").content();
@@ -33,7 +33,7 @@ public class StationsHandle implements Handle<List<Station>> {
             int uicCode = Integer.parseInt(stationXml.child("UICCode").content());
             double lat = Double.parseDouble(stationXml.child("Lat").content());
             double lon = Double.parseDouble(stationXml.child("Lon").content());
-            List<String> synoniemen = new ArrayList<String>(stationXml.child("Synoniemen").children("Synoniem").size());
+            List<String> synoniemen = new ArrayList<>(stationXml.child("Synoniemen").children("Synoniem").size());
             for (Xml synomiemXml : stationXml.child("Synoniemen").children("Synoniem")) {
                 synoniemen.add(synomiemXml.content());
             }

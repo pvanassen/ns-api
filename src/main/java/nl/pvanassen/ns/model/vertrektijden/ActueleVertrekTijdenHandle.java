@@ -33,7 +33,7 @@ public class ActueleVertrekTijdenHandle implements Handle<List<VertrekkendeTrein
     public List<VertrekkendeTrein> getModel(InputStream stream) {
         SimpleDateFormat format = new SimpleDateFormat(NsApi.DATETIME_FORMAT);
         try {
-            List<VertrekkendeTrein> vertrekkendeTreinen = new LinkedList<VertrekkendeTrein>();
+            List<VertrekkendeTrein> vertrekkendeTreinen = new LinkedList<>();
             Xml xml = Xml.getXml(stream, "ActueleVertrekTijden");
             for (Xml vertrekkendeTreinXml : xml.children("VertrekkendeTrein")) {
                 int ritNummer = Integer.parseInt(vertrekkendeTreinXml.child("RitNummer").content());
@@ -57,7 +57,7 @@ public class ActueleVertrekTijdenHandle implements Handle<List<VertrekkendeTrein
                 String vertrekSpoor = vertrekkendeTreinXml.child("VertrekSpoor").content();
                 boolean gewijzigdVertrekspoor = Boolean.valueOf(vertrekkendeTreinXml.child("VertrekSpoor").attr(
                         "wijziging"));
-                List<String> opmerkingen = new LinkedList<String>();
+                List<String> opmerkingen = new LinkedList<>();
                 for (Xml opm : vertrekkendeTreinXml.children("Opmerkingen")) {
                     opmerkingen.add(opm.child("Opmerking").content());
                 }
