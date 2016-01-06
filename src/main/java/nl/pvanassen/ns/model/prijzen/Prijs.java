@@ -4,13 +4,15 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
+import java.io.Serializable;
+
 /**
  * http://www.ns.nl/api/api#api-documentatie-prijzen Prijs element
  * 
  * @author Paul van Assen
  * 
  */
-public class Prijs {
+public class Prijs implements Serializable {
     private final String korting;
     private final int klasse;
     private final int prijs;

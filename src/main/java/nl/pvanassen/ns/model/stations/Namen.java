@@ -4,13 +4,15 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
+import java.io.Serializable;
+
 /**
  * http://www.ns.nl/api/api#api-documentatie-stationslijst
  * 
  * @author Paul van Assen
  * 
  */
-public class Namen {
+public class Namen implements Serializable {
     private final String kort;
     private final String middel;
     private final String lang;

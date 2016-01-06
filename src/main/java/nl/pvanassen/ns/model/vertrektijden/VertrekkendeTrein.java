@@ -1,5 +1,6 @@
 package nl.pvanassen.ns.model.vertrektijden;
 
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -15,7 +16,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  * @author Paul van Assen
  * 
  */
-public class VertrekkendeTrein {
+public class VertrekkendeTrein implements Serializable {
     private final int ritNummer;
     private final Date vertrekTijd;
     private final String vertrekVertraging;
@@ -47,6 +48,7 @@ public class VertrekkendeTrein {
         this.vertrekSpoor = vertrekSpoor;
         this.gewijzigdVertrekspoor = gewijzigdVertrekspoor;
         this.reisTip = reisTip;
+        // Returned list is serializable
         this.opmerkingen = Collections.unmodifiableList(opmerkingen);
     }
 

@@ -1,5 +1,6 @@
 package nl.pvanassen.ns.model.storingen;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
@@ -14,7 +15,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  * @author Paul van Assen
  * 
  */
-public class Storing {
+public class Storing implements Serializable {
     private final String id;
     private final String traject;
     private final String periode;

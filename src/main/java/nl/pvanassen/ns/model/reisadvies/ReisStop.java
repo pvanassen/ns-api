@@ -1,5 +1,6 @@
 package nl.pvanassen.ns.model.reisadvies;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
@@ -12,7 +13,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  * @author Paul van Assen
  * 
  */
-public class ReisStop {
+public class ReisStop implements Serializable {
     private final String naam;
     private final Date tijd;
     private final String spoor;

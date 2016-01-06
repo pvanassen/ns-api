@@ -4,13 +4,15 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
+import java.io.Serializable;
+
 /**
  * http://www.ns.nl/api/api#api-documentatie-reisadviezen
  * 
  * @author Paul van Assen
  * 
  */
-public class Melding {
+public class Melding implements Serializable {
     private final String id;
     private final boolean ernstig;
     private final String text;

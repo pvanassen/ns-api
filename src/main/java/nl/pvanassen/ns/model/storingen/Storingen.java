@@ -1,5 +1,6 @@
 package nl.pvanassen.ns.model.storingen;
 
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
 
@@ -13,7 +14,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  * @author Paul van Assen
  * 
  */
-public class Storingen {
+public class Storingen implements Serializable {
     private final List<Storing> ongeplandeStoringen;
     private final List<Storing> geplandeStoringen;
 

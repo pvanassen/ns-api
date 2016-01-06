@@ -1,5 +1,6 @@
 package nl.pvanassen.ns.model.reisadvies;
 
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -14,7 +15,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  * @author Paul van Assen
  * 
  */
-public class ReisMogelijkheid {
+public class ReisMogelijkheid implements Serializable {
     private final List<Melding> meldingen;
     private final int aantalOverstappen;
     private final int geplandeReisTijdMinuten;

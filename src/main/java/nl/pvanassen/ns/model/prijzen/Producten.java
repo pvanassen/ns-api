@@ -1,5 +1,7 @@
 package nl.pvanassen.ns.model.prijzen;
 
+import java.io.Serializable;
+import java.util.Collections;
 import java.util.List;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
@@ -12,14 +14,14 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  * @author Paul van Assen
  * 
  */
-public class Producten {
+public class Producten implements Serializable {
     private final int tariefEenheden;
     private final List<Product> producten;
 
     Producten(int tariefEenheden, List<Product> producten) {
         super();
         this.tariefEenheden = tariefEenheden;
-        this.producten = producten;
+        this.producten = Collections.unmodifiableList(producten);
     }
 
     /**

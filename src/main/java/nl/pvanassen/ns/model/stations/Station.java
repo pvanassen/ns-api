@@ -1,5 +1,6 @@
 package nl.pvanassen.ns.model.stations;
 
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
 
@@ -14,7 +15,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  * @author Paul van Assen
  * 
  */
-public class Station {
+public class Station implements Serializable {
     private final String code;
     private final String type;
     private final Namen namen;
