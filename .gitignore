@@ -5,3 +5,7 @@
 *.war
 *.ear
 /target
+
+@IntelliJ
+.idea/
+*.iml
