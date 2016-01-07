@@ -29,7 +29,7 @@ public class NsApi {
     public static final String DATETIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ssZ";
     private final HttpConnection httpConnection;
     private static final String BASE_URL = "http://webservices.ns.nl/";
-    private final Map<Class<?>, Handle<?>> handleMap = new HashMap<Class<?>, Handle<?>>();
+    private final Map<Class<?>, Handle<?>> handleMap = new HashMap<>();
 
     /**
      * Constructor for the NS api handle. Takes a username and password as parameters. A username/password can be
