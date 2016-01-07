@@ -94,6 +94,9 @@ public class ReisMogelijkheid implements Serializable {
      * @return Planned time of departure
      */
     public Date getGeplandeVertrekTijd() {
+        if (geplandeVertrekTijd == null) {
+            return null;
+        }
         return new Date(geplandeVertrekTijd.getTime());
     }
 
@@ -101,6 +104,9 @@ public class ReisMogelijkheid implements Serializable {
      * @return Actual time of departure according to the most current estimations
      */
     public Date getActueleVertrekTijd() {
+        if (actueleVertrekTijd == null) {
+            return null;
+        }
         return new Date(actueleVertrekTijd.getTime());
     }
 
@@ -108,6 +114,9 @@ public class ReisMogelijkheid implements Serializable {
      * @return Planned time of arrival according to the day-planning
      */
     public Date getGeplandeAankomstTijd() {
+        if (geplandeAankomstTijd == null) {
+            return null;
+        }
         return new Date(geplandeAankomstTijd.getTime());
     }
 
@@ -115,6 +124,9 @@ public class ReisMogelijkheid implements Serializable {
      * @return Actual time of arrival according to the most current estimations
      */
     public Date getActueleAankomstTijd() {
+        if (actueleAankomstTijd == null) {
+            return null;
+        }
         return new Date(actueleAankomstTijd.getTime());
     }
 
