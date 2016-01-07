@@ -93,6 +93,9 @@ public class Storing implements Serializable {
      * @return Date and time of the disruption
     */
     public Date getDatum() {
+        if (datum == null) {
+            return null;
+        }
         return new Date(datum.getTime());
     }
 
