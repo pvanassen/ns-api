@@ -25,7 +25,6 @@ import org.slf4j.LoggerFactory;
 class HttpConnection {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
-
     private final HttpClient httpclient;
 
     /**
