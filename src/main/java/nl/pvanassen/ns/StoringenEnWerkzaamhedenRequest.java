@@ -3,8 +3,8 @@ package nl.pvanassen.ns;
 import nl.pvanassen.ns.model.storingen.Storingen;
 
 /**
- * Request object for 'Storingen en werkzaamheden'. For an explanation of all parameters, please see: {@link http
- * ://www.ns.nl/api/api#api-documentatie-storingen-en-werkzaamheden}
+ * Request object for 'Storingen en werkzaamheden'. For an explanation of all parameters, please see:
+ * <a href="http://www.ns.nl/api/api#api-documentatie-storingen-en-werkzaamheden">API Documentatie storingen en werkzaamheden</a>
  * 
  * Overzicht
  * 

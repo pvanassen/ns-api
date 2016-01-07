@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * From <a href="http://blog.another-d-mention.ro/programming/the-simplest-way-to-parse-xml -in-java/">the simplest way
+ * From <a href="http://blog.another-d-mention.ro/programming/the-simplest-way-to-parse-xml-in-java/">the simplest way
  * to parse XML</a>
  * 
  * @author Paul van Assen
