@@ -1,16 +1,17 @@
 package nl.pvanassen.ns.xml;
 
-import java.io.InputStream;
-import java.util.*;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-
 import nl.pvanassen.ns.error.NsApiException;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.*;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * From <a href="http://blog.another-d-mention.ro/programming/the-simplest-way-to-parse-xml -in-java/">the simplest way
@@ -126,7 +127,7 @@ public class XmlPresent extends Xml {
     public Xml child(String name) {
         List<Xml> children = children(name);
         if (children.size() != 1) {
-            logger.info("Could not find individual child node: " + name);
+            logger.debug("Could not find individual child node: " + name);
             return new XmlAbsent(name);
         }
         return children.get(0);
