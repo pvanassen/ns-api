@@ -60,7 +60,7 @@ public class XmlPresent extends Xml {
      * @param stream Stream to use
      * @param rootName Root name to use
      */
-    protected XmlPresent(InputStream stream, String rootName) {
+    XmlPresent(InputStream stream, String rootName) {
         this(XmlPresent.rootElement(stream, rootName));
     }
 
