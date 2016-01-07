@@ -9,7 +9,7 @@ class ActueleVertrekTijdenRequest extends ApiRequest<List<VertrekkendeTrein>> {
     private final String station;
 
     ActueleVertrekTijdenRequest(String station) {
-        this.station = station;
+        this.station = UrlParamHelper.encode(station);
     }
 
     /**

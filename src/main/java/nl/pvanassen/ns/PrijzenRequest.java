@@ -9,13 +9,13 @@ class PrijzenRequest extends ApiRequest<Producten> {
     private final String from;
     private final String to;
     private final String via;
-    private final Date dateTime;
+    private final String dateTime;
 
     PrijzenRequest(String from, String to, String via, Date dateTime) {
-        this.from = from;
-        this.to = to;
-        this.via = via;
-        this.dateTime = dateTime;
+        this.from = UrlParamHelper.encode(from);
+        this.to = UrlParamHelper.encode(to);
+        this.via = UrlParamHelper.encode(via);
+        this.dateTime = UrlParamHelper.formatDate(dateTime);
     }
 
     /**
@@ -43,7 +43,7 @@ class PrijzenRequest extends ApiRequest<Producten> {
             requestString.append("via=").append(via).append('&');
         }
         if (dateTime != null) {
-            requestString.append("dateTime=").append(new SimpleDateFormat(NsApi.DATETIME_FORMAT).format(dateTime));
+            requestString.append("dateTime=").append(dateTime);
         }
         return requestString.toString();
     }

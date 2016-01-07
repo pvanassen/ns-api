@@ -18,7 +18,7 @@ class ReisadviesRequest extends ApiRequest<List<ReisMogelijkheid>> {
 
     private final Integer nextAdvices;
 
-    private final Date dateTime;
+    private final String dateTime;
 
     private final Boolean departure;
 
@@ -29,12 +29,12 @@ class ReisadviesRequest extends ApiRequest<List<ReisMogelijkheid>> {
     ReisadviesRequest(String fromStation, String toStation, String viaStation, Integer previousAdvices,
             Integer nextAdvices, Date dateTime, Boolean departure, Boolean hslAllowed, Boolean yearCard) {
         super();
-        this.fromStation = fromStation;
-        this.toStation = toStation;
-        this.viaStation = viaStation;
+        this.fromStation = UrlParamHelper.encode(fromStation);
+        this.toStation = UrlParamHelper.encode(toStation);
+        this.viaStation = UrlParamHelper.encode(viaStation);
         this.previousAdvices = previousAdvices;
         this.nextAdvices = nextAdvices;
-        this.dateTime = dateTime;
+        this.dateTime = UrlParamHelper.formatDate(dateTime);
         this.departure = departure;
         this.hslAllowed = hslAllowed;
         this.yearCard = yearCard;
@@ -70,8 +70,7 @@ class ReisadviesRequest extends ApiRequest<List<ReisMogelijkheid>> {
             requestString.append("nextAdvices=").append(nextAdvices).append('&');
         }
         if (dateTime != null) {
-            requestString.append("dateTime=").append(new SimpleDateFormat(NsApi.DATETIME_FORMAT).format(dateTime))
-                    .append('&');
+            requestString.append("dateTime=").append(dateTime).append('&');
         }
         if (departure != null) {
             requestString.append("departure=").append(departure).append('&');

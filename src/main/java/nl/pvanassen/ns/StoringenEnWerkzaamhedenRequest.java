@@ -27,7 +27,7 @@ class StoringenEnWerkzaamhedenRequest extends ApiRequest<Storingen> {
     private final Boolean unplanned;
 
     StoringenEnWerkzaamhedenRequest(String station, Boolean actual, Boolean unplanned) {
-        this.station = station;
+        this.station = UrlParamHelper.encode(station);
         this.actual = actual;
         this.unplanned = unplanned;
     }
