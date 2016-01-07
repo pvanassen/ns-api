@@ -42,13 +42,7 @@ public class ActueleVertrekTijdenHandle implements Handle<VertrekkendeTreinen> {
                 String vertrekVertraging = vertrekkendeTreinXml.child("VertrekVertraging").content();
                 int vertrekVertragingMinuten = 0;
                 if (vertrekVertraging != null && !vertrekVertraging.isEmpty()) {
-                    try {
-                        vertrekVertragingMinuten = Integer.parseInt(vertrekVertraging.replace("PT", "")
-                                .replace("M", ""));
-                    }
-                    catch (NumberFormatException e) {
-                        logger.warn("Error parsing vertrek vertraging minuten into minutes", e);
-                    }
+                    vertrekVertragingMinuten = getVertrekVertragingMinuten(vertrekVertraging, vertrekVertragingMinuten, logger);
                 }
                 String vertrekVertragingTekst = vertrekkendeTreinXml.child("VertrekVertragingTekst").content();
                 String eindBestemming = vertrekkendeTreinXml.child("EindBestemming").content();
@@ -73,6 +67,17 @@ public class ActueleVertrekTijdenHandle implements Handle<VertrekkendeTreinen> {
             logger.error("Error parsing stream to actuele vertrektijden", e);
             throw new NsApiException("Error parsing stream to actuele vertrektijden", e);
         }
+    }
+
+    private static int getVertrekVertragingMinuten(String vertrekVertraging, int vertrekVertragingMinuten, Logger logger) {
+        try {
+            vertrekVertragingMinuten = Integer.parseInt(vertrekVertraging.replace("PT", "")
+                    .replace("M", ""));
+        }
+        catch (NumberFormatException e) {
+            logger.warn("Error parsing vertrek vertraging minuten into minutes", e);
+        }
+        return vertrekVertragingMinuten;
     }
 
 }
