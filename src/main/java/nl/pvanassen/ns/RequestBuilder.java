@@ -194,7 +194,7 @@ public class RequestBuilder {
             if (this.dateTime != null) {
                 throw new IllegalArgumentException("Cannot set departure time, arival time already set");
             }
-            this.dateTime = dateTime;
+            this.dateTime = new Date(dateTime.getTime());
             departure = true;
             return this;
         }
@@ -210,7 +210,7 @@ public class RequestBuilder {
             if (this.dateTime != null) {
                 throw new IllegalArgumentException("Cannot set arival time, departure time already set");
             }
-            this.dateTime = dateTime;
+            this.dateTime = new Date(dateTime.getTime());
             departure = false;
             return this;
         }

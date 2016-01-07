@@ -94,28 +94,28 @@ public class ReisMogelijkheid implements Serializable {
      * @return Planned time of departure
      */
     public Date getGeplandeVertrekTijd() {
-        return geplandeVertrekTijd;
+        return new Date(geplandeVertrekTijd.getTime());
     }
 
     /**
      * @return Actual time of departure according to the most current estimations
      */
     public Date getActueleVertrekTijd() {
-        return actueleVertrekTijd;
+        return new Date(actueleVertrekTijd.getTime());
     }
 
     /**
      * @return Planned time of arrival according to the day-planning
      */
     public Date getGeplandeAankomstTijd() {
-        return geplandeAankomstTijd;
+        return new Date(geplandeAankomstTijd.getTime());
     }
 
     /**
      * @return Actual time of arrival according to the most current estimations
      */
     public Date getActueleAankomstTijd() {
-        return actueleAankomstTijd;
+        return new Date(actueleAankomstTijd.getTime());
     }
 
     /**
