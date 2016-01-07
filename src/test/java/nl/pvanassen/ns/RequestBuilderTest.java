@@ -1,17 +1,16 @@
 package nl.pvanassen.ns;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-
 import nl.pvanassen.ns.model.prijzen.Producten;
 import nl.pvanassen.ns.model.reisadvies.ReisMogelijkheid;
 import nl.pvanassen.ns.model.stations.Station;
 import nl.pvanassen.ns.model.storingen.Storingen;
 import nl.pvanassen.ns.model.vertrektijden.VertrekkendeTrein;
-
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
 public class RequestBuilderTest {
 
@@ -19,7 +18,7 @@ public class RequestBuilderTest {
     public void testGetActueleVertrektijden() {
         ApiRequest<List<VertrekkendeTrein>> request = RequestBuilder.getActueleVertrektijden("Utrecht Centraal");
         Assert.assertEquals("ns-api-avt", request.getPath());
-        Assert.assertEquals("station=Utrecht Centraal", request.getRequestString());
+        Assert.assertEquals("station=Utrecht+Centraal", request.getRequestString());
     }
 
     @Test
@@ -33,7 +32,7 @@ public class RequestBuilderTest {
     public void testGetActueleStoringenRequestStation() {
         ApiRequest<Storingen> request = RequestBuilder.getActueleStoringen("Utrecht Centraal");
         Assert.assertEquals("ns-api-storingen", request.getPath());
-        Assert.assertEquals("station=Utrecht Centraal&", request.getRequestString());
+        Assert.assertEquals("station=Utrecht+Centraal&", request.getRequestString());
     }
 
     @Test
