@@ -64,7 +64,10 @@ public class VertrekkendeTrein implements Serializable {
      * @return Departure time of a train
      */
     public Date getVertrekTijd() {
-        return vertrekTijd;
+        if (vertrekTijd == null) {
+            return null;
+        }
+        return new Date(vertrekTijd.getTime());
     }
 
     /**
