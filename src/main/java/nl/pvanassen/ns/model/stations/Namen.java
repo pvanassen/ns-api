@@ -13,6 +13,7 @@ import java.io.Serializable;
  * 
  */
 public class Namen implements Serializable {
+    private static final long serialVersionUID = 1L;
     private final String kort;
     private final String middel;
     private final String lang;

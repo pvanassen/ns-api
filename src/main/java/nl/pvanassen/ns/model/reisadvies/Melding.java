@@ -13,6 +13,7 @@ import java.io.Serializable;
  * 
  */
 public class Melding implements Serializable {
+    private static final long serialVersionUID = 1L;
     private final String id;
     private final boolean ernstig;
     private final String text;

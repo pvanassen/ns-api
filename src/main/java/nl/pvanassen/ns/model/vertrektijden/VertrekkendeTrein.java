@@ -17,6 +17,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  * 
  */
 public class VertrekkendeTrein implements Serializable {
+    private static final long serialVersionUID = 1L;
     private final int ritNummer;
     private final Date vertrekTijd;
     private final String vertrekVertraging;

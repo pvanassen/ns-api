@@ -13,6 +13,7 @@ import java.io.Serializable;
  * 
  */
 public class Prijs implements Serializable {
+    private static final long serialVersionUID = 1L;
     private final String korting;
     private final int klasse;
     private final int prijs;
