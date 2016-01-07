@@ -1,12 +1,11 @@
 package nl.pvanassen.ns;
 
 import nl.pvanassen.ns.model.prijzen.Producten;
-import nl.pvanassen.ns.model.stations.Station;
+import nl.pvanassen.ns.model.stations.Stations;
 import nl.pvanassen.ns.model.storingen.Storingen;
-import nl.pvanassen.ns.model.vertrektijden.VertrekkendeTrein;
+import nl.pvanassen.ns.model.vertrektijden.VertrekkendeTreinen;
 
 import java.util.Date;
-import java.util.List;
 
 /**
  * Request builder helper class. This class builds concrete implementations of the {@link ApiRequest} abstract class.
@@ -35,7 +34,7 @@ public class RequestBuilder {
      *            allowed
      * @return The vertrektijden for this station
      */
-    public static ApiRequest<List<VertrekkendeTrein>> getActueleVertrektijden(String station) {
+    public static ApiRequest<VertrekkendeTreinen> getActueleVertrektijden(String station) {
         return new ActueleVertrekTijdenRequest(station);
     }
 
@@ -45,7 +44,7 @@ public class RequestBuilder {
      * 
      * @return An object containing all stations
      */
-    public static ApiRequest<List<Station>> getStations() {
+    public static ApiRequest<Stations> getStations() {
         return RequestBuilder.INSTANCE;
     }
 

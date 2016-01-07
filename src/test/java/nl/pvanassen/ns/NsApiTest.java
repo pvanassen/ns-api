@@ -1,6 +1,7 @@
 package nl.pvanassen.ns;
 
 import nl.pvanassen.ns.error.NsApiException;
+import nl.pvanassen.ns.model.NsResult;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -20,7 +21,7 @@ public class NsApiTest {
     @Test(expected = NsApiException.class)
     public void testGetApiResponseString() throws IOException {
         NsApi nsApi = new NsApi("test", "invalid");
-        nsApi.getApiResponse(new ApiRequest<String>() {
+        nsApi.getApiResponse(new ApiRequest<NsResult>() {
 
             @Override
             String getPath() {

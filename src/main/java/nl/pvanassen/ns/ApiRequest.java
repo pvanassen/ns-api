@@ -1,5 +1,7 @@
 package nl.pvanassen.ns;
 
+import nl.pvanassen.ns.model.NsResult;
+
 import java.io.Serializable;
 
 /**
@@ -9,7 +11,7 @@ import java.io.Serializable;
  * 
  * @param <T> Result type
  */
-public abstract class ApiRequest<T> implements Serializable {
+public abstract class ApiRequest<T extends NsResult> implements Serializable {
 
     /**
      * Allow only instantiation in this package

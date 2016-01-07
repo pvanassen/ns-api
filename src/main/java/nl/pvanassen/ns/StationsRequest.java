@@ -1,10 +1,8 @@
 package nl.pvanassen.ns;
 
-import nl.pvanassen.ns.model.stations.Station;
+import nl.pvanassen.ns.model.stations.Stations;
 
-import java.util.List;
-
-class StationsRequest extends ApiRequest<List<Station>> {
+class StationsRequest extends ApiRequest<Stations> {
 
     /**
      * Limiting scope

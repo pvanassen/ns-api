@@ -1,10 +1,8 @@
 package nl.pvanassen.ns;
 
-import nl.pvanassen.ns.model.vertrektijden.VertrekkendeTrein;
+import nl.pvanassen.ns.model.vertrektijden.VertrekkendeTreinen;
 
-import java.util.List;
-
-class ActueleVertrekTijdenRequest extends ApiRequest<List<VertrekkendeTrein>> {
+class ActueleVertrekTijdenRequest extends ApiRequest<VertrekkendeTreinen> {
 
     private final String station;
 

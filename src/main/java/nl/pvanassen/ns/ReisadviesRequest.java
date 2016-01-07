@@ -1,11 +1,10 @@
 package nl.pvanassen.ns;
 
-import nl.pvanassen.ns.model.reisadvies.ReisMogelijkheid;
+import nl.pvanassen.ns.model.reisadvies.ReisMogelijkheden;
 
 import java.util.Date;
-import java.util.List;
 
-class ReisadviesRequest extends ApiRequest<List<ReisMogelijkheid>> {
+class ReisadviesRequest extends ApiRequest<ReisMogelijkheden> {
 
     private final String fromStation;
 

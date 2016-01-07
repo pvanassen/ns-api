@@ -5,7 +5,6 @@ import nl.pvanassen.ns.xml.Xml;
 
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -15,7 +14,7 @@ import java.util.List;
  * @author Paul van Assen
  * 
  */
-public class StationsHandle implements Handle<List<Station>> {
+public class StationsHandle implements Handle<Stations> {
 
     /**
      * 
@@ -24,7 +23,7 @@ public class StationsHandle implements Handle<List<Station>> {
      * @see nl.pvanassen.ns.handle.Handle#getModel(java.io.InputStream)
      */
     @Override
-    public List<Station> getModel(InputStream stream) {
+    public Stations getModel(InputStream stream) {
         List<Station> stations = new LinkedList<>();
         Xml xml = Xml.getXml(stream, "Stations");
         for (Xml stationXml : xml.children("Station")) {
@@ -42,6 +41,6 @@ public class StationsHandle implements Handle<List<Station>> {
             }
             stations.add(new Station(code, type, namen, land, uicCode, lat, lon, synoniemen));
         }
-        return Collections.unmodifiableList(stations);
+        return new Stations(stations);
     }
 }

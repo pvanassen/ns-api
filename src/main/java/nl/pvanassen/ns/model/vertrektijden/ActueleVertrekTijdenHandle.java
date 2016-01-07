@@ -10,7 +10,6 @@ import org.slf4j.LoggerFactory;
 import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Collections;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -22,7 +21,7 @@ import java.util.List;
  * @author Paul van Assen
  * 
  */
-public class ActueleVertrekTijdenHandle implements Handle<List<VertrekkendeTrein>> {
+public class ActueleVertrekTijdenHandle implements Handle<VertrekkendeTreinen> {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -32,7 +31,7 @@ public class ActueleVertrekTijdenHandle implements Handle<List<VertrekkendeTrein
      * @see nl.pvanassen.ns.handle.Handle#getModel(java.io.InputStream)
      */
     @Override
-    public List<VertrekkendeTrein> getModel(InputStream stream) {
+    public VertrekkendeTreinen getModel(InputStream stream) {
         SimpleDateFormat format = new SimpleDateFormat(NsApi.DATETIME_FORMAT);
         try {
             List<VertrekkendeTrein> vertrekkendeTreinen = new LinkedList<>();
@@ -68,7 +67,7 @@ public class ActueleVertrekTijdenHandle implements Handle<List<VertrekkendeTrein
                         vertrekVertragingMinuten, vertrekVertragingTekst, eindBestemming, treinSoort, routeTekst,
                         vervoerder, vertrekSpoor, gewijzigdVertrekspoor, reisTip, opmerkingen));
             }
-            return Collections.unmodifiableList(vertrekkendeTreinen);
+            return new VertrekkendeTreinen(vertrekkendeTreinen);
         }
         catch (ParseException e) {
             logger.error("Error parsing stream to actuele vertrektijden", e);

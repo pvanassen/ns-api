@@ -10,7 +10,10 @@ import org.slf4j.LoggerFactory;
 import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Handle to process the 'reisadvies' XML as defined in <a
@@ -19,7 +22,7 @@ import java.util.*;
  * @author Paul van Assen
  * 
  */
-public class ReisadviesHandle implements Handle<List<ReisMogelijkheid>> {
+public class ReisadviesHandle implements Handle<ReisMogelijkheden> {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -29,7 +32,7 @@ public class ReisadviesHandle implements Handle<List<ReisMogelijkheid>> {
      * @see nl.pvanassen.ns.handle.Handle#getModel(java.io.InputStream)
      */
     @Override
-    public List<ReisMogelijkheid> getModel(InputStream stream) {
+    public ReisMogelijkheden getModel(InputStream stream) {
         SimpleDateFormat format = new SimpleDateFormat(NsApi.DATETIME_FORMAT);
         try {
             Xml xml = Xml.getXml(stream, "ReisMogelijkheden");
@@ -92,7 +95,7 @@ public class ReisadviesHandle implements Handle<List<ReisMogelijkheid>> {
                         actueleReisTijdMinuten, aankomstVertraging, optimaal, geplandeVertrekTijd, actueleVertrekTijd,
                         geplandeAankomstTijd, actueleAankomstTijd, status, reisDelen));
             }
-            return Collections.unmodifiableList(reisMogelijkheden);
+            return new ReisMogelijkheden(reisMogelijkheden);
         }
         catch (ParseException e) {
             logger.error("Error parsing stream to actuele vertrektijden", e);

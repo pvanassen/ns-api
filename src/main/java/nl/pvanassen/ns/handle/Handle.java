@@ -1,5 +1,7 @@
 package nl.pvanassen.ns.handle;
 
+import nl.pvanassen.ns.model.NsResult;
+
 import java.io.InputStream;
 
 /**
@@ -9,7 +11,7 @@ import java.io.InputStream;
  * 
  * @param <T> Return type
  */
-public interface Handle<T> {
+public interface Handle<T extends NsResult> {
 
     /**
      * The deserialize method

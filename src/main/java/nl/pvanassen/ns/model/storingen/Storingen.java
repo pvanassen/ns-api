@@ -1,10 +1,10 @@
 package nl.pvanassen.ns.model.storingen;
 
+import nl.pvanassen.ns.model.NsResult;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
 
@@ -14,7 +14,7 @@ import java.util.List;
  * @author Paul van Assen
  * 
  */
-public class Storingen implements Serializable {
+public class Storingen implements NsResult {
     private final List<Storing> ongeplandeStoringen;
     private final List<Storing> geplandeStoringen;
 

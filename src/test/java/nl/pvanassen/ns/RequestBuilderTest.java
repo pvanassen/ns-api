@@ -1,29 +1,28 @@
 package nl.pvanassen.ns;
 
 import nl.pvanassen.ns.model.prijzen.Producten;
-import nl.pvanassen.ns.model.reisadvies.ReisMogelijkheid;
-import nl.pvanassen.ns.model.stations.Station;
+import nl.pvanassen.ns.model.reisadvies.ReisMogelijkheden;
+import nl.pvanassen.ns.model.stations.Stations;
 import nl.pvanassen.ns.model.storingen.Storingen;
-import nl.pvanassen.ns.model.vertrektijden.VertrekkendeTrein;
+import nl.pvanassen.ns.model.vertrektijden.VertrekkendeTreinen;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 public class RequestBuilderTest {
 
     @Test
     public void testGetActueleVertrektijden() {
-        ApiRequest<List<VertrekkendeTrein>> request = RequestBuilder.getActueleVertrektijden("Utrecht Centraal");
+        ApiRequest<VertrekkendeTreinen> request = RequestBuilder.getActueleVertrektijden("Utrecht Centraal");
         Assert.assertEquals("ns-api-avt", request.getPath());
         Assert.assertEquals("station=Utrecht+Centraal", request.getRequestString());
     }
 
     @Test
     public void testGetStations() {
-        ApiRequest<List<Station>> request = RequestBuilder.getStations();
+        ApiRequest<Stations> request = RequestBuilder.getStations();
         Assert.assertEquals("ns-api-stations-v2", request.getPath());
         Assert.assertEquals("", request.getRequestString());
     }
@@ -53,7 +52,7 @@ public class RequestBuilderTest {
     public void testGetReisadviesRequestBuilder() {
         SimpleDateFormat format = new SimpleDateFormat(NsApi.DATETIME_FORMAT);
         Date now = new Date();
-        ApiRequest<List<ReisMogelijkheid>> request = RequestBuilder.getReisadviesRequestBuilder("Amsterdam", "Utrecht")
+        ApiRequest<ReisMogelijkheden> request = RequestBuilder.getReisadviesRequestBuilder("Amsterdam", "Utrecht")
                 .forArrivalTime(now).viaStation("Hoorn").includeFutureAdvices(4).includePastAdvices(3)
                 .userHasNoYearCard().build();
         Assert.assertEquals("ns-api-treinplanner", request.getPath());
