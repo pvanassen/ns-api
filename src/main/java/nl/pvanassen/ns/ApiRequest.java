@@ -1,5 +1,7 @@
 package nl.pvanassen.ns;
 
+import java.io.Serializable;
+
 /**
  * Api request type. This type is the basis for all responses from the NS api.
  * 
@@ -7,7 +9,7 @@ package nl.pvanassen.ns;
  * 
  * @param <T> Result type
  */
-public abstract class ApiRequest<T> {
+public abstract class ApiRequest<T> implements Serializable {
 
     /**
      * Allow only instantiation in this package
