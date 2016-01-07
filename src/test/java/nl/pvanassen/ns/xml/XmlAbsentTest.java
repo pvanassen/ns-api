@@ -1,10 +1,10 @@
 package nl.pvanassen.ns.xml;
 
-import java.util.List;
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.List;
 
 /**
  * Almost the same test as XmlPresent, just to demonstrate, things won't break

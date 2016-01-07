@@ -1,10 +1,9 @@
 package nl.pvanassen.ns;
 
-import java.text.SimpleDateFormat;
+import nl.pvanassen.ns.model.reisadvies.ReisMogelijkheid;
+
 import java.util.Date;
 import java.util.List;
-
-import nl.pvanassen.ns.model.reisadvies.ReisMogelijkheid;
 
 class ReisadviesRequest extends ApiRequest<List<ReisMogelijkheid>> {
 

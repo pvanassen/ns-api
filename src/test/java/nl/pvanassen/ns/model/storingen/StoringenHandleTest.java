@@ -1,10 +1,10 @@
 package nl.pvanassen.ns.model.storingen;
 
-import java.util.Calendar;
-import java.util.TimeZone;
-
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.Calendar;
+import java.util.TimeZone;
 
 public class StoringenHandleTest {
 

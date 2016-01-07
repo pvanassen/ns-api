@@ -1,11 +1,11 @@
 package nl.pvanassen.ns.model.reisadvies;
 
-import java.io.Serializable;
-import java.util.Date;
-
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
+
+import java.io.Serializable;
+import java.util.Date;
 
 /**
  * http://www.ns.nl/api/api#api-documentatie-reisadviezen

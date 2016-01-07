@@ -1,12 +1,12 @@
 package nl.pvanassen.ns.model.prijzen;
 
-import java.io.Serializable;
-import java.util.Collections;
-import java.util.List;
-
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
+
+import java.io.Serializable;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * http://www.ns.nl/api/api#api-documentatie-prijzen Product element

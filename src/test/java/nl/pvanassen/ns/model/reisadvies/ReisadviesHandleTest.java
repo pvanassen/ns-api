@@ -1,10 +1,10 @@
 package nl.pvanassen.ns.model.reisadvies;
 
-import java.util.List;
-import java.util.TimeZone;
-
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.List;
+import java.util.TimeZone;
 
 public class ReisadviesHandleTest {
 

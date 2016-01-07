@@ -1,10 +1,6 @@
 package nl.pvanassen.ns;
 
-import java.io.IOException;
-import java.io.InputStream;
-
 import nl.pvanassen.ns.error.NsApiException;
-
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.auth.AuthScope;
@@ -15,6 +11,9 @@ import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Internal class for handling http connections

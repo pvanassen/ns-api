@@ -1,10 +1,9 @@
 package nl.pvanassen.ns;
 
-import java.io.IOException;
-
 import nl.pvanassen.ns.error.NsApiException;
-
 import org.junit.Test;
+
+import java.io.IOException;
 
 public class NsApiTest {
 

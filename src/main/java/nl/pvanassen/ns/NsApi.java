@@ -1,10 +1,5 @@
 package nl.pvanassen.ns;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.HashMap;
-import java.util.Map;
-
 import nl.pvanassen.ns.error.NsApiException;
 import nl.pvanassen.ns.handle.Handle;
 import nl.pvanassen.ns.model.prijzen.ProductenHandle;
@@ -12,8 +7,12 @@ import nl.pvanassen.ns.model.reisadvies.ReisadviesHandle;
 import nl.pvanassen.ns.model.stations.StationsHandle;
 import nl.pvanassen.ns.model.storingen.StoringenHandle;
 import nl.pvanassen.ns.model.vertrektijden.ActueleVertrekTijdenHandle;
-
 import org.apache.commons.io.IOUtils;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Main class for calling the NS api. The NS API is documented at <a href="http://www.ns.nl/api/api">NS API</a>

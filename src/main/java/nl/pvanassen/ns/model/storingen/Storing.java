@@ -1,11 +1,11 @@
 package nl.pvanassen.ns.model.storingen;
 
-import java.io.Serializable;
-import java.util.Date;
-
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
+
+import java.io.Serializable;
+import java.util.Date;
 
 /**
  * For the exact meaning of all fields, see <a
