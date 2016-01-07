@@ -1,6 +1,9 @@
 language: java
+sudo: false
 jdk:
   - oraclejdk7
   - oraclejdk8
+install:
+  - mvn install -Dgpg.skip=true
 after_success:
   - mvn test jacoco:report coveralls:jacoco
