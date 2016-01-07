@@ -28,9 +28,9 @@ public class XmlPresent extends Xml {
 
     private final String content;
 
-    private final Map<String, String> nameAttributes = new HashMap<String, String>();
+    private final Map<String, String> nameAttributes = new HashMap<>();
 
-    private final Map<String, List<Xml>> nameChildren = new HashMap<String, List<Xml>>();
+    private final Map<String, List<Xml>> nameChildren = new HashMap<>();
 
     private static Element rootElement(InputStream stream, String rootName) {
         if (stream == null) {
@@ -92,7 +92,7 @@ public class XmlPresent extends Xml {
     private void addChild(String name, XmlPresent child) {
         List<Xml> children = nameChildren.get(name);
         if (children == null) {
-            children = new ArrayList<Xml>();
+            children = new ArrayList<>();
             nameChildren.put(name, children);
         }
         children.add(child);
