@@ -27,11 +27,8 @@ public class NsApi {
      * NS Date to Java date formatting string
      */
     public static final String DATETIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ssZ";
-
     private final HttpConnection httpConnection;
-
     private static final String BASE_URL = "http://webservices.ns.nl/";
-
     private final Map<Class<?>, Handle<?>> handleMap = new HashMap<Class<?>, Handle<?>>();
 
     /**
