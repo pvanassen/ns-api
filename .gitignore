@@ -6,6 +6,9 @@
 *.ear
 /target
 
-@IntelliJ
+#IntelliJ
 .idea/
 *.iml
+
+#Pom backups
+pom.xml.versionsBackup
