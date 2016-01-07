@@ -6,13 +6,9 @@ import java.util.Date;
 import nl.pvanassen.ns.model.prijzen.Producten;
 
 class PrijzenRequest extends ApiRequest<Producten> {
-
     private final String from;
-
     private final String to;
-
     private final String via;
-
     private final Date dateTime;
 
     PrijzenRequest(String from, String to, String via, Date dateTime) {
