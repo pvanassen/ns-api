@@ -96,7 +96,7 @@ public class Storing implements Serializable {
         if (datum == null) {
             return null;
         }
-        return new Date(datum.getTime());
+        return (Date)datum.clone();
     }
 
     /**

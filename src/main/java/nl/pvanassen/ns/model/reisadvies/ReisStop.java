@@ -38,7 +38,10 @@ public class ReisStop implements Serializable {
      * @return Date and time of arrival
      */
     public Date getTijd() {
-        return new Date(tijd.getTime());
+        if (tijd == null) {
+            return null;
+        }
+        return (Date)tijd.clone();
     }
 
     /**

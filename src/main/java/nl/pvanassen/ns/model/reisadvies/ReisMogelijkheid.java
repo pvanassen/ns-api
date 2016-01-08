@@ -97,7 +97,7 @@ public class ReisMogelijkheid implements Serializable {
         if (geplandeVertrekTijd == null) {
             return null;
         }
-        return new Date(geplandeVertrekTijd.getTime());
+        return (Date)geplandeVertrekTijd.clone();
     }
 
     /**
@@ -107,7 +107,7 @@ public class ReisMogelijkheid implements Serializable {
         if (actueleVertrekTijd == null) {
             return null;
         }
-        return new Date(actueleVertrekTijd.getTime());
+        return (Date)actueleVertrekTijd.clone();
     }
 
     /**
@@ -117,7 +117,7 @@ public class ReisMogelijkheid implements Serializable {
         if (geplandeAankomstTijd == null) {
             return null;
         }
-        return new Date(geplandeAankomstTijd.getTime());
+        return (Date)geplandeAankomstTijd.clone();
     }
 
     /**
@@ -127,7 +127,7 @@ public class ReisMogelijkheid implements Serializable {
         if (actueleAankomstTijd == null) {
             return null;
         }
-        return new Date(actueleAankomstTijd.getTime());
+        return (Date)actueleAankomstTijd.clone();
     }
 
     /**

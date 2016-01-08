@@ -67,7 +67,7 @@ public class VertrekkendeTrein implements Serializable {
         if (vertrekTijd == null) {
             return null;
         }
-        return new Date(vertrekTijd.getTime());
+        return (Date)vertrekTijd.clone();
     }
 
     /**
