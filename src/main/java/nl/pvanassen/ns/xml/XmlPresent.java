@@ -48,6 +48,9 @@ public class XmlPresent extends Xml {
             DocumentBuilder builder = builderFactory.newDocumentBuilder();
             Document document = builder.parse(stream);
             Element rootElement = document.getDocumentElement();
+            if (rootElement.getNodeName().equals("error")) {
+                throw new NsApiException(rootElement.getTextContent().trim());
+            }
             if (!rootElement.getNodeName().equals(rootName)) {
                 throw new NsApiException("Could not find root node: " + rootName);
             }

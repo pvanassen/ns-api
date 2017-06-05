@@ -52,7 +52,7 @@ public class RequestBuilderTest {
 
     @Test
     public void testGetReisadviesRequestBuilder() {
-        SimpleDateFormat format = new SimpleDateFormat(NsApi.DATETIME_FORMAT);
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
         Date now = new Date();
         ApiRequest<ReisMogelijkheden> request = RequestBuilder.getReisadviesRequestBuilder("Amsterdam", "Utrecht")
                 .forArrivalTime(now).viaStation("Hoorn").includeFutureAdvices(4).includePastAdvices(3)

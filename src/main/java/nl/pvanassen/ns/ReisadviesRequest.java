@@ -60,7 +60,7 @@ class ReisadviesRequest extends ApiRequest<ReisMogelijkheden> {
             requestString.append("nextAdvices=").append(nextAdvices).append('&');
         }
         if (dateTime != null) {
-            requestString.append("dateTime=").append(new SimpleDateFormat(NsApi.DATETIME_FORMAT).format(dateTime))
+            requestString.append("dateTime=").append(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(dateTime))
                     .append('&');
         }
         if (departure != null) {

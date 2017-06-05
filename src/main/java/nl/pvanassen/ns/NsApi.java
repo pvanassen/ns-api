@@ -62,7 +62,6 @@ public class NsApi {
      * @param request Data to request
      * @param <T> Type of response
      * @return Serialized response
-     * @throws IOException In case of an network error
      * @throws NsApiException In case of any other error than a network error
      */
     public <T extends NsResult> T getApiResponse(ApiRequest<T> request) throws NsApiException {
