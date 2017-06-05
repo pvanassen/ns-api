@@ -1,10 +1,5 @@
 package nl.pvanassen.ns;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.HashMap;
-import java.util.Map;
-
 import nl.pvanassen.ns.error.NsApiException;
 import nl.pvanassen.ns.handle.Handle;
 import nl.pvanassen.ns.model.prijzen.ProductenHandle;
@@ -13,7 +8,10 @@ import nl.pvanassen.ns.model.stations.StationsHandle;
 import nl.pvanassen.ns.model.storingen.StoringenHandle;
 import nl.pvanassen.ns.model.vertrektijden.ActueleVertrekTijdenHandle;
 
-import org.apache.commons.io.IOUtils;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Main class for calling the NS api. The NS API is documented at <a href="http://www.ns.nl/api/api">NS API</a>
@@ -32,7 +30,7 @@ public class NsApi {
 
     private static final String BASE_URL = "http://webservices.ns.nl/";
 
-    private final Map<Class<?>, Handle<?>> handleMap = new HashMap<Class<?>, Handle<?>>();
+    private final Map<Class<?>, Handle<?>> handleMap = new HashMap<>();
 
     /**
      * Constructor for the NS api handle. Takes a username and password as parameters. A username/password can be
@@ -69,18 +67,14 @@ public class NsApi {
      * @throws NsApiException In case of any other error than a network error
      */
     public <T> T getApiResponse(ApiRequest<T> request) throws IOException, NsApiException {
-        InputStream stream = null;
-        try {
-            stream = httpConnection.getContent(NsApi.BASE_URL + request.getPath() + "?" + request.getRequestString());
+        try (InputStream stream = httpConnection
+                .getContent(NsApi.BASE_URL + request.getPath() + "?" + request.getRequestString())){
             @SuppressWarnings("unchecked")
             Handle<T> handle = (Handle<T>) handleMap.get(request.getClass());
             if (handle == null) {
                 throw new NsApiException("Unknown request type " + request.getClass());
             }
             return handle.getModel(stream);
-        }
-        finally {
-            IOUtils.closeQuietly(stream);
         }
     }
 

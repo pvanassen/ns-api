@@ -1,19 +1,18 @@
 package nl.pvanassen.ns.model.storingen;
 
+import nl.pvanassen.ns.NsApi;
+import nl.pvanassen.ns.error.NsApiException;
+import nl.pvanassen.ns.handle.Handle;
+import nl.pvanassen.ns.xml.Xml;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
-
-import nl.pvanassen.ns.NsApi;
-import nl.pvanassen.ns.error.NsApiException;
-import nl.pvanassen.ns.handle.Handle;
-import nl.pvanassen.ns.xml.Xml;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * Handle for parsing disruption xml messages. For more information see <a

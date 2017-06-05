@@ -1,8 +1,8 @@
 package nl.pvanassen.ns;
 
-import java.util.List;
-
 import nl.pvanassen.ns.model.stations.Station;
+
+import java.util.List;
 
 class StationsRequest extends ApiRequest<List<Station>> {
 

@@ -1,12 +1,12 @@
 package nl.pvanassen.ns;
 
-import java.util.Date;
-import java.util.List;
-
 import nl.pvanassen.ns.model.prijzen.Producten;
 import nl.pvanassen.ns.model.stations.Station;
 import nl.pvanassen.ns.model.storingen.Storingen;
 import nl.pvanassen.ns.model.vertrektijden.VertrekkendeTrein;
+
+import java.util.Date;
+import java.util.List;
 
 /**
  * Request builder helper class. This class builds concrete implementations of the {@link ApiRequest} abstract class.

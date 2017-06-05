@@ -1,10 +1,13 @@
 package nl.pvanassen.ns.model.stations;
 
-import java.io.InputStream;
-import java.util.*;
-
 import nl.pvanassen.ns.handle.Handle;
 import nl.pvanassen.ns.xml.Xml;
+
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Handles parsing the response from the NS and de-serializes it into a list of stations

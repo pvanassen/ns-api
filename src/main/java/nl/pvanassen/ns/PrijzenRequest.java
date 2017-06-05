@@ -1,9 +1,9 @@
 package nl.pvanassen.ns;
 
+import nl.pvanassen.ns.model.prijzen.Producten;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
-import nl.pvanassen.ns.model.prijzen.Producten;
 
 class PrijzenRequest extends ApiRequest<Producten> {
 

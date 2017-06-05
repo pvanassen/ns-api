@@ -1,8 +1,8 @@
 package nl.pvanassen.ns;
 
-import java.util.List;
-
 import nl.pvanassen.ns.model.vertrektijden.VertrekkendeTrein;
+
+import java.util.List;
 
 class ActueleVertrekTijdenRequest extends ApiRequest<List<VertrekkendeTrein>> {
 

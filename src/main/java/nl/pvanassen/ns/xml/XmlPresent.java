@@ -1,16 +1,21 @@
 package nl.pvanassen.ns.xml;
 
-import java.io.InputStream;
-import java.util.*;
+import nl.pvanassen.ns.error.NsApiException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-
-import nl.pvanassen.ns.error.NsApiException;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.w3c.dom.*;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * From <a href="http://blog.another-d-mention.ro/programming/the-simplest-way-to-parse-xml -in-java/">the simplest way

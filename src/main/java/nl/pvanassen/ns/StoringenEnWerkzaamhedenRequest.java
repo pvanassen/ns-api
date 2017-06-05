@@ -22,11 +22,8 @@ import nl.pvanassen.ns.model.storingen.Storingen;
  * 
  */
 class StoringenEnWerkzaamhedenRequest extends ApiRequest<Storingen> {
-
     private final String station;
-
     private final Boolean actual;
-
     private final Boolean unplanned;
 
     StoringenEnWerkzaamhedenRequest(String station, Boolean actual, Boolean unplanned) {

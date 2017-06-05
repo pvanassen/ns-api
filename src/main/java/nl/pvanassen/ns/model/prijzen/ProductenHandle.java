@@ -1,12 +1,12 @@
 package nl.pvanassen.ns.model.prijzen;
 
+import nl.pvanassen.ns.handle.Handle;
+import nl.pvanassen.ns.xml.Xml;
+
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-
-import nl.pvanassen.ns.handle.Handle;
-import nl.pvanassen.ns.xml.Xml;
 
 /**
  * Handle for parsing 'producten' xml, as defined in <a

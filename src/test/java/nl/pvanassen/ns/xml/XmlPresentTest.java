@@ -6,6 +6,12 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
 public class XmlPresentTest {
 
     private XmlPresent present;
@@ -17,41 +23,41 @@ public class XmlPresentTest {
 
     @Test
     public void testName() {
-        Assert.assertEquals("test", present.name());
+        assertEquals("test", present.name());
     }
 
     @Test
     public void testContent() {
-        Assert.assertEquals("Test", present.child("content").content());
+        assertEquals("Test", present.child("content").content());
     }
 
     @Test
     public void testChild() {
-        Assert.assertNotNull(present.child("subelement"));
-        Assert.assertTrue(present.child("subelement") instanceof XmlPresent);
-        Assert.assertNotNull(present.child("doesNotExist"));
-        Assert.assertTrue(present.child("doesNotExist") instanceof XmlAbsent);
+        assertNotNull(present.child("subelement"));
+        assertTrue(present.child("subelement") instanceof XmlPresent);
+        assertNotNull(present.child("doesNotExist"));
+        assertTrue(present.child("doesNotExist") instanceof XmlAbsent);
     }
 
     @Test
     public void testChildren() {
         Xml another = present.child("another");
         List<Xml> children = another.children("nice");
-        Assert.assertNotNull(children);
-        Assert.assertEquals(5, children.size());
+        assertNotNull(children);
+        assertEquals(5, children.size());
     }
 
     @Test
     public void testAttr() {
         Xml subelement = present.child("subelement");
-        Assert.assertEquals("nice-and-pretty", subelement.attr("attribute"));
-        Assert.assertNull(subelement.attr("doesnotexist"));
+        assertEquals("nice-and-pretty", subelement.attr("attribute"));
+        assertNull(subelement.attr("doesnotexist"));
     }
 
     @Test
     public void testIsPresent() {
-        Assert.assertFalse(present.isPresent("doesnotexist"));
-        Assert.assertTrue(present.isPresent("subelement"));
+        assertFalse(present.isPresent("doesnotexist"));
+        assertTrue(present.isPresent("subelement"));
     }
 
 }
