@@ -1,6 +1,6 @@
 package nl.pvanassen.ns;
 
-import nl.pvanassen.ns.model.prijzen.Producten;
+import nl.pvanassen.ns.model.prijzen.Prijzen;
 import nl.pvanassen.ns.model.stations.Station;
 import nl.pvanassen.ns.model.storingen.Storingen;
 import nl.pvanassen.ns.model.vertrektijden.VertrekkendeTrein;
@@ -93,7 +93,7 @@ public class RequestBuilder {
      * @param toStation End point of the trip
      * @return Request for getting the fares
      */
-    public static ApiRequest<Producten> getPrijzen(String fromStation, String toStation) {
+    public static ApiRequest<Prijzen> getPrijzen(String fromStation, String toStation) {
         return RequestBuilder.getPrijzen(fromStation, toStation, null, null);
     }
 
@@ -106,7 +106,7 @@ public class RequestBuilder {
      * @param viaStation Also go to this station
      * @return Request for getting the fares
      */
-    public static ApiRequest<Producten> getPrijzen(String fromStation, String toStation, String viaStation) {
+    public static ApiRequest<Prijzen> getPrijzen(String fromStation, String toStation, String viaStation) {
         return RequestBuilder.getPrijzen(fromStation, toStation, viaStation, null);
     }
 
@@ -119,7 +119,7 @@ public class RequestBuilder {
      * @param dateTime Date and time to use for getting the fares.
      * @return Request for getting the fares
      */
-    public static ApiRequest<Producten> getPrijzen(String fromStation, String toStation, Date dateTime) {
+    public static ApiRequest<Prijzen> getPrijzen(String fromStation, String toStation, Date dateTime) {
         return RequestBuilder.getPrijzen(fromStation, toStation, null, dateTime);
     }
 
@@ -133,7 +133,7 @@ public class RequestBuilder {
      * @param dateTime Date and time to use for getting the fares.
      * @return Request for getting the fares
      */
-    public static ApiRequest<Producten> getPrijzen(String fromStation, String toStation, String viaStation,
+    public static ApiRequest<Prijzen> getPrijzen(String fromStation, String toStation, String viaStation,
             Date dateTime) {
         return new PrijzenRequest(fromStation, toStation, viaStation, dateTime);
     }

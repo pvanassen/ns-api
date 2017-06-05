@@ -96,7 +96,7 @@ public class XmlPresent extends Xml {
     private void addChild(String name, XmlPresent child) {
         List<Xml> children = nameChildren.get(name);
         if (children == null) {
-            children = new ArrayList<Xml>();
+            children = new ArrayList<>();
             nameChildren.put(name, children);
         }
         children.add(child);

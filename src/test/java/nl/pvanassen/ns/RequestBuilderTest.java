@@ -4,13 +4,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-import nl.pvanassen.ns.model.prijzen.Producten;
+import nl.pvanassen.ns.model.prijzen.Prijzen;
 import nl.pvanassen.ns.model.reisadvies.ReisMogelijkheid;
 import nl.pvanassen.ns.model.stations.Station;
 import nl.pvanassen.ns.model.storingen.Storingen;
 import nl.pvanassen.ns.model.vertrektijden.VertrekkendeTrein;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -74,14 +73,14 @@ public class RequestBuilderTest {
 
     @Test
     public void testGetPrijzenStringString() {
-        ApiRequest<Producten> request = RequestBuilder.getPrijzen("Amsterdam", "Dortrecht");
+        ApiRequest<Prijzen> request = RequestBuilder.getPrijzen("Amsterdam", "Dortrecht");
         assertEquals("ns-api-prijzen-v2", request.getPath());
         assertEquals("from=Amsterdam&to=Dortrecht&", request.getRequestString());
     }
 
     @Test
     public void testGetPrijzenStringStringString() {
-        ApiRequest<Producten> request = RequestBuilder.getPrijzen("Amsterdam", "Dortrecht", "Groningen");
+        ApiRequest<Prijzen> request = RequestBuilder.getPrijzen("Amsterdam", "Dortrecht", "Groningen");
         assertEquals("ns-api-prijzen-v2", request.getPath());
         assertEquals("from=Amsterdam&to=Dortrecht&via=Groningen&", request.getRequestString());
     }
@@ -90,7 +89,7 @@ public class RequestBuilderTest {
     public void testGetPrijzenStringStringDate() {
         SimpleDateFormat format = new SimpleDateFormat(NsApi.DATETIME_FORMAT);
         Date now = new Date();
-        ApiRequest<Producten> request = RequestBuilder.getPrijzen("Amsterdam", "Dortrecht", now);
+        ApiRequest<Prijzen> request = RequestBuilder.getPrijzen("Amsterdam", "Dortrecht", now);
         assertEquals("ns-api-prijzen-v2", request.getPath());
         assertEquals("from=Amsterdam&to=Dortrecht&dateTime=" + format.format(now), request.getRequestString());
     }
@@ -99,7 +98,7 @@ public class RequestBuilderTest {
     public void testGetPrijzenStringStringStringDate() {
         SimpleDateFormat format = new SimpleDateFormat(NsApi.DATETIME_FORMAT);
         Date now = new Date();
-        ApiRequest<Producten> request = RequestBuilder.getPrijzen("Amsterdam", "Dortrecht", "Groningen", now);
+        ApiRequest<Prijzen> request = RequestBuilder.getPrijzen("Amsterdam", "Dortrecht", "Groningen", now);
         assertEquals("ns-api-prijzen-v2", request.getPath());
         assertEquals("from=Amsterdam&to=Dortrecht&via=Groningen&dateTime=" + format.format(now),
                 request.getRequestString());

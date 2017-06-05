@@ -1,18 +1,14 @@
 package nl.pvanassen.ns;
 
-import nl.pvanassen.ns.model.prijzen.Producten;
+import nl.pvanassen.ns.model.prijzen.Prijzen;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-class PrijzenRequest extends ApiRequest<Producten> {
-
+class PrijzenRequest extends ApiRequest<Prijzen> {
     private final String from;
-
     private final String to;
-
     private final String via;
-
     private final Date dateTime;
 
     PrijzenRequest(String from, String to, String via, Date dateTime) {
