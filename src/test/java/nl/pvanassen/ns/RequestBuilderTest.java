@@ -1,15 +1,20 @@
 package nl.pvanassen.ns;
 
-import nl.pvanassen.ns.model.prijzen.Producten;
-import nl.pvanassen.ns.model.reisadvies.ReisMogelijkheden;
-import nl.pvanassen.ns.model.stations.Stations;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
+import nl.pvanassen.ns.model.prijzen.Prijzen;
+import nl.pvanassen.ns.model.reisadvies.ReisMogelijkheid;
+import nl.pvanassen.ns.model.stations.Station;
 import nl.pvanassen.ns.model.storingen.Storingen;
+import nl.pvanassen.ns.model.vertrektijden.VertrekkendeTrein;
+
 import nl.pvanassen.ns.model.vertrektijden.VertrekkendeTreinen;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import static org.junit.Assert.assertEquals;
 
 public class RequestBuilderTest {
 
@@ -37,15 +42,15 @@ public class RequestBuilderTest {
     @Test
     public void testGetGeplandeWerkzaamhedenRequest() {
         ApiRequest<Storingen> request = RequestBuilder.getGeplandeWerkzaamheden();
-        Assert.assertEquals("ns-api-storingen", request.getPath());
-        Assert.assertEquals("unplanned=true&", request.getRequestString());
+        assertEquals("ns-api-storingen", request.getPath());
+        assertEquals("unplanned=true&", request.getRequestString());
     }
 
     @Test
     public void testGetActueleStoringen() {
         ApiRequest<Storingen> request = RequestBuilder.getActueleStoringen();
-        Assert.assertEquals("ns-api-storingen", request.getPath());
-        Assert.assertEquals("actual=true&", request.getRequestString());
+        assertEquals("ns-api-storingen", request.getPath());
+        assertEquals("actual=true&", request.getRequestString());
     }
 
     @Test
@@ -55,8 +60,8 @@ public class RequestBuilderTest {
         ApiRequest<ReisMogelijkheden> request = RequestBuilder.getReisadviesRequestBuilder("Amsterdam", "Utrecht")
                 .forArrivalTime(now).viaStation("Hoorn").includeFutureAdvices(4).includePastAdvices(3)
                 .userHasNoYearCard().build();
-        Assert.assertEquals("ns-api-treinplanner", request.getPath());
-        Assert.assertEquals(
+        assertEquals("ns-api-treinplanner", request.getPath());
+        assertEquals(
                 "fromStation=Amsterdam&toStation=Utrecht&viaStation=Hoorn&previousAdvices=3&nextAdvices=4&dateTime="
                         + format.format(now) + "&departure=false&yearCard=false&", request.getRequestString());
     }
@@ -70,34 +75,34 @@ public class RequestBuilderTest {
 
     @Test
     public void testGetPrijzenStringString() {
-        ApiRequest<Producten> request = RequestBuilder.getPrijzen("Amsterdam", "Dortrecht");
-        Assert.assertEquals("ns-api-prijzen-v2", request.getPath());
-        Assert.assertEquals("from=Amsterdam&to=Dortrecht&", request.getRequestString());
+        ApiRequest<Prijzen> request = RequestBuilder.getPrijzen("Amsterdam", "Dortrecht");
+        assertEquals("ns-api-prijzen-v3", request.getPath());
+        assertEquals("from=Amsterdam&to=Dortrecht&", request.getRequestString());
     }
 
     @Test
     public void testGetPrijzenStringStringString() {
-        ApiRequest<Producten> request = RequestBuilder.getPrijzen("Amsterdam", "Dortrecht", "Groningen");
-        Assert.assertEquals("ns-api-prijzen-v2", request.getPath());
-        Assert.assertEquals("from=Amsterdam&to=Dortrecht&via=Groningen&", request.getRequestString());
+        ApiRequest<Prijzen> request = RequestBuilder.getPrijzen("Amsterdam", "Dortrecht", "Groningen");
+        assertEquals("ns-api-prijzen-v3", request.getPath());
+        assertEquals("from=Amsterdam&to=Dortrecht&via=Groningen&", request.getRequestString());
     }
 
     @Test
     public void testGetPrijzenStringStringDate() {
-        SimpleDateFormat format = new SimpleDateFormat(NsApi.DATETIME_FORMAT);
+        SimpleDateFormat format = new SimpleDateFormat("ddMMyyyy");
         Date now = new Date();
-        ApiRequest<Producten> request = RequestBuilder.getPrijzen("Amsterdam", "Dortrecht", now);
-        Assert.assertEquals("ns-api-prijzen-v2", request.getPath());
-        Assert.assertEquals("from=Amsterdam&to=Dortrecht&dateTime=" + format.format(now), request.getRequestString());
+        ApiRequest<Prijzen> request = RequestBuilder.getPrijzen("Amsterdam", "Dortrecht", now);
+        assertEquals("ns-api-prijzen-v3", request.getPath());
+        assertEquals("from=Amsterdam&to=Dortrecht&date=" + format.format(now), request.getRequestString());
     }
 
     @Test
     public void testGetPrijzenStringStringStringDate() {
-        SimpleDateFormat format = new SimpleDateFormat(NsApi.DATETIME_FORMAT);
+        SimpleDateFormat format = new SimpleDateFormat("ddMMyyyy");
         Date now = new Date();
-        ApiRequest<Producten> request = RequestBuilder.getPrijzen("Amsterdam", "Dortrecht", "Groningen", now);
-        Assert.assertEquals("ns-api-prijzen-v2", request.getPath());
-        Assert.assertEquals("from=Amsterdam&to=Dortrecht&via=Groningen&dateTime=" + format.format(now),
+        ApiRequest<Prijzen> request = RequestBuilder.getPrijzen("Amsterdam", "Dortrecht", "Groningen", now);
+        assertEquals("ns-api-prijzen-v3", request.getPath());
+        assertEquals("from=Amsterdam&to=Dortrecht&via=Groningen&date=" + format.format(now),
                 request.getRequestString());
     }
 

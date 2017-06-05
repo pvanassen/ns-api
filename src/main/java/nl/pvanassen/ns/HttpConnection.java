@@ -1,16 +1,13 @@
 package nl.pvanassen.ns;
 
+import lombok.extern.slf4j.Slf4j;
 import nl.pvanassen.ns.error.NsApiException;
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.auth.AuthScope;
-import org.apache.http.auth.UsernamePasswordCredentials;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.BasicCredentialsProvider;
-import org.apache.http.impl.client.HttpClientBuilder;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import okhttp3.Authenticator;
+import okhttp3.Credentials;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+import okhttp3.Route;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -21,10 +18,9 @@ import java.io.InputStream;
  * @author Paul van Assen
  * 
  */
+@Slf4j
 class HttpConnection {
-
-    private final Logger logger = LoggerFactory.getLogger(getClass());
-    private final HttpClient httpclient;
+    private final OkHttpClient client;
 
     /**
      * Constructor specifying username and password
@@ -32,11 +28,14 @@ class HttpConnection {
      * @param username Username for the API
      * @param password Password for the API
      */
-    HttpConnection(String username, String password) {
-        BasicCredentialsProvider credentialsProvider = new BasicCredentialsProvider();
-        credentialsProvider.setCredentials(new AuthScope("webservices.ns.nl", 80), new UsernamePasswordCredentials(
-                username, password));
-        httpclient = HttpClientBuilder.create().setDefaultCredentialsProvider(credentialsProvider).build();
+    HttpConnection(final String username, final String password) {
+        client = new OkHttpClient.Builder().authenticator(new Authenticator() {
+            @Override
+            public Request authenticate(Route route, Response response) throws IOException {
+                String credential = Credentials.basic(username, password);
+                return response.request().newBuilder().header("Authorization", credential).build();
+            }
+        }).build();
     }
 
     /**
@@ -48,20 +47,18 @@ class HttpConnection {
      * @throws NsApiException In case of any other error
      */
     InputStream getContent(String url) throws IOException, NsApiException {
-        HttpGet httpget = new HttpGet(url);
+        Request request = new Request.Builder().url(url).get().build();
         try {
-            HttpResponse response = httpclient.execute(httpget);
-            logger.info("Status: " + response.getStatusLine());
-            HttpEntity entity = response.getEntity();
-            if (entity != null) {
-                return entity.getContent();
+            Response response = client.newCall(request).execute();
+            if (response.body() == null) {
+                log.error("Error while calling the webservice, entity is null");
+                throw new NsApiException("Error while calling the webservice, entity is null");
             }
-            logger.error("Error while calling the webservice, entity is null");
-            throw new NsApiException("Error while calling the webservice, entity is null");
+            return response.body().byteStream();
         }
-        catch (IOException e) {
-            logger.error("Error while calling the webservice", e);
-            throw e;
+        catch (RuntimeException e) {
+            log.error("Error while calling the webservice, entity is null");
+            throw new NsApiException("Error while calling the webservice, entity is null", e);
         }
     }
 }

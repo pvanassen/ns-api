@@ -1,11 +1,12 @@
 package nl.pvanassen.ns;
 
-import nl.pvanassen.ns.model.prijzen.Producten;
-import nl.pvanassen.ns.model.stations.Stations;
-import nl.pvanassen.ns.model.storingen.Storingen;
-import nl.pvanassen.ns.model.vertrektijden.VertrekkendeTreinen;
-
 import java.util.Date;
+import java.util.List;
+
+import nl.pvanassen.ns.model.prijzen.Producten;
+import nl.pvanassen.ns.model.stations.Station;
+import nl.pvanassen.ns.model.storingen.Storingen;
+import nl.pvanassen.ns.model.vertrektijden.VertrekkendeTrein;
 
 /**
  * Request builder helper class. This class builds concrete implementations of the {@link ApiRequest} abstract class.
@@ -34,7 +35,7 @@ public class RequestBuilder {
      *            allowed
      * @return The vertrektijden for this station
      */
-    public static ApiRequest<VertrekkendeTreinen> getActueleVertrektijden(String station) {
+    public static ApiRequest<List<VertrekkendeTrein>> getActueleVertrektijden(String station) {
         return new ActueleVertrekTijdenRequest(station);
     }
 
@@ -44,7 +45,7 @@ public class RequestBuilder {
      * 
      * @return An object containing all stations
      */
-    public static ApiRequest<Stations> getStations() {
+    public static ApiRequest<List<Station>> getStations() {
         return RequestBuilder.INSTANCE;
     }
 
@@ -92,7 +93,7 @@ public class RequestBuilder {
      * @param toStation End point of the trip
      * @return Request for getting the fares
      */
-    public static ApiRequest<Producten> getPrijzen(String fromStation, String toStation) {
+    public static ApiRequest<Prijzen> getPrijzen(String fromStation, String toStation) {
         return RequestBuilder.getPrijzen(fromStation, toStation, null, null);
     }
 
@@ -105,7 +106,7 @@ public class RequestBuilder {
      * @param viaStation Also go to this station
      * @return Request for getting the fares
      */
-    public static ApiRequest<Producten> getPrijzen(String fromStation, String toStation, String viaStation) {
+    public static ApiRequest<Prijzen> getPrijzen(String fromStation, String toStation, String viaStation) {
         return RequestBuilder.getPrijzen(fromStation, toStation, viaStation, null);
     }
 
@@ -118,7 +119,7 @@ public class RequestBuilder {
      * @param dateTime Date and time to use for getting the fares.
      * @return Request for getting the fares
      */
-    public static ApiRequest<Producten> getPrijzen(String fromStation, String toStation, Date dateTime) {
+    public static ApiRequest<Prijzen> getPrijzen(String fromStation, String toStation, Date dateTime) {
         return RequestBuilder.getPrijzen(fromStation, toStation, null, dateTime);
     }
 
@@ -132,7 +133,7 @@ public class RequestBuilder {
      * @param dateTime Date and time to use for getting the fares.
      * @return Request for getting the fares
      */
-    public static ApiRequest<Producten> getPrijzen(String fromStation, String toStation, String viaStation,
+    public static ApiRequest<Prijzen> getPrijzen(String fromStation, String toStation, String viaStation,
             Date dateTime) {
         return new PrijzenRequest(fromStation, toStation, viaStation, dateTime);
     }
