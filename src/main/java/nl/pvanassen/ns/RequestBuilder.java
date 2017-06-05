@@ -158,23 +158,14 @@ public class RequestBuilder {
      * 
      */
     public static class ReisadviesRequestBuilder {
-
         private final String fromStation;
-
         private final String toStation;
-
         private String viaStation;
-
         private Integer previousAdvices;
-
         private Integer nextAdvices;
-
         private Date dateTime;
-
         private Boolean departure;
-
         private Boolean hslAllowed;
-
         private Boolean yearCard;
 
         ReisadviesRequestBuilder(String fromStation, String toStation) {

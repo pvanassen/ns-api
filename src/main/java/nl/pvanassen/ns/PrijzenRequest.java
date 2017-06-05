@@ -25,7 +25,7 @@ class PrijzenRequest extends ApiRequest<Prijzen> {
      */
     @Override
     String getPath() {
-        return "ns-api-prijzen-v2";
+        return "ns-api-prijzen-v3";
     }
 
     /**
@@ -43,7 +43,7 @@ class PrijzenRequest extends ApiRequest<Prijzen> {
             requestString.append("via=").append(via).append('&');
         }
         if (dateTime != null) {
-            requestString.append("dateTime=").append(new SimpleDateFormat(NsApi.DATETIME_FORMAT).format(dateTime));
+            requestString.append("date=").append(new SimpleDateFormat("ddMMyyyy").format(dateTime));
         }
         return requestString.toString();
     }

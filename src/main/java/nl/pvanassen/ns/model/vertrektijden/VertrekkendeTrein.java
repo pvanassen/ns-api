@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * Departing train object. For an exact explaination of all fields, please see For more information see <a
- * href="http://www.ns.nl/api/api#api-documentatie-actuele-vertrektijden">documentatie actuele vertrektijden</a>
+ * href="http://www.ns.nl/reisinformatie/ns-api/documentatie-actuele-vertrektijden.html">documentatie actuele vertrektijden</a>
  * 
  * @author Paul van Assen
  * 

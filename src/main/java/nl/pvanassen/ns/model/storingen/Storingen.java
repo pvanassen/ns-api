@@ -7,7 +7,7 @@ import lombok.Data;
 import java.util.List;
 
 /**
- * http://www.ns.nl/api/api#api-documentatie-storingen-en-werkzaamheden
+ * http://www.ns.nl/reisinformatie/ns-api/documentatie-storingen-en-werkzaamheden.html
  * 
  * @author Paul van Assen
  * 

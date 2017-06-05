@@ -74,33 +74,33 @@ public class RequestBuilderTest {
     @Test
     public void testGetPrijzenStringString() {
         ApiRequest<Prijzen> request = RequestBuilder.getPrijzen("Amsterdam", "Dortrecht");
-        assertEquals("ns-api-prijzen-v2", request.getPath());
+        assertEquals("ns-api-prijzen-v3", request.getPath());
         assertEquals("from=Amsterdam&to=Dortrecht&", request.getRequestString());
     }
 
     @Test
     public void testGetPrijzenStringStringString() {
         ApiRequest<Prijzen> request = RequestBuilder.getPrijzen("Amsterdam", "Dortrecht", "Groningen");
-        assertEquals("ns-api-prijzen-v2", request.getPath());
+        assertEquals("ns-api-prijzen-v3", request.getPath());
         assertEquals("from=Amsterdam&to=Dortrecht&via=Groningen&", request.getRequestString());
     }
 
     @Test
     public void testGetPrijzenStringStringDate() {
-        SimpleDateFormat format = new SimpleDateFormat(NsApi.DATETIME_FORMAT);
+        SimpleDateFormat format = new SimpleDateFormat("ddMMyyyy");
         Date now = new Date();
         ApiRequest<Prijzen> request = RequestBuilder.getPrijzen("Amsterdam", "Dortrecht", now);
-        assertEquals("ns-api-prijzen-v2", request.getPath());
-        assertEquals("from=Amsterdam&to=Dortrecht&dateTime=" + format.format(now), request.getRequestString());
+        assertEquals("ns-api-prijzen-v3", request.getPath());
+        assertEquals("from=Amsterdam&to=Dortrecht&date=" + format.format(now), request.getRequestString());
     }
 
     @Test
     public void testGetPrijzenStringStringStringDate() {
-        SimpleDateFormat format = new SimpleDateFormat(NsApi.DATETIME_FORMAT);
+        SimpleDateFormat format = new SimpleDateFormat("ddMMyyyy");
         Date now = new Date();
         ApiRequest<Prijzen> request = RequestBuilder.getPrijzen("Amsterdam", "Dortrecht", "Groningen", now);
-        assertEquals("ns-api-prijzen-v2", request.getPath());
-        assertEquals("from=Amsterdam&to=Dortrecht&via=Groningen&dateTime=" + format.format(now),
+        assertEquals("ns-api-prijzen-v3", request.getPath());
+        assertEquals("from=Amsterdam&to=Dortrecht&via=Groningen&date=" + format.format(now),
                 request.getRequestString());
     }
 

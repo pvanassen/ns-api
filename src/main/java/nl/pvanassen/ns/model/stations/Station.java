@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * For the exact meaning of all the fields, see <a
- * href="http://www.ns.nl/api/api#api-documentatie-stationslijst">documentatie stationslijst</a>
+ * href="http://www.ns.nl/reisinformatie/ns-api/documentatie-stationslijst.html">documentatie stationslijst</a>
  * 
  * @author Paul van Assen
  * 
