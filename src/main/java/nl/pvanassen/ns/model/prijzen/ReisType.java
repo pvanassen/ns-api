@@ -3,6 +3,7 @@ package nl.pvanassen.ns.model.prijzen;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Map;
 
 /**
@@ -10,7 +11,7 @@ import java.util.Map;
  */
 @Data
 @AllArgsConstructor
-public class ReisType {
+public class ReisType implements Serializable {
     private final String naam;
     private final Map<Integer, ReisKlasse> reisKlassen;
 }

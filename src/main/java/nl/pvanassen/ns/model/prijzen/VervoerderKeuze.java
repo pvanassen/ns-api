@@ -4,6 +4,7 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Map;
 
 /**
@@ -11,7 +12,7 @@ import java.util.Map;
  */
 @Data
 @AllArgsConstructor(access = AccessLevel.PACKAGE)
-public class VervoerderKeuze {
+public class VervoerderKeuze implements Serializable {
     private final String naam;
     private final int tariefEenheden;
     private final Map<String, ReisType> reisTypes;

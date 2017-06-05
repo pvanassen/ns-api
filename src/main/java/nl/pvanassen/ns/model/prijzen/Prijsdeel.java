@@ -4,6 +4,7 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
@@ -11,7 +12,7 @@ import java.math.BigDecimal;
  */
 @Data
 @AllArgsConstructor(access = AccessLevel.PACKAGE)
-public class Prijsdeel {
+public class Prijsdeel implements Serializable {
     private final String vervoerder;
     private final BigDecimal prijs;
     private final String van;
