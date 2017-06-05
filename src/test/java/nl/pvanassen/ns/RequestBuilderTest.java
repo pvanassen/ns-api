@@ -1,18 +1,15 @@
 package nl.pvanassen.ns;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-
 import nl.pvanassen.ns.model.prijzen.Prijzen;
-import nl.pvanassen.ns.model.reisadvies.ReisMogelijkheid;
-import nl.pvanassen.ns.model.stations.Station;
+import nl.pvanassen.ns.model.reisadvies.ReisMogelijkheden;
+import nl.pvanassen.ns.model.stations.Stations;
 import nl.pvanassen.ns.model.storingen.Storingen;
-import nl.pvanassen.ns.model.vertrektijden.VertrekkendeTrein;
-
 import nl.pvanassen.ns.model.vertrektijden.VertrekkendeTreinen;
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
 

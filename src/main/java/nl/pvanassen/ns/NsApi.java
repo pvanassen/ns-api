@@ -2,6 +2,7 @@ package nl.pvanassen.ns;
 
 import nl.pvanassen.ns.error.NsApiException;
 import nl.pvanassen.ns.handle.Handle;
+import nl.pvanassen.ns.model.NsResult;
 import nl.pvanassen.ns.model.prijzen.PrijsHandle;
 import nl.pvanassen.ns.model.reisadvies.ReisadviesHandle;
 import nl.pvanassen.ns.model.stations.StationsHandle;
@@ -64,7 +65,7 @@ public class NsApi {
      * @throws IOException In case of an network error
      * @throws NsApiException In case of any other error than a network error
      */
-    public <T> T getApiResponse(ApiRequest<T> request) throws IOException, NsApiException {
+    public <T extends NsResult> T getApiResponse(ApiRequest<T> request) throws IOException, NsApiException {
         try (InputStream stream = httpConnection
                 .getContent(NsApi.BASE_URL + request.getPath() + "?" + request.getRequestString())){
             @SuppressWarnings("unchecked")

@@ -5,7 +5,6 @@ import nl.pvanassen.ns.xml.Xml;
 
 import java.io.InputStream;
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;

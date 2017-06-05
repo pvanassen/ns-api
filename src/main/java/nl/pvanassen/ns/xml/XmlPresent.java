@@ -17,14 +17,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 /**
  * From <a href="http://blog.another-d-mention.ro/programming/the-simplest-way-to-parse-xml-in-java/">the simplest way
  * to parse XML</a>

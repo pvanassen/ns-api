@@ -1,10 +1,9 @@
 package nl.pvanassen.ns.model.storingen;
 
+import org.junit.Test;
+
 import java.util.Calendar;
 import java.util.TimeZone;
-
-import org.junit.Assert;
-import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;

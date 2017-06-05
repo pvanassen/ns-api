@@ -15,15 +15,6 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
-import java.io.InputStream;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
-
 /**
  * Handle to process the 'reisadvies' XML as defined in <a
  * href="http://www.ns.nl/api/api#api-documentatie-reisadviezen">documentatie reisadviezen</a>

@@ -68,9 +68,4 @@
 			<version>3.8.0</version>
 		</dependency>
 	</dependencies>
-	<parent>
-		<groupId>nl.pvanassen</groupId>
-		<artifactId>parent</artifactId>
-		<version>1.2.6</version>
-	</parent>
 </project>
