@@ -3,7 +3,11 @@ package nl.pvanassen.ns.xml;
 import nl.pvanassen.ns.error.NsApiException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.w3c.dom.*;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -44,6 +48,9 @@ public class XmlPresent extends Xml {
             DocumentBuilder builder = builderFactory.newDocumentBuilder();
             Document document = builder.parse(stream);
             Element rootElement = document.getDocumentElement();
+            if (rootElement.getNodeName().equals("error")) {
+                throw new NsApiException(rootElement.getTextContent().trim());
+            }
             if (!rootElement.getNodeName().equals(rootName)) {
                 throw new NsApiException("Could not find root node: " + rootName);
             }
