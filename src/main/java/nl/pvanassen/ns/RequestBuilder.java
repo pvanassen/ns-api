@@ -1,6 +1,7 @@
 package nl.pvanassen.ns;
 
 import nl.pvanassen.ns.model.prijzen.Prijzen;
+import nl.pvanassen.ns.model.reisadvies.ReisMogelijkheden;
 import nl.pvanassen.ns.model.stations.Stations;
 import nl.pvanassen.ns.model.storingen.Storingen;
 import nl.pvanassen.ns.model.vertrektijden.VertrekkendeTreinen;
@@ -287,7 +288,7 @@ public class RequestBuilder {
          * 
          * @return The request for getting 'reis adviezen'
          */
-        public ReisadviesRequest build() {
+        public ApiRequest<ReisMogelijkheden> build() {
             return new ReisadviesRequest(fromStation, toStation, viaStation, previousAdvices, nextAdvices, dateTime,
                     departure, hslAllowed, yearCard);
         }

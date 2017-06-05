@@ -6,23 +6,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 class ReisadviesRequest extends ApiRequest<ReisMogelijkheden> {
-
     private final String fromStation;
-
     private final String toStation;
-
     private final String viaStation;
-
     private final Integer previousAdvices;
-
     private final Integer nextAdvices;
-
     private final Date dateTime;
-
     private final Boolean departure;
-
     private final Boolean hslAllowed;
-
     private final Boolean yearCard;
 
     ReisadviesRequest(String fromStation, String toStation, String viaStation, Integer previousAdvices,
