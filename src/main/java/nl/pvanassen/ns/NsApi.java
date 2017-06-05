@@ -65,7 +65,7 @@ public class NsApi {
      * @throws IOException In case of an network error
      * @throws NsApiException In case of any other error than a network error
      */
-    public <T extends NsResult> T getApiResponse(ApiRequest<T> request) throws IOException, NsApiException {
+    public <T extends NsResult> T getApiResponse(ApiRequest<T> request) throws NsApiException {
         try (InputStream stream = httpConnection
                 .getContent(NsApi.BASE_URL + request.getPath() + "?" + request.getRequestString())){
             @SuppressWarnings("unchecked")
@@ -74,6 +74,9 @@ public class NsApi {
                 throw new NsApiException("Unknown request type " + request.getClass());
             }
             return handle.getModel(stream);
+        }
+        catch (IOException e) {
+            throw new NsApiException("IO Exception occurred", e);
         }
     }
 
