@@ -34,7 +34,7 @@ public class ActueleVertrekTijdenHandle implements Handle<VertrekkendeTreinen> {
     public VertrekkendeTreinen getModel(InputStream stream) {
         SimpleDateFormat format = new SimpleDateFormat(NsApi.DATETIME_FORMAT);
         try {
-            List<VertrekkendeTrein> vertrekkendeTreinen = new LinkedList<>();
+            List<VertrekkendeTrein> vertrekkendeTreinen = new LinkedList<VertrekkendeTrein>();
             Xml xml = Xml.getXml(stream, "ActueleVertrekTijden");
             for (Xml vertrekkendeTreinXml : xml.children("VertrekkendeTrein")) {
                 int ritNummer = Integer.parseInt(vertrekkendeTreinXml.child("RitNummer").content());
@@ -42,7 +42,13 @@ public class ActueleVertrekTijdenHandle implements Handle<VertrekkendeTreinen> {
                 String vertrekVertraging = vertrekkendeTreinXml.child("VertrekVertraging").content();
                 int vertrekVertragingMinuten = 0;
                 if (vertrekVertraging != null && !vertrekVertraging.isEmpty()) {
-                    vertrekVertragingMinuten = getVertrekVertragingMinuten(vertrekVertraging, vertrekVertragingMinuten, logger);
+                    try {
+                        vertrekVertragingMinuten = Integer.parseInt(vertrekVertraging.replace("PT", "")
+                                .replace("M", ""));
+                    }
+                    catch (NumberFormatException e) {
+                        logger.warn("Error parsing vertrek vertraging minuten into minutes", e);
+                    }
                 }
                 String vertrekVertragingTekst = vertrekkendeTreinXml.child("VertrekVertragingTekst").content();
                 String eindBestemming = vertrekkendeTreinXml.child("EindBestemming").content();
@@ -52,7 +58,7 @@ public class ActueleVertrekTijdenHandle implements Handle<VertrekkendeTreinen> {
                 String vertrekSpoor = vertrekkendeTreinXml.child("VertrekSpoor").content();
                 boolean gewijzigdVertrekspoor = Boolean.valueOf(vertrekkendeTreinXml.child("VertrekSpoor").attr(
                         "wijziging"));
-                List<String> opmerkingen = new LinkedList<>();
+                List<String> opmerkingen = new LinkedList<String>();
                 for (Xml opm : vertrekkendeTreinXml.children("Opmerkingen")) {
                     opmerkingen.add(opm.child("Opmerking").content());
                 }
@@ -67,17 +73,6 @@ public class ActueleVertrekTijdenHandle implements Handle<VertrekkendeTreinen> {
             logger.error("Error parsing stream to actuele vertrektijden", e);
             throw new NsApiException("Error parsing stream to actuele vertrektijden", e);
         }
-    }
-
-    private static int getVertrekVertragingMinuten(String vertrekVertraging, int vertrekVertragingMinuten, Logger logger) {
-        try {
-            vertrekVertragingMinuten = Integer.parseInt(vertrekVertraging.replace("PT", "")
-                    .replace("M", ""));
-        }
-        catch (NumberFormatException e) {
-            logger.warn("Error parsing vertrek vertraging minuten into minutes", e);
-        }
-        return vertrekVertragingMinuten;
     }
 
 }

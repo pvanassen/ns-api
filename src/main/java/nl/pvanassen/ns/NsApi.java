@@ -3,12 +3,11 @@ package nl.pvanassen.ns;
 import nl.pvanassen.ns.error.NsApiException;
 import nl.pvanassen.ns.handle.Handle;
 import nl.pvanassen.ns.model.NsResult;
-import nl.pvanassen.ns.model.prijzen.ProductenHandle;
+import nl.pvanassen.ns.model.prijzen.PrijsHandle;
 import nl.pvanassen.ns.model.reisadvies.ReisadviesHandle;
 import nl.pvanassen.ns.model.stations.StationsHandle;
 import nl.pvanassen.ns.model.storingen.StoringenHandle;
 import nl.pvanassen.ns.model.vertrektijden.ActueleVertrekTijdenHandle;
-import org.apache.commons.io.IOUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -51,7 +50,7 @@ public class NsApi {
         handleMap.put(StationsRequest.class, new StationsHandle());
         handleMap.put(StoringenEnWerkzaamhedenRequest.class, new StoringenHandle());
         handleMap.put(ReisadviesRequest.class, new ReisadviesHandle());
-        handleMap.put(PrijzenRequest.class, new ProductenHandle());
+        handleMap.put(PrijzenRequest.class, new PrijsHandle());
     }
 
     /**
@@ -63,13 +62,11 @@ public class NsApi {
      * @param request Data to request
      * @param <T> Type of response
      * @return Serialized response
-     * @throws IOException In case of an network error
      * @throws NsApiException In case of any other error than a network error
      */
-    public <T extends NsResult> T getApiResponse(ApiRequest<T> request) throws IOException, NsApiException {
-        InputStream stream = null;
-        try {
-            stream = httpConnection.getContent(NsApi.BASE_URL + request.getPath() + "?" + request.getRequestString());
+    public <T extends NsResult> T getApiResponse(ApiRequest<T> request) throws NsApiException {
+        try (InputStream stream = httpConnection
+                .getContent(NsApi.BASE_URL + request.getPath() + "?" + request.getRequestString())){
             @SuppressWarnings("unchecked")
             Handle<T> handle = (Handle<T>) handleMap.get(request.getClass());
             if (handle == null) {
@@ -77,8 +74,8 @@ public class NsApi {
             }
             return handle.getModel(stream);
         }
-        finally {
-            IOUtils.closeQuietly(stream);
+        catch (IOException e) {
+            throw new NsApiException("IO Exception occurred", e);
         }
     }
 

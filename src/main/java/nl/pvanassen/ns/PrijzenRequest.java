@@ -1,20 +1,21 @@
 package nl.pvanassen.ns;
 
-import nl.pvanassen.ns.model.prijzen.Producten;
+import nl.pvanassen.ns.model.prijzen.Prijzen;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
-class PrijzenRequest extends ApiRequest<Producten> {
+class PrijzenRequest extends ApiRequest<Prijzen> {
     private final String from;
     private final String to;
     private final String via;
-    private final String dateTime;
+    private final Date dateTime;
 
     PrijzenRequest(String from, String to, String via, Date dateTime) {
-        this.from = UrlParamHelper.encode(from);
-        this.to = UrlParamHelper.encode(to);
-        this.via = UrlParamHelper.encode(via);
-        this.dateTime = UrlParamHelper.formatDate(dateTime);
+        this.from = from;
+        this.to = to;
+        this.via = via;
+        this.dateTime = dateTime;
     }
 
     /**
@@ -24,7 +25,7 @@ class PrijzenRequest extends ApiRequest<Producten> {
      */
     @Override
     String getPath() {
-        return "ns-api-prijzen-v2";
+        return "ns-api-prijzen-v3";
     }
 
     /**
@@ -42,7 +43,7 @@ class PrijzenRequest extends ApiRequest<Producten> {
             requestString.append("via=").append(via).append('&');
         }
         if (dateTime != null) {
-            requestString.append("dateTime=").append(dateTime);
+            requestString.append("date=").append(new SimpleDateFormat("ddMMyyyy").format(dateTime));
         }
         return requestString.toString();
     }

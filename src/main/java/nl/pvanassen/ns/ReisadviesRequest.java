@@ -2,26 +2,18 @@ package nl.pvanassen.ns;
 
 import nl.pvanassen.ns.model.reisadvies.ReisMogelijkheden;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 class ReisadviesRequest extends ApiRequest<ReisMogelijkheden> {
-
     private final String fromStation;
-
     private final String toStation;
-
     private final String viaStation;
-
     private final Integer previousAdvices;
-
     private final Integer nextAdvices;
-
-    private final String dateTime;
-
+    private final Date dateTime;
     private final Boolean departure;
-
     private final Boolean hslAllowed;
-
     private final Boolean yearCard;
 
     ReisadviesRequest(String fromStation, String toStation, String viaStation, Integer previousAdvices,
@@ -32,7 +24,7 @@ class ReisadviesRequest extends ApiRequest<ReisMogelijkheden> {
         this.viaStation = UrlParamHelper.encode(viaStation);
         this.previousAdvices = previousAdvices;
         this.nextAdvices = nextAdvices;
-        this.dateTime = UrlParamHelper.formatDate(dateTime);
+        this.dateTime = dateTime;
         this.departure = departure;
         this.hslAllowed = hslAllowed;
         this.yearCard = yearCard;
@@ -68,7 +60,8 @@ class ReisadviesRequest extends ApiRequest<ReisMogelijkheden> {
             requestString.append("nextAdvices=").append(nextAdvices).append('&');
         }
         if (dateTime != null) {
-            requestString.append("dateTime=").append(dateTime).append('&');
+            requestString.append("dateTime=").append(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(dateTime))
+                    .append('&');
         }
         if (departure != null) {
             requestString.append("departure=").append(departure).append('&');

@@ -1,7 +1,11 @@
 package nl.pvanassen.ns.model;
 
 import java.io.Serializable;
-import java.util.*;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
 
 /**
  * @author Paul van Assen
