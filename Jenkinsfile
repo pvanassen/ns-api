@@ -47,7 +47,9 @@ pipeline {
         }
 
         stage ('Sonar') {
-             sh 'mvn sonar:sonar'
+            steps {
+                sh 'mvn sonar:sonar'
+            }
         }
 
         stage ('Deploy') {
