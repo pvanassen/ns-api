@@ -17,7 +17,7 @@ pipeline {
 
         stage ('Compile') {
             steps {
-                sh 'mvn -B clean package -Dmaven.tests.skip=true'
+                sh 'mvn -B clean package -Dmaven.test.skip=true'
             }
             post {
                 always {
