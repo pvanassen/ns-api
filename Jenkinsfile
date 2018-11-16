@@ -19,8 +19,10 @@ pipeline {
             steps {
                 sh 'mvn -B clean package -Dmaven.tests.skip=true'
             }
-            always {
-                archiveArtifacts artifacts: '/**/target/*.jar', fingerprint: true
+            post {
+                always {
+                    archiveArtifacts artifacts: '/**/target/*.jar', fingerprint: true
+                }
             }
         }
 
