@@ -4,7 +4,7 @@
 	<parent>
 		<artifactId>parent</artifactId>
 		<groupId>nl.pvanassen</groupId>
-		<version>1.2.6</version>
+		<version>2.0.0</version>
 	</parent>
 
 	<artifactId>ns-api</artifactId>
@@ -26,15 +26,14 @@
 			<email>source@pvanassen.nl</email>
 		</developer>
 	</developers>
-	<prerequisites>
-		<maven>3.0.4</maven>
-	</prerequisites>
+
 	<scm>
 		<connection>scm:git:git@github.com:pvanassen/ns-api.git</connection>
 		<developerConnection>scm:git:git@github.com:pvanassen/ns-api.git</developerConnection>
 		<tag>HEAD</tag>
 		<url>https://github.com/pvanassen/ns-api</url>
 	</scm>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
