@@ -37,17 +37,6 @@ pipeline {
             }
         }
 
-        stage ('Verify') {
-            steps {
-                sh 'mvn -B verify -Dmaven.test.failure.ignore=true'
-            }
-            post {
-                always {
-                    junit 'target/failsafe-reports/**/*.xml'
-                }
-            }
-        }
-
         stage ('Sonar') {
             steps {
                 sh 'mvn sonar:sonar'
