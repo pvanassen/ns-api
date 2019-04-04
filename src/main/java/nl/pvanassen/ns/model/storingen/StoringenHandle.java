@@ -1,11 +1,6 @@
 package nl.pvanassen.ns.model.storingen;
 
-import nl.pvanassen.ns.NsApi;
-import nl.pvanassen.ns.error.NsApiException;
-import nl.pvanassen.ns.handle.Handle;
-import nl.pvanassen.ns.xml.Xml;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import static java.util.Collections.unmodifiableCollection;
 
 import java.io.InputStream;
 import java.text.ParseException;
@@ -13,6 +8,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
+
+import nl.pvanassen.ns.NsApi;
+import nl.pvanassen.ns.error.NsApiException;
+import nl.pvanassen.ns.handle.Handle;
+import nl.pvanassen.ns.xml.Xml;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Handle for parsing disruption xml messages. For more information see <a
@@ -51,7 +54,10 @@ public class StoringenHandle implements Handle<Storingen> {
                     geplandeStoringen.add(getStoring(storingXml, format));
                 }
             }
-            return new Storingen(ongeplandeStoringen, geplandeStoringen);
+            return Storingen.builder()
+                    .geplandeStoringen(unmodifiableCollection(geplandeStoringen))
+                    .ongeplandeStoringen(unmodifiableCollection(ongeplandeStoringen))
+                    .build();
         }
         catch (ParseException e) {
             logger.error("Error parsing stream to actuele vertrektijden", e);
@@ -70,7 +76,15 @@ public class StoringenHandle implements Handle<Storingen> {
         if (storingXml.isPresent("Datum")) {
             datum = format.parse(storingXml.child("Datum").content());
         }
-        return new Storing(id, traject, periode, reden, advies, bericht, datum);
+        return Storing.builder()
+                .advies(advies)
+                .bericht(bericht)
+                .datum(datum)
+                .id(id)
+                .periode(periode)
+                .reden(reden)
+                .traject(traject)
+                .build();
     }
 
 }

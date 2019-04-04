@@ -1,11 +1,13 @@
 package nl.pvanassen.ns.model.storingen;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import java.util.Collection;
+
 import nl.pvanassen.ns.model.NsResult;
 
-import java.util.List;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
 
 /**
  * http://www.ns.nl/reisinformatie/ns-api/documentatie-storingen-en-werkzaamheden.html
@@ -14,8 +16,9 @@ import java.util.List;
  * 
  */
 @Data
-@AllArgsConstructor(access = AccessLevel.PACKAGE)
+@Builder
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Storingen implements NsResult {
-    private final List<Storing> ongeplandeStoringen;
-    private final List<Storing> geplandeStoringen;
+    private final Collection<Storing> ongeplandeStoringen;
+    private final Collection<Storing> geplandeStoringen;
 }

@@ -81,15 +81,29 @@ public class ReisadviesHandle implements Handle<ReisMogelijkheden> {
                         if (spoor != null) {
                             gewijzigdVertrekspoor = Boolean.parseBoolean(reisStopXml.child("Spoor").attr("wijziging"));
                         }
-                        reisStops.add(new ReisStop(naam, tijd, spoor, gewijzigdVertrekspoor));
+                        reisStops.add(ReisStop.builder()
+                                .naam(naam)
+                                .tijd(tijd)
+                                .spoor(spoor)
+                                .gewijzigdVertrekspoor(gewijzigdVertrekspoor)
+                                .build());
                     }
                     List<String> reisDetails = new ArrayList<>(reisDeelXml.child("Reisdetails")
                             .children("Reisdetail").size());
                     for (Xml reisDetailXml : reisDeelXml.child("Reisdetails").children("Reisdetail")) {
                         reisDetails.add(reisDetailXml.content());
                     }
-                    reisDelen.add(new ReisDeel(reisSoort, vervoerder, vervoerType, ritNummer, statusReisdeel,
-                            reisStops, ongeplandeStoringId, geplandeStoringId, reisDetails));
+                    reisDelen.add(ReisDeel.builder()
+                            .reisSoort(reisSoort)
+                            .vervoerder(vervoerder)
+                            .vervoerType(vervoerType)
+                            .ritNummer(ritNummer)
+                            .status(statusReisdeel)
+                            .reisStops(reisStops)
+                            .ongeplandeStoringId(ongeplandeStoringId)
+                            .geplandeStoringId(geplandeStoringId)
+                            .reisDetails(reisDetails)
+                            .build());
                 }
                 reisMogelijkheden.add(new ReisMogelijkheid(meldingen, aantalOverstappen, geplandeReisTijdMinuten,
                         actueleReisTijdMinuten, aankomstVertraging, optimaal, geplandeVertrekTijd, actueleVertrekTijd,

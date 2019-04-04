@@ -1,11 +1,12 @@
 package nl.pvanassen.ns.model.storingen;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-
 import java.io.Serializable;
 import java.util.Date;
+
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
 
 /**
  * For the exact meaning of all fields, see <a
@@ -16,7 +17,8 @@ import java.util.Date;
  * 
  */
 @Data
-@AllArgsConstructor(access = AccessLevel.PACKAGE)
+@Builder
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Storing implements Serializable {
     private static final long serialVersionUID = 1L;
     private final String id;

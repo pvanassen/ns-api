@@ -1,17 +1,19 @@
 package nl.pvanassen.ns.model.prijzen;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-
 import java.io.Serializable;
 import java.math.BigDecimal;
+
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 /**
  * Created by paul on 5-6-2017.
  */
+@Builder
 @Data
-@AllArgsConstructor(access = AccessLevel.PACKAGE)
+@RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class Prijsdeel implements Serializable {
     private final String vervoerder;
     private final BigDecimal prijs;

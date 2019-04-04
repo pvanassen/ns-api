@@ -2,6 +2,7 @@ package nl.pvanassen.ns.model.reisadvies;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -12,8 +13,9 @@ import java.io.Serializable;
  * @author Paul van Assen
  * 
  */
+@Builder
 @Data
-@AllArgsConstructor(access = AccessLevel.PACKAGE)
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Melding implements Serializable {
     private static final long serialVersionUID = 1L;
     private final String id;

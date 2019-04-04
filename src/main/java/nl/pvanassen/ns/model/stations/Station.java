@@ -1,11 +1,12 @@
 package nl.pvanassen.ns.model.stations;
 
+import java.io.Serializable;
+import java.util.Collection;
+
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
-
-import java.io.Serializable;
-import java.util.List;
 
 /**
  * For the exact meaning of all the fields, see <a
@@ -14,8 +15,9 @@ import java.util.List;
  * @author Paul van Assen
  * 
  */
+@Builder
 @Data
-@AllArgsConstructor(access = AccessLevel.PACKAGE)
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Station implements Serializable {
     private final String code;
     private final String type;
@@ -24,5 +26,5 @@ public class Station implements Serializable {
     private final int uicCode;
     private final double lat;
     private final double lon;
-    private final List<String> synoniemen;
+    private final Collection<String> synoniemen;
 }

@@ -1,8 +1,9 @@
 package nl.pvanassen.ns.model.prijzen;
 
 import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 import java.io.Serializable;
 import java.util.Map;
@@ -10,8 +11,9 @@ import java.util.Map;
 /**
  * Created by paul on 5-6-2017.
  */
+@Builder
 @Data
-@AllArgsConstructor(access = AccessLevel.PACKAGE)
+@RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class VervoerderKeuze implements Serializable {
     private final String naam;
     private final int tariefEenheden;

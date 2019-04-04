@@ -1,14 +1,20 @@
 package nl.pvanassen.ns.model.stations;
 
-import nl.pvanassen.ns.model.NsResultListWrapper;
+import static java.util.Collections.unmodifiableList;
 
 import java.util.List;
+
+import nl.pvanassen.ns.model.NsResultListWrapper;
+
+import lombok.Builder;
 
 /**
  * @author Paul van Assen
  */
 public class Stations extends NsResultListWrapper<Station> {
-    Stations(List<Station> stations) {
-        super(stations);
+
+    @Builder
+    private Stations(List<Station> stations) {
+        super(unmodifiableList(stations));
     }
 }

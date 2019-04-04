@@ -1,11 +1,7 @@
 package nl.pvanassen.ns.model.vertrektijden;
 
-import nl.pvanassen.ns.NsApi;
-import nl.pvanassen.ns.error.NsApiException;
-import nl.pvanassen.ns.handle.Handle;
-import nl.pvanassen.ns.xml.Xml;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import static java.lang.Boolean.parseBoolean;
+import static java.util.Collections.unmodifiableCollection;
 
 import java.io.InputStream;
 import java.text.ParseException;
@@ -13,6 +9,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
+
+import nl.pvanassen.ns.NsApi;
+import nl.pvanassen.ns.error.NsApiException;
+import nl.pvanassen.ns.handle.Handle;
+import nl.pvanassen.ns.xml.Xml;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Handle to de-serialize the actuele vertrektijden response. For more information see <a
@@ -34,7 +38,7 @@ public class ActueleVertrekTijdenHandle implements Handle<VertrekkendeTreinen> {
     public VertrekkendeTreinen getModel(InputStream stream) {
         SimpleDateFormat format = new SimpleDateFormat(NsApi.DATETIME_FORMAT);
         try {
-            List<VertrekkendeTrein> vertrekkendeTreinen = new LinkedList<VertrekkendeTrein>();
+            List<VertrekkendeTrein> vertrekkendeTreinen = new LinkedList<>();
             Xml xml = Xml.getXml(stream, "ActueleVertrekTijden");
             for (Xml vertrekkendeTreinXml : xml.children("VertrekkendeTrein")) {
                 int ritNummer = Integer.parseInt(vertrekkendeTreinXml.child("RitNummer").content());
@@ -56,18 +60,33 @@ public class ActueleVertrekTijdenHandle implements Handle<VertrekkendeTreinen> {
                 String routeTekst = vertrekkendeTreinXml.child("RouteTekst").content();
                 String vervoerder = vertrekkendeTreinXml.child("Vervoerder").content();
                 String vertrekSpoor = vertrekkendeTreinXml.child("VertrekSpoor").content();
-                boolean gewijzigdVertrekspoor = Boolean.valueOf(vertrekkendeTreinXml.child("VertrekSpoor").attr(
+                boolean gewijzigdVertrekspoor = parseBoolean(vertrekkendeTreinXml.child("VertrekSpoor").attr(
                         "wijziging"));
-                List<String> opmerkingen = new LinkedList<String>();
+                List<String> opmerkingen = new LinkedList<>();
                 for (Xml opm : vertrekkendeTreinXml.children("Opmerkingen")) {
                     opmerkingen.add(opm.child("Opmerking").content());
                 }
                 String reisTip = vertrekkendeTreinXml.child("ReisTip").content();
-                vertrekkendeTreinen.add(new VertrekkendeTrein(ritNummer, vertrekTijd, vertrekVertraging,
-                        vertrekVertragingMinuten, vertrekVertragingTekst, eindBestemming, treinSoort, routeTekst,
-                        vervoerder, vertrekSpoor, gewijzigdVertrekspoor, reisTip, opmerkingen));
+                vertrekkendeTreinen.add(
+                        VertrekkendeTrein.builder()
+                                .eindBestemming(eindBestemming)
+                                .gewijzigdVertrekspoor(gewijzigdVertrekspoor)
+                                .opmerkingen(unmodifiableCollection(opmerkingen))
+                                .reisTip(reisTip)
+                                .ritNummer(ritNummer)
+                                .routeTekst(routeTekst)
+                                .treinSoort(treinSoort)
+                                .vertrekSpoor(vertrekSpoor)
+                                .vertrekTijd(vertrekTijd)
+                                .vertrekVertraging(vertrekVertraging)
+                                .vertrekVertragingMinuten(vertrekVertragingMinuten)
+                                .vertrekVertragingTekst(vertrekVertragingTekst)
+                                .vervoerder(vervoerder)
+                                .build());
             }
-            return new VertrekkendeTreinen(vertrekkendeTreinen);
+            return VertrekkendeTreinen.builder()
+                    .vertrekkendeTreinen(vertrekkendeTreinen)
+                    .build();
         }
         catch (ParseException e) {
             logger.error("Error parsing stream to actuele vertrektijden", e);

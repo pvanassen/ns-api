@@ -2,6 +2,7 @@ package nl.pvanassen.ns.model.reisadvies;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -14,8 +15,9 @@ import java.util.List;
  * @author Paul van Assen
  * 
  */
+@Builder
 @Data
-@AllArgsConstructor(access = AccessLevel.PACKAGE)
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class ReisMogelijkheid implements Serializable {
     private final List<Melding> meldingen;
     private final int aantalOverstappen;

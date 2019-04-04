@@ -1,11 +1,12 @@
 package nl.pvanassen.ns.model.reisadvies;
 
+import java.io.Serializable;
+import java.time.LocalDateTime;
+
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
-
-import java.io.Serializable;
-import java.util.Date;
 
 /**
  * http://www.ns.nl/api/api#api-documentatie-reisadviezen
@@ -13,11 +14,12 @@ import java.util.Date;
  * @author Paul van Assen
  * 
  */
+@Builder
 @Data
-@AllArgsConstructor(access = AccessLevel.PACKAGE)
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class ReisStop implements Serializable {
     private final String naam;
-    private final Date tijd;
+    private final LocalDateTime tijd;
     private final String spoor;
     private final boolean gewijzigdVertrekspoor;
 }

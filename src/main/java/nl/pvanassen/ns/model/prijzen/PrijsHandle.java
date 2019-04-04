@@ -1,15 +1,16 @@
 package nl.pvanassen.ns.model.prijzen;
 
-import nl.pvanassen.ns.handle.Handle;
-import nl.pvanassen.ns.xml.Xml;
+import static java.util.Collections.unmodifiableMap;
 
 import java.io.InputStream;
 import java.math.BigDecimal;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+
+import nl.pvanassen.ns.handle.Handle;
+import nl.pvanassen.ns.xml.Xml;
 
 /**
  * Handle for parsing 'producten' xml, as defined in <a
@@ -48,12 +49,12 @@ public class PrijsHandle implements Handle<Prijzen> {
                     for (Xml kortingsPrijsXml : reisKlasseXml.child("Korting").children("Kortingsprijs")) {
                         kortingprijzen.put(kortingsPrijsXml.attr("name"), new BigDecimal(kortingsPrijsXml.attr("prijs")));
                     }
-                    reisKlassen.put(klasse, new ReisKlasse(klasse, prijsdelen, totaal, Collections.unmodifiableMap(kortingprijzen)));
+                    reisKlassen.put(klasse, new ReisKlasse(klasse, prijsdelen, totaal, unmodifiableMap(kortingprijzen)));
                 }
-                reisTypes.put(reisTypeNaam, new ReisType(reisTypeNaam, Collections.unmodifiableMap(reisKlassen)));
+                reisTypes.put(reisTypeNaam, new ReisType(reisTypeNaam, unmodifiableMap(reisKlassen)));
             }
-            vervoerderKeuzes.put(vervoerderKeuzeNaam, new VervoerderKeuze(vervoerderKeuzeNaam, tariefEenheden, Collections.unmodifiableMap(reisTypes)));
+            vervoerderKeuzes.put(vervoerderKeuzeNaam, new VervoerderKeuze(vervoerderKeuzeNaam, tariefEenheden, unmodifiableMap(reisTypes)));
         }
-        return new Prijzen(Collections.unmodifiableMap(vervoerderKeuzes));
+        return new Prijzen(unmodifiableMap(vervoerderKeuzes));
     }
 }

@@ -1,10 +1,11 @@
 package nl.pvanassen.ns.model.stations;
 
+import java.io.Serializable;
+
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
-
-import java.io.Serializable;
 
 /**
  * http://www.ns.nl/api/api#api-documentatie-stationslijst
@@ -12,8 +13,9 @@ import java.io.Serializable;
  * @author Paul van Assen
  * 
  */
+@Builder
 @Data
-@AllArgsConstructor(access = AccessLevel.PACKAGE)
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Namen implements Serializable {
     private static final long serialVersionUID = 1L;
     private final String kort;
