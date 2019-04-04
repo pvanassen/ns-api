@@ -1,8 +1,10 @@
 package nl.pvanassen.ns.model.storingen;
 
-import java.util.Collection;
+import java.util.List;
 
 import nl.pvanassen.ns.model.NsResult;
+
+import org.jetbrains.annotations.NotNull;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -19,6 +21,10 @@ import lombok.Data;
 @Builder
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Storingen implements NsResult {
-    private final Collection<Storing> ongeplandeStoringen;
-    private final Collection<Storing> geplandeStoringen;
+
+    @NotNull
+    private final List<@NotNull Storing> ongeplandeStoringen;
+
+    @NotNull
+    private final List<@NotNull Storing> geplandeStoringen;
 }

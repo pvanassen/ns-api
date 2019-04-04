@@ -1,21 +1,31 @@
 package nl.pvanassen.ns.xml;
 
+import static java.util.Collections.emptyList;
+import static java.util.Collections.singletonList;
+import static java.util.Optional.empty;
+import static java.util.Optional.of;
+
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
 import nl.pvanassen.ns.error.NsApiException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import org.jetbrains.annotations.NotNull;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * From <a href="http://blog.another-d-mention.ro/programming/the-simplest-way-to-parse-xml-in-java/">the simplest way
@@ -24,9 +34,8 @@ import java.util.Map;
  * @author Paul van Assen
  * 
  */
-public class XmlPresent extends Xml {
-
-    private final Logger logger = LoggerFactory.getLogger(getClass());
+@Slf4j
+public class XmlPresent implements Xml {
 
     private final String name;
 
@@ -36,18 +45,13 @@ public class XmlPresent extends Xml {
 
     private final Map<String, List<Xml>> nameChildren = new HashMap<>();
 
-    private static Element rootElement(InputStream stream, String rootName) {
-        if (stream == null) {
-            throw new NullPointerException("Inputstream cannot be null");
-        }
-        if (rootName == null) {
-            throw new NullPointerException("Name of the root element cannot be null");
-        }
+    @NotNull
+    private static Element rootElement(@NotNull final InputStream stream, @NotNull final String rootName) {
         try {
-            DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder builder = builderFactory.newDocumentBuilder();
-            Document document = builder.parse(stream);
-            Element rootElement = document.getDocumentElement();
+            final DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
+            final DocumentBuilder builder = builderFactory.newDocumentBuilder();
+            final Document document = builder.parse(stream);
+            final Element rootElement = document.getDocumentElement();
             if (rootElement.getNodeName().equals("error")) {
                 throw new NsApiException(rootElement.getTextContent().trim());
             }
@@ -67,11 +71,12 @@ public class XmlPresent extends Xml {
      * @param stream Stream to use
      * @param rootName Root name to use
      */
-    XmlPresent(InputStream stream, String rootName) {
+    XmlPresent(@NotNull final InputStream stream, @NotNull final String rootName) {
         this(XmlPresent.rootElement(stream, rootName));
     }
 
-    private XmlPresent(Element element) {
+    @NotNull
+    private XmlPresent(@NotNull Element element) {
         name = element.getNodeName();
         content = element.getTextContent();
         NamedNodeMap namedNodeMap = element.getAttributes();
@@ -92,83 +97,74 @@ public class XmlPresent extends Xml {
         }
     }
 
-    private void addAttribute(String name, String value) {
+    private void addAttribute(@NotNull final String name, @NotNull final String value) {
         nameAttributes.put(name, value);
     }
 
-    private void addChild(String name, XmlPresent child) {
-        List<Xml> children = nameChildren.get(name);
-        if (children == null) {
-            children = new ArrayList<>();
-            nameChildren.put(name, children);
-        }
-        children.add(child);
+    private void addChild(@NotNull final String name, @NotNull final XmlPresent child) {
+        nameChildren.compute(name, (key, list) -> {
+            if (list == null) {
+                return new LinkedList<>(singletonList(child));
+            }
+            list.add(child);
+            return list;
+        });
     }
 
-    /**
-     * {@inheritDoc}
-     * 
-     * @see nl.pvanassen.ns.xml.Xml#name()
-     */
+    @NotNull
     @Override
     public String name() {
         return name;
     }
 
-    /**
-     * {@inheritDoc}
-     * 
-     * @see nl.pvanassen.ns.xml.Xml#content()
-     */
     @Override
     public String content() {
         return content;
     }
 
-    /**
-     * {@inheritDoc}
-     * 
-     * @see nl.pvanassen.ns.xml.Xml#child(java.lang.String)
-     */
+    @NotNull
     @Override
-    public Xml child(String name) {
-        List<Xml> children = children(name);
+    public Xml child(@NotNull final String name) {
+        final List<Xml> children = children(name);
         if (children.size() != 1) {
-            logger.debug("Could not find individual child node: " + name);
+            log.debug("Could not find individual child node: {}", name);
             return new XmlAbsent(name);
         }
         return children.get(0);
     }
 
-    /**
-     * {@inheritDoc}
-     * 
-     * @see nl.pvanassen.ns.xml.Xml#children(java.lang.String)
-     */
+    @NotNull
     @Override
-    public List<Xml> children(String name) {
+    public List<Xml> children(@NotNull final String name) {
         List<Xml> children = nameChildren.get(name);
-        return children == null ? new ArrayList<Xml>() : children;
+        return children == null ? emptyList() : new ArrayList<>(children);
     }
 
-    /**
-     * {@inheritDoc}
-     * 
-     * @see nl.pvanassen.ns.xml.Xml#attr(java.lang.String)
-     */
     @Override
-    public String attr(String name) {
+    public String attr(@NotNull final String name) {
         return nameAttributes.get(name);
     }
 
-    /**
-     * {@inheritDoc}
-     * 
-     * @see nl.pvanassen.ns.xml.Xml#isPresent(java.lang.String)
-     */
     @Override
-    public boolean isPresent(String name) {
+    public boolean isPresent(@NotNull final String name) {
         return nameChildren.containsKey(name);
     }
 
+    @NotNull
+    @Override
+    public Optional<List<Xml>> childrenIfPresent(@NotNull final String name) {
+        if (isPresent(name)) {
+            return of(children(name));
+        }
+        return empty();
+    }
+
+    @NotNull
+    @Override
+    public Optional<Xml> childIfPresent(@NotNull final String name) {
+        if (isPresent(name)) {
+            return of(child(name));
+        }
+        return empty();
+    }
 }

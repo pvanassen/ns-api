@@ -1,7 +1,6 @@
-/**
- * 
- */
 package nl.pvanassen.ns.error;
+
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Exception thrown when the API fails
@@ -16,7 +15,7 @@ public class NsApiException extends RuntimeException {
     /**
      * @param message Error message
      */
-    public NsApiException(String message) {
+    public NsApiException(@NotNull final String message) {
         super(message);
     }
 
@@ -24,7 +23,7 @@ public class NsApiException extends RuntimeException {
      * @param message Error message
      * @param cause Error cause
      */
-    public NsApiException(String message, Throwable cause) {
+    public NsApiException(@NotNull final String message, @NotNull final Throwable cause) {
         super(message, cause);
     }
 

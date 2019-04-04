@@ -1,17 +1,24 @@
 package nl.pvanassen.ns;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import nl.pvanassen.ns.model.prijzen.Prijzen;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 class PrijzenRequest extends ApiRequest<Prijzen> {
-    private final String from;
-    private final String to;
-    private final String via;
-    private final Date dateTime;
 
-    PrijzenRequest(String from, String to, String via, Date dateTime) {
+    private final String from;
+
+    private final String to;
+
+    private final String via;
+
+    private final LocalDateTime dateTime;
+
+    PrijzenRequest(@NotNull final String from, @NotNull final String to, @Nullable final String via, @Nullable final LocalDateTime dateTime) {
         this.from = from;
         this.to = to;
         this.via = via;
@@ -23,6 +30,7 @@ class PrijzenRequest extends ApiRequest<Prijzen> {
      * 
      * @see nl.pvanassen.ns.ApiRequest#getPath()
      */
+    @NotNull
     @Override
     String getPath() {
         return "ns-api-prijzen-v3";
@@ -34,6 +42,7 @@ class PrijzenRequest extends ApiRequest<Prijzen> {
      * 
      * @see nl.pvanassen.ns.ApiRequest#getRequestString()
      */
+    @NotNull
     @Override
     String getRequestString() {
         StringBuilder requestString = new StringBuilder();
@@ -43,7 +52,7 @@ class PrijzenRequest extends ApiRequest<Prijzen> {
             requestString.append("via=").append(via).append('&');
         }
         if (dateTime != null) {
-            requestString.append("date=").append(new SimpleDateFormat("ddMMyyyy").format(dateTime));
+            requestString.append("date=").append(dateTime.format(DateTimeFormatter.ofPattern("ddMMyyyy")));
         }
         return requestString.toString();
     }

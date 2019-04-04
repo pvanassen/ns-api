@@ -1,19 +1,22 @@
 package nl.pvanassen.ns.model.storingen;
 
-import static java.util.Collections.unmodifiableCollection;
+import static java.util.Collections.unmodifiableList;
+import static nl.pvanassen.ns.NsApi.DATETIME_FORMATTER;
 
 import java.io.InputStream;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.LinkedList;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
-import nl.pvanassen.ns.NsApi;
 import nl.pvanassen.ns.error.NsApiException;
 import nl.pvanassen.ns.handle.Handle;
 import nl.pvanassen.ns.xml.Xml;
 
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,48 +37,46 @@ public class StoringenHandle implements Handle<Storingen> {
      * 
      * @see nl.pvanassen.ns.handle.Handle#getModel(java.io.InputStream)
      */
+    @NotNull
     @Override
-    public Storingen getModel(InputStream stream) {
-        SimpleDateFormat format = new SimpleDateFormat(NsApi.DATETIME_FORMAT);
+    public Storingen getModel(@NotNull final InputStream stream) {
         try {
-            List<Storing> geplandeStoringen = new LinkedList<>();
-            List<Storing> ongeplandeStoringen = new LinkedList<>();
+            final Xml xml = Xml.getXml(stream, "Storingen");
 
-            Xml xml = Xml.getXml(stream, "Storingen");
-            if (xml.isPresent("Ongepland")) {
-                Xml ongeplandeStoringenXml = xml.child("Ongepland");
-                for (Xml storingXml : ongeplandeStoringenXml.children("Storing")) {
-                    ongeplandeStoringen.add(getStoring(storingXml, format));
-                }
-            }
-            if (xml.isPresent("Gepland")) {
-                Xml geplandeStoringenXml = xml.child("Gepland");
-                for (Xml storingXml : geplandeStoringenXml.children("Storing")) {
-                    geplandeStoringen.add(getStoring(storingXml, format));
-                }
-            }
+            final List<Storing> ongeplandeStoringen = getStoringen(xml.childrenIfPresent("Ongepland"));
+            final List<Storing> geplandeStoringen = getStoringen(xml.childrenIfPresent("Gepland"));
+
             return Storingen.builder()
-                    .geplandeStoringen(unmodifiableCollection(geplandeStoringen))
-                    .ongeplandeStoringen(unmodifiableCollection(ongeplandeStoringen))
+                    .geplandeStoringen(unmodifiableList(geplandeStoringen))
+                    .ongeplandeStoringen(unmodifiableList(ongeplandeStoringen))
                     .build();
         }
-        catch (ParseException e) {
+        catch (DateTimeParseException e) {
             logger.error("Error parsing stream to actuele vertrektijden", e);
             throw new NsApiException("Error parsing stream to actuele vertrektijden", e);
         }
     }
 
-    private Storing getStoring(Xml storingXml, SimpleDateFormat format) throws ParseException {
-        String id = storingXml.child("id").content();
-        String traject = storingXml.child("Traject").content();
-        String periode = storingXml.child("Periode").content();
-        String reden = storingXml.child("Reden").content();
-        String advies = storingXml.child("Advies").content();
-        String bericht = storingXml.child("Bericht").content();
-        Date datum = null;
-        if (storingXml.isPresent("Datum")) {
-            datum = format.parse(storingXml.child("Datum").content());
-        }
+    private List<Storing> getStoringen(final Optional<List<Xml>> storingenList) {
+        return storingenList
+                .map(Collection::stream)
+                .map(xmlStream -> xmlStream.flatMap(xml -> xml.children("Storing").stream()))
+                .map(xmlStream -> xmlStream.map(this::getStoring))
+                .map(storingStream -> storingStream.collect(Collectors.toList()))
+                .orElseGet(ArrayList::new);
+    }
+
+    private Storing getStoring(final Xml storingXml) {
+        final String id = storingXml.child("id").content();
+        final String traject = storingXml.child("Traject").content();
+        final String periode = storingXml.child("Periode").content();
+        final String reden = storingXml.child("Reden").content();
+        final String advies = storingXml.child("Advies").content();
+        final String bericht = storingXml.child("Bericht").content();
+        final LocalDateTime datum = storingXml.childIfPresent("Datum")
+                .map(Xml::content)
+                .map(date -> LocalDateTime.parse(date, DATETIME_FORMATTER))
+                .orElse(null);
         return Storing.builder()
                 .advies(advies)
                 .bericht(bericht)

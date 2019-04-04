@@ -1,12 +1,19 @@
 package nl.pvanassen.ns;
 
+import static lombok.AccessLevel.PRIVATE;
+
+import java.time.LocalDateTime;
+
 import nl.pvanassen.ns.model.prijzen.Prijzen;
 import nl.pvanassen.ns.model.reisadvies.ReisMogelijkheden;
 import nl.pvanassen.ns.model.stations.Stations;
 import nl.pvanassen.ns.model.storingen.Storingen;
 import nl.pvanassen.ns.model.vertrektijden.VertrekkendeTreinen;
 
-import java.util.Date;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import lombok.NoArgsConstructor;
 
 /**
  * Request builder helper class. This class builds concrete implementations of the {@link ApiRequest} abstract class.
@@ -15,17 +22,11 @@ import java.util.Date;
  * @author Paul van Assen
  * 
  */
+@NoArgsConstructor(access = PRIVATE)
 public class RequestBuilder {
 
     // Only one instance possible. Pre-instantiating this
     private static final StationsRequest INSTANCE = new StationsRequest();
-
-    /**
-     * Hiding utility class constructor
-     */
-    private RequestBuilder() {
-        super();
-    }
 
     /**
      * This method builds a request to get the <a
@@ -35,7 +36,8 @@ public class RequestBuilder {
      *            allowed
      * @return The vertrektijden for this station
      */
-    public static ApiRequest<VertrekkendeTreinen> getActueleVertrektijden(String station) {
+    @NotNull
+    public static ApiRequest<VertrekkendeTreinen> getActueleVertrektijden(@NotNull final String station) {
         return new ActueleVertrekTijdenRequest(station);
     }
 
@@ -45,6 +47,7 @@ public class RequestBuilder {
      * 
      * @return An object containing all stations
      */
+    @NotNull
     public static ApiRequest<Stations> getStations() {
         return RequestBuilder.INSTANCE;
     }
@@ -55,6 +58,7 @@ public class RequestBuilder {
      * 
      * @return All 'Actuele storingen' request
      */
+    @NotNull
     public static ApiRequest<Storingen> getActueleStoringen() {
         return new StoringenEnWerkzaamhedenRequest(null, Boolean.TRUE, null);
     }
@@ -67,6 +71,7 @@ public class RequestBuilder {
      * 
      * @return All 'Geplanden werkzaamheden' request
      */
+    @NotNull
     public static ApiRequest<Storingen> getGeplandeWerkzaamheden() {
         return new StoringenEnWerkzaamhedenRequest(null, null, Boolean.TRUE);
     }
@@ -81,7 +86,8 @@ public class RequestBuilder {
      *            allowed
      * @return All 'Actuele storingen' request for a station
      */
-    public static ApiRequest<Storingen> getActueleStoringen(String station) {
+    @NotNull
+    public static ApiRequest<Storingen> getActueleStoringen(@NotNull final String station) {
         return new StoringenEnWerkzaamhedenRequest(station, null, null);
     }
 
@@ -93,8 +99,9 @@ public class RequestBuilder {
      * @param toStation End point of the trip
      * @return Request for getting the fares
      */
-    public static ApiRequest<Prijzen> getPrijzen(String fromStation, String toStation) {
-        return RequestBuilder.getPrijzen(fromStation, toStation, null, null);
+    @NotNull
+    public static ApiRequest<Prijzen> getPrijzen(@NotNull final String fromStation, @NotNull final String toStation) {
+        return getPrijzen(fromStation, toStation, null, null);
     }
 
     /**
@@ -106,8 +113,9 @@ public class RequestBuilder {
      * @param viaStation Also go to this station
      * @return Request for getting the fares
      */
-    public static ApiRequest<Prijzen> getPrijzen(String fromStation, String toStation, String viaStation) {
-        return RequestBuilder.getPrijzen(fromStation, toStation, viaStation, null);
+    @NotNull
+    public static ApiRequest<Prijzen> getPrijzen(@NotNull final String fromStation, @NotNull final String toStation, @NotNull final String viaStation) {
+        return getPrijzen(fromStation, toStation, viaStation, null);
     }
 
     /**
@@ -119,8 +127,9 @@ public class RequestBuilder {
      * @param dateTime Date and time to use for getting the fares.
      * @return Request for getting the fares
      */
-    public static ApiRequest<Prijzen> getPrijzen(String fromStation, String toStation, Date dateTime) {
-        return RequestBuilder.getPrijzen(fromStation, toStation, null, dateTime);
+    @NotNull
+    public static ApiRequest<Prijzen> getPrijzen(@NotNull final String fromStation, @NotNull final String toStation, @NotNull final LocalDateTime dateTime) {
+        return getPrijzen(fromStation, toStation, null, dateTime);
     }
 
     /**
@@ -133,8 +142,9 @@ public class RequestBuilder {
      * @param dateTime Date and time to use for getting the fares.
      * @return Request for getting the fares
      */
-    public static ApiRequest<Prijzen> getPrijzen(String fromStation, String toStation, String viaStation,
-                                                 Date dateTime) {
+    @NotNull
+    public static ApiRequest<Prijzen> getPrijzen(@NotNull final String fromStation, @NotNull final String toStation, @Nullable final String viaStation,
+            @Nullable final LocalDateTime dateTime) {
         return new PrijzenRequest(fromStation, toStation, viaStation, dateTime);
     }
 
@@ -147,7 +157,8 @@ public class RequestBuilder {
      * @param toStation End point of your trip
      * @return A request builder which can be used to build the request through a fluent API.
      */
-    public static ReisadviesRequestBuilder getReisadviesRequestBuilder(String fromStation, String toStation) {
+    @NotNull
+    public static ReisadviesRequestBuilder getReisadviesRequestBuilder(@NotNull final String fromStation, @NotNull final String toStation) {
         return new ReisadviesRequestBuilder(fromStation, toStation);
     }
 
@@ -163,7 +174,7 @@ public class RequestBuilder {
         private String viaStation;
         private Integer previousAdvices;
         private Integer nextAdvices;
-        private Date dateTime;
+        private LocalDateTime dateTime;
         private Boolean departure;
         private Boolean hslAllowed;
         private Boolean yearCard;
@@ -179,7 +190,8 @@ public class RequestBuilder {
          * @param station Code, short name or full name of a station
          * @return The builder
          */
-        public ReisadviesRequestBuilder viaStation(String station) {
+        @NotNull
+        public ReisadviesRequestBuilder viaStation(@NotNull final String station) {
             viaStation = station;
             return this;
         }
@@ -191,11 +203,12 @@ public class RequestBuilder {
          * @param dateTime The departure time to use
          * @return The builder
          */
-        public ReisadviesRequestBuilder forDepartureTime(Date dateTime) {
+        @NotNull
+        public ReisadviesRequestBuilder forDepartureTime(@NotNull final LocalDateTime dateTime) {
             if (this.dateTime != null) {
                 throw new IllegalArgumentException("Cannot set departure time, arival time already set");
             }
-            this.dateTime = new Date(dateTime.getTime());
+            this.dateTime = dateTime;
             departure = true;
             return this;
         }
@@ -207,11 +220,12 @@ public class RequestBuilder {
          * @param dateTime The arrival time to use
          * @return The builder
          */
-        public ReisadviesRequestBuilder forArrivalTime(Date dateTime) {
+        @NotNull
+        public ReisadviesRequestBuilder forArrivalTime(@NotNull final LocalDateTime dateTime) {
             if (this.dateTime != null) {
                 throw new IllegalArgumentException("Cannot set arival time, departure time already set");
             }
-            this.dateTime = new Date(dateTime.getTime());
+            this.dateTime = dateTime;
             departure = false;
             return this;
         }
@@ -223,6 +237,7 @@ public class RequestBuilder {
          * @param previousAdvices Amount of advices to return before the given time (or now if no time is given)
          * @return The builder
          */
+        @NotNull
         public ReisadviesRequestBuilder includePastAdvices(int previousAdvices) {
             this.previousAdvices = previousAdvices;
             return this;
@@ -235,6 +250,7 @@ public class RequestBuilder {
          * @param nextAdvices Amount of advices to return after the given time (or now if no time is given)
          * @return The builder
          */
+        @NotNull
         public ReisadviesRequestBuilder includeFutureAdvices(int nextAdvices) {
             this.nextAdvices = nextAdvices;
             return this;
@@ -245,6 +261,7 @@ public class RequestBuilder {
          * 
          * @return The builder
          */
+        @NotNull
         public ReisadviesRequestBuilder withHsl() {
             hslAllowed = Boolean.TRUE;
             return this;
@@ -255,6 +272,7 @@ public class RequestBuilder {
          * 
          * @return The builder
          */
+        @NotNull
         public ReisadviesRequestBuilder withoutHsl() {
             hslAllowed = Boolean.FALSE;
             return this;
@@ -267,6 +285,7 @@ public class RequestBuilder {
          * 
          * @return The builder
          */
+        @NotNull
         public ReisadviesRequestBuilder userHasYearCard() {
             yearCard = Boolean.TRUE;
             return this;
@@ -278,6 +297,7 @@ public class RequestBuilder {
          * 
          * @return The builder
          */
+        @NotNull
         public ReisadviesRequestBuilder userHasNoYearCard() {
             yearCard = Boolean.FALSE;
             return this;
@@ -288,6 +308,7 @@ public class RequestBuilder {
          * 
          * @return The request for getting 'reis adviezen'
          */
+        @NotNull
         public ApiRequest<ReisMogelijkheden> build() {
             return new ReisadviesRequest(fromStation, toStation, viaStation, previousAdvices, nextAdvices, dateTime,
                     departure, hslAllowed, yearCard);

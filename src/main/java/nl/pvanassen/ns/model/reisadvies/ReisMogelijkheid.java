@@ -1,13 +1,16 @@
 package nl.pvanassen.ns.model.reisadvies;
 
+import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.List;
+
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-
-import java.io.Serializable;
-import java.util.Date;
-import java.util.List;
 
 /**
  * http://www.ns.nl/api/api#api-documentatie-reisadviezen
@@ -19,16 +22,36 @@ import java.util.List;
 @Data
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class ReisMogelijkheid implements Serializable {
-    private final List<Melding> meldingen;
+
+    @NotNull
+    private final List<@NotNull Melding> meldingen;
+
     private final int aantalOverstappen;
+
     private final int geplandeReisTijdMinuten;
+
     private final int actueleReisTijdMinuten;
+
+    @Nullable
     private final String aankomstVertraging;
+
     private final boolean optimaal;
-    private final Date geplandeVertrekTijd;
-    private final Date actueleVertrekTijd;
-    private final Date geplandeAankomstTijd;
-    private final Date actueleAankomstTijd;
+
+    @NotNull
+    private final LocalDateTime geplandeVertrekTijd;
+
+    @NotNull
+    private final LocalDateTime actueleVertrekTijd;
+
+    @NotNull
+    private final LocalDateTime geplandeAankomstTijd;
+
+    @NotNull
+    private final LocalDateTime actueleAankomstTijd;
+
+    @Nullable
     private final String status;
-    private final List<ReisDeel> reisDelen;
+
+    @NotNull
+    private final List<@NotNull ReisDeel> reisDelen;
 }

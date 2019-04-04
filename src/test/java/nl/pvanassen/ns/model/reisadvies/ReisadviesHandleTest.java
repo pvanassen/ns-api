@@ -1,15 +1,15 @@
 package nl.pvanassen.ns.model.reisadvies;
 
-import org.junit.Assert;
-import org.junit.Test;
-
-import java.util.List;
-import java.util.TimeZone;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
+
+import java.util.List;
+import java.util.TimeZone;
+
+import org.junit.Assert;
+import org.junit.Test;
 
 public class ReisadviesHandleTest {
 
@@ -26,11 +26,11 @@ public class ReisadviesHandleTest {
         assertEquals(94, intercity.getGeplandeReisTijdMinuten());
         assertEquals(94, intercity.getActueleReisTijdMinuten());
         assertTrue(intercity.isOptimaal());
-        assertEquals("Fri Dec 27 16:54:00 GMT 2013", intercity.getGeplandeAankomstTijd().toString());
-        assertEquals("Fri Dec 27 16:54:00 GMT 2013", intercity.getActueleAankomstTijd().toString());
+        assertEquals("2013-12-27T17:54", intercity.getGeplandeAankomstTijd().toString());
+        assertEquals("2013-12-27T17:54", intercity.getActueleAankomstTijd().toString());
         assertNull(intercity.getAankomstVertraging());
-        assertEquals("Fri Dec 27 15:20:00 GMT 2013", intercity.getGeplandeVertrekTijd().toString());
-        assertEquals("Fri Dec 27 15:20:00 GMT 2013", intercity.getActueleVertrekTijd().toString());
+        assertEquals("2013-12-27T16:20", intercity.getGeplandeVertrekTijd().toString());
+        assertEquals("2013-12-27T16:20", intercity.getActueleVertrekTijd().toString());
         assertNotNull(intercity.getMeldingen());
         assertEquals(1, intercity.getMeldingen().size());
         Melding melding = intercity.getMeldingen().get(0);
@@ -55,7 +55,7 @@ public class ReisadviesHandleTest {
         ReisStop utrecht = utrechtZwolle.getReisStops().get(0);
         assertEquals("Utrecht Centraal", utrecht.getNaam());
         assertEquals("11a", utrecht.getSpoor());
-        assertEquals("Fri Dec 27 15:20:00 GMT 2013", utrecht.getTijd().toString());
+        assertEquals("2013-12-27T16:20", utrecht.getTijd().toString());
         assertEquals(false, utrecht.isGewijzigdVertrekspoor());
     }
 
@@ -72,11 +72,11 @@ public class ReisadviesHandleTest {
         assertEquals(90, intercity.getGeplandeReisTijdMinuten());
         assertEquals(90, intercity.getActueleReisTijdMinuten());
         Assert.assertFalse(intercity.isOptimaal());
-        assertEquals("Mon Feb 27 13:21:00 GMT 2012", intercity.getGeplandeAankomstTijd().toString());
-        assertEquals("Mon Feb 27 13:21:00 GMT 2012", intercity.getActueleAankomstTijd().toString());
+        assertEquals("2012-02-27T14:21", intercity.getGeplandeAankomstTijd().toString());
+        assertEquals("2012-02-27T14:21", intercity.getActueleAankomstTijd().toString());
         assertNull(intercity.getAankomstVertraging());
-        assertEquals("Mon Feb 27 11:51:00 GMT 2012", intercity.getGeplandeVertrekTijd().toString());
-        assertEquals("Mon Feb 27 11:51:00 GMT 2012", intercity.getActueleVertrekTijd().toString());
+        assertEquals("2012-02-27T12:51", intercity.getGeplandeVertrekTijd().toString());
+        assertEquals("2012-02-27T12:51", intercity.getActueleVertrekTijd().toString());
         assertNotNull(intercity.getMeldingen());
         assertEquals(0, intercity.getMeldingen().size());
         assertEquals("NIET-OPTIMAAL", intercity.getStatus());
@@ -97,7 +97,7 @@ public class ReisadviesHandleTest {
         ReisStop utrecht = utrechtApeldoorn.getReisStops().get(0);
         assertEquals("Utrecht Centraal", utrecht.getNaam());
         assertEquals("11", utrecht.getSpoor());
-        assertEquals("Mon Feb 27 11:51:00 GMT 2012", utrecht.getTijd().toString());
+        assertEquals("2012-02-27T12:51", utrecht.getTijd().toString());
         assertEquals(false, utrecht.isGewijzigdVertrekspoor());
     }
 
@@ -120,11 +120,11 @@ public class ReisadviesHandleTest {
         assertEquals(32, intercity.getGeplandeReisTijdMinuten());
         assertEquals(32, intercity.getActueleReisTijdMinuten());
         Assert.assertFalse(intercity.isOptimaal());
-        assertEquals("Fri Mar 02 12:28:00 GMT 2012", intercity.getGeplandeAankomstTijd().toString());
-        assertEquals("Fri Mar 02 12:28:00 GMT 2012", intercity.getActueleAankomstTijd().toString());
+        assertEquals("2012-03-02T13:28", intercity.getGeplandeAankomstTijd().toString());
+        assertEquals("2012-03-02T13:28", intercity.getActueleAankomstTijd().toString());
         assertNull(intercity.getAankomstVertraging());
-        assertEquals("Fri Mar 02 11:56:00 GMT 2012", intercity.getGeplandeVertrekTijd().toString());
-        assertEquals("Fri Mar 02 11:56:00 GMT 2012", intercity.getActueleVertrekTijd().toString());
+        assertEquals("2012-03-02T12:56", intercity.getGeplandeVertrekTijd().toString());
+        assertEquals("2012-03-02T12:56", intercity.getActueleVertrekTijd().toString());
         assertEquals("NIET-MOGELIJK", intercity.getStatus());
         assertNotNull(intercity.getReisDelen());
         assertEquals(1, intercity.getReisDelen().size());
@@ -143,7 +143,7 @@ public class ReisadviesHandleTest {
         ReisStop maastricht = maastrichtRoermond.getReisStops().get(0);
         assertEquals("Maastricht", maastricht.getNaam());
         assertEquals("3", maastricht.getSpoor());
-        assertEquals("Fri Mar 02 11:56:00 GMT 2012", maastricht.getTijd().toString());
+        assertEquals("2012-03-02T12:56", maastricht.getTijd().toString());
         assertEquals(false, maastricht.isGewijzigdVertrekspoor());
     }
 
@@ -178,10 +178,10 @@ public class ReisadviesHandleTest {
         ReisMogelijkheid intercity = mogelijkheden.get(0);
         assertEquals("+17 min", intercity.getAankomstVertraging());
         Assert.assertFalse(intercity.isOptimaal());
-        assertEquals("Tue Sep 14 13:48:00 GMT 2010", intercity.getGeplandeAankomstTijd().toString());
-        assertEquals("Tue Sep 14 14:05:00 GMT 2010", intercity.getActueleAankomstTijd().toString());
-        assertEquals("Tue Sep 14 13:17:00 GMT 2010", intercity.getGeplandeVertrekTijd().toString());
-        assertEquals("Tue Sep 14 13:17:00 GMT 2010", intercity.getActueleVertrekTijd().toString());
+        assertEquals("2010-09-14T15:48", intercity.getGeplandeAankomstTijd().toString());
+        assertEquals("2010-09-14T16:05", intercity.getActueleAankomstTijd().toString());
+        assertEquals("2010-09-14T15:17", intercity.getGeplandeVertrekTijd().toString());
+        assertEquals("2010-09-14T15:17", intercity.getActueleVertrekTijd().toString());
     }
 
     @Test

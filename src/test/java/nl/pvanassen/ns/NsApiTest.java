@@ -1,17 +1,14 @@
 package nl.pvanassen.ns;
 
-import nl.pvanassen.ns.error.NsApiException;
-import nl.pvanassen.ns.model.NsResult;
-import org.junit.Test;
-
 import java.io.IOException;
 
-public class NsApiTest {
+import nl.pvanassen.ns.error.NsApiException;
+import nl.pvanassen.ns.model.NsResult;
 
-    @Test(expected = NullPointerException.class)
-    public void testNsApiNull() {
-        new NsApi(null, null);
-    }
+import org.jetbrains.annotations.NotNull;
+import org.junit.Test;
+
+public class NsApiTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testNsApiEmpty() {
@@ -20,14 +17,16 @@ public class NsApiTest {
 
     @Test(expected = NsApiException.class)
     public void testGetApiResponseString() throws IOException {
-        NsApi nsApi = new NsApi("test", "invalid");
+        final NsApi nsApi = new NsApi("test", "invalid");
         nsApi.getApiResponse(new ApiRequest<NsResult>() {
 
+            @NotNull
             @Override
             String getPath() {
                 return "";
             }
 
+            @NotNull
             @Override
             String getRequestString() {
                 return "";

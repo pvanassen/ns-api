@@ -2,6 +2,8 @@ package nl.pvanassen.ns;
 
 import nl.pvanassen.ns.model.stations.Stations;
 
+import org.jetbrains.annotations.NotNull;
+
 class StationsRequest extends ApiRequest<Stations> {
 
     /**
@@ -15,6 +17,7 @@ class StationsRequest extends ApiRequest<Stations> {
      * 
      * @see nl.pvanassen.ns.ApiRequest#getPath()
      */
+    @NotNull
     @Override
     String getPath() {
         return "ns-api-stations-v2";
@@ -25,6 +28,7 @@ class StationsRequest extends ApiRequest<Stations> {
      * 
      * @see nl.pvanassen.ns.ApiRequest#getRequestString()
      */
+    @NotNull
     @Override
     String getRequestString() {
         return "";

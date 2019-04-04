@@ -1,14 +1,16 @@
 package nl.pvanassen.ns.model.reisadvies;
 
+import java.util.List;
+
 import nl.pvanassen.ns.model.NsResultListWrapper;
 
-import java.util.List;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * @author Paul van Assen
  */
 public class ReisMogelijkheden extends NsResultListWrapper<ReisMogelijkheid> {
-    ReisMogelijkheden(List<ReisMogelijkheid> reisMogelijkheden) {
+    ReisMogelijkheden(@NotNull final List<ReisMogelijkheid> reisMogelijkheden) {
         super(reisMogelijkheden);
     }
 }

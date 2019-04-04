@@ -1,10 +1,10 @@
 package nl.pvanassen.ns.model.vertrektijden;
 
-import static java.util.Collections.unmodifiableList;
-
 import java.util.List;
 
 import nl.pvanassen.ns.model.NsResultListWrapper;
+
+import org.jetbrains.annotations.NotNull;
 
 import lombok.Builder;
 
@@ -13,7 +13,7 @@ import lombok.Builder;
  */
 public class VertrekkendeTreinen extends NsResultListWrapper<VertrekkendeTrein> {
     @Builder
-    private VertrekkendeTreinen(List<VertrekkendeTrein> vertrekkendeTreinen) {
-        super(unmodifiableList(vertrekkendeTreinen));
+    private VertrekkendeTreinen(@NotNull final List<VertrekkendeTrein> vertrekkendeTreinen) {
+        super(vertrekkendeTreinen);
     }
 }

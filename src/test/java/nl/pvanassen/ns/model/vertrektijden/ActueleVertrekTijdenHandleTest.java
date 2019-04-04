@@ -1,14 +1,13 @@
 package nl.pvanassen.ns.model.vertrektijden;
 
-import org.junit.Test;
-
-import java.util.Calendar;
-import java.util.List;
-import java.util.TimeZone;
-
+import static java.time.LocalDateTime.of;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+
+import java.util.List;
+
+import org.junit.Test;
 
 public class ActueleVertrekTijdenHandleTest {
 
@@ -28,16 +27,7 @@ public class ActueleVertrekTijdenHandleTest {
         assertEquals("Expected a sprinter train", "Sprinter", sprinterBreda.getTreinSoort());
         assertNotNull(sprinterBreda.getOpmerkingen());
         assertEquals(0, sprinterBreda.getOpmerkingen().size());
-        // 2013-10-10T21:45:00+0200 to calendar
-        Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("+0200"));
-        calendar.set(Calendar.YEAR, 2013);
-        calendar.set(Calendar.MONTH, Calendar.OCTOBER);
-        calendar.set(Calendar.DAY_OF_MONTH, 10);
-        calendar.set(Calendar.HOUR_OF_DAY, 19);
-        calendar.set(Calendar.MINUTE, 45);
-        calendar.set(Calendar.SECOND, 0);
-        calendar.set(Calendar.MILLISECOND, 0);
-        assertEquals("Expected depature on 2013-10-10T21:45:00+0200", calendar.getTime(),
+        assertEquals(of(2013, 10, 10, 21, 45, 0),
                 sprinterBreda.getVertrekTijd());
     }
 
@@ -58,15 +48,7 @@ public class ActueleVertrekTijdenHandleTest {
         assertEquals("Expected a sprinter train", "Sprinter", sprinterBreukelen.getTreinSoort());
         assertNotNull(sprinterBreukelen.getOpmerkingen());
         assertEquals(0, sprinterBreukelen.getOpmerkingen().size());
-        Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("+0200"));
-        calendar.set(Calendar.YEAR, 2012);
-        calendar.set(Calendar.MONTH, Calendar.FEBRUARY);
-        calendar.set(Calendar.DAY_OF_MONTH, 19);
-        calendar.set(Calendar.HOUR_OF_DAY, 21);
-        calendar.set(Calendar.MINUTE, 47);
-        calendar.set(Calendar.SECOND, 0);
-        calendar.set(Calendar.MILLISECOND, 0);
-        assertEquals(calendar.getTime(), sprinterBreukelen.getVertrekTijd());
+        assertEquals(of(2012, 2, 19, 22, 47, 0), sprinterBreukelen.getVertrekTijd());
     }
 
     @Test
@@ -87,15 +69,7 @@ public class ActueleVertrekTijdenHandleTest {
         assertNotNull(intercityRotterdam.getOpmerkingen());
         assertEquals(1, intercityRotterdam.getOpmerkingen().size());
         assertEquals("Rijdt vandaag niet", intercityRotterdam.getOpmerkingen().get(0));
-        Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("+0200"));
-        calendar.set(Calendar.YEAR, 2012);
-        calendar.set(Calendar.MONTH, Calendar.FEBRUARY);
-        calendar.set(Calendar.DAY_OF_MONTH, 22);
-        calendar.set(Calendar.HOUR_OF_DAY, 16);
-        calendar.set(Calendar.MINUTE, 13);
-        calendar.set(Calendar.SECOND, 0);
-        calendar.set(Calendar.MILLISECOND, 0);
-        assertEquals(calendar.getTime(), intercityRotterdam.getVertrekTijd());
+        assertEquals(of(2012, 2, 22, 17, 13, 0), intercityRotterdam.getVertrekTijd());
     }
 
     @Test
@@ -118,15 +92,7 @@ public class ActueleVertrekTijdenHandleTest {
         assertNotNull(highspeedAmsterdam.getOpmerkingen());
         assertEquals(1, highspeedAmsterdam.getOpmerkingen().size());
         assertEquals("Niet instappen", highspeedAmsterdam.getOpmerkingen().get(0));
-        Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("+0200"));
-        calendar.set(Calendar.YEAR, 2012);
-        calendar.set(Calendar.MONTH, Calendar.FEBRUARY);
-        calendar.set(Calendar.DAY_OF_MONTH, 21);
-        calendar.set(Calendar.HOUR_OF_DAY, 14);
-        calendar.set(Calendar.MINUTE, 30);
-        calendar.set(Calendar.SECOND, 0);
-        calendar.set(Calendar.MILLISECOND, 0);
-        assertEquals(calendar.getTime(), highspeedAmsterdam.getVertrekTijd());
+        assertEquals(of(2012, 2, 21, 15, 30, 0), highspeedAmsterdam.getVertrekTijd());
     }
 
     @Test
@@ -150,14 +116,6 @@ public class ActueleVertrekTijdenHandleTest {
         assertNotNull(stoptreinTiel.getReisTip());
         assertEquals("Stopt niet in Arnhem Zuid", stoptreinTiel.getReisTip());
 
-        Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("+0200"));
-        calendar.set(Calendar.YEAR, 2012);
-        calendar.set(Calendar.MONTH, Calendar.FEBRUARY);
-        calendar.set(Calendar.DAY_OF_MONTH, 22);
-        calendar.set(Calendar.HOUR_OF_DAY, 14);
-        calendar.set(Calendar.MINUTE, 32);
-        calendar.set(Calendar.SECOND, 0);
-        calendar.set(Calendar.MILLISECOND, 0);
-        assertEquals(calendar.getTime(), stoptreinTiel.getVertrekTijd());
+        assertEquals(of(2012, 2, 22, 15, 32, 0), stoptreinTiel.getVertrekTijd());
     }
 }

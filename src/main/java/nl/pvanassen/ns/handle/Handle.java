@@ -1,8 +1,10 @@
 package nl.pvanassen.ns.handle;
 
+import java.io.InputStream;
+
 import nl.pvanassen.ns.model.NsResult;
 
-import java.io.InputStream;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * This interface defines the way documents are deserialized.
@@ -19,5 +21,6 @@ public interface Handle<T extends NsResult> {
      * @param stream Stream to deserialize
      * @return The deserialized type T
      */
-    T getModel(InputStream stream);
+    @NotNull
+    T getModel(@NotNull final InputStream stream);
 }

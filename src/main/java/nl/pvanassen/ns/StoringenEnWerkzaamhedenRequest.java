@@ -2,6 +2,9 @@ package nl.pvanassen.ns;
 
 import nl.pvanassen.ns.model.storingen.Storingen;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 /**
  * Request object for 'Storingen en werkzaamheden'. For an explanation of all parameters, please see:
  * <a href="http://www.ns.nl/api/api#api-documentatie-storingen-en-werkzaamheden">API Documentatie storingen en werkzaamheden</a>
@@ -22,31 +25,26 @@ import nl.pvanassen.ns.model.storingen.Storingen;
  * 
  */
 class StoringenEnWerkzaamhedenRequest extends ApiRequest<Storingen> {
+
     private final String station;
+
     private final Boolean actual;
+
     private final Boolean unplanned;
 
-    StoringenEnWerkzaamhedenRequest(String station, Boolean actual, Boolean unplanned) {
+    StoringenEnWerkzaamhedenRequest(@Nullable final String station, @Nullable final Boolean actual, @Nullable final Boolean unplanned) {
         this.station = UrlParamHelper.encode(station);
         this.actual = actual;
         this.unplanned = unplanned;
     }
 
-    /**
-     * {@inheritDoc}
-     * 
-     * @see nl.pvanassen.ns.ApiRequest#getPath()
-     */
+    @NotNull
     @Override
     String getPath() {
         return "ns-api-storingen";
     }
 
-    /**
-     * {@inheritDoc}
-     * 
-     * @see nl.pvanassen.ns.ApiRequest#getRequestString()
-     */
+    @NotNull
     @Override
     String getRequestString() {
         StringBuilder requestString = new StringBuilder();

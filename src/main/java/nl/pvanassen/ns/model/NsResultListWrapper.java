@@ -7,12 +7,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  * @author Paul van Assen
  */
 public class NsResultListWrapper <T extends Serializable> implements NsResult, List<T> {
     private final List<T> inner;
-    protected NsResultListWrapper(List<T> inner) {
+    protected NsResultListWrapper(@NotNull List<T> inner) {
         this.inner = Collections.unmodifiableList(inner);
     }
 

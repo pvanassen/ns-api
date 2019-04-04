@@ -1,7 +1,12 @@
 package nl.pvanassen.ns.xml;
 
-import java.util.ArrayList;
+import static java.util.Collections.emptyList;
+import static java.util.Optional.empty;
+
 import java.util.List;
+import java.util.Optional;
+
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Missing XML element. Will return default values. This is used to ease traversing over a tree
@@ -9,7 +14,7 @@ import java.util.List;
  * @author Paul van Assen
  * 
  */
-public class XmlAbsent extends Xml {
+public class XmlAbsent implements Xml {
 
     private final String name;
 
@@ -17,64 +22,48 @@ public class XmlAbsent extends Xml {
         this.name = name;
     }
 
-    /**
-     * {@inheritDoc}
-     * 
-     * @see nl.pvanassen.ns.xml.Xml#name()
-     */
+    @NotNull
     @Override
     public String name() {
         return name;
     }
 
-    /**
-     * {@inheritDoc}
-     * 
-     * @see nl.pvanassen.ns.xml.Xml#content()
-     */
     @Override
     public String content() {
         return null;
     }
 
-    /**
-     * {@inheritDoc}
-     * 
-     * @see nl.pvanassen.ns.xml.Xml#child(java.lang.String)
-     */
+    @NotNull
     @Override
-    public Xml child(String name) {
+    public Xml child(@NotNull final String name) {
         return new XmlAbsent(name);
     }
 
-    /**
-     * {@inheritDoc}
-     * 
-     * @see nl.pvanassen.ns.xml.Xml#children(java.lang.String)
-     */
+    @NotNull
     @Override
-    public List<Xml> children(String name) {
-        return new ArrayList<Xml>();
+    public List<Xml> children(@NotNull final String name) {
+        return emptyList();
     }
 
-    /**
-     * {@inheritDoc}
-     * 
-     * @see nl.pvanassen.ns.xml.Xml#attr(java.lang.String)
-     */
     @Override
-    public String attr(String attributeName) {
+    public String attr(@NotNull final String attributeName) {
         return null;
     }
 
-    /**
-     * {@inheritDoc}
-     * 
-     * @see nl.pvanassen.ns.xml.Xml#isPresent(java.lang.String)
-     */
     @Override
-    public boolean isPresent(String elementName) {
+    public boolean isPresent(@NotNull final String elementName) {
         return false;
     }
 
+    @NotNull
+    @Override
+    public Optional<List<Xml>> childrenIfPresent(@NotNull final String name) {
+        return empty();
+    }
+
+    @NotNull
+    @Override
+    public Optional<Xml> childIfPresent(@NotNull final String name) {
+        return empty();
+    }
 }

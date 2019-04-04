@@ -1,8 +1,11 @@
 package nl.pvanassen.ns.model.vertrektijden;
 
 import java.io.Serializable;
-import java.util.Collection;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.util.List;
+
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -20,18 +23,42 @@ import lombok.Data;
 @Builder
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class VertrekkendeTrein implements Serializable {
+
     private static final long serialVersionUID = 1L;
+
     private final int ritNummer;
-    private final Date vertrekTijd;
+
+    @NotNull
+    private final LocalDateTime vertrekTijd;
+
+    @Nullable
     private final String vertrekVertraging;
+
     private final int vertrekVertragingMinuten;
+
+    @Nullable
     private final String vertrekVertragingTekst;
+
+    @NotNull
     private final String eindBestemming;
+
+    @NotNull
     private final String treinSoort;
+
+    @Nullable
     private final String routeTekst;
+
+    @NotNull
     private final String vervoerder;
+
+    @NotNull
     private final String vertrekSpoor;
+
     private final boolean gewijzigdVertrekspoor;
+
+    @Nullable
     private final String reisTip;
-    private final Collection<String> opmerkingen;
+
+    @NotNull
+    private final List<@NotNull String> opmerkingen;
 }

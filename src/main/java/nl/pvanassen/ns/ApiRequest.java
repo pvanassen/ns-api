@@ -1,8 +1,13 @@
 package nl.pvanassen.ns;
 
+import java.io.Serializable;
+
 import nl.pvanassen.ns.model.NsResult;
 
-import java.io.Serializable;
+import org.jetbrains.annotations.NotNull;
+
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
 /**
  * Api request type. This type is the basis for all responses from the NS api.
@@ -11,22 +16,18 @@ import java.io.Serializable;
  * 
  * @param <T> Result type
  */
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public abstract class ApiRequest<T extends NsResult> implements Serializable {
-
-    /**
-     * Allow only instantiation in this package
-     */
-    ApiRequest() {
-        super();
-    }
 
     /**
      * @return The path part of the request to make to the NS webservices
      */
+    @NotNull
     abstract String getPath();
 
     /**
      * @return The querystring part of the request to make to the NS webservices
      */
+    @NotNull
     abstract String getRequestString();
 }

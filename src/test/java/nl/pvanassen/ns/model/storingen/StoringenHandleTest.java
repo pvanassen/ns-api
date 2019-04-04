@@ -1,12 +1,10 @@
 package nl.pvanassen.ns.model.storingen;
 
-import org.junit.Test;
-
-import java.util.Calendar;
-import java.util.TimeZone;
-
+import static java.time.LocalDateTime.of;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
+
+import org.junit.Test;
 
 public class StoringenHandleTest {
 
@@ -22,16 +20,7 @@ public class StoringenHandleTest {
         assertEquals(
                 "Tussen Eindhoven en Deurne rijden minder Sprinters door een defecte trein.\nHoudt u rekening met een extra reistijd van 15 - 30 min.\nDe verstoring is naar verwachting rond 17:30 uur verholpen.\n",
                 deurne.getBericht());
-        // 2013-12-27T16:43:00+0100
-        Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("+0100"));
-        calendar.set(Calendar.YEAR, 2013);
-        calendar.set(Calendar.MONTH, Calendar.DECEMBER);
-        calendar.set(Calendar.DAY_OF_MONTH, 27);
-        calendar.set(Calendar.HOUR_OF_DAY, 15);
-        calendar.set(Calendar.MINUTE, 43);
-        calendar.set(Calendar.SECOND, 0);
-        calendar.set(Calendar.MILLISECOND, 0);
-        assertEquals(calendar.getTime(), deurne.getDatum());
+        assertEquals(of(2013, 12, 27, 16, 43, 0), deurne.getDatum());
         assertNull(deurne.getAdvies());
         assertNull(deurne.getPeriode());
         assertEquals(0, storingen.getGeplandeStoringen().size());
@@ -47,16 +36,7 @@ public class StoringenHandleTest {
         assertEquals("'s-Hertogenbosch-Nijmegen", denboschNijmegen.getTraject());
         assertEquals("beperkingen op last van de politie", denboschNijmegen.getReden());
         assertEquals("", denboschNijmegen.getBericht());
-        // 2013-12-27T16:43:00+0100
-        Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("+0100"));
-        calendar.set(Calendar.YEAR, 2010);
-        calendar.set(Calendar.MONTH, Calendar.DECEMBER);
-        calendar.set(Calendar.DAY_OF_MONTH, 16);
-        calendar.set(Calendar.HOUR_OF_DAY, 10);
-        calendar.set(Calendar.MINUTE, 16);
-        calendar.set(Calendar.SECOND, 0);
-        calendar.set(Calendar.MILLISECOND, 0);
-        assertEquals(calendar.getTime(), denboschNijmegen.getDatum());
+        assertEquals(of(2010, 12, 16, 11, 16, 0), denboschNijmegen.getDatum());
         assertNull(denboschNijmegen.getAdvies());
         assertNull(denboschNijmegen.getPeriode());
         assertEquals(1, storingen.getGeplandeStoringen().size());

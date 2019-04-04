@@ -1,5 +1,11 @@
 package nl.pvanassen.ns;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
+import java.util.Map;
+
 import nl.pvanassen.ns.error.NsApiException;
 import nl.pvanassen.ns.handle.Handle;
 import nl.pvanassen.ns.model.NsResult;
@@ -9,10 +15,7 @@ import nl.pvanassen.ns.model.stations.StationsHandle;
 import nl.pvanassen.ns.model.storingen.StoringenHandle;
 import nl.pvanassen.ns.model.vertrektijden.ActueleVertrekTijdenHandle;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.HashMap;
-import java.util.Map;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Main class for calling the NS api. The NS API is documented at <a href="http://www.ns.nl/api/api">NS API</a>
@@ -25,9 +28,12 @@ public class NsApi {
     /**
      * NS Date to Java date formatting string
      */
-    public static final String DATETIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ssZ";
+    public static final DateTimeFormatter DATETIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ssZ");
+
     private final HttpConnection httpConnection;
+
     private static final String BASE_URL = "http://webservices.ns.nl/";
+
     private final Map<Class<?>, Handle<?>> handleMap = new HashMap<>();
 
     /**
@@ -37,12 +43,9 @@ public class NsApi {
      * @param username Username supplied by the NS
      * @param password Password supplied by the NS
      */
-    public NsApi(String username, String password) {
-        if (username == null || password == null) {
-            throw new NullPointerException("Username or password cannot be null");
-        }
+    public NsApi(@NotNull final String username, @NotNull final String password) {
         // No isEmpty to remain compatible with JDK 1.5
-        if (username.trim().length() == 0 || password.trim().length() == 0) {
+        if (username.isEmpty() || password.isEmpty()) {
             throw new IllegalArgumentException("Username or password cannot be empty");
         }
         httpConnection = new HttpConnection(username, password);
@@ -64,7 +67,8 @@ public class NsApi {
      * @return Serialized response
      * @throws NsApiException In case of any other error than a network error
      */
-    public <T extends NsResult> T getApiResponse(ApiRequest<T> request) throws NsApiException {
+    @NotNull
+    public <T extends NsResult> T getApiResponse(@NotNull final ApiRequest<T> request) {
         try (InputStream stream = httpConnection
                 .getContent(NsApi.BASE_URL + request.getPath() + "?" + request.getRequestString())){
             @SuppressWarnings("unchecked")
