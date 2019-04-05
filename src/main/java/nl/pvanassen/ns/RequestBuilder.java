@@ -205,9 +205,6 @@ public class RequestBuilder {
          */
         @NotNull
         public ReisadviesRequestBuilder forDepartureTime(@NotNull final LocalDateTime dateTime) {
-            if (this.dateTime != null) {
-                throw new IllegalArgumentException("Cannot set departure time, arival time already set");
-            }
             this.dateTime = dateTime;
             departure = true;
             return this;
@@ -222,9 +219,6 @@ public class RequestBuilder {
          */
         @NotNull
         public ReisadviesRequestBuilder forArrivalTime(@NotNull final LocalDateTime dateTime) {
-            if (this.dateTime != null) {
-                throw new IllegalArgumentException("Cannot set arival time, departure time already set");
-            }
             this.dateTime = dateTime;
             departure = false;
             return this;
@@ -238,7 +232,7 @@ public class RequestBuilder {
          * @return The builder
          */
         @NotNull
-        public ReisadviesRequestBuilder includePastAdvices(int previousAdvices) {
+        public ReisadviesRequestBuilder includePastAdvices(final int previousAdvices) {
             this.previousAdvices = previousAdvices;
             return this;
         }
@@ -251,7 +245,7 @@ public class RequestBuilder {
          * @return The builder
          */
         @NotNull
-        public ReisadviesRequestBuilder includeFutureAdvices(int nextAdvices) {
+        public ReisadviesRequestBuilder includeFutureAdvices(final int nextAdvices) {
             this.nextAdvices = nextAdvices;
             return this;
         }
