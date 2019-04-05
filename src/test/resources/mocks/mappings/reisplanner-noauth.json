@@ -1,0 +1,32 @@
+{
+  "id" : "fa6573b8-b994-4740-913d-e7bc37e4dc85",
+  "name" : "ns-api-treinplanner",
+  "request" : {
+    "url" : "/ns-api-treinplanner?fromStation=Amsterdam&toStation=Utrecht&viaStation=Rotterdam&dateTime=2019-04-01T13:00:00&departure=true&yearCard=true&",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 401,
+    "body" : "<?xml version=\"1.0\"?><soap:Envelope xmlns:soap=\"http://www.w3.org/2003/05/soap-envelope\" soap:encodingStyle=\"http://www.w3.org/2003/05/soap-encoding\"><soap:Header></soap:Header><soap:Body><soap:Fault><faultcode>soap:Server</faultcode><faultstring>003:Authorization header not found in the request</faultstring></soap:Fault></soap:Body></soap:Envelope>\n",
+    "headers" : {
+      "Server" : "Apache",
+      "WWW-Authenticate" : "Basic realm=\"Secure Area\"",
+      "Last-Modified" : "Thu, 21 Apr 2016 13:53:52 GMT",
+      "ETag" : "\"160-530ff0a59bc00\"",
+      "Accept-Ranges" : "bytes",
+      "X-Content-Type-Options" : "nosniff",
+      "Content-Type" : "text/xml",
+      "Cache-Control" : "max-age=0",
+      "Expires" : "Fri, 05 Apr 2019 14:53:34 GMT",
+      "Date" : "Fri, 05 Apr 2019 14:53:34 GMT",
+      "Connection" : "keep-alive",
+      "Vary" : "Accept-Encoding"
+    }
+  },
+  "uuid" : "fa6573b8-b994-4740-913d-e7bc37e4dc85",
+  "persistent" : true,
+  "scenarioName" : "scenario-ns-api-treinplanner",
+  "requiredScenarioState" : "Started",
+  "newScenarioState" : "scenario-ns-api-treinplanner-2",
+  "insertionIndex" : 6
+}

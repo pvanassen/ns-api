@@ -32,7 +32,7 @@ public class NsApi {
 
     private final HttpConnection httpConnection;
 
-    private static final String BASE_URL = "http://webservices.ns.nl/";
+    private final String baseUrl;
 
     private final Map<Class<?>, Handle<?>> handleMap = new HashMap<>();
 
@@ -44,6 +44,17 @@ public class NsApi {
      * @param password Password supplied by the NS
      */
     public NsApi(@NotNull final String username, @NotNull final String password) {
+        this(username, password, "http://webservices.ns.nl/");
+    }
+
+    /**
+     * Constructor for the NS api handle. Takes a username and password as parameters. A username/password can be
+     * requested at <a href="http://www.ns.nl/api/api">NS API</a>
+     *
+     * @param username Username supplied by the NS
+     * @param password Password supplied by the NS
+     */
+    public NsApi(@NotNull final String username, @NotNull final String password, @NotNull final String baseUrl) {
         // No isEmpty to remain compatible with JDK 1.5
         if (username.isEmpty() || password.isEmpty()) {
             throw new IllegalArgumentException("Username or password cannot be empty");
@@ -54,6 +65,12 @@ public class NsApi {
         handleMap.put(StoringenEnWerkzaamhedenRequest.class, new StoringenHandle());
         handleMap.put(ReisadviesRequest.class, new ReisadviesHandle());
         handleMap.put(PrijzenRequest.class, new PrijsHandle());
+        if (baseUrl.endsWith("/")) {
+            this.baseUrl = baseUrl;
+        }
+        else {
+            this.baseUrl = baseUrl.concat("/");
+        }
     }
 
     /**
@@ -70,7 +87,7 @@ public class NsApi {
     @NotNull
     public <T extends NsResult> T getApiResponse(@NotNull final ApiRequest<T> request) {
         try (InputStream stream = httpConnection
-                .getContent(NsApi.BASE_URL + request.getPath() + "?" + request.getRequestString())){
+                .getContent(baseUrl + request.getPath() + "?" + request.getRequestString())){
             @SuppressWarnings("unchecked")
             Handle<T> handle = (Handle<T>) handleMap.get(request.getClass());
             if (handle == null) {
