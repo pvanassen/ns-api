@@ -3,6 +3,4 @@ sudo: false
 jdk:
   - oraclejdk8
 install:
-  - mvn install -Dgpg.skip=true -Dmaven.test.skip=true
-after_success:
-  - mvn test jacoco:report coveralls:jacoco
+  - mvn clean install -Dgpg.skip=true jacoco:report coveralls:report
