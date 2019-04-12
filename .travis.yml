@@ -2,7 +2,7 @@ language: java
 sudo: false
 cache:
   directories:
-    - $HOME/.m2
+      - $HOME/.m2
 jdk:
   - oraclejdk8
 before_script:
@@ -14,4 +14,5 @@ install:
 script:
   - mvn clean install -Dgpg.skip=true jacoco:report coveralls:report
 after_script:
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - JACOCO_SOURCE_PATH=src/main/java ./cc-test-reporter format-coverage target/site/jacoco/jacoco.xml --input-type jacoco
+  - ./cc-test-reporter upload-coverage
