@@ -37,12 +37,12 @@ All classes are immutable and thread safe.
 
 Maven
 =====
-Version 1.0 of this api is available in the central maven repository: 
+Version 1.1.0 of this api is available in the central maven repository: 
 ```Xml
 <dependency>
   <groupId>nl.pvanassen</groupId>
   <artifactId>ns-api</artifactId>
-  <version>1.0</version>
+  <version>1.1.0</version>
 </dependency>
 ```
 
