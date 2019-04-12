@@ -10,13 +10,13 @@ import static nl.pvanassen.ns.NsApi.DATETIME_FORMATTER;
 import java.io.InputStream;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeParseException;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import nl.pvanassen.ns.error.NsApiException;
 import nl.pvanassen.ns.handle.Handle;
-import nl.pvanassen.ns.xml.Xml;
+import nl.pvanassen.ns.parser.Response;
+import nl.pvanassen.ns.parser.XmlResponse;
 
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
@@ -42,8 +42,8 @@ public class ReisadviesHandle implements Handle<ReisMogelijkheden> {
     @Override
     public ReisMogelijkheden getModel(@NotNull final InputStream stream) {
         try {
-            final Xml xml = Xml.getXml(stream, "ReisMogelijkheden");
-            final List<ReisMogelijkheid> reisMogelijkheden = xml.children("ReisMogelijkheid")
+            final XmlResponse response = Response.getXml(stream, "ReisMogelijkheden");
+            final List<ReisMogelijkheid> reisMogelijkheden = response.children("ReisMogelijkheid")
                     .stream()
                     .map(this::getReisMogelijkheid)
                     .collect(Collectors.toList());
@@ -55,30 +55,31 @@ public class ReisadviesHandle implements Handle<ReisMogelijkheden> {
         }
     }
 
-    private ReisMogelijkheid getReisMogelijkheid(final Xml reisMogelijkheidXml) {
-        final List<Melding> meldingen = reisMogelijkheidXml.childrenIfPresent("Melding")
-                .map(xml -> xml.stream().map(this::getMelding).collect(Collectors.toList()))
-                .orElseGet(LinkedList::new);
+    private ReisMogelijkheid getReisMogelijkheid(final XmlResponse reisMogelijkheidResponse) {
+        final List<Melding> meldingen = reisMogelijkheidResponse.children("Melding")
+                .stream()
+                .map(this::getMelding)
+                .collect(Collectors.toList());
 
-        final int aantalOverstappen = Integer.parseInt(reisMogelijkheidXml.child("AantalOverstappen").content());
-        final int geplandeReisTijdMinuten = getReistijdInMinuten(reisMogelijkheidXml.child("GeplandeReisTijd")
+        final int aantalOverstappen = Integer.parseInt(reisMogelijkheidResponse.child("AantalOverstappen").content());
+        final int geplandeReisTijdMinuten = getReistijdInMinuten(reisMogelijkheidResponse.child("GeplandeReisTijd")
                 .content());
-        final int actueleReisTijdMinuten = getReistijdInMinuten(reisMogelijkheidXml.child("ActueleReisTijd")
+        final int actueleReisTijdMinuten = getReistijdInMinuten(reisMogelijkheidResponse.child("ActueleReisTijd")
                 .content());
 
-        final boolean optimaal = reisMogelijkheidXml.childIfPresent("Optimaal")
+        final boolean optimaal = reisMogelijkheidResponse.childIfPresent("Optimaal")
                 .map(xml -> parseBoolean(xml.content()))
                 .orElse(TRUE);
 
-        final LocalDateTime geplandeVertrekTijd = parse(reisMogelijkheidXml.child("GeplandeVertrekTijd").content(), DATETIME_FORMATTER);
-        final LocalDateTime actueleVertrekTijd = parse(reisMogelijkheidXml.child("ActueleVertrekTijd").content(), DATETIME_FORMATTER);
-        final LocalDateTime geplandeAankomstTijd = parse(reisMogelijkheidXml.child("GeplandeAankomstTijd").content(), DATETIME_FORMATTER);
-        final LocalDateTime actueleAankomstTijd = parse(reisMogelijkheidXml.child("ActueleAankomstTijd").content(), DATETIME_FORMATTER);
+        final LocalDateTime geplandeVertrekTijd = parse(reisMogelijkheidResponse.child("GeplandeVertrekTijd").content(), DATETIME_FORMATTER);
+        final LocalDateTime actueleVertrekTijd = parse(reisMogelijkheidResponse.child("ActueleVertrekTijd").content(), DATETIME_FORMATTER);
+        final LocalDateTime geplandeAankomstTijd = parse(reisMogelijkheidResponse.child("GeplandeAankomstTijd").content(), DATETIME_FORMATTER);
+        final LocalDateTime actueleAankomstTijd = parse(reisMogelijkheidResponse.child("ActueleAankomstTijd").content(), DATETIME_FORMATTER);
 
-        final String aankomstVertraging = reisMogelijkheidXml.child("AankomstVertraging").content();
-        final String status = reisMogelijkheidXml.child("Status").content();
+        final String aankomstVertraging = reisMogelijkheidResponse.child("AankomstVertraging").content();
+        final String status = reisMogelijkheidResponse.child("Status").content();
 
-        final List<ReisDeel> reisDelen = reisMogelijkheidXml.children("ReisDeel")
+        final List<ReisDeel> reisDelen = reisMogelijkheidResponse.children("ReisDeel")
                 .stream()
                 .map(this::getReisdeel)
                 .collect(Collectors.toList());
@@ -100,10 +101,10 @@ public class ReisadviesHandle implements Handle<ReisMogelijkheden> {
 
     }
 
-    private Melding getMelding(final Xml meldingXml) {
-        final String id = meldingXml.child("Id").content();
-        final boolean ernstig = parseBoolean(meldingXml.child("Ernstig").content());
-        final String text = meldingXml.child("Text").content();
+    private Melding getMelding(final Response meldingResponse) {
+        final String id = meldingResponse.child("Id").content();
+        final boolean ernstig = parseBoolean(meldingResponse.child("Ernstig").content());
+        final String text = meldingResponse.child("Text").content();
         return Melding.builder()
                 .id(id)
                 .ernstig(ernstig)
@@ -111,22 +112,22 @@ public class ReisadviesHandle implements Handle<ReisMogelijkheden> {
                 .build();
     }
 
-    private ReisDeel getReisdeel(Xml reisDeelXml) {
-        final String reisSoort = reisDeelXml.attr("reisSoort");
-        final String vervoerder = reisDeelXml.child("Vervoerder").content();
-        final String vervoerType = reisDeelXml.child("VervoerType").content();
-        final int ritNummer = Integer.parseInt(reisDeelXml.child("RitNummer").content());
-        final String statusReisdeel = reisDeelXml.child("Status").content();
-        final String geplandeStoringId = reisDeelXml.child("GeplandeStoringId").content();
-        final String ongeplandeStoringId = reisDeelXml.child("OngeplandeStoringId").content();
-        final List<ReisStop> reisStops = reisDeelXml.children("ReisStop")
+    private ReisDeel getReisdeel(XmlResponse reisDeelResponse) {
+        final String reisSoort = reisDeelResponse.attr("reisSoort");
+        final String vervoerder = reisDeelResponse.requiredChild("Vervoerder").content();
+        final String vervoerType = reisDeelResponse.requiredChild("VervoerType").content();
+        final int ritNummer = Integer.parseInt(reisDeelResponse.requiredChild("RitNummer").content());
+        final String statusReisdeel = reisDeelResponse.requiredChild("Status").content();
+        final String geplandeStoringId = reisDeelResponse.child("GeplandeStoringId").content();
+        final String ongeplandeStoringId = reisDeelResponse.child("OngeplandeStoringId").content();
+        final List<ReisStop> reisStops = reisDeelResponse.children("ReisStop")
                 .stream()
                 .map(this::getReisStop)
                 .collect(Collectors.toList());
 
-        final List<String> reisDetails = reisDeelXml.child("Reisdetails").children("Reisdetail")
+        final List<String> reisDetails = reisDeelResponse.child("Reisdetails").children("Reisdetail")
                 .stream()
-                .map(Xml::content)
+                .map(Response::content)
                 .collect(Collectors.toList());
 
         return ReisDeel.builder()
@@ -142,11 +143,11 @@ public class ReisadviesHandle implements Handle<ReisMogelijkheden> {
                 .build();
     }
 
-    private ReisStop getReisStop(final Xml reisStopXml) {
-        final String naam = reisStopXml.child("Naam").content();
-        final LocalDateTime tijd = LocalDateTime.parse(reisStopXml.child("Tijd").content(), DATETIME_FORMATTER);
-        final String spoor = reisStopXml.child("Spoor").content();
-        final boolean gewijzigdVertrekspoor = ofNullable(spoor).map(ignored -> parseBoolean(reisStopXml.child("Spoor").attr("wijziging"))).orElse(false);
+    private ReisStop getReisStop(final XmlResponse reisStopResponse) {
+        final String naam = reisStopResponse.requiredChild("Naam").content();
+        final LocalDateTime tijd = LocalDateTime.parse(reisStopResponse.requiredChild("Tijd").content(), DATETIME_FORMATTER);
+        final String spoor = reisStopResponse.child("Spoor").content();
+        final boolean gewijzigdVertrekspoor = ofNullable(spoor).map(ignored -> parseBoolean(reisStopResponse.child("Spoor").attr("wijziging"))).orElse(false);
 
         return ReisStop.builder()
                 .naam(naam)

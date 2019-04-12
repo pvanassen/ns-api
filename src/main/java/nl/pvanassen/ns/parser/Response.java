@@ -1,10 +1,11 @@
-package nl.pvanassen.ns.xml;
+package nl.pvanassen.ns.parser;
+
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.io.InputStream;
 import java.util.List;
 import java.util.Optional;
-
-import org.jetbrains.annotations.NotNull;
 
 /**
  * Xml handling base class
@@ -12,7 +13,7 @@ import org.jetbrains.annotations.NotNull;
  * @author Paul van Assen
  * 
  */
-public interface Xml {
+public interface Response<T extends Response> {
 
     /**
      * Get the XML root element
@@ -21,10 +22,13 @@ public interface Xml {
      * @param rootName Root element name
      * @return Xml object
      */
-    static Xml getXml(InputStream stream, String rootName) {
-        return new XmlPresent(stream, rootName);
+    static XmlResponsePresent getXml(InputStream stream, String rootName) {
+        return new XmlResponsePresent(stream, rootName);
     }
 
+    static JsonResponsePresent getJson(InputStream stream) {
+        return new JsonResponsePresent(stream);
+    }
     /**
      * @return Name of the element
      */
@@ -34,6 +38,7 @@ public interface Xml {
     /**
      * @return Content of the element
      */
+    @Nullable
     String content();
 
     /**
@@ -43,7 +48,16 @@ public interface Xml {
      * @return Xml implementation, either present or absent
      */
     @NotNull
-    Xml child(@NotNull String name);
+    T child(@NotNull String name);
+
+    /**
+     * Get a child element
+     *
+     * @param name Name of the child
+     * @return Xml implementation, either present or absent
+     */
+    @NotNull
+    ResponsePresent<T> requiredChild(@NotNull String name);
 
     /**
      * Get all child elements by name
@@ -52,15 +66,7 @@ public interface Xml {
      * @return A list of XML objects, either present or absent
      */
     @NotNull
-    List<Xml> children(@NotNull String name);
-
-    /**
-     * Get the value of an attribute
-     * 
-     * @param name Name of the attribute to get
-     * @return Value of the attribute if found, or an exception of not found
-     */
-    String attr(@NotNull String name);
+    List<T> children(@NotNull String name);
 
     /**
      * Checks to see if an element is present
@@ -77,15 +83,7 @@ public interface Xml {
      * @return Returns optional.of when present, empty() them missing
      */
     @NotNull
-    Optional<List<Xml>> childrenIfPresent(@NotNull String name);
+    Optional<T> childIfPresent(@NotNull String name);
 
-    /**
-     * Returns an optional if the element is present
-     *
-     * @param name Name of the element
-     * @return Returns optional.of when present, empty() them missing
-     */
-    @NotNull
-    Optional<Xml> childIfPresent(@NotNull String name);
-
+    ResponsePresent<T> asPresent();
 }

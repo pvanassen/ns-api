@@ -1,4 +1,4 @@
-package nl.pvanassen.ns.xml;
+package nl.pvanassen.ns.parser;
 
 import static java.util.Collections.emptyList;
 import static java.util.Optional.empty;
@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Missing XML element. Will return default values. This is used to ease traversing over a tree
@@ -14,11 +15,11 @@ import org.jetbrains.annotations.NotNull;
  * @author Paul van Assen
  * 
  */
-public class XmlAbsent implements Xml {
+public class JsonResponseAbsent implements JsonResponse {
 
     private final String name;
 
-    XmlAbsent(String name) {
+    JsonResponseAbsent(String name) {
         this.name = name;
     }
 
@@ -28,6 +29,7 @@ public class XmlAbsent implements Xml {
         return name;
     }
 
+    @Nullable
     @Override
     public String content() {
         return null;
@@ -35,19 +37,14 @@ public class XmlAbsent implements Xml {
 
     @NotNull
     @Override
-    public Xml child(@NotNull final String name) {
-        return new XmlAbsent(name);
+    public JsonResponse child(@NotNull final String name) {
+        return new JsonResponseAbsent(name);
     }
 
     @NotNull
     @Override
-    public List<Xml> children(@NotNull final String name) {
+    public List<JsonResponse> children(@NotNull final String name) {
         return emptyList();
-    }
-
-    @Override
-    public String attr(@NotNull final String attributeName) {
-        return null;
     }
 
     @Override
@@ -55,15 +52,18 @@ public class XmlAbsent implements Xml {
         return false;
     }
 
-    @NotNull
     @Override
-    public Optional<List<Xml>> childrenIfPresent(@NotNull final String name) {
+    public @NotNull Optional<JsonResponse> childIfPresent(@NotNull final String name) {
         return empty();
     }
 
-    @NotNull
     @Override
-    public Optional<Xml> childIfPresent(@NotNull final String name) {
-        return empty();
+    public ResponsePresent<JsonResponse> asPresent() {
+        throw new IllegalStateException("Element not present");
+    }
+
+    @Override
+    public @NotNull ResponsePresent<JsonResponse> requiredChild(@NotNull final String name) {
+        throw new IllegalStateException("Element not present");
     }
 }

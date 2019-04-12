@@ -48,7 +48,7 @@ Version 1.0 of this api is available in the central maven repository:
 
 Code borrowing
 ==============
-For parsing the XML I made use of the code found in this article: http://blog.another-d-mention.ro/programming/the-simplest-way-to-parse-xml-in-java/
+For parsing the XML I made use of the code found in this article: http://blog.another-d-mention.ro/programming/the-simplest-way-to-parse-response-in-java/
 
 License
 =======

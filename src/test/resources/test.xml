@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?response version="1.0" encoding="UTF-8"?>
 <test>
 	<subelement attribute="nice-and-pretty" />
 	<content>Test</content>

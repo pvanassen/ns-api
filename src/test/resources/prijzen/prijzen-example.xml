@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?response version="1.0" encoding="UTF-8" ?>
 <VervoerderKeuzes>
   <VervoerderKeuze naam="MEEST_NS">
     <Tariefeenheden>82</Tariefeenheden>

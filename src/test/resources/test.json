@@ -1,0 +1,23 @@
+{
+  "test": {
+    "number": 1,
+    "text": "testtext",
+    "double": 1.1
+  },
+  "array": [
+    "n1",
+    "n2",
+    "n3",
+    "n4",
+    "n5"
+  ],
+  "content": "Test",
+  "object-array": [
+    {
+      "key": "value"
+    },
+    {
+      "key2": "value2"
+    }
+  ]
+}

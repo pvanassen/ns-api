@@ -7,7 +7,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import nl.pvanassen.ns.handle.Handle;
-import nl.pvanassen.ns.xml.Xml;
+import nl.pvanassen.ns.parser.Response;
+import nl.pvanassen.ns.parser.XmlResponse;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -28,32 +29,32 @@ public class StationsHandle implements Handle<Stations> {
     @NotNull
     @Override
     public Stations getModel(@NotNull final InputStream stream) {
-        final Xml xml = Xml.getXml(stream, "Stations");
+        final XmlResponse response = Response.getXml(stream, "Stations");
 
-        final List<Station> stations = xml.children("Station")
+        final List<Station> stations = response.children("Station")
                 .stream()
                 .map(this::getStation)
                 .collect(Collectors.toList());
         return Stations.builder().stations(stations).build();
     }
 
-    private Station getStation(final Xml stationXml) {
-        final String code = stationXml.child("Code").content();
-        final String type = stationXml.child("Type").content();
+    private Station getStation(final XmlResponse stationResponse) {
+        final String code = stationResponse.requiredChild("Code").content();
+        final String type = stationResponse.requiredChild("Type").content();
         final Namen namen = Namen.builder()
-                .kort(stationXml.child("Namen").child("Kort").content())
-                .middel(stationXml.child("Namen").child("Middel").content())
-                .lang(stationXml.child("Namen").child("Lang").content())
+                .kort(stationResponse.child("Namen").requiredChild("Kort").content())
+                .middel(stationResponse.child("Namen").requiredChild("Middel").content())
+                .lang(stationResponse.child("Namen").requiredChild("Lang").content())
                 .build();
 
-        final String land = stationXml.child("Land").content();
-        final int uicCode = Integer.parseInt(stationXml.child("UICCode").content());
-        final double lat = Double.parseDouble(stationXml.child("Lat").content());
-        final double lon = Double.parseDouble(stationXml.child("Lon").content());
+        final String land = stationResponse.requiredChild("Land").content();
+        final int uicCode = Integer.parseInt(stationResponse.requiredChild("UICCode").content());
+        final double lat = Double.parseDouble(stationResponse.requiredChild("Lat").content());
+        final double lon = Double.parseDouble(stationResponse.requiredChild("Lon").content());
 
-        final List<String> synoniemen = stationXml.child("Synoniemen").children("Synoniem")
+        final List<String> synoniemen = stationResponse.child("Synoniemen").children("Synoniem")
                 .stream()
-                .map(Xml::content)
+                .map(Response::content)
                 .collect(Collectors.toList());
 
         return Station.builder()

@@ -12,7 +12,8 @@ import java.util.stream.Collectors;
 
 import nl.pvanassen.ns.error.NsApiException;
 import nl.pvanassen.ns.handle.Handle;
-import nl.pvanassen.ns.xml.Xml;
+import nl.pvanassen.ns.parser.Response;
+import nl.pvanassen.ns.parser.XmlResponse;
 
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
@@ -38,8 +39,9 @@ public class ActueleVertrekTijdenHandle implements Handle<VertrekkendeTreinen> {
     @Override
     public VertrekkendeTreinen getModel(@NotNull final InputStream stream) {
         try {
-            final Xml xml = Xml.getXml(stream, "ActueleVertrekTijden");
-            final List<VertrekkendeTrein> vertrekkendeTreinen = xml.children("VertrekkendeTrein").stream()
+            final XmlResponse response = Response.getXml(stream, "ActueleVertrekTijden");
+            final List<VertrekkendeTrein> vertrekkendeTreinen = response.children("VertrekkendeTrein")
+                    .stream()
                     .map(this::getVertrekkendeTrein)
                     .collect(Collectors.toList());
             return VertrekkendeTreinen.builder()
@@ -52,32 +54,32 @@ public class ActueleVertrekTijdenHandle implements Handle<VertrekkendeTreinen> {
         }
     }
 
-    private VertrekkendeTrein getVertrekkendeTrein(final Xml vertrekkendeTreinXml) {
-        final int ritNummer = Integer.parseInt(vertrekkendeTreinXml.child("RitNummer").content());
-        final LocalDateTime vertrekTijd = LocalDateTime.parse(vertrekkendeTreinXml.child("VertrekTijd").content(), DATETIME_FORMATTER);
-        final String vertrekVertraging = vertrekkendeTreinXml.child("VertrekVertraging").content();
+    private VertrekkendeTrein getVertrekkendeTrein(final XmlResponse vertrekkendeTreinResponse) {
+        final int ritNummer = Integer.parseInt(vertrekkendeTreinResponse.requiredChild("RitNummer").content());
+        final LocalDateTime vertrekTijd = LocalDateTime.parse(vertrekkendeTreinResponse.requiredChild("VertrekTijd").content(), DATETIME_FORMATTER);
+        final String vertrekVertraging = vertrekkendeTreinResponse.child("VertrekVertraging").content();
 
-        final int vertrekVertragingMinuten = vertrekkendeTreinXml.childIfPresent("VertrekVertraging")
-                .map(Xml::content)
+        final int vertrekVertragingMinuten = vertrekkendeTreinResponse.childIfPresent("VertrekVertraging")
+                .map(Response::content)
                 .map(this::getVertrekVertraging)
                 .orElse(0);
 
-        final String vertrekVertragingTekst = vertrekkendeTreinXml.child("VertrekVertragingTekst").content();
-        final String eindBestemming = vertrekkendeTreinXml.child("EindBestemming").content();
-        final String treinSoort = vertrekkendeTreinXml.child("TreinSoort").content();
-        final String routeTekst = vertrekkendeTreinXml.child("RouteTekst").content();
-        final String vervoerder = vertrekkendeTreinXml.child("Vervoerder").content();
-        final String vertrekSpoor = vertrekkendeTreinXml.child("VertrekSpoor").content();
-        final boolean gewijzigdVertrekspoor = parseBoolean(vertrekkendeTreinXml.child("VertrekSpoor").attr(
+        final String vertrekVertragingTekst = vertrekkendeTreinResponse.child("VertrekVertragingTekst").content();
+        final String eindBestemming = vertrekkendeTreinResponse.requiredChild("EindBestemming").content();
+        final String treinSoort = vertrekkendeTreinResponse.requiredChild("TreinSoort").content();
+        final String routeTekst = vertrekkendeTreinResponse.child("RouteTekst").content();
+        final String vervoerder = vertrekkendeTreinResponse.requiredChild("Vervoerder").content();
+        final String vertrekSpoor = vertrekkendeTreinResponse.requiredChild("VertrekSpoor").content();
+        final boolean gewijzigdVertrekspoor = parseBoolean(vertrekkendeTreinResponse.child("VertrekSpoor").attr(
                 "wijziging"));
 
-        final List<String> opmerkingen = vertrekkendeTreinXml.children("Opmerkingen")
+        final List<String> opmerkingen = vertrekkendeTreinResponse.children("Opmerkingen")
                 .stream()
                 .map(opm -> opm.child("Opmerking"))
-                .map(Xml::content)
+                .map(Response::content)
                 .collect(Collectors.toList());
 
-        final String reisTip = vertrekkendeTreinXml.child("ReisTip").content();
+        final String reisTip = vertrekkendeTreinResponse.child("ReisTip").content();
 
         return VertrekkendeTrein.builder()
                         .eindBestemming(eindBestemming)

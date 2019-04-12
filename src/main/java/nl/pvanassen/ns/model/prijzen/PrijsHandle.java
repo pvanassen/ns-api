@@ -11,7 +11,8 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import nl.pvanassen.ns.handle.Handle;
-import nl.pvanassen.ns.xml.Xml;
+import nl.pvanassen.ns.parser.Response;
+import nl.pvanassen.ns.parser.XmlResponse;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -32,9 +33,9 @@ public class PrijsHandle implements Handle<Prijzen> {
     @NotNull
     @Override
     public Prijzen getModel(@NotNull final InputStream stream) {
-        final Xml xml = Xml.getXml(stream, "VervoerderKeuzes");
+        final XmlResponse response = Response.getXml(stream, "VervoerderKeuzes");
 
-        final Map<String, VervoerderKeuze> vervoerderKeuzes = xml.children("VervoerderKeuze")
+        final Map<String, VervoerderKeuze> vervoerderKeuzes = response.children("VervoerderKeuze")
                 .stream()
                 .map(this::getVervoerderKeuze)
                 .collect(Collectors.toMap(VervoerderKeuze::getNaam, Function.identity()));
@@ -42,7 +43,7 @@ public class PrijsHandle implements Handle<Prijzen> {
         return Prijzen.builder().vervoerderKeuzes(unmodifiableMap(vervoerderKeuzes)).build();
     }
 
-    private VervoerderKeuze getVervoerderKeuze(Xml vervoerderKeuze) {
+    private VervoerderKeuze getVervoerderKeuze(XmlResponse vervoerderKeuze) {
         final String vervoerderKeuzeNaam = vervoerderKeuze.attr("naam");
         final int tariefEenheden = Integer.parseInt(vervoerderKeuze.child("Tariefeenheden").content());
         final Map<String, ReisType> reisTypes = vervoerderKeuze.children("ReisType")
@@ -58,9 +59,9 @@ public class PrijsHandle implements Handle<Prijzen> {
 
     }
 
-    private ReisType getReisType(Xml reisTypeXml) {
-        final String reisTypeNaam = reisTypeXml.attr("name");
-        final Map<Integer, ReisKlasse> reisKlassen = reisTypeXml.children("ReisKlasse")
+    private ReisType getReisType(XmlResponse reisTypeResponse) {
+        final String reisTypeNaam = reisTypeResponse.attr("name");
+        final Map<Integer, ReisKlasse> reisKlassen = reisTypeResponse.children("ReisKlasse")
                 .stream()
                 .map(this::getReisKlasse)
                 .collect(Collectors.toMap(ReisKlasse::getKlasse, Function.identity()));
@@ -71,10 +72,10 @@ public class PrijsHandle implements Handle<Prijzen> {
                 .build();
     }
 
-    private ReisKlasse getReisKlasse(Xml reisKlasseXml) {
-        final int klasse = Integer.parseInt(reisKlasseXml.attr("klasse"));
+    private ReisKlasse getReisKlasse(XmlResponse reisKlasseResponse) {
+        final int klasse = Integer.parseInt(reisKlasseResponse.attr("klasse"));
 
-        final List<Prijsdeel> prijsdelen = reisKlasseXml.children("Prijsdeel")
+        final List<Prijsdeel> prijsdelen = reisKlasseResponse.children("Prijsdeel")
                 .stream()
                 .map(prijsdeelXml -> Prijsdeel.builder()
                         .naar(prijsdeelXml.attr("naar"))
@@ -84,8 +85,8 @@ public class PrijsHandle implements Handle<Prijzen> {
                         .build())
                 .collect(Collectors.toList());
 
-        final BigDecimal totaal = new BigDecimal(reisKlasseXml.child("Totaal").content());
-        final Map<String, BigDecimal> kortingprijzen = reisKlasseXml.child("Korting")
+        final BigDecimal totaal = new BigDecimal(reisKlasseResponse.requiredChild("Totaal").content());
+        final Map<String, BigDecimal> kortingprijzen = reisKlasseResponse.child("Korting")
                 .children("Kortingsprijs")
                 .stream()
                 .collect(Collectors.toMap(kortingsPrijsXml -> kortingsPrijsXml.attr("name"), kortingsPrijsXml -> new BigDecimal(kortingsPrijsXml.attr("prijs"))));

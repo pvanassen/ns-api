@@ -1,10 +1,16 @@
-package nl.pvanassen.ns.xml;
+package nl.pvanassen.ns.parser;
 
-import static java.util.Collections.emptyList;
-import static java.util.Collections.singletonList;
-import static java.util.Optional.empty;
-import static java.util.Optional.of;
+import lombok.extern.slf4j.Slf4j;
+import nl.pvanassen.ns.error.NsApiException;
+import org.jetbrains.annotations.NotNull;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,19 +19,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-
-import nl.pvanassen.ns.error.NsApiException;
-
-import org.jetbrains.annotations.NotNull;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-
-import lombok.extern.slf4j.Slf4j;
+import static java.util.Collections.emptyList;
+import static java.util.Collections.singletonList;
+import static java.util.Optional.empty;
+import static java.util.Optional.of;
 
 /**
  * From <a href="http://blog.another-d-mention.ro/programming/the-simplest-way-to-parse-xml-in-java/">the simplest way
@@ -35,7 +32,7 @@ import lombok.extern.slf4j.Slf4j;
  * 
  */
 @Slf4j
-public class XmlPresent implements Xml {
+public class XmlResponsePresent implements XmlResponse, ResponsePresent<XmlResponse> {
 
     private final String name;
 
@@ -43,7 +40,7 @@ public class XmlPresent implements Xml {
 
     private final Map<String, String> nameAttributes = new HashMap<>();
 
-    private final Map<String, List<Xml>> nameChildren = new HashMap<>();
+    private final Map<String, List<XmlResponsePresent>> nameChildren = new HashMap<>();
 
     @NotNull
     private static Element rootElement(@NotNull final InputStream stream, @NotNull final String rootName) {
@@ -71,12 +68,12 @@ public class XmlPresent implements Xml {
      * @param stream Stream to use
      * @param rootName Root name to use
      */
-    XmlPresent(@NotNull final InputStream stream, @NotNull final String rootName) {
-        this(XmlPresent.rootElement(stream, rootName));
+    XmlResponsePresent(@NotNull final InputStream stream, @NotNull final String rootName) {
+        this(XmlResponsePresent.rootElement(stream, rootName));
     }
 
     @NotNull
-    private XmlPresent(@NotNull Element element) {
+    private XmlResponsePresent(@NotNull Element element) {
         name = element.getNodeName();
         content = element.getTextContent();
         NamedNodeMap namedNodeMap = element.getAttributes();
@@ -92,7 +89,7 @@ public class XmlPresent implements Xml {
             Node node = nodes.item(i);
             int type = node.getNodeType();
             if (type == Node.ELEMENT_NODE) {
-                addChild(node.getNodeName(), new XmlPresent((Element) node));
+                addChild(node.getNodeName(), new XmlResponsePresent((Element) node));
             }
         }
     }
@@ -101,7 +98,7 @@ public class XmlPresent implements Xml {
         nameAttributes.put(name, value);
     }
 
-    private void addChild(@NotNull final String name, @NotNull final XmlPresent child) {
+    private void addChild(@NotNull final String name, @NotNull final XmlResponsePresent child) {
         nameChildren.compute(name, (key, list) -> {
             if (list == null) {
                 return new LinkedList<>(singletonList(child));
@@ -117,6 +114,7 @@ public class XmlPresent implements Xml {
         return name;
     }
 
+    @NotNull
     @Override
     public String content() {
         return content;
@@ -124,19 +122,19 @@ public class XmlPresent implements Xml {
 
     @NotNull
     @Override
-    public Xml child(@NotNull final String name) {
-        final List<Xml> children = children(name);
+    public XmlResponse child(@NotNull final String name) {
+        final List<XmlResponse> children = children(name);
         if (children.size() != 1) {
             log.debug("Could not find individual child node: {}", name);
-            return new XmlAbsent(name);
+            return new XmlResponseAbsent(name);
         }
         return children.get(0);
     }
 
     @NotNull
     @Override
-    public List<Xml> children(@NotNull final String name) {
-        List<Xml> children = nameChildren.get(name);
+    public List<XmlResponse> children(@NotNull final String name) {
+        final List<XmlResponsePresent> children = nameChildren.get(name);
         return children == null ? emptyList() : new ArrayList<>(children);
     }
 
@@ -150,21 +148,25 @@ public class XmlPresent implements Xml {
         return nameChildren.containsKey(name);
     }
 
-    @NotNull
     @Override
-    public Optional<List<Xml>> childrenIfPresent(@NotNull final String name) {
-        if (isPresent(name)) {
-            return of(children(name));
-        }
-        return empty();
-    }
-
-    @NotNull
-    @Override
-    public Optional<Xml> childIfPresent(@NotNull final String name) {
+    public @NotNull Optional<XmlResponse> childIfPresent(@NotNull final String name) {
         if (isPresent(name)) {
             return of(child(name));
         }
         return empty();
+    }
+
+    @Override
+    public ResponsePresent<XmlResponse> asPresent() {
+        return this;
+    }
+
+    @Override
+    public @NotNull ResponsePresent<XmlResponse> requiredChild(@NotNull final String name) {
+        final List<XmlResponse> children = children(name);
+        if (children.size() != 1) {
+            throw new IllegalStateException("Element not present");
+        }
+        return children.get(0).asPresent();
     }
 }
