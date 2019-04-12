@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/pvanassen/ns-api.png?branch=master)](https://travis-ci.org/pvanassen/ns-api)
-[![Coverage Status](https://coveralls.io/repos/pvanassen/ns-api/badge.png?branch=master)](https://coveralls.io/r/pvanassen/ns-api?branch=master)
+[![Build Status](https://travis-ci.org/pvanassen/ns-api.png?branch=ns-rest-api)](https://travis-ci.org/pvanassen/ns-api)
+[![Coverage Status](https://coveralls.io/repos/pvanassen/ns-api/badge.png?branch=ns-rest-api)](https://coveralls.io/r/pvanassen/ns-api?branch=ns-rest-api)
 
 NS API
 ======
