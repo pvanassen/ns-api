@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/pvanassen/ns-api.png?branch=ns-rest-api)](https://travis-ci.org/pvanassen/ns-api)
 [![Coverage Status](https://coveralls.io/repos/pvanassen/ns-api/badge.png?branch=ns-rest-api)](https://coveralls.io/r/pvanassen/ns-api?branch=ns-rest-api)
-
+[![Maven central](https://img.shields.io/maven-central/v/nl.pvanassen/ns-api.svg)](https://img.shields.io/maven-central/v/nl.pvanassen/ns-api.svg)
+[![Maintainability](https://api.codeclimate.com/v1/badges/ccc96aeeba3df1757ed1/maintainability)](https://codeclimate.com/github/pvanassen/ns-api/maintainability)
 NS API
 ======
 An API for talking to the NS (Dutch railways) [API](http://www.ns.nl/api/api) interface written in Java. 
