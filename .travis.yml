@@ -4,3 +4,5 @@ jdk:
   - oraclejdk8
 install:
   - mvn clean install -Dgpg.skip=true jacoco:report coveralls:report
+after_success:
+  -
