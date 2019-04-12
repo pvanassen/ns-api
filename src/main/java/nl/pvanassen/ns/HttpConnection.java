@@ -1,17 +1,15 @@
 package nl.pvanassen.ns;
 
-import java.io.IOException;
-import java.io.InputStream;
-
-import nl.pvanassen.ns.error.NsApiException;
-
-import org.jetbrains.annotations.NotNull;
-
 import lombok.extern.slf4j.Slf4j;
+import nl.pvanassen.ns.error.NsApiException;
 import okhttp3.Credentials;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import org.jetbrains.annotations.NotNull;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Internal class for handling http connections
@@ -54,14 +52,12 @@ class HttpConnection {
         try {
             final Response response = client.newCall(request).execute();
             if (response.body() == null) {
-                log.error("Error while calling the webservice, entity is null");
                 throw new NsApiException("Error while calling the webservice, entity is null");
             }
             return response.body().byteStream();
         }
         catch (RuntimeException e) {
-            log.error("Error while calling the webservice, entity is null");
-            throw new NsApiException("Error while calling the webservice, entity is null", e);
+            throw new NsApiException("Error while calling the webservice", e);
         }
     }
 }
