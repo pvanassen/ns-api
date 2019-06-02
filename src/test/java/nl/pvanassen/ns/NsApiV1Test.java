@@ -5,17 +5,17 @@ import nl.pvanassen.ns.model.NsResult;
 import org.jetbrains.annotations.NotNull;
 import org.junit.Test;
 
-public class NsApiV2Test {
+public class NsApiV1Test {
 
 
     @Test(expected = IllegalArgumentException.class)
     public void testNsApiEmpty() {
-        new NsApiV2("", "", "");
+        new NsApiV1("", "", "");
     }
 
     @Test(expected = NsApiException.class)
     public void testGetApiResponseString() {
-        final NsApi nsApi = new NsApiV2("test", "invalid", "https://null");
+        final NsApi nsApi = new NsApiV1("test", "invalid", "https://null");
         nsApi.getApiResponse(new ApiRequest<NsResult>() {
 
             @NotNull
@@ -34,7 +34,7 @@ public class NsApiV2Test {
 
     @Test(expected = NsApiException.class)
     public void testGetApiResponseStations() {
-        NsApi nsApi = new NsApiV2("test", "invalid", "https://null");
+        NsApi nsApi = new NsApiV1("test", "invalid", "https://null");
         nsApi.getApiResponse(new StationsRequest());
     }
 }

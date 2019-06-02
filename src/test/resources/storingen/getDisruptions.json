@@ -1,0 +1,261 @@
+{
+  "links": {
+
+  },
+  "payload": [
+    {
+      "id": "2019_vl_dussel_13_23apr",
+      "type": "werkzaamheid",
+      "titel": "Venlo-Düsseldorf",
+      "verstoring": {
+        "type": "WERKZAAMHEID",
+        "id": "2019_vl_dussel_13_23apr",
+        "extraReistijd": "een kwartier tot een half uur",
+        "reisadviezen": {
+          "titel": "U kunt gebruikmaken van de bussen",
+          "reisadvies": [
+            {
+              "advies": [
+                "er rijden bussen tussen Mönchengladbach Hbf en Düsseldorf Hbf",
+                "plan uw reis met behulp van de internationale reisplanner"
+              ]
+            }
+          ]
+        },
+        "geldigheidsLijst": [
+          {
+            "startDatum": "2019-04-13T04:00:00+0200",
+            "eindDatum": "2019-04-24T03:59:00+0200"
+          }
+        ],
+        "gevolg": "Beperkt treinverkeer businzet, extra reistijd 15-30 min.",
+        "impact": 4,
+        "maatschappij": 56,
+        "landelijk": true,
+        "oorzaak": "werkzaamheden",
+        "header": "Venlo-Düsseldorf",
+        "periode": "tot en met dinsdag 23 april",
+        "trajecten": [
+          {
+            "stations": [
+              "vl",
+              "kn",
+              "kbry",
+              "kboi",
+              "kdul",
+              "viers",
+              "mcgb"
+            ],
+            "begintijd": "2019-04-13T04:00:00+0200",
+            "eindtijd": "2019-04-24T03:59:00+0200"
+          }
+        ],
+        "prioriteit": 20
+      }
+    },
+    {
+      "id": "2019_ICE_asd_basel_13_28apr",
+      "type": "werkzaamheid",
+      "titel": "Amsterdam C-Köln Hbf-Frankfurt (M) Hbf/Basel SBB",
+      "verstoring": {
+        "type": "WERKZAAMHEID",
+        "id": "2019_ICE_asd_basel_13_28apr",
+        "extraReistijd": "een kwartier tot een half uur",
+        "reisadviezen": {
+          "titel": "U kunt gebruikmaken van de gewijzigde dienstregeling",
+          "reisadvies": [
+            {
+              "advies": [
+                "ICE International van/naar Frankfurt (M) Hbf kan in de meeste gevallen niet stoppen in Köln Hbf, maar stopt extra in Köln Messe/Deutz",
+                "ICE International 104 en 105 rijden niet tussen Basel Bad en Basel SBB; reis met overige treinen op dit traject",
+                "tussen 22 en 28 april kunnen ICE 105, 120 en 125 in veel gevallen niet stoppen in Oberhausen Hbf, Duisburg Hbf en Düsseldorf Hbf;",
+                "plan uw reis met behulp van de internationale reisplanner en check uw reis kort voor vertrek"
+              ]
+            }
+          ]
+        },
+        "geldigheidsLijst": [
+          {
+            "startDatum": "2019-04-13T04:00:00+0200",
+            "eindDatum": "2019-04-29T03:59:00+0200"
+          }
+        ],
+        "gevolg": "Aangepaste dienstregeling ICE International extra reistijd 15-30  min.",
+        "impact": 0,
+        "maatschappij": 200,
+        "landelijk": true,
+        "oorzaak": "werkzaamheden",
+        "header": "Amsterdam C-Köln Hbf-Frankfurt (M) Hbf/Basel SBB",
+        "periode": "tot en met zondag 28 april",
+        "trajecten": [
+          {
+            "stations": [
+              "ah",
+              "oberh",
+              "duisb",
+              "dussel"
+            ],
+            "begintijd": "2019-04-13T04:00:00+0200",
+            "eindtijd": "2019-04-29T03:59:00+0200"
+          }
+        ],
+        "prioriteit": 20
+      }
+    },
+    {
+      "id": "2019_STATW_mt_luik_23_26apr",
+      "type": "werkzaamheid",
+      "titel": "Maastricht-Luik",
+      "verstoring": {
+        "type": "WERKZAAMHEID",
+        "id": "2019_STATW_mt_luik_23_26apr",
+        "extraReistijd": "een kwartier tot een half uur",
+        "reisadviezen": {
+          "titel": "U kunt gebruikmaken van de bussen",
+          "reisadvies": [
+            {
+              "advies": [
+                "er rijden NMBS-bussen tussen Maastricht en Visé/Luik"
+              ]
+            }
+          ]
+        },
+        "geldigheidsLijst": [
+          {
+            "startDatum": "2019-04-23T04:00:00+0200",
+            "eindDatum": "2019-04-27T03:59:00+0200",
+            "startTijd": "21:00:00",
+            "eindTijd": "03:59:00"
+          }
+        ],
+        "gevolg": "Beperkt treinverkeer businzet, extra reistijd 15-30 min.",
+        "impact": 1,
+        "maatschappij": 200,
+        "landelijk": true,
+        "oorzaak": "werkzaamheden",
+        "header": "Maastricht-Luik",
+        "periode": "dinsdag 23 tot en met vrijdag 26 april dagelijks, vanaf 21.00 uur  ",
+        "trajecten": [
+          {
+            "stations": [
+              "mt",
+              "mtr",
+              "edn",
+              "fvs"
+            ],
+            "begintijd": "2019-04-23T04:00:00+0200",
+            "eindtijd": "2019-04-27T03:59:00+0200"
+          }
+        ],
+        "prioriteit": 20
+      }
+    },
+    {
+      "id": "2019_ut_gdm_ht_25feb_3mei",
+      "type": "werkzaamheid",
+      "titel": "Utrecht Centraal-Geldermalsen-\u0027s-Hertogenbosch",
+      "verstoring": {
+        "type": "WERKZAAMHEID",
+        "id": "2019_ut_gdm_ht_25feb_3mei",
+        "extraReistijd": "een half uur",
+        "reisadviezen": {
+          "titel": "U kunt gebruikmaken van de overige treinen",
+          "reisadvies": [
+            {
+              "advies": [
+                "de dienstregeling van Sprinters is aangepast tussen Utrecht Centraal en \u0027s-Hertogenbosch"
+              ]
+            }
+          ]
+        },
+        "geldigheidsLijst": [
+          {
+            "startDatum": "2019-04-23T05:50:00+0200",
+            "eindDatum": "2019-04-26T07:30:00+0200",
+            "startTijd": "05:50:00",
+            "eindTijd": "07:30:00"
+          },
+          {
+            "startDatum": "2019-04-29T05:50:00+0200",
+            "eindDatum": "2019-05-03T07:30:00+0200",
+            "startTijd": "05:50:00",
+            "eindTijd": "07:30:00"
+          }
+        ],
+        "gevolg": "Aangepaste dienstregeling extra reistijd 30 min.",
+        "impact": 2,
+        "maatschappij": 100,
+        "landelijk": true,
+        "oorzaak": "aangepaste dienstregeling",
+        "header": "Utrecht Centraal-Geldermalsen-\u0027s-Hertogenbosch",
+        "periode": "tot en met vrijdag 3 mei, op werkdagen tussen 05.50 en 07.30 uur",
+        "trajecten": [
+          {
+            "stations": [
+              "ut",
+              "utvr",
+              "utln",
+              "htn",
+              "htnc",
+              "cl",
+              "gdm",
+              "zbm",
+              "ht"
+            ],
+            "begintijd": "2019-04-29T05:50:00+0200",
+            "eindtijd": "2019-05-03T07:30:00+0200"
+          },
+          {
+            "stations": [
+              "ut",
+              "utvr",
+              "utln",
+              "htn",
+              "htnc",
+              "cl",
+              "gdm",
+              "zbm",
+              "ht"
+            ],
+            "begintijd": "2019-04-08T05:50:00+0200",
+            "eindtijd": "2019-04-12T07:30:00+0200"
+          },
+          {
+            "stations": [
+              "ut",
+              "utvr",
+              "utln",
+              "htn",
+              "htnc",
+              "cl",
+              "gdm",
+              "zbm",
+              "ht"
+            ],
+            "begintijd": "2019-04-15T05:50:00+0200",
+            "eindtijd": "2019-04-19T07:30:00+0200"
+          },
+          {
+            "stations": [
+              "ut",
+              "utvr",
+              "utln",
+              "htn",
+              "htnc",
+              "cl",
+              "gdm",
+              "zbm",
+              "ht"
+            ],
+            "begintijd": "2019-04-23T05:50:00+0200",
+            "eindtijd": "2019-04-26T07:30:00+0200"
+          }
+        ],
+        "prioriteit": 20
+      }
+    }
+  ],
+  "meta": {
+
+  }
+}

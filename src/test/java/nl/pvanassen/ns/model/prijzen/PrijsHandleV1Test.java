@@ -7,11 +7,11 @@ import java.math.BigDecimal;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-public class PrijsHandleTest {
+public class PrijsHandleV1Test {
 
     @Test
     public void testGetModel() {
-        PrijsHandle handle = new PrijsHandle();
+        PrijsHandleV1 handle = new PrijsHandleV1();
         Prijzen prijzen = handle.getModel(getClass().getResourceAsStream("/prijzen/prijzen-example.xml"));
         assertNotNull(prijzen);
         assertNotNull(prijzen.getVervoerderKeuzes());

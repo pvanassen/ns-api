@@ -11,12 +11,12 @@ import java.util.TimeZone;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class ReisadviesHandleTest {
+public class ReisadviesHandleV1Test {
 
     @Test
     public void testActualReisadvies() {
         TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
-        ReisadviesHandle handle = new ReisadviesHandle();
+        ReisadviesHandleV1 handle = new ReisadviesHandleV1();
         List<ReisMogelijkheid> mogelijkheden = handle.getModel(getClass().getResourceAsStream(
                 "/reisadvies/reisadvies-actual.xml"));
         assertNotNull(mogelijkheden);
@@ -62,7 +62,7 @@ public class ReisadviesHandleTest {
     @Test
     public void testExample1() {
         TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
-        ReisadviesHandle handle = new ReisadviesHandle();
+        ReisadviesHandleV1 handle = new ReisadviesHandleV1();
         List<ReisMogelijkheid> mogelijkheden = handle.getModel(getClass().getResourceAsStream(
                 "/reisadvies/reisadvies-example1.xml"));
         assertNotNull(mogelijkheden);
@@ -104,7 +104,7 @@ public class ReisadviesHandleTest {
     @Test
     public void testOngeplandeStoring() {
         TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
-        ReisadviesHandle handle = new ReisadviesHandle();
+        ReisadviesHandleV1 handle = new ReisadviesHandleV1();
         List<ReisMogelijkheid> mogelijkheden = handle.getModel(getClass().getResourceAsStream(
                 "/reisadvies/reisadvies-ongeplandestoring.xml"));
         assertNotNull(mogelijkheden);
@@ -150,7 +150,7 @@ public class ReisadviesHandleTest {
     @Test
     public void testReisDetail() {
         TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
-        ReisadviesHandle handle = new ReisadviesHandle();
+        ReisadviesHandleV1 handle = new ReisadviesHandleV1();
         List<ReisMogelijkheid> mogelijkheden = handle.getModel(getClass().getResourceAsStream(
                 "/reisadvies/reisadvies-reisdetails.xml"));
         assertNotNull(mogelijkheden);
@@ -170,7 +170,7 @@ public class ReisadviesHandleTest {
     @Test
     public void testVertraging() {
         TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
-        ReisadviesHandle handle = new ReisadviesHandle();
+        ReisadviesHandleV1 handle = new ReisadviesHandleV1();
         List<ReisMogelijkheid> mogelijkheden = handle.getModel(getClass().getResourceAsStream(
                 "/reisadvies/reisadvies-vertraging.xml"));
         assertNotNull(mogelijkheden);
@@ -187,7 +187,7 @@ public class ReisadviesHandleTest {
     @Test
     public void testWerkzaamheden() {
         TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
-        ReisadviesHandle handle = new ReisadviesHandle();
+        ReisadviesHandleV1 handle = new ReisadviesHandleV1();
         List<ReisMogelijkheid> mogelijkheden = handle.getModel(getClass().getResourceAsStream(
                 "/reisadvies/reisadvies-werkzaamheden.xml"));
         assertNotNull(mogelijkheden);

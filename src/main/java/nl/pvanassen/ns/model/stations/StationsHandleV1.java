@@ -1,16 +1,15 @@
 package nl.pvanassen.ns.model.stations;
 
-import static java.util.Collections.unmodifiableList;
+import nl.pvanassen.ns.handle.Handle;
+import nl.pvanassen.ns.parser.Response;
+import nl.pvanassen.ns.parser.XmlResponse;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.InputStream;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import nl.pvanassen.ns.handle.Handle;
-import nl.pvanassen.ns.parser.Response;
-import nl.pvanassen.ns.parser.XmlResponse;
-
-import org.jetbrains.annotations.NotNull;
+import static java.util.Collections.unmodifiableList;
 
 /**
  * Handles parsing the response from the NS and de-serializes it into a list of stations
@@ -18,7 +17,7 @@ import org.jetbrains.annotations.NotNull;
  * @author Paul van Assen
  *
  */
-public class StationsHandle implements Handle<Stations> {
+public class StationsHandleV1 implements Handle<Stations> {
 
     /**
      *

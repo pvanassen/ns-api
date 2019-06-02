@@ -1,18 +1,21 @@
 package nl.pvanassen.ns.model.storingen;
 
-import static lombok.AccessLevel.PRIVATE;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import nl.pvanassen.ns.model.NsResult;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-import org.jetbrains.annotations.NotNull;
-
-import lombok.Builder;
-import lombok.RequiredArgsConstructor;
+import static lombok.AccessLevel.PRIVATE;
 
 @Builder
+@Getter
 @RequiredArgsConstructor(access = PRIVATE)
-public class Verstoring {
+public class Verstoring implements NsResult {
 
     @NotNull
     private final String id;
@@ -21,12 +24,9 @@ public class Verstoring {
     private final List<@NotNull BaanvakBeperking> baanvakBeperking;
 
     @NotNull
-    private final String reden;
-
-    @NotNull
     private final String extraReistijd;
 
-    @NotNull
+    @Nullable
     private final String leafletUrl;
 
     @NotNull
@@ -35,23 +35,23 @@ public class Verstoring {
     @NotNull
     private final List<@NotNull Geldigheid> geldigheidsLijst;
 
-    @NotNull
+    @Nullable
     private final String verwachting;
 
     @NotNull
     private final String gevolg;
 
-    @NotNull
+    @Nullable
     private final String gevolgType;
 
-    @NotNull
+    @Nullable
     private final String fase;
 
     private final int impact;
 
     private final int maatschappij;
 
-    @NotNull
+    @Nullable
     private final String alternatiefVervoer;
 
     private final boolean landelijk;
@@ -62,7 +62,7 @@ public class Verstoring {
     @NotNull
     private final String header;
 
-    @NotNull
+    @Nullable
     private final LocalDateTime meldtijd;
 
     @NotNull
@@ -74,10 +74,10 @@ public class Verstoring {
     @NotNull
     private final List<@NotNull Baanvak> baanvakken;
 
-    @NotNull
+    @Nullable
     private final String versie;
 
-    @NotNull
+    @Nullable
     private final String volgnummer;
 
     private final int prioriteit;

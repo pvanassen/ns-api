@@ -12,7 +12,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.HashMap;
 import java.util.Map;
 
-public class NsApiV2 extends NsApi {
+public class NsApiV1 extends NsApi {
 
     private final HttpConnection httpConnection;
 
@@ -20,12 +20,11 @@ public class NsApiV2 extends NsApi {
 
     private final Map<Class<?>, Handle<?>> handleMap = new HashMap<>();
 
-    NsApiV2(@NotNull final String apiKey, @NotNull final String baseUrl) {
-        // No isEmpty to remain compatible with JDK 1.5
-        if (apiKey.isEmpty()) {
-            throw new IllegalArgumentException("apiKey cannot be empty");
+    NsApiV1(@NotNull final String username, @NotNull final String password, @NotNull final String baseUrl) {
+        if (username.isEmpty() || password.isEmpty()) {
+            throw new IllegalArgumentException("Username or password cannot be empty");
         }
-        httpConnection = new HttpConnection(apiKey);
+        httpConnection = new HttpConnection(username, password);
         handleMap.put(ActueleVertrekTijdenRequest.class, new ActueleVertrekTijdenHandleV1());
         handleMap.put(StationsRequest.class, new StationsHandleV1());
         handleMap.put(StoringenEnWerkzaamhedenRequest.class, new StoringenHandleV1());

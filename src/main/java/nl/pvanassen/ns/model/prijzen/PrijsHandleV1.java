@@ -1,7 +1,9 @@
 package nl.pvanassen.ns.model.prijzen;
 
-import static java.util.Collections.unmodifiableList;
-import static java.util.Collections.unmodifiableMap;
+import nl.pvanassen.ns.handle.Handle;
+import nl.pvanassen.ns.parser.Response;
+import nl.pvanassen.ns.parser.XmlResponse;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.InputStream;
 import java.math.BigDecimal;
@@ -10,11 +12,8 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import nl.pvanassen.ns.handle.Handle;
-import nl.pvanassen.ns.parser.Response;
-import nl.pvanassen.ns.parser.XmlResponse;
-
-import org.jetbrains.annotations.NotNull;
+import static java.util.Collections.unmodifiableList;
+import static java.util.Collections.unmodifiableMap;
 
 /**
  * Handle for parsing 'producten' xml, as defined in <a
@@ -23,7 +22,7 @@ import org.jetbrains.annotations.NotNull;
  * @author Paul van Assen
  * 
  */
-public class PrijsHandle implements Handle<Prijzen> {
+public class PrijsHandleV1 implements Handle<Prijzen> {
 
     /**
      * {@inheritDoc}

@@ -1,11 +1,11 @@
 package nl.pvanassen.ns.model.reisadvies;
 
-import static java.lang.Boolean.TRUE;
-import static java.lang.Boolean.parseBoolean;
-import static java.time.LocalDateTime.parse;
-import static java.util.Collections.unmodifiableList;
-import static java.util.Optional.ofNullable;
-import static nl.pvanassen.ns.NsApi.DATETIME_FORMATTER;
+import lombok.extern.slf4j.Slf4j;
+import nl.pvanassen.ns.error.NsApiException;
+import nl.pvanassen.ns.handle.Handle;
+import nl.pvanassen.ns.parser.Response;
+import nl.pvanassen.ns.parser.XmlResponse;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.InputStream;
 import java.time.LocalDateTime;
@@ -13,29 +13,25 @@ import java.time.format.DateTimeParseException;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import nl.pvanassen.ns.error.NsApiException;
-import nl.pvanassen.ns.handle.Handle;
-import nl.pvanassen.ns.parser.Response;
-import nl.pvanassen.ns.parser.XmlResponse;
-
-import org.jetbrains.annotations.NotNull;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import static java.lang.Boolean.TRUE;
+import static java.lang.Boolean.parseBoolean;
+import static java.time.LocalDateTime.parse;
+import static java.util.Collections.unmodifiableList;
+import static java.util.Optional.ofNullable;
+import static nl.pvanassen.ns.NsApi.DATETIME_FORMATTER;
 
 /**
  * Handle to process the 'reisadvies' XML as defined in <a
  * href="http://www.ns.nl/api/api#api-documentatie-reisadviezen">documentatie reisadviezen</a>
- * 
+ *
  * @author Paul van Assen
- * 
  */
-public class ReisadviesHandle implements Handle<ReisMogelijkheden> {
-
-    private final Logger logger = LoggerFactory.getLogger(getClass());
+@Slf4j
+public class ReisadviesHandleV1 implements Handle<ReisMogelijkheden> {
 
     /**
      * {@inheritDoc}
-     * 
+     *
      * @see nl.pvanassen.ns.handle.Handle#getModel(java.io.InputStream)
      */
     @NotNull
@@ -48,9 +44,8 @@ public class ReisadviesHandle implements Handle<ReisMogelijkheden> {
                     .map(this::getReisMogelijkheid)
                     .collect(Collectors.toList());
             return new ReisMogelijkheden(reisMogelijkheden);
-        }
-        catch (DateTimeParseException e) {
-            logger.error("Error parsing stream to actuele vertrektijden", e);
+        } catch (DateTimeParseException e) {
+            log.error("Error parsing stream to actuele vertrektijden", e);
             throw new NsApiException("Error parsing stream to actuele vertrektijden", e);
         }
     }
@@ -61,20 +56,20 @@ public class ReisadviesHandle implements Handle<ReisMogelijkheden> {
                 .map(this::getMelding)
                 .collect(Collectors.toList());
 
-        final int aantalOverstappen = Integer.parseInt(reisMogelijkheidResponse.child("AantalOverstappen").content());
-        final int geplandeReisTijdMinuten = getReistijdInMinuten(reisMogelijkheidResponse.child("GeplandeReisTijd")
+        final int aantalOverstappen = Integer.parseInt(reisMogelijkheidResponse.child("AantalOverstappen").asPresent().content());
+        final int geplandeReisTijdMinuten = getReistijdInMinuten(reisMogelijkheidResponse.child("GeplandeReisTijd").asPresent()
                 .content());
-        final int actueleReisTijdMinuten = getReistijdInMinuten(reisMogelijkheidResponse.child("ActueleReisTijd")
+        final int actueleReisTijdMinuten = getReistijdInMinuten(reisMogelijkheidResponse.child("ActueleReisTijd").asPresent()
                 .content());
 
         final boolean optimaal = reisMogelijkheidResponse.childIfPresent("Optimaal")
                 .map(xml -> parseBoolean(xml.content()))
                 .orElse(TRUE);
 
-        final LocalDateTime geplandeVertrekTijd = parse(reisMogelijkheidResponse.child("GeplandeVertrekTijd").content(), DATETIME_FORMATTER);
-        final LocalDateTime actueleVertrekTijd = parse(reisMogelijkheidResponse.child("ActueleVertrekTijd").content(), DATETIME_FORMATTER);
-        final LocalDateTime geplandeAankomstTijd = parse(reisMogelijkheidResponse.child("GeplandeAankomstTijd").content(), DATETIME_FORMATTER);
-        final LocalDateTime actueleAankomstTijd = parse(reisMogelijkheidResponse.child("ActueleAankomstTijd").content(), DATETIME_FORMATTER);
+        final LocalDateTime geplandeVertrekTijd = parse(reisMogelijkheidResponse.child("GeplandeVertrekTijd").asPresent().content(), DATETIME_FORMATTER);
+        final LocalDateTime actueleVertrekTijd = parse(reisMogelijkheidResponse.child("ActueleVertrekTijd").asPresent().content(), DATETIME_FORMATTER);
+        final LocalDateTime geplandeAankomstTijd = parse(reisMogelijkheidResponse.child("GeplandeAankomstTijd").asPresent().content(), DATETIME_FORMATTER);
+        final LocalDateTime actueleAankomstTijd = parse(reisMogelijkheidResponse.child("ActueleAankomstTijd").asPresent().content(), DATETIME_FORMATTER);
 
         final String aankomstVertraging = reisMogelijkheidResponse.child("AankomstVertraging").content();
         final String status = reisMogelijkheidResponse.child("Status").content();
@@ -85,19 +80,19 @@ public class ReisadviesHandle implements Handle<ReisMogelijkheden> {
                 .collect(Collectors.toList());
 
         return ReisMogelijkheid.builder()
-                        .aankomstVertraging(aankomstVertraging)
-                        .aantalOverstappen(aantalOverstappen)
-                        .actueleAankomstTijd(actueleAankomstTijd)
-                        .actueleReisTijdMinuten(actueleReisTijdMinuten)
-                        .actueleVertrekTijd(actueleVertrekTijd)
-                        .geplandeAankomstTijd(geplandeAankomstTijd)
-                        .geplandeReisTijdMinuten(geplandeReisTijdMinuten)
-                        .geplandeVertrekTijd(geplandeVertrekTijd)
-                        .meldingen(unmodifiableList(meldingen))
-                        .optimaal(optimaal)
-                        .reisDelen(unmodifiableList(reisDelen))
-                        .status(status)
-                        .build();
+                .aankomstVertraging(aankomstVertraging)
+                .aantalOverstappen(aantalOverstappen)
+                .actueleAankomstTijd(actueleAankomstTijd)
+                .actueleReisTijdMinuten(actueleReisTijdMinuten)
+                .actueleVertrekTijd(actueleVertrekTijd)
+                .geplandeAankomstTijd(geplandeAankomstTijd)
+                .geplandeReisTijdMinuten(geplandeReisTijdMinuten)
+                .geplandeVertrekTijd(geplandeVertrekTijd)
+                .meldingen(unmodifiableList(meldingen))
+                .optimaal(optimaal)
+                .reisDelen(unmodifiableList(reisDelen))
+                .status(status)
+                .build();
 
     }
 

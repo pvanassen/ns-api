@@ -1,8 +1,11 @@
 package nl.pvanassen.ns.model.vertrektijden;
 
-import static java.lang.Boolean.parseBoolean;
-import static java.util.Collections.unmodifiableList;
-import static nl.pvanassen.ns.NsApi.DATETIME_FORMATTER;
+import lombok.extern.slf4j.Slf4j;
+import nl.pvanassen.ns.error.NsApiException;
+import nl.pvanassen.ns.handle.Handle;
+import nl.pvanassen.ns.parser.Response;
+import nl.pvanassen.ns.parser.XmlResponse;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.InputStream;
 import java.time.LocalDateTime;
@@ -10,14 +13,9 @@ import java.time.format.DateTimeParseException;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import nl.pvanassen.ns.error.NsApiException;
-import nl.pvanassen.ns.handle.Handle;
-import nl.pvanassen.ns.parser.Response;
-import nl.pvanassen.ns.parser.XmlResponse;
-
-import org.jetbrains.annotations.NotNull;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import static java.lang.Boolean.parseBoolean;
+import static java.util.Collections.unmodifiableList;
+import static nl.pvanassen.ns.NsApi.DATETIME_FORMATTER;
 
 /**
  * Handle to de-serialize the actuele vertrektijden response. For more information see <a
@@ -26,9 +24,8 @@ import org.slf4j.LoggerFactory;
  * @author Paul van Assen
  * 
  */
-public class ActueleVertrekTijdenHandle implements Handle<VertrekkendeTreinen> {
-
-    private final Logger logger = LoggerFactory.getLogger(getClass());
+@Slf4j
+public class ActueleVertrekTijdenHandleV1 implements Handle<VertrekkendeTreinen> {
 
     /**
      * {@inheritDoc}
@@ -49,7 +46,7 @@ public class ActueleVertrekTijdenHandle implements Handle<VertrekkendeTreinen> {
                     .build();
         }
         catch (DateTimeParseException e) {
-            logger.error("Error parsing stream to actuele vertrektijden", e);
+            log.error("Error parsing stream to actuele vertrektijden", e);
             throw new NsApiException("Error parsing stream to actuele vertrektijden", e);
         }
     }
@@ -104,7 +101,7 @@ public class ActueleVertrekTijdenHandle implements Handle<VertrekkendeTreinen> {
                     .replace("M", ""));
         }
         catch (NumberFormatException e) {
-            logger.warn("Error parsing vertrek vertraging minuten into minutes", e);
+            log.warn("Error parsing vertrek vertraging minuten into minutes", e);
         }
         return 0;
     }

@@ -1,7 +1,11 @@
 package nl.pvanassen.ns.model.storingen;
 
-import static java.util.Collections.unmodifiableList;
-import static nl.pvanassen.ns.NsApi.DATETIME_FORMATTER;
+import lombok.extern.slf4j.Slf4j;
+import nl.pvanassen.ns.error.NsApiException;
+import nl.pvanassen.ns.handle.Handle;
+import nl.pvanassen.ns.parser.Response;
+import nl.pvanassen.ns.parser.XmlResponse;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.InputStream;
 import java.time.LocalDateTime;
@@ -9,14 +13,8 @@ import java.time.format.DateTimeParseException;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import nl.pvanassen.ns.error.NsApiException;
-import nl.pvanassen.ns.handle.Handle;
-import nl.pvanassen.ns.parser.Response;
-import nl.pvanassen.ns.parser.XmlResponse;
-
-import org.jetbrains.annotations.NotNull;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import static java.util.Collections.unmodifiableList;
+import static nl.pvanassen.ns.NsApi.DATETIME_FORMATTER;
 
 /**
  * Handle for parsing disruption xml messages. For more information see <a
@@ -26,9 +24,8 @@ import org.slf4j.LoggerFactory;
  * @author Paul van Assen
  * 
  */
-public class StoringenHandle implements Handle<Storingen> {
-
-    private final Logger logger = LoggerFactory.getLogger(getClass());
+@Slf4j
+public class StoringenHandleV1 implements Handle<Storingen> {
 
     /**
      * {@inheritDoc}
@@ -50,7 +47,7 @@ public class StoringenHandle implements Handle<Storingen> {
                     .build();
         }
         catch (DateTimeParseException e) {
-            logger.error("Error parsing stream to actuele vertrektijden", e);
+            log.error("Error parsing stream to actuele vertrektijden", e);
             throw new NsApiException("Error parsing stream to actuele vertrektijden", e);
         }
     }

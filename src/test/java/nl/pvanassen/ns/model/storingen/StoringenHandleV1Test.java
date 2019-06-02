@@ -1,16 +1,16 @@
 package nl.pvanassen.ns.model.storingen;
 
+import org.junit.Test;
+
 import static java.time.LocalDateTime.of;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
-import org.junit.Test;
-
-public class StoringenHandleTest {
+public class StoringenHandleV1Test {
 
     @Test
     public void testActualStoringen() {
-        StoringenHandle handle = new StoringenHandle();
+        StoringenHandleV1 handle = new StoringenHandleV1();
         Storingen storingen = handle.getModel(getClass().getResourceAsStream("/storingen/storingen-actual.xml"));
         assertEquals(2, storingen.getOngeplandeStoringen().size());
         Storing deurne = storingen.getOngeplandeStoringen().get(0);
@@ -28,7 +28,7 @@ public class StoringenHandleTest {
 
     @Test
     public void testExampleStoringen() {
-        StoringenHandle handle = new StoringenHandle();
+        StoringenHandleV1 handle = new StoringenHandleV1();
         Storingen storingen = handle.getModel(getClass().getResourceAsStream("/storingen/storingen-example1.xml"));
         assertEquals(1, storingen.getOngeplandeStoringen().size());
         Storing denboschNijmegen = storingen.getOngeplandeStoringen().get(0);

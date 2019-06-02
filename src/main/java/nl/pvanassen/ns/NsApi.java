@@ -36,7 +36,7 @@ public abstract class NsApi {
     }
 
     public static NsApi getNsApiV2(@NotNull final String username, @NotNull final String password, @NotNull final String baseUrl) {
-        return new NsApiV2(username, password, baseUrl);
+        return new NsApiV1(username, password, baseUrl);
     }
 
     /**

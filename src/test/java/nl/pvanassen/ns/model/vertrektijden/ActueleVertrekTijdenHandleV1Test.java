@@ -9,11 +9,11 @@ import java.util.List;
 
 import org.junit.Test;
 
-public class ActueleVertrekTijdenHandleTest {
+public class ActueleVertrekTijdenHandleV1Test {
 
     @Test
     public void testActualVertrektijden() {
-        ActueleVertrekTijdenHandle handle = new ActueleVertrekTijdenHandle();
+        ActueleVertrekTijdenHandleV1 handle = new ActueleVertrekTijdenHandleV1();
         List<VertrekkendeTrein> vertrekkendeTreinen = handle.getModel(getClass().getResourceAsStream(
                 "/vertrektijden/actuelevertrektijden-actual.xml"));
         assertNotNull(vertrekkendeTreinen);
@@ -33,7 +33,7 @@ public class ActueleVertrekTijdenHandleTest {
 
     @Test
     public void testExampleVertrektijden() {
-        ActueleVertrekTijdenHandle handle = new ActueleVertrekTijdenHandle();
+        ActueleVertrekTijdenHandleV1 handle = new ActueleVertrekTijdenHandleV1();
         List<VertrekkendeTrein> vertrekkendeTreinen = handle.getModel(getClass().getResourceAsStream(
                 "/vertrektijden/actuelevertrektijden-example.xml"));
         assertNotNull(vertrekkendeTreinen);
@@ -53,7 +53,7 @@ public class ActueleVertrekTijdenHandleTest {
 
     @Test
     public void testOpmerkingen1Vertrektijden() {
-        ActueleVertrekTijdenHandle handle = new ActueleVertrekTijdenHandle();
+        ActueleVertrekTijdenHandleV1 handle = new ActueleVertrekTijdenHandleV1();
         List<VertrekkendeTrein> vertrekkendeTreinen = handle.getModel(getClass().getResourceAsStream(
                 "/vertrektijden/actuelevertrektijden-opmerkingen1.xml"));
         assertNotNull(vertrekkendeTreinen);
@@ -74,7 +74,7 @@ public class ActueleVertrekTijdenHandleTest {
 
     @Test
     public void testOpmerkingen2Vertrektijden() {
-        ActueleVertrekTijdenHandle handle = new ActueleVertrekTijdenHandle();
+        ActueleVertrekTijdenHandleV1 handle = new ActueleVertrekTijdenHandleV1();
         List<VertrekkendeTrein> vertrekkendeTreinen = handle.getModel(getClass().getResourceAsStream(
                 "/vertrektijden/actuelevertrektijden-opmerkingen2.xml"));
         assertNotNull(vertrekkendeTreinen);
@@ -97,7 +97,7 @@ public class ActueleVertrekTijdenHandleTest {
 
     @Test
     public void testReistipVertrektijden() {
-        ActueleVertrekTijdenHandle handle = new ActueleVertrekTijdenHandle();
+        ActueleVertrekTijdenHandleV1 handle = new ActueleVertrekTijdenHandleV1();
         List<VertrekkendeTrein> vertrekkendeTreinen = handle.getModel(getClass().getResourceAsStream(
                 "/vertrektijden/actuelevertrektijden-reistip.xml"));
         assertNotNull(vertrekkendeTreinen);
