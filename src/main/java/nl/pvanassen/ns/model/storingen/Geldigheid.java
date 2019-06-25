@@ -1,15 +1,16 @@
 package nl.pvanassen.ns.model.storingen;
 
-import static lombok.AccessLevel.PRIVATE;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import org.jetbrains.annotations.NotNull;
 
 import java.time.LocalDateTime;
 
-import org.jetbrains.annotations.NotNull;
-
-import lombok.Builder;
-import lombok.RequiredArgsConstructor;
+import static lombok.AccessLevel.PRIVATE;
 
 @Builder
+@Getter
 @RequiredArgsConstructor(access = PRIVATE)
 public class Geldigheid {
 
@@ -18,10 +19,4 @@ public class Geldigheid {
 
     @NotNull
     private final LocalDateTime eindDatum;
-
-    @NotNull
-    private final String startTijd;
-
-    @NotNull
-    private final String eindTijd;
 }

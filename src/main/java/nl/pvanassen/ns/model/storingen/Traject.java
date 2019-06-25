@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.jetbrains.annotations.NotNull;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static lombok.AccessLevel.PRIVATE;
@@ -12,9 +13,14 @@ import static lombok.AccessLevel.PRIVATE;
 @Builder
 @Getter
 @RequiredArgsConstructor(access = PRIVATE)
-public class VerstoringReisadvies {
+public class Traject {
 
     @NotNull
-    private final List<@NotNull String> advies;
+    private final List<String> stations;
 
+    @NotNull
+    private final LocalDateTime beginTijd;
+
+    @NotNull
+    private final LocalDateTime eindTijd;
 }

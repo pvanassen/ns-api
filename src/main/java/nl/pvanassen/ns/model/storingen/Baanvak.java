@@ -1,15 +1,16 @@
 package nl.pvanassen.ns.model.storingen;
 
-import static lombok.AccessLevel.PRIVATE;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-import org.jetbrains.annotations.NotNull;
-
-import lombok.Builder;
-import lombok.RequiredArgsConstructor;
+import static lombok.AccessLevel.PRIVATE;
 
 @Builder
+@Getter
 @RequiredArgsConstructor(access = PRIVATE)
 public class Baanvak {
 
