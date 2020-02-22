@@ -1,17 +1,18 @@
 package nl.pvanassen.ns.model.storingen;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import java.util.Calendar;
 import java.util.TimeZone;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class StoringenHandleTest {
 
     @Test
-    public void testActualStoringen() {
+    void testActualStoringen() {
         StoringenHandle handle = new StoringenHandle();
         Storingen storingen = handle.getModel(getClass().getResourceAsStream("/storingen/storingen-actual.xml"));
         assertEquals(2, storingen.getOngeplandeStoringen().size());
@@ -38,7 +39,7 @@ public class StoringenHandleTest {
     }
 
     @Test
-    public void testExampleStoringen() {
+    void testExampleStoringen() {
         StoringenHandle handle = new StoringenHandle();
         Storingen storingen = handle.getModel(getClass().getResourceAsStream("/storingen/storingen-example1.xml"));
         assertEquals(1, storingen.getOngeplandeStoringen().size());

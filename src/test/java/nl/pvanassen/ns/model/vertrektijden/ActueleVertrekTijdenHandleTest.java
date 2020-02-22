@@ -1,19 +1,18 @@
 package nl.pvanassen.ns.model.vertrektijden;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import java.util.Calendar;
 import java.util.List;
 import java.util.TimeZone;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ActueleVertrekTijdenHandleTest {
 
     @Test
-    public void testActualVertrektijden() {
+    void testActualVertrektijden() {
         ActueleVertrekTijdenHandle handle = new ActueleVertrekTijdenHandle();
         List<VertrekkendeTrein> vertrekkendeTreinen = handle.getModel(getClass().getResourceAsStream(
                 "/vertrektijden/actuelevertrektijden-actual.xml"));
@@ -23,9 +22,9 @@ public class ActueleVertrekTijdenHandleTest {
         assertEquals(0, sprinterBreda.getVertrekVertragingMinuten());
         assertNull(sprinterBreda.getVertrekVertraging());
         assertNull(sprinterBreda.getVertrekVertragingTekst());
-        assertEquals("First train in the XML file departs to Breda", "Breda", sprinterBreda.getEindBestemming());
-        assertEquals("Rit number should be 13677", 13677, sprinterBreda.getRitNummer());
-        assertEquals("Expected a sprinter train", "Sprinter", sprinterBreda.getTreinSoort());
+        assertEquals("Breda", sprinterBreda.getEindBestemming());
+        assertEquals(13677, sprinterBreda.getRitNummer());
+        assertEquals("Sprinter", sprinterBreda.getTreinSoort());
         assertNotNull(sprinterBreda.getOpmerkingen());
         assertEquals(0, sprinterBreda.getOpmerkingen().size());
         // 2013-10-10T21:45:00+0200 to calendar
@@ -37,12 +36,12 @@ public class ActueleVertrekTijdenHandleTest {
         calendar.set(Calendar.MINUTE, 45);
         calendar.set(Calendar.SECOND, 0);
         calendar.set(Calendar.MILLISECOND, 0);
-        assertEquals("Expected depature on 2013-10-10T21:45:00+0200", calendar.getTime(),
+        assertEquals(calendar.getTime(),
                 sprinterBreda.getVertrekTijd());
     }
 
     @Test
-    public void testExampleVertrektijden() {
+    void testExampleVertrektijden() {
         ActueleVertrekTijdenHandle handle = new ActueleVertrekTijdenHandle();
         List<VertrekkendeTrein> vertrekkendeTreinen = handle.getModel(getClass().getResourceAsStream(
                 "/vertrektijden/actuelevertrektijden-example.xml"));
@@ -52,10 +51,10 @@ public class ActueleVertrekTijdenHandleTest {
         assertEquals(2, sprinterBreukelen.getVertrekVertragingMinuten());
         assertEquals("PT2M", sprinterBreukelen.getVertrekVertraging());
         assertEquals("+2 min", sprinterBreukelen.getVertrekVertragingTekst());
-        assertEquals("First train in the XML file departs to Breukelen", "Breukelen",
+        assertEquals("Breukelen",
                 sprinterBreukelen.getEindBestemming());
-        assertEquals("Rit number should be 7478", 7478, sprinterBreukelen.getRitNummer());
-        assertEquals("Expected a sprinter train", "Sprinter", sprinterBreukelen.getTreinSoort());
+        assertEquals(7478, sprinterBreukelen.getRitNummer());
+        assertEquals("Sprinter", sprinterBreukelen.getTreinSoort());
         assertNotNull(sprinterBreukelen.getOpmerkingen());
         assertEquals(0, sprinterBreukelen.getOpmerkingen().size());
         Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("+0200"));
@@ -70,7 +69,7 @@ public class ActueleVertrekTijdenHandleTest {
     }
 
     @Test
-    public void testOpmerkingen1Vertrektijden() {
+    void testOpmerkingen1Vertrektijden() {
         ActueleVertrekTijdenHandle handle = new ActueleVertrekTijdenHandle();
         List<VertrekkendeTrein> vertrekkendeTreinen = handle.getModel(getClass().getResourceAsStream(
                 "/vertrektijden/actuelevertrektijden-opmerkingen1.xml"));
@@ -80,10 +79,10 @@ public class ActueleVertrekTijdenHandleTest {
         assertEquals(0, intercityRotterdam.getVertrekVertragingMinuten());
         assertNull(intercityRotterdam.getVertrekVertraging());
         assertNull(intercityRotterdam.getVertrekVertragingTekst());
-        assertEquals("First train in the XML file departs to Rotterdam Centraal", "Rotterdam Centraal",
+        assertEquals("Rotterdam Centraal",
                 intercityRotterdam.getEindBestemming());
-        assertEquals("Rit number should be 669", 669, intercityRotterdam.getRitNummer());
-        assertEquals("Expected an intercity train", "Intercity", intercityRotterdam.getTreinSoort());
+        assertEquals(669, intercityRotterdam.getRitNummer());
+        assertEquals("Intercity", intercityRotterdam.getTreinSoort());
         assertNotNull(intercityRotterdam.getOpmerkingen());
         assertEquals(1, intercityRotterdam.getOpmerkingen().size());
         assertEquals("Rijdt vandaag niet", intercityRotterdam.getOpmerkingen().get(0));
@@ -99,7 +98,7 @@ public class ActueleVertrekTijdenHandleTest {
     }
 
     @Test
-    public void testOpmerkingen2Vertrektijden() {
+    void testOpmerkingen2Vertrektijden() {
         ActueleVertrekTijdenHandle handle = new ActueleVertrekTijdenHandle();
         List<VertrekkendeTrein> vertrekkendeTreinen = handle.getModel(getClass().getResourceAsStream(
                 "/vertrektijden/actuelevertrektijden-opmerkingen2.xml"));
@@ -109,10 +108,10 @@ public class ActueleVertrekTijdenHandleTest {
         assertEquals(1, highspeedAmsterdam.getVertrekVertragingMinuten());
         assertEquals("PT1M", highspeedAmsterdam.getVertrekVertraging());
         assertEquals("+1 min", highspeedAmsterdam.getVertrekVertragingTekst());
-        assertEquals("First train in the XML file departs to Amsterdam Centraal", "Amsterdam Centraal",
+        assertEquals("Amsterdam Centraal",
                 highspeedAmsterdam.getEindBestemming());
-        assertEquals("Rit number should be 9339", 9339, highspeedAmsterdam.getRitNummer());
-        assertEquals("Expected a Thalys train", "Thalys", highspeedAmsterdam.getTreinSoort());
+        assertEquals(9339, highspeedAmsterdam.getRitNummer());
+        assertEquals("Thalys", highspeedAmsterdam.getTreinSoort());
         assertEquals("NS Hispeed", highspeedAmsterdam.getVervoerder());
         assertEquals("1-2", highspeedAmsterdam.getVertrekSpoor());
         assertNotNull(highspeedAmsterdam.getOpmerkingen());
@@ -130,7 +129,7 @@ public class ActueleVertrekTijdenHandleTest {
     }
 
     @Test
-    public void testReistipVertrektijden() {
+    void testReistipVertrektijden() {
         ActueleVertrekTijdenHandle handle = new ActueleVertrekTijdenHandle();
         List<VertrekkendeTrein> vertrekkendeTreinen = handle.getModel(getClass().getResourceAsStream(
                 "/vertrektijden/actuelevertrektijden-reistip.xml"));
@@ -140,9 +139,9 @@ public class ActueleVertrekTijdenHandleTest {
         assertEquals(0, stoptreinTiel.getVertrekVertragingMinuten());
         assertNull(stoptreinTiel.getVertrekVertraging());
         assertNull(stoptreinTiel.getVertrekVertragingTekst());
-        assertEquals("First train in the XML file departs to Tiel", "Tiel", stoptreinTiel.getEindBestemming());
-        assertEquals("Rit number should be 31156", 31156, stoptreinTiel.getRitNummer());
-        assertEquals("Expected an stoptrein train", "Stoptrein", stoptreinTiel.getTreinSoort());
+        assertEquals("Tiel", stoptreinTiel.getEindBestemming());
+        assertEquals(31156, stoptreinTiel.getRitNummer());
+        assertEquals("Stoptrein", stoptreinTiel.getTreinSoort());
         assertEquals("Syntus", stoptreinTiel.getVervoerder());
         assertEquals("4", stoptreinTiel.getVertrekSpoor());
         assertNotNull(stoptreinTiel.getOpmerkingen());

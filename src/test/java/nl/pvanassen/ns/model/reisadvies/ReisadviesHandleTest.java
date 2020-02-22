@@ -1,20 +1,16 @@
 package nl.pvanassen.ns.model.reisadvies;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 import java.util.TimeZone;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ReisadviesHandleTest {
 
     @Test
-    public void testActualReisadvies() {
+    void testActualReisadvies() {
         TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
         ReisadviesHandle handle = new ReisadviesHandle();
         List<ReisMogelijkheid> mogelijkheden = handle.getModel(getClass().getResourceAsStream(
@@ -36,7 +32,7 @@ public class ReisadviesHandleTest {
         Melding melding = intercity.getMeldingen().get(0);
         assertEquals("2012_gn_asn_25feb_4mrt", melding.getId());
         assertEquals("Let op, werk aan het spoor Assen - Groningen", melding.getText());
-        Assert.assertFalse(melding.isErnstig());
+        assertFalse(melding.isErnstig());
         assertEquals("VOLGENS-PLAN", intercity.getStatus());
         assertNotNull(intercity.getReisDelen());
         assertEquals(2, intercity.getReisDelen().size());
@@ -56,11 +52,11 @@ public class ReisadviesHandleTest {
         assertEquals("Utrecht Centraal", utrecht.getNaam());
         assertEquals("11a", utrecht.getSpoor());
         assertEquals("Fri Dec 27 15:20:00 GMT 2013", utrecht.getTijd().toString());
-        assertEquals(false, utrecht.isGewijzigdVertrekspoor());
+        assertFalse(utrecht.isGewijzigdVertrekspoor());
     }
 
     @Test
-    public void testExample1() {
+    void testExample1() {
         TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
         ReisadviesHandle handle = new ReisadviesHandle();
         List<ReisMogelijkheid> mogelijkheden = handle.getModel(getClass().getResourceAsStream(
@@ -71,7 +67,7 @@ public class ReisadviesHandleTest {
         assertEquals(1, intercity.getAantalOverstappen());
         assertEquals(90, intercity.getGeplandeReisTijdMinuten());
         assertEquals(90, intercity.getActueleReisTijdMinuten());
-        Assert.assertFalse(intercity.isOptimaal());
+        assertFalse(intercity.isOptimaal());
         assertEquals("Mon Feb 27 13:21:00 GMT 2012", intercity.getGeplandeAankomstTijd().toString());
         assertEquals("Mon Feb 27 13:21:00 GMT 2012", intercity.getActueleAankomstTijd().toString());
         assertNull(intercity.getAankomstVertraging());
@@ -98,11 +94,11 @@ public class ReisadviesHandleTest {
         assertEquals("Utrecht Centraal", utrecht.getNaam());
         assertEquals("11", utrecht.getSpoor());
         assertEquals("Mon Feb 27 11:51:00 GMT 2012", utrecht.getTijd().toString());
-        assertEquals(false, utrecht.isGewijzigdVertrekspoor());
+        assertFalse(utrecht.isGewijzigdVertrekspoor());
     }
 
     @Test
-    public void testOngeplandeStoring() {
+    void testOngeplandeStoring() {
         TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
         ReisadviesHandle handle = new ReisadviesHandle();
         List<ReisMogelijkheid> mogelijkheden = handle.getModel(getClass().getResourceAsStream(
@@ -119,7 +115,7 @@ public class ReisadviesHandleTest {
         assertEquals(0, intercity.getAantalOverstappen());
         assertEquals(32, intercity.getGeplandeReisTijdMinuten());
         assertEquals(32, intercity.getActueleReisTijdMinuten());
-        Assert.assertFalse(intercity.isOptimaal());
+        assertFalse(intercity.isOptimaal());
         assertEquals("Fri Mar 02 12:28:00 GMT 2012", intercity.getGeplandeAankomstTijd().toString());
         assertEquals("Fri Mar 02 12:28:00 GMT 2012", intercity.getActueleAankomstTijd().toString());
         assertNull(intercity.getAankomstVertraging());
@@ -144,11 +140,11 @@ public class ReisadviesHandleTest {
         assertEquals("Maastricht", maastricht.getNaam());
         assertEquals("3", maastricht.getSpoor());
         assertEquals("Fri Mar 02 11:56:00 GMT 2012", maastricht.getTijd().toString());
-        assertEquals(false, maastricht.isGewijzigdVertrekspoor());
+        assertFalse(maastricht.isGewijzigdVertrekspoor());
     }
 
     @Test
-    public void testReisDetail() {
+    void testReisDetail() {
         TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
         ReisadviesHandle handle = new ReisadviesHandle();
         List<ReisMogelijkheid> mogelijkheden = handle.getModel(getClass().getResourceAsStream(
@@ -168,7 +164,7 @@ public class ReisadviesHandleTest {
     }
 
     @Test
-    public void testVertraging() {
+    void testVertraging() {
         TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
         ReisadviesHandle handle = new ReisadviesHandle();
         List<ReisMogelijkheid> mogelijkheden = handle.getModel(getClass().getResourceAsStream(
@@ -177,7 +173,7 @@ public class ReisadviesHandleTest {
         assertEquals(1, mogelijkheden.size());
         ReisMogelijkheid intercity = mogelijkheden.get(0);
         assertEquals("+17 min", intercity.getAankomstVertraging());
-        Assert.assertFalse(intercity.isOptimaal());
+        assertFalse(intercity.isOptimaal());
         assertEquals("Tue Sep 14 13:48:00 GMT 2010", intercity.getGeplandeAankomstTijd().toString());
         assertEquals("Tue Sep 14 14:05:00 GMT 2010", intercity.getActueleAankomstTijd().toString());
         assertEquals("Tue Sep 14 13:17:00 GMT 2010", intercity.getGeplandeVertrekTijd().toString());
@@ -185,7 +181,7 @@ public class ReisadviesHandleTest {
     }
 
     @Test
-    public void testWerkzaamheden() {
+    void testWerkzaamheden() {
         TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
         ReisadviesHandle handle = new ReisadviesHandle();
         List<ReisMogelijkheid> mogelijkheden = handle.getModel(getClass().getResourceAsStream(

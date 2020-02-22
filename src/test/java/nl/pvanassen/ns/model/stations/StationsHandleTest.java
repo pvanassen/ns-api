@@ -1,17 +1,16 @@
 package nl.pvanassen.ns.model.stations;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class StationsHandleTest {
 
     @Test
-    public void testGetModel() {
+    void testGetModel() {
         StationsHandle handle = new StationsHandle();
         List<Station> stations = handle.getModel(getClass().getResourceAsStream("/stations/stations-actual.xml"));
         assertNotNull(stations);

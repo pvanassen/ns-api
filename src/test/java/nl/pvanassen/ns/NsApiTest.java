@@ -2,26 +2,28 @@ package nl.pvanassen.ns;
 
 import nl.pvanassen.ns.error.NsApiException;
 import nl.pvanassen.ns.model.NsResult;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 public class NsApiTest {
 
-    @Test(expected = NullPointerException.class)
-    public void testNsApiNull() {
-        new NsApi(null, null);
+    @Test
+    void testNsApiNull() {
+        assertThrows(NullPointerException.class, () -> new NsApi(null, null));
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void testNsApiEmpty() {
-        new NsApi("", "");
+    @Test
+    void testNsApiEmpty() {
+        assertThrows(IllegalArgumentException.class, () -> new NsApi("", ""));
     }
 
-    @Test(expected = NsApiException.class)
-    public void testGetApiResponseString() throws IOException {
+    @Test
+    void testGetApiResponseString() throws IOException {
         NsApi nsApi = new NsApi("test", "invalid");
-        nsApi.getApiResponse(new ApiRequest<NsResult>() {
+        assertThrows(NsApiException.class, () -> nsApi.getApiResponse(new ApiRequest<NsResult>() {
 
             @Override
             String getPath() {
@@ -32,12 +34,12 @@ public class NsApiTest {
             String getRequestString() {
                 return "";
             }
-        });
+        }));
     }
 
-    @Test(expected = NsApiException.class)
-    public void testGetApiResponseStations() throws IOException {
+    @Test
+    void testGetApiResponseStations() throws IOException {
         NsApi nsApi = new NsApi("test", "invalid");
-        nsApi.getApiResponse(new StationsRequest());
+        assertThrows(NsApiException.class, () -> nsApi.getApiResponse(new StationsRequest()));
     }
 }
