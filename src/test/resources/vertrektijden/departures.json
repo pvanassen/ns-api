@@ -1,0 +1,183 @@
+{
+  "links": {
+    "disruptions": {
+      "uri": "/api/v2/disruptions?station=UT",
+      "params": {}
+    }
+  },
+  "payload": {
+    "source": "PPV",
+    "departures": [
+      {
+        "direction": "Leiden Centraal",
+        "name": "NS  8824",
+        "plannedDateTime": "2019-06-25T08:55:00+0200",
+        "plannedTimeZoneOffset": 120,
+        "actualDateTime": "2019-06-25T08:55:00+0200",
+        "actualTimeZoneOffset": 120,
+        "plannedTrack": "11",
+        "product": {
+          "number": "8824",
+          "categoryCode": "IC",
+          "shortCategoryName": "NS Intercity",
+          "longCategoryName": "Intercity",
+          "operatorCode": "NS",
+          "operatorName": "NS",
+          "type": "TRAIN"
+        },
+        "trainCategory": "IC",
+        "cancelled": false,
+        "routeStations": [
+          {
+            "uicCode": "8400053",
+            "mediumName": "Alphen a/d Rijn"
+          }
+        ],
+        "messages": [
+          {
+            "message": "Stopt ook in Woerden, Bodegraven, Lammenschans",
+            "style": "INFO"
+          }
+        ],
+        "departureStatus": "INCOMING"
+      },
+      {
+        "direction": "Rhenen",
+        "name": "NS  7427",
+        "plannedDateTime": "2019-06-25T08:55:00+0200",
+        "plannedTimeZoneOffset": 120,
+        "actualDateTime": "2019-06-25T08:56:34+0200",
+        "actualTimeZoneOffset": 120,
+        "plannedTrack": "15",
+        "product": {
+          "number": "7427",
+          "categoryCode": "SPR",
+          "shortCategoryName": "NS Sprinter",
+          "longCategoryName": "Sprinter",
+          "operatorCode": "NS",
+          "operatorName": "NS",
+          "type": "TRAIN"
+        },
+        "trainCategory": "SPR",
+        "cancelled": false,
+        "routeStations": [
+          {
+            "uicCode": "8400182",
+            "mediumName": "Driebergen-Zeist"
+          },
+          {
+            "uicCode": "8400417",
+            "mediumName": "Maarn"
+          },
+          {
+            "uicCode": "8400627",
+            "mediumName": "Veenendaal C."
+          }
+        ],
+        "departureStatus": "ON_STATION"
+      },
+      {
+        "direction": "Schiphol Airport",
+        "name": "NS  3124",
+        "plannedDateTime": "2019-06-25T08:55:00+0200",
+        "plannedTimeZoneOffset": 120,
+        "actualDateTime": "2019-06-25T08:55:00+0200",
+        "actualTimeZoneOffset": 120,
+        "plannedTrack": "5",
+        "product": {
+          "number": "3124",
+          "categoryCode": "IC",
+          "shortCategoryName": "NS Intercity",
+          "longCategoryName": "Intercity",
+          "operatorCode": "NS",
+          "operatorName": "NS",
+          "type": "TRAIN"
+        },
+        "trainCategory": "IC",
+        "cancelled": false,
+        "routeStations": [
+          {
+            "uicCode": "8400061",
+            "mediumName": "Amsterdam Z."
+          }
+        ],
+        "messages": [
+          {
+            "message": "Stopt ook in Bijlmer ArenA",
+            "style": "INFO"
+          }
+        ],
+        "departureStatus": "ON_STATION"
+      },
+      {
+        "direction": "Alkmaar",
+        "name": "NS   824",
+        "plannedDateTime": "2019-06-25T08:58:00+0200",
+        "plannedTimeZoneOffset": 120,
+        "actualDateTime": "2019-06-25T08:58:00+0200",
+        "actualTimeZoneOffset": 120,
+        "plannedTrack": "7",
+        "product": {
+          "number": "824",
+          "categoryCode": "IC",
+          "shortCategoryName": "NS Intercity",
+          "longCategoryName": "Intercity",
+          "operatorCode": "NS",
+          "operatorName": "NS",
+          "type": "TRAIN"
+        },
+        "trainCategory": "IC",
+        "cancelled": false,
+        "routeStations": [
+          {
+            "uicCode": "8400057",
+            "mediumName": "Amstel"
+          },
+          {
+            "uicCode": "8400058",
+            "mediumName": "Amsterdam C."
+          },
+          {
+            "uicCode": "8400059",
+            "mediumName": "Sloterdijk"
+          },
+          {
+            "uicCode": "8400731",
+            "mediumName": "Zaandam"
+          }
+        ],
+        "departureStatus": "ON_STATION"
+      },
+      {
+        "direction": "Den Haag Centraal",
+        "name": "NS 11724",
+        "plannedDateTime": "2019-06-25T08:58:00+0200",
+        "plannedTimeZoneOffset": 120,
+        "actualDateTime": "2019-06-25T08:58:00+0200",
+        "actualTimeZoneOffset": 120,
+        "plannedTrack": "8",
+        "product": {
+          "number": "11724",
+          "categoryCode": "IC",
+          "shortCategoryName": "NS Intercity",
+          "longCategoryName": "Intercity",
+          "operatorCode": "NS",
+          "operatorName": "NS",
+          "type": "TRAIN"
+        },
+        "trainCategory": "IC",
+        "cancelled": false,
+        "routeStations": [
+          {
+            "uicCode": "8400258",
+            "mediumName": "Gouda"
+          }
+        ],
+        "departureStatus": "ON_STATION"
+      }
+    ]
+  },
+  "meta": {
+    "numberOfDisruptions": 3
+  }
+}
